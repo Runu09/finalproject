@@ -1,0 +1,2788 @@
+/*=====================
+    32.Dark css start
+==========================*/
+
+body {
+    &.dark {
+        background-color: $dark-body;
+        transition: all 0.3s ease;
+        color: $white-6;
+        background: $dark-body;
+    }
+}
+
+.dark {
+    h1 {
+        color: $white-1;
+    }
+    h2 {
+        color: $white-2;
+    }
+    h3 {
+        color: $white-3;
+    }
+    h4 {
+        color: $white-4;
+    }
+    h5 {
+        color: $white-5;
+    }
+    h6 {
+        color: $white-6;
+    }
+    p {
+        color: $white-6;
+    }
+    li {
+        color: $white-6;
+    }
+    a {
+        color: $dark-link;
+    }
+    .bg-inner {
+        background-color: $dark-main;
+    }
+}
+
+.dark {
+    header .main-navbar .nav-menu > li .nav-submenu {
+        background: #2b2b2b;
+    }
+    .classic-section .classic-box .top-part span {
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .title-3.detail-title p {
+        color: #cfd4da;
+    }
+    .service-part .service-wrapper h6 {
+        color: #fff;
+    }
+    .tourSection .tourBox .tourContent h3 {
+        color: white;
+    }
+    .blog_section.destination-section .destination-details h6 {
+        color: rgba(255, 255, 255, 0.56);
+    }
+    .layout-3 {
+        .tourSection .tourBox .tourContent h3 {
+            color: #fff;
+        }
+    }
+    .mix-2 {
+        .tourSection .tourBox .tourContent h3 {
+            color: white;
+        }
+    }
+    .category-sec {
+        .category-box {
+            .content-category {
+                .top {
+                    h3 {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    .btn {
+        &.btn-rounded {
+            &.color1 {
+                box-shadow: 2.783px 19.805px 20px 0px rgba(0, 0, 0, 0.22);
+                &:hover {
+                    box-shadow: 2.783px 19.805px 20px 0px rgba(0, 0, 0, 0.22);
+                }
+            }
+        }
+        &.btn-solid {
+            box-shadow: 2.783px 19.805px 20px 0 rgba(0, 0, 0, 0.12);
+        }
+    }
+    .bg-white {
+        background-color: $dark-body !important;
+    }
+    .dark-cls {
+        background-blend-mode: overlay;
+        background-color: #191919;
+    }
+    header {
+        &.light_header {
+            background-color: $dark-body;
+            box-shadow: none;
+            .main-navbar {
+                .nav-menu {
+                    > li {
+                        > a {
+                            color: $dark-link;
+                        }
+                        .nav-submenu {
+                            background-color: $dark-body;
+                        }
+                    }
+                }
+            }
+            .menu {
+                .header-right {
+                    .user {
+                        &.user-light {
+                            background-color: white;
+                        }
+                    }
+                    .front-setting {
+                        background-color: rgba(white, 0.14);
+                        select {
+                            color: white;
+                            background: url(../images/icon/down.png) no-repeat 80%;
+                            option {
+                                background-color: $dark-body;
+                                color: $white-6;
+                            }
+                        }
+                    }
+                    .setting {
+                        background-color: rgba(255, 255, 255, 0.14);
+                        i {
+                            color: white;
+                        }
+                    }
+                }
+                .brand-logo {
+                    img {
+                        filter: invert(0);
+                    }
+                }
+            }
+            .toggle-nav {
+                i {
+                    color: white;
+                }
+            }
+        }
+        .main-navbar {
+            .nav-menu {
+                > li {
+                    .nav-submenu {
+                        li {
+                            a {
+                                color: $dark-link;
+                            }
+                            .nav-sub-childmenu {
+                                background: $dark-body;
+                            }
+                        }
+                    }
+                    .mega-menu-container {
+                        background: $dark-body;
+                        .mega-box {
+                            .link-section {
+                                .submenu-content {
+                                    ul {
+                                        li {
+                                            a {
+                                                color: $dark-link;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .menu {
+            .header-right {
+                .setting {
+                    .setting-open {
+                        background-color: $dark-body;
+                    }
+                }
+            }
+        }
+        .mix-pills {
+            &.nav-pills {
+                .nav-link {
+                    color: white;
+                    svg {
+                        fill: white;
+                    }
+                }
+            }
+            &.nav-pills {
+                .nav-link.active,
+                .show > .nav-link {
+                    color: $theme-color1;
+                    svg {
+                        fill: $theme-color1;
+                    }
+                }
+            }
+        }
+    }
+    .about-section.three-image {
+        .about-text {
+            h2 {
+                span {
+                    color: rgba(255, 255, 255, 0.6);
+                }
+            }
+        }
+    }
+    .home_section {
+        .home {
+            .home-content {
+                &.mix-layout {
+                    &.smaller-content {
+                        .search-panel {
+                            .search-section {
+                                &.search-fixed {
+                                    background-color: $dark-body;
+                                    box-shadow: 0 0 8px #191919;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .filter-none {
+        filter: invert(0) !important;
+    }
+    footer {
+        &.footer-light {
+            .footer {
+                background-color: rgba(black, 0.15);
+                .footer-content {
+                    .contact-detail {
+                        p {
+                            color: rgba(white, 0.6);
+                        }
+                        .contact-list {
+                            li {
+                                color: white;
+                            }
+                        }
+                        .footer-logo {
+                            img {
+                                filter: unset;
+                            }
+                        }
+                    }
+                    .footer-links {
+                        ul {
+                            li {
+                                a {
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                    .footer-blog {
+                        .media {
+                            .media-body {
+                                h5 {
+                                    color: $white-5;
+                                }
+                                p {
+                                    color: rgba(white, 0.6);
+                                }
+                            }
+                        }
+                    }
+                }
+                .footer-title {
+                    h5 {
+                        color: $white-5;
+                    }
+                }
+            }
+            .sub-footer {
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+    .form-control {
+        color: $dark-link !important;
+    }
+    .title-1 {
+        &.detail-title {
+            p {
+                color: rgba(white, 0.41);
+            }
+        }
+    }
+    .highlight-section {
+        .highlight-box {
+            svg {
+                fill: rgba(white, 0.67);
+            }
+            .content-sec {
+                p {
+                    color: rgba(white, 0.38);
+                }
+            }
+        }
+    }
+    .car-type-section {
+        .type-box {
+            box-shadow: 1px 2px 39px 9px rgba($dark-main, 0.6);
+            .content {
+                p {
+                    color: rgba(white, 0.6);
+                }
+                ul {
+                    li {
+                        img {
+                            filter: invert(1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .process-steps {
+        .step-bg {
+            .step-box {
+                background-color: $dark-body;
+                img {
+                    filter: invert(1);
+                }
+            }
+            h4 {
+                color: rgba(white, 0.65);
+            }
+        }
+        .title-1 {
+            &.detail-title {
+                h2 {
+                    color: black;
+                }
+                p {
+                    &.text-dark {
+                        color: black !important;
+                    }
+                }
+            }
+        }
+    }
+    .success-section {
+        .success-detail {
+            p {
+                color: $white-6;
+            }
+        }
+    }
+    .form-icon {
+        .form-group {
+            .icon {
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+    .category-part {
+        .category-block {
+            .category-details {
+                h3 {
+                    color: white;
+                }
+                h6 {
+                    color: rgba(255, 255, 255, 0.7);
+                }
+            }
+        }
+    }
+    .process-steps {
+        .step-bg {
+            .popular-section {
+                .step-box {
+                    .popular-box {
+                        .special-content {
+                            .bottom-section .price del {
+                                color: white;
+                            }
+                            h5 {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .highlight-section {
+        .highlight-box {
+            border: 1px solid #3a3939;
+        }
+    }
+    .team-section,
+    .facts-section {
+        background-blend-mode: overlay;
+        background-color: $dark-main;
+    }
+    .about-section {
+        &.three-image {
+            .about-text {
+                h2 {
+                    color: white;
+                }
+                img {
+                    filter: invert(1);
+                }
+            }
+        }
+        &.about_page {
+            .image-section {
+                .img-box {
+                    .title-box {
+                        background-color: $dark-main;
+                        h3 {
+                            color: $white-3;
+                        }
+                        h6 {
+                            color: $white-6;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .team-section {
+        .team-box {
+            .team-content {
+                background-color: $dark-body;
+                h3 {
+                    color: $white-3;
+                }
+            }
+            &:hover {
+                .team-social {
+                    .social-box {
+                        background-color: $dark-body;
+                    }
+                }
+            }
+        }
+    }
+    .facts-section {
+        .facts-box {
+            background-color: $dark-body;
+            h3 {
+                color: $white-3;
+            }
+        }
+    }
+    .blog_section {
+        .blog-wrap {
+            background-color: $dark-main;
+            .blog-details {
+                h6 {
+                    color: $white-6;
+                }
+                h5 {
+                    color: $white-5;
+                }
+                p {
+                    color: $white-6;
+                }
+            }
+            .blog-image {
+                .blog-label {
+                    background-color: $dark-body;
+                    h3 {
+                        color: $white-3;
+                    }
+                    h6 {
+                        color: $white-6;
+                    }
+                }
+            }
+        }
+        &.destination-section {
+            .destination-details {
+                h2 {
+                    color: $white-2;
+                }
+            }
+        }
+    }
+    .testimonial-section {
+        .testimonial {
+            .right-part {
+                p {
+                    color: $white-6;
+                }
+                .detail {
+                    h6 {
+                        color: $white-6;
+                    }
+                }
+            }
+        }
+    }
+    .testimonial_section {
+        .testimonial {
+            .bottom-part {
+                p {
+                    color: $white-6;
+                }
+            }
+        }
+    }
+    .arrow-classic {
+        .slick-next,
+        .slick-prev {
+            &:before {
+                background-color: $dark-main;
+            }
+        }
+    }
+    .service-section {
+        .service-box {
+            background-color: $dark-body;
+            box-shadow: none;
+            h3 {
+                color: $white-3;
+            }
+            p {
+                color: $white-6;
+            }
+        }
+    }
+    .blog-sidebar {
+        .blog-wrapper {
+            .search-bar {
+                input {
+                    background-color: rgba($dark-main, 0.8);
+                    color: $white-6;
+                }
+            }
+            .sidebar-content {
+                .sidebar-list {
+                    li {
+                        border-color: $dark-border;
+                        a {
+                            color: $dark-link;
+                        }
+                    }
+                }
+                .tags {
+                    li {
+                        background-color: rgba($dark-main, 0.8);
+                        a {
+                            color: $dark-link;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .blog-inner {
+        &.blog_section {
+            .blog-list {
+                .blog-wrap {
+                    .blog-details {
+                        h6 {
+                            i {
+                                color: rgba(255, 255, 255, 0.24);
+                            }
+                        }
+                    }
+                }
+            }
+            .blog-wrap {
+                .blog-details {
+                    .link {
+                        a {
+                            color: rgba(white, 0.74);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .pagination-section {
+        .pagination {
+            .page-item {
+                .page-link {
+                    background-color: $dark-main;
+                    box-shadow: none;
+                    color: $dark-link;
+                }
+                &.active {
+                    .page-link {
+                        background-color: $theme-color1;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    .blog-single-detail {
+        .title-part {
+            .post-detail {
+                li {
+                    color: $white-6;
+                    + li {
+                        border-color: $dark-border;
+                    }
+                }
+            }
+        }
+        .detail-part {
+            p {
+                color: $white-6;
+            }
+        }
+        .comment-section {
+            .comment-wrapper {
+                .comment-box {
+                    .media {
+                        .media-body {
+                            .title {
+                                border-color: $dark-border;
+                                .comment-user,
+                                .comment-date {
+                                    h6 {
+                                        color: $white-6;
+                                    }
+                                }
+                            }
+                            .comment-detail {
+                                p {
+                                    color: $white-6;
+                                }
+                            }
+                            .reply-btn {
+                                a {
+                                    color: $dark-link;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .leave-comment {
+            .form-control {
+                background-color: $dark-main;
+                color: $white-6;
+            }
+        }
+    }
+    .effect-cls {
+        &:after {
+            filter: invert(0.83);
+        }
+    }
+    .portfolio-section {
+        .grid {
+            &.blog-masonry {
+                .grid-item {
+                    .overlay {
+                        .blog-details {
+                            h5 {
+                                color: $white-5;
+                            }
+                            h6 {
+                                color: $white-6;
+                                i {
+                                    color: rgba(white, 0.24);
+                                }
+                            }
+                            p {
+                                color: $white-6;
+                            }
+                            .link {
+                                a {
+                                    color: $dark-link;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .flight-search {
+        .flight-search-detail {
+            background-color: $dark-body;
+            box-shadow: none;
+            .form-group {
+                .gj-datepicker,
+                .gj-timepicker {
+                    button {
+                        border-color: $dark-border !important;
+                        background-color: $dark-body;
+                    }
+                }
+                img {
+                    filter: invert(0.8);
+                }
+                .form-control {
+                    background-color: $dark-body;
+                    border-color: $dark-border !important;
+                    color: $white-6 !important;
+                }
+            }
+        }
+        .responsive-detail {
+            background-color: $dark-body;
+            .destination {
+                span {
+                    color: white;
+                }
+            }
+            .details {
+                span {
+                    color: $dark-span;
+                }
+            }
+        }
+    }
+    .shadow-cls {
+        box-shadow: 0px 1px 9px 3px rgba($dark-main, 0.81);
+    }
+    .filter-panel {
+        background-color: $dark-body;
+        .left-filter {
+            .filters {
+                ul {
+                    li {
+                        background-color: $dark-body;
+                        &.active {
+                            background-color: $theme-color1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .filter_button {
+        background-color: $dark-body;
+        img {
+            filter: invert(1);
+        }
+    }
+    .special-section {
+        .special-box {
+            box-shadow: 5px 8.66px 30px 0px rgba(0, 0, 0, 0.1);
+            .special-content {
+                h5 {
+                    color: white;
+                }
+            }
+            .special-img {
+                .top-icon {
+                    i {
+                        background-color: rgba(0, 0, 0, 0.4);
+                    }
+                }
+                .content-inner {
+                    background-color: $dark-main;
+                    h5 {
+                        color: $white-5;
+                    }
+                    h6 {
+                        color: $white-6;
+                    }
+                }
+            }
+        }
+        &.grid-box {
+            .special-box {
+                .special-content {
+                    .bottom-section {
+                        .rating {
+                            span {
+                                color: rgba(white, 0.65);
+                            }
+                        }
+                    }
+                    &.restaurant-detail {
+                        h5 {
+                            span {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+                &.cab-box {
+                    .special-content {
+                        background-color: $dark-body;
+                    }
+                }
+            }
+        }
+    }
+    .classic-section {
+        .classic-box {
+            box-shadow: 2.5px 4.33px 25px 0 rgba(0, 0, 0, 0.2);
+            .top-part {
+                .plane-updown {
+                    filter: invert(1);
+                }
+            }
+        }
+    }
+    .filter-bottom-content {
+        box-shadow: 0px 1px 9px 3px rgba($dark-main, 0.81);
+    }
+    .left-sidebar {
+        background-color: $dark-body;
+        .middle-part {
+            .filter-block {
+                .collapse-block-title {
+                    color: white;
+                    &:after {
+                        color: $white-5;
+                        background-color: $dark-main;
+                    }
+                }
+                .form-check-label {
+                    color: rgba(white, 0.7);
+                    img {
+                        filter: invert(0.8);
+                    }
+                    &:before {
+                        background: $dark-main;
+                    }
+                }
+                .collection-collapse-block {
+                    border-color: $dark-border;
+                }
+            }
+            .section-title {
+                border-color: $dark-border;
+                h5 {
+                    color: white;
+                }
+                img {
+                    filter: invert(1);
+                }
+            }
+        }
+        .search-bar {
+            border-color: $dark-border;
+            ::placeholder {
+                color: rgba(white, 0.5);
+            }
+            input {
+                background-color: $dark-main;
+                color: $white-5;
+            }
+        }
+        .bottom-info {
+            h6 {
+                color: rgba(white, 0.7);
+            }
+        }
+        .back-btn {
+            border-color: $dark-border;
+            color: $white-6;
+        }
+        &.sidebar-popup {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.38);
+            border: none;
+        }
+    }
+    .mobile-filter {
+        background-color: $dark-body;
+        img {
+            filter: invert(1);
+        }
+    }
+    .flight-detail-sec {
+        .title-bar {
+            p {
+                color: $white-6;
+            }
+        }
+        .detail-bar {
+            .detail-wrap {
+                background-color: $dark-body;
+                .airport-part {
+                    .airport-name {
+                        h4 {
+                            color: $white-4;
+                        }
+                        h6 {
+                            color: $white-6;
+                        }
+                    }
+                    .airport-progress {
+                        i {
+                            color: rgba(white, 0.17);
+                        }
+                    }
+                }
+            }
+        }
+        &.cab-detail-sec {
+            .detail-bar {
+                .detail-wrap {
+                    .car-details {
+                        ul {
+                            li {
+                                color: $white-6;
+                                img {
+                                    filter: invert(1);
+                                }
+                            }
+                        }
+                    }
+                    .price {
+                        h6 {
+                            color: $white-6;
+                            span {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .detail-section {
+        &.no-bg-detail {
+            .detail-box {
+                background-color: $dark-main;
+                background-image: none;
+                .upper-part {
+                    h6,
+                    h2,
+                    h5 {
+                        color: white;
+                    }
+                }
+                &:hover {
+                    background-image: url(../images/flights/sky2.jpg);
+                }
+            }
+        }
+    }
+    .flight-detail {
+        .flight-box {
+            background-color: $dark-main;
+            .middle-section {
+                .flight-info {
+                    h4 {
+                        color: $white-4;
+                    }
+                    &:after {
+                        background-color: $dark-border;
+                    }
+                }
+            }
+            .name-section {
+                h5 {
+                    color: $white-5;
+                }
+            }
+        }
+    }
+    .review-section {
+        .review_box {
+            box-shadow: 0px 1px 9px 3px rgba($dark-main, 0.81);
+            background-color: $dark-body;
+            .title-top {
+                background-color: $dark-main;
+            }
+            .flight_detail {
+                .promo-section {
+                    .form-control {
+                        background-color: $dark-body;
+                        border-color: $dark-border !important;
+                        color: $white-6 !important;
+                    }
+                }
+                .summery_box {
+                    .grand_total {
+                        background-color: $dark-main;
+                    }
+                }
+                &.payment-gateway {
+                    .card {
+                        border-color: $dark-border;
+                        .card-header {
+                            background-color: $dark-main;
+                            .btn {
+                                label {
+                                    color: rgba(255, 255, 255, 0.7);
+                                }
+                            }
+                        }
+                    }
+                    form {
+                        .form-control {
+                            border-color: rgba($dark-border, 0.75);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .category-bg {
+        .category-block {
+            background-color: $dark-body;
+            h6 {
+                background-color: $dark-body;
+                color: $white-6;
+            }
+            h5 {
+                color: $white-5;
+            }
+        }
+    }
+    .ticket-section {
+        .ticket-box {
+            .ticket-title {
+                h6 {
+                    background-color: $dark-body;
+                }
+            }
+            .content {
+                background-color: $dark-body;
+                &:before,
+                &:after {
+                    filter: invert(0.84);
+                }
+                .detail {
+                    h4 {
+                        color: $white-4;
+                    }
+                    h3 {
+                        color: $white-3;
+                    }
+                    p {
+                        color: $white-6;
+                    }
+                }
+                .barcode-design {
+                    img {
+                        filter: invert(1);
+                    }
+                }
+            }
+        }
+        .slick-prev,
+        .slick-next {
+            &:before {
+                background-color: $dark-body;
+            }
+        }
+    }
+    .guest-detail {
+        background-color: $dark-body;
+        box-shadow: 0 2px 4px 0 $dark-main;
+        form {
+            .form-control {
+                background-color: $dark-body;
+                border-color: $dark-border !important;
+                color: $white-6 !important;
+            }
+        }
+    }
+    .deals {
+        .deals-box {
+            .left-portion {
+                background-color: $dark-body;
+                &:before {
+                    filter: invert(0.84);
+                }
+                .deals-content {
+                    img {
+                        filter: invert(1);
+                    }
+                    .detail {
+                        h2 {
+                            span {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .input-group-text {
+        background-color: $dark-main;
+        border-color: $dark-border;
+        color: $dark-link;
+    }
+    .card {
+        background-color: $dark-body;
+        border-color: $dark-border;
+    }
+    .card-header {
+        background-color: rgba($dark-main, 0.03);
+        border-color: $dark-border;
+    }
+    .book-panel {
+        background-color: $dark-body;
+        box-shadow: -1px -2px 6px 0px rgba($dark-body, 0.3);
+        .text {
+            background-color: $dark-body;
+            border-color: $dark-border;
+            color: $dark-link;
+        }
+        .btn {
+            background-color: $dark-body;
+            color: $dark-link;
+            &.theme-color {
+                border: none;
+            }
+        }
+    }
+    .blog-section {
+        .blog-box {
+            .blog-content {
+                background-color: $dark-body;
+                p {
+                    color: white;
+                }
+                h6 {
+                    color: $white-6;
+                }
+            }
+        }
+    }
+    .cab-full {
+        .cab-search-section {
+            .cab-search-box {
+                background-color: $dark-main;
+            }
+        }
+    }
+    .text-dark {
+        color: white !important;
+    }
+    .gj-picker {
+        background-color: $dark-body;
+    }
+    .gj-picker-bootstrap {
+        border-color: $dark-border;
+    }
+    .modal-footer {
+        border-color: $dark-border;
+    }
+    .gj-picker-bootstrap [role="header"] {
+        background: $dark-main;
+        color: $dark-link;
+    }
+    .gj-picker [role="body"] [role="dial"] {
+        background: $dark-main;
+        color: $white-5;
+    }
+    .iti__country-list {
+        background-color: $dark-body;
+        border-color: $dark-border;
+    }
+    .iti__divider {
+        border-color: $dark-border;
+    }
+    .irs-line {
+        background: $dark-body;
+    }
+    .irs-from,
+    .irs-to,
+    .irs-single {
+        color: $white-5;
+    }
+    .form-control {
+        background-color: $dark-body;
+        border-color: $dark-border;
+    }
+    .cab-section {
+        .cab-content {
+            form {
+                .form-control {
+                    background-color: #fff;
+                    border-color: white !important;
+                }
+            }
+        }
+    }
+    .single-section {
+        .single-sidebar {
+            background-color: $dark-body;
+            box-shadow: none;
+            p {
+                color: rgba(white, 0.78);
+                i {
+                    color: rgba(white, 0.59);
+                }
+            }
+            .order-cart {
+                .cart-items {
+                    .items {
+                        h5 {
+                            color: $white-5;
+                        }
+                        .qty-box {
+                            .input-group {
+                                box-shadow: none;
+                                .form-control {
+                                    border-color: $dark-border;
+                                }
+                                .btn {
+                                    background-color: $dark-main;
+                                    i {
+                                        color: rgba(white, 0.7);
+                                    }
+                                }
+                            }
+                        }
+                        + .items {
+                            border-color: $dark-border;
+                        }
+                    }
+                }
+                .cart-bottom {
+                    border-color: $dark-border;
+                    .sub-total {
+                        &.grand-total {
+                            border-color: $dark-border;
+                        }
+                    }
+                }
+                .empty-cart {
+                    h5 {
+                        color: $white-5;
+                    }
+                    img {
+                        filter: invert(1);
+                    }
+                    p {
+                        color: $white-6;
+                    }
+                }
+            }
+            .contact-title {
+                color: white;
+            }
+            .social-box {
+                i {
+                    color: rgba(white, 0.59);
+                }
+            }
+            .bottom_sec {
+                border-color: $dark-border;
+                h6 {
+                    color: white;
+                }
+            }
+            .price-part {
+                .left-part {
+                    a {
+                        color: white;
+                    }
+                }
+                .right-part {
+                    span {
+                        color: rgba(white, 0.4);
+                    }
+                    p,
+                    h6 {
+                        color: $white-6;
+                    }
+                }
+            }
+            .book-btn-section {
+                border-color: $dark-border;
+                .selector {
+                    select {
+                        filter: invert(0.9);
+                    }
+                }
+                ::placeholder {
+                    color: rgba(white, 0.6);
+                }
+                .rooms-section {
+                    .selector-box {
+                        .bottom-part {
+                            border-color: $dark-border;
+                            .add-room {
+                                color: white;
+                            }
+                        }
+                        .room-cls {
+                            .qty-box {
+                                .input-group {
+                                    .btn {
+                                        color: white;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .weather-sec {
+                li {
+                    svg {
+                        fill: rgba(white, 0.6);
+                    }
+                }
+            }
+        }
+        .description-section {
+            .menu-top {
+                background-color: $dark-body;
+                box-shadow: 0 2px 4px 0 rgba(69, 69, 69, 0.08);
+                li {
+                    a {
+                        color: $dark-link;
+                    }
+                    &.active {
+                        a {
+                            color: $theme-color1;
+                        }
+                    }
+                }
+            }
+            .description-details {
+                .menu-part {
+                    background-color: $dark-body;
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                    .accordion-plan {
+                        .card {
+                            border-color: $dark-main;
+                            .card-header {
+                                background-color: $dark-main;
+                                button {
+                                    color: $dark-link;
+                                }
+                            }
+                            .card-body {
+                                color: $dark-link;
+                                .highlight {
+                                    li {
+                                        img {
+                                            filter: invert(1);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.about {
+                        p {
+                            color: rgba($white-6, 0.6);
+                        }
+                        .about-sec {
+                            h6 {
+                                color: $white-6;
+                            }
+                            ul {
+                                li {
+                                    color: rgba($white-6, 0.7);
+                                }
+                            }
+                        }
+                    }
+                    &.facility {
+                        h6 {
+                            color: $white-6;
+                            img {
+                                filter: invert(1);
+                            }
+                        }
+                        ul {
+                            li {
+                                i {
+                                    color: rgba(white, 0.6);
+                                }
+                            }
+                        }
+                    }
+                    &.review {
+                        .review-box {
+                            h6,
+                            p {
+                                color: rgba($white-6, 0.6);
+                            }
+                            + .review-box {
+                                border-color: $dark-border;
+                            }
+                        }
+                    }
+                    &.policy {
+                        p {
+                            color: rgba($white-6, 0.6);
+                        }
+                    }
+                    .rooms-box {
+                        tbody {
+                            tr {
+                                + tr {
+                                    border-color: $dark-border;
+                                }
+                            }
+                        }
+                        .price-details {
+                            h6,
+                            span {
+                                color: rgba($white-6, 0.74);
+                            }
+                        }
+                        .room-detail {
+                            .facility-detail {
+                                li {
+                                    color: rgba($white-6, 0.6);
+                                    img {
+                                        filter: invert(1);
+                                    }
+                                    i {
+                                        color: rgba(white, 0.5);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.tab-section {
+                .menu-top {
+                    background-color: transparent;
+                    .nav-tabs {
+                        background-color: $dark-body;
+                        .nav-item {
+                            .nav-link {
+                                &.active {
+                                    background-color: $dark-body;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .cab-single-detail {
+        background-color: $dark-body;
+        box-shadow: none;
+        .description {
+            color: rgba(white, 0.52);
+        }
+        .details {
+            h6 {
+                color: white;
+            }
+        }
+        .overview {
+            h6 {
+                color: white;
+            }
+            ul {
+                li {
+                    img {
+                        filter: invert(1);
+                    }
+                }
+            }
+        }
+    }
+    .coming-soon {
+        .object {
+            .object-shape {
+                background-color: $dark-body;
+                color: white;
+                span {
+                    color: white;
+                }
+            }
+            .object-rope {
+                background-color: $dark-body;
+            }
+        }
+        .coming-soon-detail {
+            .theme-form {
+                input {
+                    color: white;
+                }
+            }
+        }
+        &.travel {
+            .coming-soon-detail {
+                .logo {
+                    img {
+                        filter: none;
+                    }
+                }
+                h2 {
+                    color: white;
+                }
+                form {
+                    label {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    .timer {
+        li {
+            background: rgba(black, 0.15);
+            span {
+                color: white;
+            }
+        }
+    }
+    .get-in-touch {
+        form {
+            .form-control {
+                color: rgba(white, 0.8);
+            }
+        }
+    }
+    .contact_section {
+        .contact_wrap {
+            .title_bar {
+                h4 {
+                    color: $white-4;
+                }
+            }
+            .contact_content {
+                ul {
+                    li {
+                        color: $white-6;
+                    }
+                }
+                p {
+                    color: $white-6;
+                }
+            }
+        }
+    }
+    .about_section {
+        .about_content {
+            h2 {
+                color: $white-2;
+            }
+        }
+    }
+    .category-sec {
+        .category-box {
+            .content-category {
+                background-color: $dark-main;
+                p,
+                h6 {
+                    color: $white-6;
+                }
+                .top {
+                    h5 {
+                        color: $white-5;
+                    }
+                }
+            }
+        }
+    }
+    .category-wrapper {
+        .category-wrap {
+            .category-content {
+                background-color: $dark-main;
+                .bottom {
+                    h3 {
+                        color: $white-3;
+                        del {
+                            color: rgba($white-3, 0.6);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .top-category {
+        .top_box {
+            background-color: $dark-main;
+            .right-content {
+                background-color: $dark-main;
+                p {
+                    color: rgba(white, 0.4);
+                }
+                h6 {
+                    color: $white-6;
+                    del {
+                        color: rgba($white-6, 0.5);
+                    }
+                }
+            }
+        }
+    }
+    .routes-section {
+        .routes-box {
+            .routes-content {
+                background-color: $dark-main;
+                .top-bar {
+                    h5 {
+                        color: $white-5;
+                    }
+                    h6 {
+                        color: $white-6;
+                    }
+                }
+            }
+        }
+    }
+    .price-section {
+        .price-box {
+            .price-content {
+                background-color: $dark-main;
+                .price-title {
+                    h3 {
+                        color: $white-3;
+                    }
+                }
+                .price {
+                    h5 {
+                        color: $white-5;
+                    }
+                }
+            }
+        }
+    }
+    .gj-datepicker-bootstrap [role="right-icon"],
+    .gj-timepicker-bootstrap [role="right-icon"] {
+        button {
+            border-color: $dark-border;
+        }
+    }
+    .border {
+        border-color: $dark-border !important;
+    }
+    .suggestion_box {
+        .form-group {
+            img {
+                filter: invert(0.88);
+            }
+        }
+    }
+    .rooms-section {
+        .selector_box {
+            .bottom-part {
+                border-color: $dark-border;
+                .add-room {
+                    color: white;
+                }
+            }
+            .room-cls {
+                .qty-box {
+                    .input-group {
+                        .btn {
+                            color: $dark-link;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .selector-box {
+        background-color: $dark-main;
+        border-color: $dark-border;
+        .title {
+            color: rgba(white, 0.6);
+        }
+        ul {
+            li {
+                h5 {
+                    color: $white-5;
+                }
+                h6 {
+                    color: $white-6;
+                }
+                label {
+                    color: white;
+                    border-color: $dark-border;
+                }
+            }
+        }
+    }
+    .service-part {
+        .service-wrapper {
+            h3 {
+                color: $white-3;
+            }
+            .service-btn {
+                .btn {
+                    color: black;
+                }
+            }
+            &:hover {
+                .service-btn {
+                    .btn {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    .faq-tab {
+        .nav-tabs {
+            background-color: $dark-body;
+            box-shadow: none;
+            .nav-item {
+                .nav-link {
+                    color: $dark-link;
+                    &.active {
+                        color: $theme-color1;
+                    }
+                }
+            }
+        }
+    }
+    .faq-content {
+        background-color: $dark-body;
+        box-shadow: none;
+        .tab-pane {
+            .card {
+                .card-header {
+                    h5 {
+                        color: $dark-link;
+                    }
+                }
+                .card-body {
+                    color: rgba($white-6, 0.6);
+                }
+            }
+        }
+    }
+    .breadcrumb-section {
+        .content-bottom {
+            background-color: $dark-main;
+            .breadcrumb {
+                background-color: $dark-main;
+                .breadcrumb-item {
+                    &.active {
+                        color: rgba(white, 0.7);
+                    }
+                }
+            }
+        }
+    }
+    .review-section {
+        .review_box {
+            .flight_detail {
+                .addons-according {
+                    .card {
+                        border-color: $dark-border;
+                        .card-header {
+                            border-color: $dark-border;
+                            .btn {
+                                color: white;
+                                background-color: $dark-main;
+                            }
+                        }
+                    }
+                    .seat-select {
+                        .plane {
+                            border-color: $dark-border;
+                            .fuselage {
+                                border-color: $dark-border;
+                            }
+                            .cockpit {
+                                border-color: $dark-border;
+                                &:before {
+                                    border-color: $dark-border;
+                                }
+                                img {
+                                    filter: invert(0.83);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .order-menu-section {
+        .order-section {
+            .order-items {
+                .items {
+                    h5 {
+                        color: $white-5;
+                    }
+                    p {
+                        color: rgba(white, 0.6);
+                    }
+                    .addtocart_btn {
+                        .add-button,
+                        .add_cart {
+                            background-color: $dark-main;
+                            color: $dark-link;
+                            box-shadow: 0 2px 4px 0 #151515;
+                        }
+                        .qty-box {
+                            .input-group {
+                                box-shadow: none;
+                                .btn,
+                                .form-control {
+                                    background-color: $dark-main;
+                                    color: $dark-link;
+                                    border-color: $dark-border;
+                                }
+                            }
+                        }
+                    }
+                    + .items {
+                        border-color: $dark-border;
+                    }
+                }
+            }
+        }
+    }
+    .order-menu {
+        .nav {
+            .nav-link {
+                color: white;
+            }
+        }
+    }
+    .animation {
+        background-color: $dark-main;
+    }
+    .zig-zag-effect {
+        &:before,
+        &:after {
+            filter: invert(0.83);
+        }
+    }
+    .menu-section {
+        .menu-box {
+            border-color: $dark-border;
+            .bottom-bar {
+                background-color: $dark-main;
+                .menu-bar {
+                    .content {
+                        h5 {
+                            color: $white-5;
+                        }
+                        p {
+                            color: rgba(white, 0.68);
+                        }
+                        h6 {
+                            color: $white-6;
+                            del {
+                                color: rgba($white-6, 0.5);
+                            }
+                        }
+                    }
+                    &:after {
+                        border-color: $dark-border;
+                    }
+                }
+            }
+        }
+    }
+    .cab-full {
+        .left-bar {
+            &.fixed-cls {
+                box-shadow: 3px 0px 4px 0 rgba(0, 0, 0, 0.05);
+            }
+        }
+    }
+    .selector-box-flight {
+        background-color: $dark-body;
+        border-color: $dark-border;
+        .room-cls {
+            .qty-box {
+                .input-group {
+                    .btn {
+                        color: $dark-link;
+                    }
+                }
+            }
+        }
+        .flight-class,
+        .bottom-part {
+            border-color: $dark-border;
+        }
+    }
+    .top-bar-flight {
+        .date-fare-slider {
+            background-color: $dark-body;
+            border-color: $dark-border;
+            .fare-box {
+                border-color: $dark-border;
+                h5 {
+                    color: $white-5;
+                }
+                h6 {
+                    color: $white-6;
+                }
+            }
+            .slick-slider {
+                border-color: $dark-border;
+            }
+        }
+        .fare-calender {
+            background-color: $dark-body;
+            i {
+                color: $dark-span;
+            }
+            .calender-external {
+                background-color: $dark-body;
+            }
+        }
+    }
+    .top-filter-section {
+        background-color: $dark-body;
+        ul {
+            .onclick-title,
+            .filter-title {
+                border-color: $dark-border;
+                .onclick-content {
+                    background-color: $dark-body;
+                    box-shadow: 0px 1px 9px 3px rgb(35, 35, 35);
+                }
+            }
+        }
+    }
+    .flight-detail-sec {
+        .selection-bar {
+            background-color: $dark-body;
+            span {
+                color: $dark-span;
+            }
+        }
+        .detail-bar {
+            .detail-wrap {
+                &.active {
+                    box-shadow: 0px 1px 9px 3px rgba(0, 0, 0, 0.25);
+                }
+            }
+        }
+        &.book_panel {
+            background-color: $dark-body;
+            .detail-bar {
+                &.border-cls {
+                    .detail-wrap {
+                        .row {
+                            border-color: $dark-border;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .search-section {
+        .search-box {
+            background-color: $dark-body;
+            box-shadow: 1px 3px 20px 0px rgba(0, 0, 0, 0.1);
+            .left-part {
+                .search-body {
+                    &:after {
+                        background-color: $dark-border;
+                    }
+                }
+            }
+        }
+    }
+    .search-panel {
+        .search-section {
+            .search-box {
+                .left-part {
+                    .search-body {
+                        ::placeholder {
+                            color: $white-6;
+                        }
+                        h6 {
+                            color: $white-6;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .special-section {
+        &.grid-box {
+            .special-box {
+                background-color: $dark-body;
+                .special-content {
+                    p {
+                        color: $white-6;
+                    }
+                    h5 {
+                        span {
+                            color: $dark-span;
+                        }
+                    }
+                    .bottom-section {
+                        .price {
+                            del {
+                                color: $dark-span;
+                            }
+                            span {
+                                color: white;
+                            }
+                            .facility-detail {
+                                span {
+                                    color: $dark-span;
+                                    border-color: $dark-border;
+                                }
+                            }
+                        }
+                    }
+                    .tour-detail {
+                        .include-sec {
+                            ul {
+                                li {
+                                    img {
+                                        filter: invert(1);
+                                    }
+                                }
+                            }
+                        }
+                        .bottom-section {
+                            .price {
+                                h6 {
+                                    color: white;
+                                    del {
+                                        color: white;
+                                    }
+                                }
+                            }
+                        }
+                        span {
+                            color: rgba(white, 0.84);
+                        }
+                        h6 {
+                            color: rgba(white, 0.78);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .view-map {
+        .arrow {
+            color: white;
+        }
+    }
+    .filter-panel {
+        .popup-btn {
+            h5 {
+                color: $white-5;
+            }
+            img {
+                filter: invert(1);
+            }
+        }
+    }
+    .list-view {
+        .list-box {
+            background-color: $dark-body;
+            .list-content {
+                .price {
+                    color: $white-5;
+                    del {
+                        color: rgba($white-5, 0.6);
+                    }
+                }
+                .rating {
+                    span {
+                        color: $dark-span;
+                    }
+                }
+                .facility-icon {
+                    .facility-box {
+                        img {
+                            filter: invert(1);
+                        }
+                        span {
+                            color: $dark-span;
+                        }
+                    }
+                }
+                h5 {
+                    color: $white-5;
+                }
+                p {
+                    color: $white-6;
+                }
+                .offer-box {
+                    border-color: $dark-border;
+                }
+            }
+        }
+    }
+    .summery-box {
+        background-color: $dark-body;
+        box-shadow: 0 2px 4px 0 #2e2e2e;
+        .hotel-section {
+            .hotel-detail {
+                p {
+                    color: $white-5;
+                }
+            }
+        }
+        .summery-section {
+            border-color: $dark-border;
+        }
+    }
+    .hotel_title_section {
+        .hotel-name {
+            .left-part {
+                p {
+                    color: rgba(white, 0.6);
+                }
+                .facility-detail {
+                    span {
+                        color: rgba(white, 0.7);
+                        border-color: $dark-border;
+                    }
+                }
+            }
+        }
+    }
+    .loader-wrapper {
+        background-color: $dark-body;
+        &.inner-loader {
+            background-color: $dark-main;
+        }
+        &.food-loader {
+            .loader {
+                img {
+                    filter: invert(0.83);
+                }
+            }
+        }
+    }
+    .account-sign-in {
+        .divider {
+            h6 {
+                background-color: #313131;
+            }
+            &:after {
+                background-color: $dark-border;
+            }
+        }
+        .login-with {
+            .login-social {
+                .boxes {
+                    background-color: $dark-main;
+                }
+            }
+        }
+    }
+    .portfolio-section {
+        .filter-button-group {
+            ul {
+                li {
+                    background-color: $dark-main;
+                    &.active {
+                        background-color: $theme-color1;
+                    }
+                }
+            }
+        }
+    }
+    .center-slide {
+        .image-center {
+            .center-content {
+                &:after {
+                    background-color: rgba(black, 0.65);
+                }
+            }
+        }
+    }
+    .infoBox {
+        .marker-detail {
+            .detail-part {
+                background-color: $dark-body;
+                h6,
+                span {
+                    color: $white-6;
+                }
+            }
+        }
+    }
+    .checkout-process {
+        .checkout-box {
+            background-color: $dark-body;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+            .address-sec {
+                .select-box {
+                    .address-box {
+                        border-color: $dark-border;
+                        .top {
+                            h6 {
+                                color: $white-6;
+                            }
+                        }
+                        .middle {
+                            .address,
+                            .number {
+                                p {
+                                    color: rgba($white-6, 0.7);
+                                }
+                            }
+                        }
+                        .bottom {
+                            border-color: $dark-border;
+                            .bottom_btn {
+                                color: $dark-link;
+                                border-color: $dark-border;
+                                &:first-child {
+                                    border-color: $dark-border;
+                                }
+                            }
+                        }
+                    }
+                    &.active {
+                        .address-box {
+                            border-color: $theme-color1;
+                        }
+                    }
+                }
+            }
+            .sub-title {
+                a {
+                    color: white;
+                    border-color: $dark-border;
+                }
+            }
+        }
+    }
+    .modal-content {
+        background-color: $dark-body;
+    }
+    .modal-header {
+        border-color: $dark-border;
+    }
+    .category-part {
+        .category-block {
+            .category-details {
+                h5 {
+                    color: white;
+                }
+            }
+        }
+    }
+    .app-section {
+        &.app-right-sec {
+            .app-content {
+                background-color: $dark-main;
+                .title,
+                p,
+                h3 {
+                    color: rgba(white, 0.8);
+                }
+            }
+        }
+    }
+    .order-food-section {
+        .order-food {
+            .book-table {
+                &.single-table {
+                    h3 {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+    .order-menu {
+        .nav {
+            background-color: $dark-body;
+            .nav-link {
+                &.active {
+                    background-color: $dark-main;
+                }
+            }
+            .nav {
+                .nav-link {
+                    &.active {
+                        background-color: transparent;
+                        color: white;
+                    }
+                }
+            }
+        }
+        .search-bar {
+            border-color: $dark-border;
+            .search {
+                input {
+                    background-color: $dark-main;
+                }
+            }
+        }
+    }
+    .order-menu-section {
+        border-color: $dark-border;
+        .order-section {
+            h4 {
+                color: rgba(white, 0.6);
+            }
+            .order-title {
+                h6 {
+                    color: rgba(white, 0.4);
+                }
+            }
+            + .order-section {
+                border-color: $dark-border;
+            }
+        }
+    }
+    .cart {
+        box-shadow: 0 2px 4px 0 #151515;
+        background-color: $dark-body;
+    }
+    .order-cart-right {
+        .back-btn {
+            color: white;
+            border-color: $dark-border;
+        }
+    }
+    .top-title-bar {
+        .hotel_title_section {
+            h6 {
+                color: $white-6;
+            }
+            ul {
+                li {
+                    &:after {
+                        background-color: white;
+                    }
+                }
+            }
+        }
+    }
+    .onclick-map {
+        .book-table {
+            &.single-table {
+                .table-form {
+                    &.classic-form {
+                        background-color: $dark-body;
+                        form {
+                            .form-group {
+                                input {
+                                    background-color: $dark-main;
+                                }
+                                img {
+                                    filter: invert(1);
+                                }
+                            }
+                        }
+                    }
+                    form {
+                        .form-control {
+                            background-color: $dark-main;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .book-table {
+        &.single-table {
+            .table-form {
+                background-color: $dark-body;
+                &:after,
+                &:before {
+                    background-color: $dark-body;
+                }
+                &.classic-form {
+                    background-color: $dark-body;
+                    form {
+                        .form-group {
+                            input {
+                                background-color: $dark-main;
+                            }
+                            img {
+                                filter: invert(1);
+                            }
+                        }
+                    }
+                }
+                form {
+                    .form-control {
+                        background-color: $dark-main;
+                    }
+                }
+            }
+        }
+    }
+    .effect-cls-up {
+        &:before {
+            filter: invert(0.83);
+        }
+    }
+
+    .full-banner {
+        .tourSection {
+            .title-3 {
+                h2 {
+                    color: black;
+                }
+            }
+            .tourBox {
+                .tourContent {
+                    h5,
+                    h6 {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+
+    .full-width-detail {
+        .about-section {
+            .about-text {
+                .right-detail {
+                    .bottom-detail {
+                        p {
+                            color: rgba(white, 0.7);
+                        }
+                    }
+                }
+            }
+        }
+        .place-detail {
+            li {
+                color: white;
+            }
+        }
+    }
+    .typography_section {
+        code {
+            background-color: #383838;
+        }
+        .typography-box {
+            .typo-content {
+                .sub-title {
+                    border-color: rgba(white, 0.1);
+                    color: $white-6;
+                }
+                &.heading_content {
+                    h1,
+                    h2,
+                    h3,
+                    h4,
+                    h5,
+                    h6 {
+                        color: white;
+                    }
+                }
+            }
+            .headings {
+                background-color: $dark-main;
+                border-color: $dark-border;
+                h3 {
+                    color: $white-3;
+                }
+            }
+        }
+    }
+    .dashboard-section {
+        .dashboard-main {
+            .dashboard-intro {
+                background-color: $dark-main;
+                .complete-profile {
+                    .complete-box {
+                        background-color: $dark-body;
+                        box-shadow: 0 2px 4px 0 rgba(68, 68, 68, 0.22);
+                    }
+                }
+                p {
+                    color: rgba(white, 0.8);
+                }
+            }
+            .counter-section {
+                .counter-box {
+                    background-color: $dark-main;
+                    h5 {
+                        color: rgba(white, 0.6);
+                    }
+                }
+            }
+            .dashboard-info {
+                #chart,
+                .chart-box {
+                    background: $dark-main;
+                }
+                .activity-box {
+                    background: $dark-main;
+                    ul {
+                        li {
+                            background-color: $dark-body;
+                        }
+                    }
+                }
+            }
+        }
+        .dashboard-sidebar {
+            background-color: $dark-body;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.27);
+            .profile-top {
+                .profile-detail {
+                    h6 {
+                        color: $white-6;
+                    }
+                }
+            }
+        }
+        .dashboard-box {
+            .dashboard-detail {
+                ul {
+                    li {
+                        .details {
+                            .left {
+                                h6 {
+                                    color: rgba($white-6, 0.6);
+                                }
+                            }
+                        }
+                    }
+                }
+                .booking-box {
+                    background-color: $dark-main;
+                    box-shadow: -1px 2px 8px #1d1d1d;
+                    .detail-middle {
+                        .media {
+                            .media-body {
+                                h6 {
+                                    color: $white-6;
+                                }
+                                p {
+                                    color: rgba(white, 0.6);
+                                    span {
+                                        color: #d6d6d6;
+                                    }
+                                }
+                            }
+                            .icon {
+                                i {
+                                    background-color: $dark-body;
+                                    box-shadow: -1px 2px 8px #1d1d1d;
+                                }
+                            }
+                        }
+                    }
+                    .detail-last {
+                        i {
+                            color: white;
+                        }
+                    }
+                    .date-box {
+                        span {
+                            &.date {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+                .card-payment {
+                    .payment-card {
+                        &.add-card {
+                            background-color: $dark-body;
+                            background-image: repeating-linear-gradient(
+                                    45deg,
+                                    rgba(black, 0) 1px,
+                                    rgba(black, 0.03) 2px,
+                                    rgba(black, 0.04) 3px,
+                                    rgba(black, 0.05) 4px
+                                ),
+                                -webkit-linear-gradient(-245deg, rgba(black, 0) 40%, rgba(black, 0.2) 70%, rgba(
+                                                black,
+                                                0
+                                            )
+                                            90%);
+                        }
+                    }
+                }
+                .delete-section {
+                    p {
+                        color: rgba(white, 0.64);
+                        .text-bold {
+                            color: rgba(white, 0.8);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .btn-close {
+        color: white;
+    }
+    .faq-tab {
+        .nav-tabs {
+            .nav-item {
+                .nav-link {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+//responsive start
+@media (max-width: 1199px) {
+    .dark {
+        header {
+            .main-navbar {
+                .nav-menu {
+                    background-color: $dark-body;
+                    border-color: $dark-border;
+                    .back-btn {
+                        .mobile-back {
+                            color: $dark-link;
+                            border-color: $dark-border;
+                        }
+                    }
+                    > li {
+                        a {
+                            color: $dark-link;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .dark {
+        .coming-soon {
+            &.travel {
+                .coming-soon-detail {
+                    background-color: rgba(black, 0.6);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .dark {
+        .flight-search {
+            .flight-search-detail {
+                background-color: rgba(0, 0, 0, 0.65);
+                form {
+                    background-color: $dark-main;
+                }
+            }
+        }
+        .home_section {
+            .home {
+                .home-content {
+                    .flight-search {
+                        .flight-search-detail {
+                            background-color: $dark-main;
+                        }
+                    }
+                }
+            }
+        }
+        .cab-full {
+            .flight-search {
+                .flight-search-detail {
+                    background-color: $dark-main;
+                }
+            }
+        }
+        .top-filter-section {
+            ul {
+                .onclick-title,
+                .filter-title {
+                    .onclick-content {
+                        box-shadow: none;
+                        .custom-control {
+                            .form-check-label {
+                                img {
+                                    filter: invert(1);
+                                }
+                            }
+                        }
+                    }
+                }
+                .back-btn {
+                    color: white;
+                    border-color: $dark-border;
+                }
+            }
+        }
+        .mobile-filter {
+            border-color: $dark-border;
+        }
+        .single-section {
+            .single-sidebar {
+                &.order-cart-right {
+                    background-color: $dark-body;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .dark {
+        .filter-panel {
+            .filter-bottom-title {
+                border-color: $dark-border;
+            }
+            .right-panel {
+                &.search_filter {
+                    border-color: $dark-border;
+                }
+            }
+        }
+        .dashboard-section {
+            .dashboard-box {
+                .dashboard-detail {
+                    .card-payment {
+                        .edit-card-mobile {
+                            a {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .dark {
+        .filter-panel {
+            .respon-filter-btn {
+                h6 {
+                    color: white;
+                }
+            }
+            .respon-filter-content {
+                &.show {
+                    background-color: $dark-body;
+                    box-shadow: -4px -1px 20px 0px rgba($dark-main, 0.13);
+                    ul {
+                        li {
+                            &.active {
+                                background-color: $dark-body;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .dark {
+        .single-section {
+            .description-section {
+                .description-details {
+                    .menu-part {
+                        .rooms-box {
+                            .price-details {
+                                border-color: $dark-border;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
