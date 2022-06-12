@@ -45,7 +45,12 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
 
     <!-- Theme css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/color1.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/color2.css">
+
+    <!-- Animation -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
 
 	 <!-- latest jquery-->
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
