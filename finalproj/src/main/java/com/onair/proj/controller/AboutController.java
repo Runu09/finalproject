@@ -9,4 +9,9 @@ public class AboutController {
 	public String about() {
 		return "/about/about";
 	}
+	
+	@RequestMapping("/main/main.do")
+	public String main() {
+		return "/main/main";
+	}
 }
