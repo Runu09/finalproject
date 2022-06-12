@@ -54,6 +54,7 @@
 
 	 <!-- latest jquery-->
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/jquery-3.5.1.min.js"></script>
 
     <!-- date-time picker js -->
     <script src="../assets/js/date-picker.js"></script>
@@ -103,7 +104,7 @@
                 <div class="col">
                     <div class="menu">
                         <div class="brand-logo">
-                            <a href="../index.html">
+                            <a href="../main/main.do">
                                 <img src="../assets/images/main.png" alt=""
                                     class="img-fluid blur-up lazyload">
                             </a>
