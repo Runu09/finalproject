@@ -15567,7 +15567,7 @@ header {
   .responsive-btn {
     display: none; }
   header .main-navbar .nav-menu > li .nav-submenu {
-    width: 220px;
+    width: 160px;
     opacity: 0;
     visibility: hidden;
     border-radius: 5px;
