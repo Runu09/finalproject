@@ -687,7 +687,8 @@ header {
         -ms-flex-align: center;
             align-items: center; }
     header .menu nav {
-      margin: 0 auto; }
+      margin: 0 auto;
+      margin-top: 12px; }
     header .menu .coupon-box {
       background-color: white;
       border-radius: 4px;
@@ -15406,7 +15407,7 @@ header {
         header .main-navbar .nav-menu > li > a {
           display: block;
           color: white;
-          font-size: 14px;
+          font-size: 20px;
           font-weight: 900;
           line-height: 23px;
           text-decoration: none;
@@ -15622,7 +15623,7 @@ header {
 
 @media (max-width: 1460px) {
   header .main-navbar .nav-menu > li {
-    margin-right: 8px; } }
+    margin-right: 18px; } }
 
 @media (max-width: 1199px) {
   header .main-navbar .nav-menu {

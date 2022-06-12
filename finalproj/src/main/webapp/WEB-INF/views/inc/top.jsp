@@ -99,7 +99,7 @@
                     <div class="menu">
                         <div class="brand-logo">
                             <a href="../index.html">
-                                <img src="../assets/images/icon/footer-logo.png" alt=""
+                                <img src="../assets/images/main.png" alt=""
                                     class="img-fluid blur-up lazyload">
                             </a>
                         </div>
@@ -116,7 +116,7 @@
                                             </div>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="#" class="nav-link menu-title">Home</a>
+                                            <a href="#" class="nav-link menu-title">예매</a>
                                             <ul class="nav-submenu menu-content">
                                                 <li><a href="#" class="menu-title">Hotel Demo</a>
                                                     <ul class="nav-sub-childmenu level1">
@@ -161,180 +161,7 @@
                                             </ul>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="#" class="nav-link menu-title">hotel</a>
-                                            <ul class="nav-submenu menu-content">
-                                                <li><a href="#" class="menu-title">Listing</a>
-                                                    <ul class="nav-sub-childmenu level1">
-                                                        <li><a href="javascript:void(0)" class="menu-title">grid
-                                                                view</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="hotel-2-grid.html">2 Grid</a></li>
-                                                                <li><a href="hotel-3-grid.html">3 Grid</a></li>
-                                                                <li><a href="hotel-4-grid.html">4 Grid</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">sidebar</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="hotel-left-sidebar.html">Left Sidebar</a>
-                                                                </li>
-                                                                <li><a href="hotel-right-sidebar.html">Right Sidebar</a>
-                                                                </li>
-                                                                <li><a href="hotel-no-sidebar.html">No Sidebar</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">map</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="hotel-map.html">google map</a></li>
-                                                                <li><a href="hotel-map-leaflet.html">leaflet map</a>
-                                                                </li>
-                                                                <li><a href="hotel-map-here.html">here map</a></li>
-                                                                <li><a href="hotel-map-bing.html">bing map</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">map
-                                                                modal</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="hotel-map-modal.html">google map</a></li>
-                                                                <li><a href="hotel-map-leaflet-modal.html">leaflet
-                                                                        map</a></li>
-                                                                <li><a href="hotel-map-here-modal.html">here map</a>
-                                                                </li>
-                                                                <li><a href="hotel-map-bing-modal.html">bing map</a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">onclick
-                                                                map</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="hotel-clickmap.html">google map</a></li>
-                                                                <li><a href="hotel-leaflet-clickmap.html">leaflet
-                                                                        map</a></li>
-                                                                <li><a href="hotel-here-clickmap.html">here map</a></li>
-                                                                <li><a href="hotel-bing-clickmap.html">bing map</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">left side
-                                                                map</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="hotel-leftmap.html">google map</a></li>
-                                                                <li><a href="hotel-leaflet-leftmap.html">leaflet map</a>
-                                                                </li>
-                                                                <li><a href="hotel-here-leftmap.html">here map</a></li>
-                                                                <li><a href="hotel-bing-leftmap.html">bing map</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">list
-                                                                view</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="hotel-list.html">List View</a></li>
-                                                                <li><a href="javascript:void(0)"
-                                                                        class="menu-title">Map</a>
-                                                                    <ul
-                                                                        class="nav-sub-childmenu submenu-content level3">
-                                                                        <li><a href="hotel-list-map.html">google map</a>
-                                                                        </li>
-                                                                        <li><a href="hotel-leaflet-list-map.html">leaflet
-                                                                                map</a></li>
-                                                                        <li><a href="hotel-here-list-map.html">here
-                                                                                map</a></li>
-                                                                        <li><a href="hotel-bing-list-map.html">bing
-                                                                                map</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li><a href="hotel-list-slider.html">Slider</a></li>
-                                                                <li><a href="hotel-list-images.html">multiple Image</a>
-                                                                </li>
-                                                                <li><a href="hotel-list-video.html">Video</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="hotel-slider.html">Hotel with Slider</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#" class="menu-title">single page</a>
-                                                    <ul class="nav-sub-childmenu submenu-content level1">
-                                                        <li><a href="hotel-single-1.html">classic</a></li>
-                                                        <li><a href="hotel-single-9.html">360 view</a></li>
-                                                        <li><a href="hotel-single-2.html">without top</a></li>
-                                                        <li><a href="hotel-single-3.html">left sidebar</a></li>
-                                                        <li><a href="hotel-single-4.html">info tab</a></li>
-                                                        <li><a href="hotel-single-5.html">image slider</a></li>
-                                                        <li><a href="hotel-single-6.html">thumbnail image</a></li>
-                                                        <li><a href="hotel-single-7.html">image box</a></li>
-                                                        <li><a href="hotel-single-8.html">theme breadcrumb</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#" class="menu-title">booking</a>
-                                                    <ul class="nav-sub-childmenu submenu-content level1">
-                                                        <li><a href="hotel-booking.html">booking page</a></li>
-                                                        <li><a href="hotel-checkout.html">checkout</a></li>
-                                                        <li><a href="hotel-booking-failed.html">booking failed</a></li>
-                                                        <li><a href="hotel-booking-success.html">booking success</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="nav-link menu-title">tour</a>
-                                            <ul class="nav-submenu menu-content">
-                                                <li><a href="#" class="menu-title">Listing</a>
-                                                    <ul class="nav-sub-childmenu submenu-content level1">
-                                                        <li><a href="javascript:void(0)" class="menu-title">grid
-                                                                view</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="tour-2-grid.html">2 Grid</a></li>
-                                                                <li><a href="tour-3-grid.html">3 Grid</a></li>
-                                                                <li><a href="tour-4-grid.html">4 Grid</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">sidebar</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="tour-left-sidebar.html">left sidebar</a>
-                                                                </li>
-                                                                <li><a href="tour-right-sidebar.html">right sidebar</a>
-                                                                </li>
-                                                                <li><a href="tour-no-sidebar.html">no sidebar</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">list
-                                                                view</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="tour-list.html">list view</a></li>
-                                                                <li><a href="tour-list-slider.html">slider</a></li>
-                                                                <li><a href="tour-list-images.html">multiple images</a>
-                                                                </li>
-                                                                <li><a href="tour-list-video.html">video</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="tour-slider.html">with slider</a></li>
-                                                        <li><a href="tour-minimal.html">minimal</a></li>
-                                                        <li><a href="tour-classic.html">classic</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#" class="menu-title">single page</a>
-                                                    <ul class="nav-sub-childmenu submenu-content level1">
-                                                        <li><a href="tour-single-1.html">tab</a></li>
-                                                        <li><a href="tour-single-2.html">full page detail</a></li>
-                                                        <li><a href="tour-single-3.html">slider</a></li>
-                                                        <li><a href="tour-single-4.html">360 view</a></li>
-                                                        <li><a href="tour-single-5.html">Full page slider</a></li>
-                                                        <li><a href="tour-single-6.html">classic design</a></li>
-                                                        <li><a href="tour-single-7.html">video </a></li>
-                                                        <li><a href="tour-single-8.html">left-sidebar </a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#" class="menu-title">booking</a>
-                                                    <ul class="nav-sub-childmenu submenu-content level1">
-                                                        <li><a href="tour-booking.html">booking page</a></li>
-                                                        <li><a href="tour-checkout.html">checkout</a></li>
-                                                        <li><a href="tour-booking-failed.html">booking failed</a></li>
-                                                        <li><a href="tour-booking-success.html">booking success</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="nav-link menu-title">flight</a>
+                                            <a href="#" class="nav-link menu-title">마이페이지</a>
                                             <ul class="nav-submenu menu-content">
                                                 <li><a href="#" class="menu-title">Listing</a>
                                                     <ul class="nav-sub-childmenu submenu-content level1">
@@ -360,134 +187,12 @@
                                             </ul>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="#" class="nav-link menu-title">cab</a>
+                                            <a href="#" class="nav-link menu-title">커뮤니티</a>
                                             <ul class="nav-submenu menu-content">
-                                                <li><a href="#" class="menu-title">Listing</a>
-                                                    <ul class="nav-sub-childmenu submenu-content level1">
-                                                        <li><a href="javascript:void(0)" class="menu-title">list
-                                                                view</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="cab-list-leftsidebar.html">left sidebar</a>
-                                                                </li>
-                                                                <li><a href="cab-list-rightsidebar.html">right
-                                                                        sidebar</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">grid
-                                                                view</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="cab-3-grid.html">3 grid</a></li>
-                                                                <li><a href="cab-4-grid.html">4 grid</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">sidebar</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="cab-left-sidebar.html">left sidebar</a>
-                                                                </li>
-                                                                <li><a href="cab-right-sidebar.html">right sidebar</a>
-                                                                </li>
-                                                                <li><a href="cab-no-sidebar.html">no sidebar</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">with map</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="cab-google-map.html">google map</a></li>
-                                                                <li><a href="cab-here-map.html">here map</a></li>
-                                                                <li><a href="cab-bing-map.html">bing map</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="cab-slider.html">slider</a></li>
-                                                        <li><a href="cab-not-found.html">not found</a></li>
-                                                    </ul>
+                                                <li><a href="#" class="menu-title">고객의 소리</a>
+                                                    
                                                 </li>
-                                                <li><a href="#" class="menu-title">booking</a>
-                                                    <ul class="nav-sub-childmenu submenu-content level1">
-                                                        <li><a href="cab-booking.html">booking</a></li>
-                                                        <li><a href="cab-booking-payment.html">booking payment</a></li>
-                                                        <li><a href="cab-booking-success.html">booking success</a></li>
-                                                        <li><a href="cab-booking-failed.html">booking failed</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="cab-single-detail.html">single detail</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="nav-link menu-title">restaurant</a>
-                                            <ul class="nav-submenu menu-content">
-                                                <li><a href="#" class="menu-title">Listing</a>
-                                                    <ul class="nav-sub-childmenu submenu-content level1">
-                                                        <li><a href="javascript:void(0)" class="menu-title">grid
-                                                                view</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="restaurant-2-grid.html">2 Grid</a></li>
-                                                                <li><a href="restaurant-3-grid.html">3 Grid</a></li>
-                                                                <li><a href="restaurant-4-grid.html">4 Grid</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">sidebar</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="restaurant-left-sidebar.html">left
-                                                                        sidebar</a></li>
-                                                                <li><a href="restaurant-right-sidebar.html">right
-                                                                        sidebar</a></li>
-                                                                <li><a href="restaurant-no-sidebar.html">no sidebar</a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">map</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="restaurant-map.html">google map</a></li>
-                                                                <li><a href="restaurant-leaflet-map.html">leaflet
-                                                                        map</a></li>
-                                                                <li><a href="restaurant-here-map.html">here map</a></li>
-                                                                <li><a href="restaurant-bing-map.html">bing map</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">map
-                                                                modal</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="restaurant-map-modal.html">google map</a>
-                                                                </li>
-                                                                <li><a href="restaurant-map-leaflet-modal.html">leaflet
-                                                                        map</a></li>
-                                                                <li><a href="restaurant-map-here-modal.html">here
-                                                                        map</a></li>
-                                                                <li><a href="restaurant-map-bing-modal.html">bing
-                                                                        map</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">onclick
-                                                                map</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="restaurant-clickmap.html">google map</a>
-                                                                </li>
-                                                                <li><a href="restaurant-clickmap-leaflet.html">leaflet
-                                                                        map</a></li>
-                                                                <li><a href="restaurant-clickmap-here.html">here map</a>
-                                                                </li>
-                                                                <li><a href="restaurant-clickmap-bing.html">bing map</a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)" class="menu-title">left side
-                                                                map</a>
-                                                            <ul class="nav-sub-childmenu submenu-content level2">
-                                                                <li><a href="restaurant-leftmap.html">google map</a>
-                                                                </li>
-                                                                <li><a href="restaurant-leftmap-leaflet.html">leaflet
-                                                                        map</a></li>
-                                                                <li><a href="restaurant-leftmap-here.html">here map</a>
-                                                                </li>
-                                                                <li><a href="restaurant-leftmap-bing.html">bing map</a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="restaurant-fullwidth.html">full width</a></li>
-                                                        <li><a href="restaurant-slider.html">image slider</a></li>
-                                                        <li><a href="restaurant-not-found.html">not found</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#" class="menu-title">single page</a>
+                                                <li><a href="#" class="menu-title">유실물 찾기</a>
                                                     <ul class="nav-sub-childmenu submenu-content level1">
                                                         <li><a href="restaurant-single-1.html"
                                                                 target="_blank">classic</a></li>
@@ -499,18 +204,10 @@
                                                                 cart</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#" class="menu-title">booking</a>
-                                                    <ul class="nav-sub-childmenu submenu-content level1">
-                                                        <li><a href="restaurant-checkout.html">checkout</a></li>
-                                                        <li><a href="restaurant-order-failed.html">order failed</a></li>
-                                                        <li><a href="restaurant-order-success.html">order sucess</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
                                             </ul>
                                         </li>
                                         <li class="mega-menu"><a href="#" class="nav-link menu-title">
-                                                pages</a>
+                                                공지사항</a>
                                             <div class="mega-menu-container menu-content">
                                                 <div class="container">
                                                     <div class="row">
