@@ -470,7 +470,7 @@ section,
   .title-1 h2 {
     padding-top: 25px;
     margin-bottom: 0;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
     font-weight: 800; }
   .title-1.title-5 .title-label {
     border-radius: 50px; }
@@ -3293,7 +3293,7 @@ section .black-layer {
   .about-section.three-image .about-text h2 {
     color: black;
     font-size: calc(18px + (40 - 18) * ((100vw - 320px) / (1920 - 320)));
-    margin-bottom: 10px; }
+    margin-bottom: 30px; }
     .about-section.three-image .about-text h2 span {
       font-size: calc(16px + (30 - 16) * ((100vw - 320px) / (1920 - 320)));
       text-transform: lowercase;
@@ -7666,7 +7666,7 @@ section .black-layer {
 .breadcrumb-section {
   background-position: center;
   background-size: cover;
-  height: 500px;
+  height: 300px;
   position: relative;
   overflow: hidden;
   z-index: 1; }
@@ -7680,7 +7680,7 @@ section .black-layer {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    height: 500px;
+    height: 300px;
     padding-top: 93px;
     text-align: center; }
     .breadcrumb-section .breadcrumb-content > div {
@@ -7785,7 +7785,7 @@ section .black-layer {
         background-color: transparent; }
   .breadcrumb-section .title-breadcrumb {
     font-family: Dancing Script;
-    font-size: 510px;
+    font-size: 310px;
     position: absolute;
     color: rgba(255, 255, 255, 0.02);
     text-transform: capitalize;
