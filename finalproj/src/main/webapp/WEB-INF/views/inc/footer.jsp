@@ -33,7 +33,7 @@
                             <div class="footer-content">
                                 <div class="footer-links">
                                     <ul>
-                                        <li><a href="#">about us</a></li>
+                                        <li><a href="../about/about.do">about us</a></li>
                                         <li><a href="#">FAQ</a></li>
                                         <li><a href="#">login</a></li>
                                         <li><a href="#">register</a></li>

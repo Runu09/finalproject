@@ -19,16 +19,14 @@
                     <div class="cab-content">
                         <div>
                             <div class="top-cls">
-                                #rica
+                                #On Air
                             </div>
-                            <h2>great journey begins</h2>
-                            <h3>with a small step</h3>
-                            <form class="radio-form">
+                            <!-- <form class="radio-form">
                                 <input id="radio-1" type="radio" name="exampleRadios" value="option1" checked>
                                 <label for="radio-1" class="radio-label">round trip</label>
                                 <input id="radio-2" type="radio" name="exampleRadios" value="option2">
                                 <label for="radio-2" class="radio-label">one way</label>
-                            </form>
+                            </form> -->
                             <form>
                                 <div class="form-group">
                                     <input type="text" class="form-control open-select" placeholder="from">
