@@ -184,19 +184,18 @@
 					<div class="footer-content">
 						<div class="contact-detail">
 							<div class="footer-logo">
-								<img src="../assets/images/icon/footer-logo.png" alt=""
+								<img src="../assets/images/main.png" alt=""
 									class="img-fluid blur-up lazyload">
 							</div>
-							<p>Lorem Ipsum is simply dummy text of the printing and
+							<!-- <p>Lorem Ipsum is simply dummy text of the printing and
 								typesetting industry. Lorem Ipsum has been the industry's
 								standard dummy text ever since the 1500s, when an unknown
 								printer took a galley of type and scrambled it to make a type
-								specimen book. It has survived not only five centuries</p>
+								specimen book. It has survived not only five centuries</p> -->
 							<ul class="contact-list">
-								<li><i class="fas fa-map-marker-alt"></i> A-32, Albany,
-									Newyork.</li>
-								<li><i class="fas fa-phone-alt"></i> 518 - 457 - 5181</li>
-								<li><i class="fas fa-envelope"></i> contact@gmail.com</li>
+								<li><i class="fas fa-map-marker-alt"></i> 서울특별시 서대문구 104-48 </li>
+								<li><i class="fas fa-phone-alt"></i> 010 - 1234 - 5678</li>
+								<li><i class="fas fa-envelope"></i> onair4@naver.com</li>
 							</ul>
 						</div>
 					</div>
@@ -209,13 +208,11 @@
 						<div class="footer-content">
 							<div class="footer-links">
 								<ul>
-									<li><a href="#">about us</a></li>
+									<li><a href="../about/about.do">회사 소개</a></li>
 									<li><a href="#">FAQ</a></li>
-									<li><a href="#">login</a></li>
-									<li><a href="#">register</a></li>
-									<li><a href="#">terms & co.</a></li>
-									<li><a href="#">privacy</a></li>
-									<li><a href="#">support</a></li>
+									<li><a href="#">로그인</a></li>
+									<li><a href="#">회원가입</a></li>
+									<li><a href="#">이용안내</a></li>
 								</ul>
 							</div>
 						</div>
@@ -227,9 +224,31 @@
 					</div>
 					<div class="footer-content">
 						<div class="footer-map">
-							<iframe
+							<!-- <iframe
 								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.1583091352!2d-74.11976373946229!3d40.69766374859258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1563449626439!5m2!1sen!2sin"
-								allowfullscreen></iframe>
+								allowfullscreen></iframe> -->
+							<div id="map" style="width:260px;height:200px;"></div>
+								<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=00724106dd7f78df2178c577988b8039"></script>
+								<script>
+									var container = document.getElementById('map');
+									var options = {
+										center: new kakao.maps.LatLng(37.55686964130434, 126.94151351045609),
+										level: 3
+									};
+							
+									var map = new kakao.maps.Map(container, options);
+									
+									// 마커가 표시될 위치입니다 
+									var markerPosition  = new kakao.maps.LatLng(37.55686964130434, 126.94151351045609); 
+
+									// 마커를 생성합니다
+									var marker = new kakao.maps.Marker({
+									    position: markerPosition
+									});
+									
+									// 마커가 지도 위에 표시되도록 설정합니다
+									marker.setMap(map);
+								</script>
 						</div>
 					</div>
 				</div>
