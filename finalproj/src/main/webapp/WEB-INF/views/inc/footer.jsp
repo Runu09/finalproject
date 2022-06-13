@@ -149,21 +149,6 @@
 <!-- tap to top end -->
 
 
-<!-- setting start -->
-<div class="theme-setting">
-    <div class="dark">
-        <input class="tgl tgl-skewed" id="dark" type="checkbox">
-        <label class="tgl-btn" data-tg-off="Dark" data-tg-on="Light" for="dark"></label>
-    </div>
-    <div class="rtl">
-        <input class="tgl tgl-skewed" id="rtl" type="checkbox">
-        <label class="tgl-btn" data-tg-off="RTL" data-tg-on="LTR" for="rtl"></label>
-    </div>
-</div>
-<!-- setting end -->
-
-
-
 <!-- latest jquery-->
 <script src="../assets/js/jquery-3.5.1.min.js"></script>
 

@@ -188,30 +188,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="flight-class">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input radio_animated" type="radio"
-                                                                name="exampleRadios" id="exampleRadios1" value="1"
-                                                                checked>
-                                                            <label class="form-check-label" for="exampleRadios1">
-                                                                economy
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input radio_animated" type="radio"
-                                                                name="exampleRadios" id="exampleRadios2" value="2">
-                                                            <label class="form-check-label" for="exampleRadios2">
-                                                                premium
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input radio_animated" type="radio"
-                                                                name="exampleRadios" id="exampleRadios3" value="3">
-                                                            <label class="form-check-label" for="exampleRadios3">
-                                                                business
-                                                            </label>
-                                                        </div>
-                                                    </div>
                                                     <div class="bottom-part">
                                                         <a href="javascript:void(0)" class="btn">apply</a>
                                                     </div>

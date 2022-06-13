@@ -141,7 +141,7 @@
                                         	<a href="#" class="nav-link menu-title">고객지원</a>
                                             <ul class="nav-submenu menu-content">
                                                 <li><a href="#" class="submenu-title">공지사항</a></li>
-                                                <li><a href="#" class="submenu-title">이용안내</a></li>
+                                                <li><a href="../customer/information.do" class="submenu-title">이용안내</a></li>
                                                 <li><a href="#" class="submenu-title">FAQ</a></li>
                                             </ul>
                                         </li>
@@ -168,7 +168,7 @@
                                 <a href="#">
                                     <i class="fas fa-cog"></i>
                                 </a>
-                                <ul class="setting-open">
+                                <ul class="setting-open"><!-- 
                                     <li class="front-setting">
                                         <select>
                                             <option value="volvo">USD</option>
@@ -184,7 +184,7 @@
                                             <option value="opel">SPA</option>
                                             <option value="audi">DUT</option>
                                         </select>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
                         </ul>
