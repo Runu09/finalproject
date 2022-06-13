@@ -56,7 +56,23 @@
 
     <!-- date-time picker js -->
     <script src="../assets/js/date-picker.js"></script>
-
+    
+    <!-- filter js -->
+    <script src="../assets/js/filter.js"></script>
+    <script src="../assets/js/isotope.min.js"></script>
+	
+	<!-- Date-time picker css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/datepicker.min.css">
+	
+	<!-- price range css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/price-range.css">
+    
+    <!-- price range js -->
+    <script src="../assets/js/price-range.js"></script>
+    
+    <!-- wow js-->
+    <script src="../assets/js/wow.min.js"></script>
+	
     <!-- footer reveal js -->
     <script src="../assets/js/footer-reveal.min.js"></script>
 
@@ -122,7 +138,7 @@
                                         <li class="dropdown">
                                             <a href="#" class="nav-link menu-title">예매</a>
                                             <ul class="nav-submenu menu-content">
-                                                <li><a href="#" class="submenu-title">항공권 예매</a></li>
+                                                <li><a href="<c:url value='/booking/flight-round-trip.do'/>" class="submenu-title">항공권 예매</a></li>
                                                 <li><a href="#" class="submenu-title">예약 조회</a></li>
                                                 <li><a href="#" class="submenu-title">항공편 현황</a></li>
                                             </ul>
