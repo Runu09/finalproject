@@ -4,7 +4,7 @@
 
 <style>
 .icon_wrap.type01{
-	padding: 20px 0;
+	padding: 10px 0;
 	border: 1px solid #ddd;
 }
 
@@ -200,17 +200,23 @@ ol {
 												</li> 
 												<li> 
 													<span class="label">03</span> 
-													<span class="icoset_m booking ico_info_03"></span> 
+													<span class="icoset_m booking ico_info_03">
+														<img alt="탑승정보 입력" src="../assets/images/탑승정보 입력.png">
+													</span> 
 													<p class="txt">탑승정보 입력</p> 
 												</li> 
 												<li> 
 													<span class="label">04</span> 
-													<span class="icoset_m booking ico_info_04"></span> 
-													<p class="txt"> <em>(좌석배정)</em><br>운임확인/결제</p> 
+													<span class="icoset_m booking ico_info_04">
+														<img alt="좌석배정/결제" src="../assets/images/좌석배정&결제.png">
+													</span> 
+													<p class="txt">좌석배정/결제</p> 
 												</li> 
 												<li> 
 													<span class="label">05</span> 
-													<span class="icoset_m booking ico_info_05"></span> 
+													<span class="icoset_m booking ico_info_05">
+														<img alt="예약완료" src="../assets/images/예약완료.png">
+													</span> 
 													<p class="txt">예약완료</p> 
 												</li> 
 											</ol>
