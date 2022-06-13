@@ -197,7 +197,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <a href="flight-round-trip.html" class="btn btn-rounded btn-sm color1 float-end">search
+                            <a href="<c:url value='/booking/flight-round-trip.do'/>" class="btn btn-rounded btn-sm color1 float-end">search
                                 now</a>
                         </div>
                     </div>
