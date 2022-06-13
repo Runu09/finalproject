@@ -59,4 +59,8 @@ public class ProjController {
 	public void lost_get() {
 		
 	}
+	@GetMapping("/member/register.do")
+	public void register_get() {
+		
+	}
 }
