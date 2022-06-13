@@ -102,8 +102,8 @@
                 <div class="col">
                     <div class="menu">
                         <div class="brand-logo">
-                            <a href="../main/main.do">
-                                <img src="../assets/images/main.png" alt=""
+                            <a href="<c:url value='/main/main.do'/>">
+                                <img src="<c:url value='/assets/images/main.png'/>" alt=""
                                     class="img-fluid blur-up lazyload">
                             </a>
                         </div>
@@ -141,7 +141,7 @@
                                         	<a href="#" class="nav-link menu-title">고객지원</a>
                                             <ul class="nav-submenu menu-content">
                                                 <li><a href="#" class="submenu-title">공지사항</a></li>
-                                                <li><a href="../customer/information.do" class="submenu-title">이용안내</a></li>
+                                                <li><a href="<c:url value='/customer/information.do'/>" class="submenu-title">이용안내</a></li>
                                                 <li><a href="#" class="submenu-title">FAQ</a></li>
                                             </ul>
                                         </li>

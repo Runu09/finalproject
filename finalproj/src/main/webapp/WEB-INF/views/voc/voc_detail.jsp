@@ -3,7 +3,7 @@
 
     <!-- breadcrumb start -->
     <section class="breadcrumb-section pt-0">
-        <img src="../assets/images/tour/inner-page/breadcrumb.jpg" class="bg-img img-fluid blur-up lazyload" alt="">
+/////        <!-- <img src="../assets/images/tour/inner-page/breadcrumb.jpg" class="bg-img img-fluid blur-up lazyload" alt=""> -->
         <div class="breadcrumb-content pt-0">
             <div>
                 <h2>blog</h2>

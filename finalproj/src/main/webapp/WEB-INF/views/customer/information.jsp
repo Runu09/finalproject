@@ -89,11 +89,7 @@ ol {
 }
 
 .icon_wrap.type01 ol li .icoset_m {
-    margin: 30px 0 25px;
-}
-
-.icoset_m.booking {
-    background-image: url(../image/common/icoset_m_booking.png);
+    margin: 30px 0 5px;
 }
 
 .icoset_m {
@@ -114,16 +110,24 @@ ol {
     text-align: center;
 }
 
-.icoset_m.booking {
-    background-image: url(../image/common/icoset_m_booking.png);
-}
-
 .icoset_m.booking.ico_info_01 {
     background-position: 0 -140px;
 }
 
 .icoset_m.booking.ico_info_02 {
     background-position: -84px -140px;
+}
+
+.icoset_m.booking.ico_info_03 {
+    background-position: -168px -140px;
+}
+
+.icoset_m.booking.ico_info_04 {
+    background-position: -252px -140px;
+}
+
+.icoset_m.booking.ico_info_05 {
+    background-position: -336px -140px;
 }
 </style>
 
@@ -182,12 +186,16 @@ ol {
 											<ol> 
 												<li> 
 													<span class="label">01</span> 
-													<span class="icoset_m booking ico_info_01"></span> 
+													<span class="icoset_m booking ico_info_01">
+														<img alt="여정선택" src="../assets/images/여정선택.png">
+													</span> 
 													<p class="txt">여정 선택</p> 
 												</li> 
 												<li> 
 													<span class="label">02</span> 
-													<span class="icoset_m booking ico_info_02"></span> 
+													<span class="icoset_m booking ico_info_02">
+														<img alt="항공편 선택" src="../assets/images/항공편 선택.png">
+													</span> 
 													<p class="txt">항공편 선택</p> 
 												</li> 
 												<li> 
