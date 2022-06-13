@@ -21,7 +21,110 @@
     width: 100%;
 }
 
+.icon_wrap > ol > li:first-child {
+    border: none;
+}
 
+.icon_wrap.col5 > ol > li {
+    width: 20%;
+}
+.icon_wrap > ol > li {
+    display: table-cell;
+    float: inherit;
+    border-left: 1px solid #ddd;
+}
+.icon_wrap > ol > li {
+    padding: 0 10px;
+}
+.icon_wrap > ol > li, .icon_wrap > dl, .icon_wrap > div {
+    position: relative;
+    float: left;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.icon_wrap.col5 > ol > li {
+    width: 20%;
+}
+.icon_wrap > ol > li {
+    display: table-cell;
+    float: inherit;
+    border-left: 1px solid #ddd;
+}
+.icon_wrap > ol > li {
+    padding: 0 10px;
+}
+.icon_wrap > ol > li, .icon_wrap > dl, .icon_wrap > div {
+    position: relative;
+    float: left;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+ol {
+    display: block;
+    list-style-type: decimal;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.icon_wrap > ol > li .label {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    text-align: center;
+    color: #555;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'latofont';
+    line-height: 47px;
+    background: #f0f0f0;
+}
+
+.icon_wrap.type01 ol li .icoset_m {
+    margin: 30px 0 25px;
+}
+
+.icoset_m.booking {
+    background-image: url(../image/common/icoset_m_booking.png);
+}
+
+.icoset_m {
+    width: 84px;
+    height: 76px;
+}
+
+.icoset_m, .icoset_s {
+    display: inline-block;
+    content: '';
+    background-repeat: no-repeat;
+}
+
+.icon_wrap > ol > li > .txt {
+    font-size: 18px;
+    line-height: 1.3;
+    color: #222;
+    text-align: center;
+}
+
+.icoset_m.booking {
+    background-image: url(../image/common/icoset_m_booking.png);
+}
+
+.icoset_m.booking.ico_info_01 {
+    background-position: 0 -140px;
+}
+
+.icoset_m.booking.ico_info_02 {
+    background-position: -84px -140px;
+}
 </style>
 
 <body>
@@ -77,16 +180,31 @@
                                     <div class="card-body">
                                         <div class="icon_wrap type01 col5 mar_b40"> 
 											<ol> 
-											<li> <span class="label">01</span> <span class="icoset_m booking ico_info_01"></span> 
-											<p class="txt">여정 선택</p> </li> 
-											<li> <span class="label">02</span> <span class="icoset_m booking ico_info_02"></span> 
-											<p class="txt">항공편 선택</p> </li> 
-											<li> <span class="label">03</span> <span class="icoset_m booking ico_info_03"></span> 
-											<p class="txt">탑승정보 입력</p> </li> 
-											<li> <span class="label">04</span> <span class="icoset_m booking ico_info_04"></span> 
-											<p class="txt"> <em>(좌석배정)</em>운임확인/결제</p> </li> 
-											<li> <span class="label">05</span> <span class="icoset_m booking ico_info_05"></span> 
-											<p class="txt">예약완료</p> </li> 
+												<li> 
+													<span class="label">01</span> 
+													<span class="icoset_m booking ico_info_01"></span> 
+													<p class="txt">여정 선택</p> 
+												</li> 
+												<li> 
+													<span class="label">02</span> 
+													<span class="icoset_m booking ico_info_02"></span> 
+													<p class="txt">항공편 선택</p> 
+												</li> 
+												<li> 
+													<span class="label">03</span> 
+													<span class="icoset_m booking ico_info_03"></span> 
+													<p class="txt">탑승정보 입력</p> 
+												</li> 
+												<li> 
+													<span class="label">04</span> 
+													<span class="icoset_m booking ico_info_04"></span> 
+													<p class="txt"> <em>(좌석배정)</em><br>운임확인/결제</p> 
+												</li> 
+												<li> 
+													<span class="label">05</span> 
+													<span class="icoset_m booking ico_info_05"></span> 
+													<p class="txt">예약완료</p> 
+												</li> 
 											</ol>
 										</div>
                                     </div>
