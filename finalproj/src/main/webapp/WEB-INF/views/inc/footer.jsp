@@ -88,7 +88,7 @@
 								<ul>
 									<li><a href="#">공지사항</a></li>
 									<li><a href="#">FAQ</a></li>
-									<li><a href="#">이용안내</a></li>
+									<li><a href="../customer/information.do">이용안내</a></li>
 								</ul>
 							</div>
 						</div>

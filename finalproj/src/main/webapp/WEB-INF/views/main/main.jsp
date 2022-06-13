@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
 
+<body>
+
  <!-- home section start -->
     <section class="cab-section flight-section home-section p-0">
         <div class="cloud">

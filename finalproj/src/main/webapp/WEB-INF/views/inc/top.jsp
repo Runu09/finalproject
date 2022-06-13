@@ -13,6 +13,7 @@
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon" />
     <title>OnAir</title>
 
+
     <!--Google font-->
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap"
@@ -21,11 +22,10 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Vampiro+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+    
     <!-- Icons -->
     <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
-
-    <!-- Icons -->
     <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
 
     <!-- Date-time picker css -->
@@ -37,12 +37,10 @@
 
     <!-- Themify icon -->
     <link rel="stylesheet" type="text/css" href="../assets/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-
-    <!-- Themify icon -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/color1.css">
@@ -51,7 +49,7 @@
     <!-- Animation -->
     <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
-
+    
 	 <!-- latest jquery-->
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/jquery-3.5.1.min.js"></script>
@@ -152,22 +150,6 @@
                             </div>
                         </nav>
                         <ul class="header-right">
-                            <li class="front-setting">
-                                <select>
-                                    <option value="volvo">USD</option>
-                                    <option value="saab">EUR</option>
-                                    <option value="opel">INR</option>
-                                    <option value="audi">AUD</option>
-                                </select>
-                            </li>
-                            <li class="front-setting">
-                                <select>
-                                    <option value="volvo">ENG</option>
-                                    <option value="saab">FRE</option>
-                                    <option value="opel">SPA</option>
-                                    <option value="audi">DUT</option>
-                                </select>
-                            </li>
                             <li class="user user-light">
                                 <a href="#">
                                     <i class="fas fa-user"></i>
