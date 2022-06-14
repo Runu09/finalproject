@@ -71,9 +71,9 @@
 					<div class="col-lg-2">
 						<div class="form-group">
 							<label>return date</label> 
-							<div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group">
 							<input placeholder="Depart Date" id="datepicker" data-type="datepicker" data-datepicker="true" class="form-control" role="input"
 								data-guid="ec8e88ed-904d-f418-4e1e-2b9c6cb6d81f" value="10/01/2019" />
+							<div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group">
 							<span class="input-group-append" role="right-icon">
 								<button class="btn btn-outline-secondary border-left-0" type="button">
 								<i class="gj-icon">
