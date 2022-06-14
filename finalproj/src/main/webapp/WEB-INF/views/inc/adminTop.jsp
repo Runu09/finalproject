@@ -96,7 +96,7 @@
                     <ul class="nav-menus">
 
                         <li> <span class="header-search"><i data-feather="search"></i></span></li>
-                        <li class="onhover-dropdown">
+                        <!-- <li class="onhover-dropdown">
                             <div class="notification-box"><i class="fa fa-bell-o"> </i><span
                                     class="badge rounded-pill badge-theme">4 </span></div>
                             <ul class="notification-dropdown onhover-show-div">
@@ -125,7 +125,7 @@
                                 </li>
                                 <li><a class="btn btn-primary" href="#">Check all notification</a></li>
                             </ul>
-                        </li>
+                        </li> -->
 
                         <li>
                             <div class="mode"><i class="fa fa-moon-o" aria-hidden="true"></i>
@@ -170,8 +170,8 @@
                                 <li class="text-center"> <a class="btn btn-primary" href="#">View All </a></li>
                             </ul>
                         </li>
-                        <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
-                                    data-feather="maximize"></i></a></li>
+                        <!-- <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
+                                    data-feather="maximize"></i></a></li> -->
                         <li class="profile-nav onhover-dropdown pe-0 me-0">
                             <div class="media profile-media">
                                 <img class="user-profile rounded-circle" src="../assets/images/users/4.jpg"
