@@ -158,7 +158,7 @@
                                             <ul class="nav-submenu menu-content">
                                                 <li><a href="#" class="submenu-title">공지사항</a></li>
                                                 <li><a href="<c:url value='/customer/information.do'/>" class="submenu-title">이용안내</a></li>
-                                                <li><a href="#" class="submenu-title">FAQ</a></li>
+                                                <li><a href="<c:url value='/customer/faq.do'/>" class="submenu-title">FAQ</a></li>
                                             </ul>
                                         </li>
                                     </ul>

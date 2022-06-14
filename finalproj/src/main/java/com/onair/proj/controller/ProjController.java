@@ -54,4 +54,10 @@ public class ProjController {
 	public String bookingRoundTrip() {
 		return "/booking/flight-round-trip";
 	}
+	
+	@RequestMapping("/customer/faq.do")
+	public String faq() {
+		return "/customer/faq";
+	}
+
 }
