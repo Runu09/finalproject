@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
 
-
     <!-- breadcrumb start -->
     <section class="breadcrumb-section flight-sec pt-0">
         <img src="../assets/images/cab/breadcrumb.jpg" class="bg-img img-fluid blur-up lazyload" alt="">
@@ -223,6 +222,8 @@
             class="btn bottom-btn theme-color">continue</button>
     </div>
     <!-- book now section end -->
+
+
 
 
 

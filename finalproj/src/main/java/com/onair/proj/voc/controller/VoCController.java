@@ -16,9 +16,9 @@ public class VoCController {
 		return "/voc/voc_list";
 	}
 	
-	@GetMapping("/voc/write")
+	@GetMapping("/voc/voc_write")
 	public String VocWrtie_get() {
 		logger.info("고객의 소리 등록하기 화면");
-		return "/voc/write";
+		return "/voc/voc_write";
 	}
 }
