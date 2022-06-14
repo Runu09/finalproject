@@ -170,6 +170,7 @@
 </section>
 <!-- team section end -->
 
-
+<!-- slick js-->
+<script src="../assets/js/slick.js"></script>
 
 <%@include file="../inc/footer.jsp"%>
