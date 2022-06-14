@@ -50,7 +50,9 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
     
-	
+    <!-- 이새별추가 -->
+	<script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>

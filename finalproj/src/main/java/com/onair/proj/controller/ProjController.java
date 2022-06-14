@@ -55,14 +55,8 @@ public class ProjController {
 	public String bookingRoundTrip() {
 		return "/booking/flight-round-trip";
 	}
-<<<<<<< HEAD
-	
-	@RequestMapping("/customer/faq.do")
-	public String faq() {
-		return "/customer/faq";
-	}
 
-=======
+	
 	@GetMapping("/lost/write.do")
 	public void lost_get() {
 		
@@ -71,5 +65,16 @@ public class ProjController {
 	public void register_get() {
 		
 	}
->>>>>>> branch 'main' of https://github.com/Runu09/finalproject.git
+	
+	@RequestMapping("/customer/faq.do")
+	public String faq() {
+		return "/customer/faq";
+	}
+	
+	@GetMapping("/member/mypage.do")
+	public void mypage_get() {
+		
+	}
+
+
 }
