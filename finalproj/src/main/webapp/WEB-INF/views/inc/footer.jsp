@@ -38,7 +38,7 @@
 								<ul>
 									<li><a href="../about/about.do">회사 소개</a></li>
 									<li><a href="#">로그인</a></li>
-									<li><a href="#">회원가입</a></li>
+									<li><a href="<c:url value='/member/register.do'/>">회원가입</a></li>
 								</ul>
 							</div>
 						</div>
