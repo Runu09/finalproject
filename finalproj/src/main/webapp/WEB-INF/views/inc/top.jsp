@@ -50,55 +50,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
     
-	 <!-- latest jquery-->
-    <script src="../assets/js/jquery-3.6.0.min.js"></script>
-    <script src="../assets/js/jquery-3.5.1.min.js"></script>
-
-    <!-- date-time picker js -->
-    <script src="../assets/js/date-picker.js"></script>
-    
-    <!-- filter js -->
-    <script src="../assets/js/filter.js"></script>
-    <script src="../assets/js/isotope.min.js"></script>
 	
-	<!-- Date-time picker css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/datepicker.min.css">
-	
-	<!-- price range css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/price-range.css">
-    
-    <!-- price range js -->
-    <script src="../assets/js/price-range.js"></script>
-    
-    <!-- wow js-->
-    <script src="../assets/js/wow.min.js"></script>
-	
-    <!-- footer reveal js -->
-    <script src="../assets/js/footer-reveal.min.js"></script>
-
-    <!-- video js-->
-    <script src="../assets/js/jquery.vide.min.js"></script>
-
-    <!-- slick js-->
-    <script src="../assets/js/slick.js"></script>
-
-    <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-
-    <!-- lazyload js-->
-    <script src="../assets/js/lazysizes.min.js"></script>
-
-    <!-- Theme js-->
-    <script src="../assets/js/script.js"></script>
-
-    <script>
-        $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap4'
-        });
-        $('#datepicker1').datepicker({
-            uiLibrary: 'bootstrap4'
-        });
-    </script>
 </head>
 
 <body>
@@ -149,7 +101,7 @@
                                         <li class="dropdown">
                                             <a href="#" class="nav-link menu-title">커뮤니티</a>
                                             <ul class="nav-submenu menu-content">
-                                                <li><a href="<c:url value='/voc/voc_detail'/>" class="submenu-title">고객의 소리</a></li>
+                                                <li><a href="<c:url value='/voc/voc_list'/>" class="submenu-title">고객의 소리</a></li>
                                                 <li><a href="#" class="submenu-title">유실물 찾기</a></li>
                                             </ul>
                                         </li>
@@ -168,7 +120,12 @@
                         <ul class="header-right">
                             <li class="user user-light">
                                 <a href="#">
-                                    <i class="fas fa-user"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" 
+	                           		width="16" height="16" fill="currentColor" 
+	                            	class="bi bi-person-circle" viewBox="0 0 16 16" color="white">
+	                            	<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+	                            	<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                            	</svg>
                                 </a>
                             </li>
                             <li class="user user-light">
@@ -176,7 +133,7 @@
 	                            	<svg xmlns="http://www.w3.org/2000/svg" 
 	                            		width="16" height="16" fill="currentColor" 
 	                            		class="bi bi-chat-left-dots-fill" viewBox="0 0 16 16" color="white">
-									  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
+										<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
 									</svg>
 								</a>
                             </li>

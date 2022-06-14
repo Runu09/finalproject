@@ -1,6 +1,7 @@
 package com.onair.proj.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -54,10 +55,21 @@ public class ProjController {
 	public String bookingRoundTrip() {
 		return "/booking/flight-round-trip";
 	}
+<<<<<<< HEAD
 	
 	@RequestMapping("/customer/faq.do")
 	public String faq() {
 		return "/customer/faq";
 	}
 
+=======
+	@GetMapping("/lost/write.do")
+	public void lost_get() {
+		
+	}
+	@GetMapping("/member/register.do")
+	public void register_get() {
+		
+	}
+>>>>>>> branch 'main' of https://github.com/Runu09/finalproject.git
 }

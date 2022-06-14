@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
 
+
 <body>
 
  <!-- home section start -->
@@ -149,12 +150,31 @@
                                 </div>
                                 <div class="form-group mb-0">
                                     <div class="row">
+                                        <!-- <div class="col">
+                                            <input placeholder="Depart Date" id="datepicker" />
+                                        </div>
+                                        <div id="dropdate" class="col">
+	                                        <div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group">
+	                                            <input placeholder="Return Date" id="datepicker1" />
+	                                            <span class="input-group-append" role="right-icon">
+	                                            	<button class="btn btn-outline-secondary border-left-0" type="button">
+	                                            		<i class="gj-icon">event</i>
+	                                           		</button>
+	                                           	</span>
+	                                        </div>
+                                        </div> -->
+                                        
+                                        
+                                        <div class="form-group mb-0">
+                                    <div class="row">
                                         <div class="col">
                                             <input placeholder="Depart Date" id="datepicker" />
                                         </div>
                                         <div id="dropdate" class="col">
                                             <input placeholder="Return Date" id="datepicker1" />
                                         </div>
+                                        
+                                        
                                         <div class="col">
                                             <div class="form-group">
                                                 <input type="text" class="form-control open-select"

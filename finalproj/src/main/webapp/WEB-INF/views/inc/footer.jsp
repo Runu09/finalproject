@@ -38,7 +38,7 @@
 								<ul>
 									<li><a href="../about/about.do">회사 소개</a></li>
 									<li><a href="#">로그인</a></li>
-									<li><a href="#">회원가입</a></li>
+									<li><a href="<c:url value='/member/register.do'/>">회원가입</a></li>
 								</ul>
 							</div>
 						</div>
@@ -149,36 +149,54 @@
 <!-- tap to top end -->
 
 
-<!-- latest jquery-->
-<script src="../assets/js/jquery-3.5.1.min.js"></script>
+ <!-- latest jquery-->
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
 
-<!-- popper js-->
-<script src="../assets/js/popper.min.js"></script>
+    <!-- date-time picker js -->
+    <script src="../assets/js/date-picker.js"></script>
+    
+    <!-- filter js -->
+    <script src="../assets/js/filter.js"></script>
+    <script src="../assets/js/isotope.min.js"></script>
+	
+	<!-- Date-time picker css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/datepicker.min.css">
+	
+	<!-- price range css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/price-range.css">
+    
+    <!-- price range js -->
+    <script src="../assets/js/price-range.js"></script>
+    
+    <!-- wow js-->
+    <script src="../assets/js/wow.min.js"></script>
+	
+    <!-- footer reveal js -->
+    <script src="../assets/js/footer-reveal.min.js"></script>
 
-<!-- video js-->
-<script src="../assets/js/jquery.vide.min.js"></script>
+    <!-- video js-->
+    <script src="../assets/js/jquery.vide.min.js"></script>
 
-<!-- tilt effect js-->
-<script src="../assets/js/tilt.jquery.js"></script>
+    <!-- slick js-->
+    <script src="../assets/js/slick.js"></script>
 
-<!-- counter js -->
-<script src="../assets/js/jquery.counterup.min.js"></script>
-<script src="../assets/js/jquery.waypoints.min.js"></script>
+    <!-- Bootstrap js-->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
-<!-- slick js-->
-<script src="../assets/js/slick.js"></script>
+    <!-- lazyload js-->
+    <script src="../assets/js/lazysizes.min.js"></script>
 
-<!-- Bootstrap js-->
-<script src="../assets/js/bootstrap.js"></script>
+    <!-- Theme js-->
+    <script src="../assets/js/script.js"></script>
 
-<!-- wow js-->
-<script src="../assets/js/wow.min.js"></script>
-
-<!-- lazyload js-->
-<script src="../assets/js/lazysizes.min.js"></script>
-
-<!-- Theme js-->
-<script src="../assets/js/script.js"></script>
+    <script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+        $('#datepicker1').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
 
 <script>
         new WOW().init();
