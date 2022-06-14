@@ -50,14 +50,42 @@
 					</div>
 					<div class="col-lg-2">
 						<div class="form-group">
-							<label>departure date</label> <input placeholder="Depart Date"
-								value="10/01/2019" id="datepicker" />
+							<label>departure date</label> 
+							<div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group">
+								<input placeholder="Depart Date" id="datepicker" data-type="datepicker" data-datepicker="true" class="form-control" role="input"
+									data-guid="495a9e46-e455-324e-6709-6c6be7cd224d" value="10/01/2019" />
+								<span class="input-group-append" role="right-icon">
+									<button class="btn btn-outline-secondary border-left-0" type="button">
+										<i class="gj-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" 
+												width="16" height="16" fill="currentColor" 
+												class="bi bi-calendar-fill" viewBox="0 0 16 16">
+												<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
+											</svg>
+										</i>
+									</button>
+								</span>	
+							</div>
 						</div>
 					</div>
 					<div class="col-lg-2">
 						<div class="form-group">
-							<label>return date</label> <input placeholder="Return Date"
-								id="datepicker1" />
+							<label>return date</label> 
+							<div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group">
+							<input placeholder="Depart Date" id="datepicker" data-type="datepicker" data-datepicker="true" class="form-control" role="input"
+								data-guid="ec8e88ed-904d-f418-4e1e-2b9c6cb6d81f" value="10/01/2019" />
+							<span class="input-group-append" role="right-icon">
+								<button class="btn btn-outline-secondary border-left-0" type="button">
+								<i class="gj-icon">
+									<svg xmlns="http://www.w3.org/2000/svg" 
+										width="16" height="16" fill="currentColor" 
+										class="bi bi-calendar-fill" viewBox="0 0 16 16">
+										<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
+									</svg>
+								</i>
+								</button>
+							</span>
+							</div>
 						</div>
 					</div>
 					<div class="col-lg-2">
