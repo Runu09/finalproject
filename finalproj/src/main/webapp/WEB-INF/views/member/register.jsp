@@ -42,7 +42,10 @@
             <div class="col-12 p-0">
                 <div class="login-card">
                     <div>
-                       
+                       <div><a class="logo" href="<c:url value='/main/main.do'/>"><img class="img-fluid for-light"
+                                    src="../assets/images/main2.png" alt="looginpage"><img
+                                    class="img-fluid for-dark" src="../assets/images/logo/logo-white.png"
+                                    alt="looginpage"></a></div>
                         <div class="login-main">
                             <form class="theme-form">
                                 <h4>회원가입</h4>
