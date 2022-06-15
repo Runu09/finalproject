@@ -34,51 +34,43 @@
                     <div class="review-section">
                         <div class="review_box">
                             <div class="title-top">
-                                <h5>contact details</h5>
+                                <h5>고객의 소리 글등록</h5>
                             </div>
                             <div class="guest-detail">
                                 <form>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col first-name">
-                                                <label>first name</label>
+                                                <label>userID</label>
                                                 <input type="text" id="firstName" class="form-control"
-                                                    placeholder="First name">
+                                                    placeholder="익명으로 가능합니다">
                                             </div>
                                             <div class="col">
-                                                <label>last name</label>
+                                                <label>Password</label>
                                                 <input type="text" id="lastName" class="form-control"
-                                                    placeholder="Last name">
+                                                    placeholder="비밀번호를 입력하세요">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Email address</label>
-                                        <input type="email" class="form-control" placeholder="Enter email">
-                                        <small id="emailHelp" class="form-text text-muted">Booking confirmation will be
-                                            sent to this email ID.</small>
+                                        <label>title</label>
+                                        <input id="mobile-no" type="tel" class="form-control"
+                                        	placeholder="제목을 입력하세요">
                                     </div>
                                     <div class="form-group">
-                                        <label>contact info</label>
-                                        <input id="mobile-no" type="tel" class="form-control">
+                                        <label for="exampleFormControlTextarea1">content</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"
+                                            placeholder="내용을 입력하세요"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">special request</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                            placeholder=""></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">have a coupon code?</label>
+                                        <label for="exampleFormControlTextarea1">첨부파일</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Promo Code">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">apply</span>
-                                            </div>
+                                            <input type="file" class="form-control">
                                         </div>
                                     </div>
                                     <div class="submit-btn">
-                                        <button type="button" onclick="window.location.href='cab-booking-payment.html';"
-                                            class="btn btn-solid">proceed to pay</button>
+                                        <button type="button" onclick="#"
+                                            class="btn btn-solid">등록하기</button>
                                     </div>
                                 </form>
                             </div>
@@ -91,21 +83,17 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="boxes">
-                                            <h6>Cancellation Charges</h6>
+                                            <h6>안녕하세요 고객님</h6>
                                             <ul>
-                                                <li>airline fee : <span>$2012</span></li>
-                                                <li>This airline allows cancellation only before 2 hrs from departure
-                                                    time.
+                                                <li>Onair를 이용해주셔서 감사합니다. Onair 직원은 누군가의 아들, 딸, 아버지, 어머니입니다.
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="boxes">
-                                            <h6>Reschedule Charges</h6>
+                                            <h6>감사합니다</h6>
                                             <ul>
-                                                <li>airline fee : <span>$2012</span></li>
-                                                <li>This airline allows reschedule only before 2 hrs from departure
-                                                    time.
-                                                </li>
+                                                <li>따뜻한 배려로 글을 남겨주세요</li>
+                                                <li>이용해주셔서 감사합니다</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -118,32 +106,20 @@
                     <div class="review-section">
                         <div class="review_box">
                             <div class="title-top">
-                                <h5>booking summery</h5>
+                                <h5>고객의 소리 전화 이용안내</h5>
                             </div>
                             <div class="flight_detail">
                                 <div class="summery_box">
                                     <table class="table table-borderless">
                                         <tbody>
                                             <tr>
-                                                <td>Itinerary :</td>
-                                                <td>Paris > Toulouse</td>
-                                            </tr>
-                                            <tr>
-                                                <td>pickup date:</td>
-                                                <td>10/01/2019, 11.35pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>return date:</td>
-                                                <td>14/01/2019</td>
-                                            </tr>
-                                            <tr>
-                                                <td>car type</td>
-                                                <td>Fiat Chrysler</td>
+                                                <td>평일 09시~18시</td>
+                                                <td>토요일 09시~17시</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <div class="grand_total">
-                                        <h5>total fare: <span>$1250</span></h5>
+                                        <h5>010-1234-5678</h5>
                                     </div>
                                 </div>
                             </div>
@@ -151,51 +127,15 @@
                         <div class="review_box">
                             <div class="flight_detail">
                                 <div class="promo-section">
-                                    <div class="form-group mb-0">
-                                        <label>have a coupon code?</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Promo Code">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">apply</span>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="promos">
                                         <form>
                                             <div class="form-check">
-                                                <input class="form-check-input radio_animated" type="radio"
-                                                    name="radiobtn" id="exampleRadios3" value="option1" checked>
                                                 <div>
                                                     <label class="form-check-label title" for="exampleRadios3">
-                                                        RICA500
+                                                        무슨말을
                                                     </label>
                                                     <label class="form-check-label" for="exampleRadios3">
-                                                        Use RICA50, and get $50 off on first booking
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input radio_animated" type="radio"
-                                                    name="radiobtn" id="exampleRadios4" value="option2">
-                                                <div>
-                                                    <label class="form-check-label title" for="exampleRadios4">
-                                                        CAB10
-                                                    </label>
-                                                    <label class="form-check-label" for="exampleRadios4">
-                                                        Use FLY10, and get 10% off upto $50 on cab ticket bookings.
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input radio_animated" type="radio"
-                                                    name="radiobtn" id="exampleRadios5" value="option2">
-                                                <div>
-                                                    <label class="form-check-label title" for="exampleRadios5">
-                                                        CAB80
-                                                    </label>
-                                                    <label class="form-check-label" for="exampleRadios5">
-                                                        Upto 80% Off + Upto 40% Cashback on Cab booking & more + Extra
-                                                        10% off via ICICI Cards (10th-13th Oct)
+                                                        넣어야할까 정말 고민입니다
                                                     </label>
                                                 </div>
                                             </div>
