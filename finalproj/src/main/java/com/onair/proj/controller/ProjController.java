@@ -16,6 +16,11 @@ public class ProjController {
 		return "/main/main";
 	}
 	
+	@RequestMapping("/customer/notice.do")
+	public String notice() {
+		return "/customer/notice";
+	}
+	
 	@RequestMapping("/customer/information.do")
 	public String information() {
 		return "/customer/information";

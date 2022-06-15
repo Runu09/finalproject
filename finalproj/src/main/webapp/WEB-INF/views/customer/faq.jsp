@@ -72,7 +72,8 @@ p {
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="pro_sticky_info" data-sticky_column>
+                    <div class="pro_sticky_info" data-sticky_column
+                    style="position: sticky; top: 50px; right: 300px;">
                         <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#general">항공권 예매</a></li>
