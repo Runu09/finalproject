@@ -32,7 +32,7 @@
                             </form> -->
                             <form>
                                 <div class="form-group">
-                                    <input type="text" class="form-control open-select" placeholder="from">
+                                    <input type="text" class="form-control open-select" placeholder="출발지">
                                     <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
                                     <div class="selector-box">
                                         <h6 class="title">popular cities</h6>
@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control open-select" placeholder="to">
+                                    <input type="text" class="form-control open-select" placeholder="도착지">
                                     <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload"
                                         alt="">
                                     <div class="selector-box">
@@ -168,17 +168,12 @@
                                         <div class="form-group mb-0">
                                     <div class="row">
                                         <div class="col">
-                                            <input placeholder="Depart Date" id="datepicker" />
+                                            <input placeholder="탑승일" id="datepicker" />
                                         </div>
-                                        <div id="dropdate" class="col">
-                                            <input placeholder="Return Date" id="datepicker1" />
-                                        </div>
-                                        
-                                        
                                         <div class="col">
                                             <div class="form-group">
                                                 <input type="text" class="form-control open-select"
-                                                    placeholder="traveller">
+                                                    placeholder="승객">
                                                 <img src="../assets/images/icon/user.png"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <div class="selector-box-flight">

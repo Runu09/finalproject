@@ -6100,10 +6100,10 @@ section .black-layer {
       .detail-section.no-bg-detail .slick-next:hover:before {
         color: rgba(239, 63, 62, 0.7); }
 
-.cloud {
+/* .cloud {
   -webkit-animation: slide 50s linear infinite;
           animation: slide 50s linear infinite;
-  background-repeat: repeat !important; }
+  background-repeat: repeat !important; } */
 
 .price-section .container-fluid {
   padding-left: 90px;
