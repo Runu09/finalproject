@@ -32,7 +32,7 @@
                 <div class="flight-search-detail">
                     <form class="row m-0">
                         <div class="col-lg-2">
-                            <div class="form-group" style="left: 20px">
+                            <div class="form-group">
                                 <label>출발지</label>
                                 <input type="text" class="form-control open-select" id="exampleInputEmail1"
                                     value="dubai(DXB)" placeholder="from">
@@ -40,21 +40,21 @@
                             </div>
                         </div>
                         <div class="col-lg-2">
-                            <div class="form-group" style="left: 65px">
+                            <div class="form-group">
                                 <label>도착지</label>
                                 <input type="text" class="form-control open-select" value="paris(PAR)" placeholder="to">
                                 <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload" alt="">
                             </div>
                         </div>
                         <div class="col-lg-2">
-                            <div class="form-group" style="left: 105px">
+                            <div class="form-group">
                                 <label>탑승일</label>
                                 <input placeholder="Depart Date" value="10/01/2019" id="datepicker" />
                             </div>
                         </div>
                         
                         <div class="col-lg-2">
-                            <div class="form-group" style="left: 145px">
+                            <div class="form-group">
                                 <label>승객 선택</label>
                                 <input type="text" class="form-control  open-select" value="1 traveller"
                                     placeholder="to">

@@ -10733,7 +10733,6 @@ section .black-layer {
   .flight-search .flight-search-detail .form-group {
     margin-bottom: 0;
     position: relative;
-    width: 115%;
     }
     .flight-search .flight-search-detail .form-group img {
       position: absolute;
@@ -10785,7 +10784,6 @@ section .black-layer {
     align-items: flex-end;
     height: 100%;
     position: relative;
-    left: 200px;
     width: 100%;
     }
     .flight-search .flight-search-detail .search-btn .btn {
