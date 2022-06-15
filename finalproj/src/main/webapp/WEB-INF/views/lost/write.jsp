@@ -60,14 +60,14 @@
 <%@include file="../inc/top.jsp"%>
 
 <!-- breadcrumb start -->
-<section class="breadcrumb-section no-bg pt-0" id="block"
-	style="width: 100%;">
-	<div class="breadcrumb-content overlay-black">
+<section class="breadcrumb-section pt-0 bg-size">
+	<!-- <img src="../assets/images/flights/flight-breadcrumb2.jpg" class="bg-img img-fluid blur-up" alt="">
+         -->
+	<div class="breadcrumb-content dark-content">
 		<div>
 			<h2>유실물 등록</h2>
 		</div>
 	</div>
-	<div class="title-breadcrumb">OnAir</div>
 </section>
 <!-- breadcrumb end -->
 
