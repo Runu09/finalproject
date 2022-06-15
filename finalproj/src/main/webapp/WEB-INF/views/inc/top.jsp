@@ -121,7 +121,7 @@
                         </nav>
                         <ul class="header-right">
                             <li class="user user-light">
-                                <a href="#">
+                                <a href="<c:url value='/member/mypage.do'/>">
                                 <svg xmlns="http://www.w3.org/2000/svg" 
 	                           		width="16" height="16" fill="currentColor" 
 	                            	class="bi bi-person-circle" viewBox="0 0 16 16" color="white">
