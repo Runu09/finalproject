@@ -4,7 +4,7 @@
 
 <!-- breadcrumb start -->
 <section class="breadcrumb-section small-sec pt-0">
-	<img src="../assets/images/flights/flight-breadcrumb2.jpg"
+	<img src="http://themes.pixelstrap.com/rica/assets/images/flights/flight-breadcrumb2.jpg"
 		class="bg-img img-fluid blur-up lazyload" alt="">
 </section>
 <!-- breadcrumb end -->
@@ -26,14 +26,14 @@
                         <span>2 Adults</span>
                     </div>
                     <div class="modify-search">
-                        <a href="javascript:void(0)" class="btn btn-solid color1"> modify search</a>
+                        <a href="javascript:void(0)" class="btn btn-solid color1"> 상세검색</a>
                     </div>
                 </div>
                 <div class="flight-search-detail">
                     <form class="row m-0">
                         <div class="col-lg-2">
                             <div class="form-group">
-                                <label>from</label>
+                                <label>출발지</label>
                                 <input type="text" class="form-control open-select" id="exampleInputEmail1"
                                     value="dubai(DXB)" placeholder="from">
                                 <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
@@ -41,33 +41,33 @@
                         </div>
                         <div class="col-lg-2">
                             <div class="form-group">
-                                <label>to</label>
+                                <label>도착지</label>
                                 <input type="text" class="form-control open-select" value="paris(PAR)" placeholder="to">
                                 <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload" alt="">
                             </div>
                         </div>
                         <div class="col-lg-2">
                             <div class="form-group">
-                                <label>departure date</label>
+                                <label>가는 날</label>
                                 <input placeholder="Depart Date" value="10/01/2019" id="datepicker" />
                             </div>
                         </div>
                         <div class="col-lg-2">
                             <div class="form-group">
-                                <label>return date</label>
+                                <label>오는 날</label>
                                 <input placeholder="Return Date" id="datepicker1" />
                             </div>
                         </div>
                         <div class="col-lg-2">
                             <div class="form-group">
-                                <label>traveller & class</label>
+                                <label>승객 선택</label>
                                 <input type="text" class="form-control  open-select" value="1 traveller"
                                     placeholder="to">
                                 <img src="../assets/images/icon/user.png" class="img-fluid blur-up lazyload" alt="">
                                 <div class="selector-box-flight">
                                     <div class="room-cls">
                                         <div class="qty-box">
-                                            <label>adult</label>
+                                            <label>성인</label>
                                             <div class="input-group">
                                                 <button type="button" class="btn quantity-left-minus" data-type="minus"
                                                     data-field=""> - </button>
@@ -78,7 +78,7 @@
                                             </div>
                                         </div>
                                         <div class="qty-box">
-                                            <label>children</label>
+                                            <label>소아</label>
                                             <div class="input-group">
                                                 <button type="button" class="btn quantity-left-minus" data-type="minus"
                                                     data-field=""> - </button>
@@ -89,29 +89,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flight-class">
-                                        <div class="form-check">
-                                            <input class="form-check-input radio_animated" type="radio"
-                                                name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                            <label class="form-check-label" for="exampleRadios1">
-                                                economy
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input radio_animated" type="radio"
-                                                name="exampleRadios" id="exampleRadios2" value="option2">
-                                            <label class="form-check-label" for="exampleRadios2">
-                                                premium
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input radio_animated" type="radio"
-                                                name="exampleRadios" id="exampleRadios3" value="option3">
-                                            <label class="form-check-label" for="exampleRadios3">
-                                                business
-                                            </label>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="bottom-part">
                                         <a href="javascript:void(0)" class="btn">apply</a>
                                     </div>
@@ -1047,10 +1025,9 @@
 			<div class="col-md-4 col-12">
 				<div class="grand-total">
 					<h5 class="total">
-						grand total : <span>$2400</span>
+						예상 결제 금액 : <span>$2400</span>
 					</h5>
-					<a href="<c:url value='/booking/flight-booking.do'/>" class="btn btn-solid color1">book
-						now</a>
+					<a href="<c:url value='/booking/flight-booking.do'/>" class="btn btn-solid color1">예매하기</a>
 				</div>
 			</div>
 		</div>
