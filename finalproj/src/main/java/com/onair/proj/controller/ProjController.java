@@ -55,7 +55,7 @@ public class ProjController {
 	public String bookingRoundTrip() {
 		return "/booking/flight-round-trip";
 	}
-	
+
 	@GetMapping("/lost/write.do")
 	public void lost_get() {	
 	}
@@ -68,4 +68,16 @@ public class ProjController {
 	@GetMapping("/member/register.do")
 	public void register_get() {	
 	}
+	
+	@RequestMapping("/customer/faq.do")
+	public String faq() {
+		return "/customer/faq";
+	}
+	
+	@GetMapping("/member/mypage.do")
+	public void mypage_get() {
+		
+	}
+
+
 }

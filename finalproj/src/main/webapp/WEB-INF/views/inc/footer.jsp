@@ -87,7 +87,7 @@
 							<div class="footer-links">
 								<ul>
 									<li><a href="#">공지사항</a></li>
-									<li><a href="#">FAQ</a></li>
+									<li><a href="<c:url value='/customer/faq.do'/>">FAQ</a></li>
 									<li><a href="../customer/information.do">이용안내</a></li>
 								</ul>
 							</div>

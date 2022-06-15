@@ -50,7 +50,9 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
     
-	
+    <!-- 이새별추가 -->
+	<script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
@@ -110,7 +112,7 @@
                                             <ul class="nav-submenu menu-content">
                                                 <li><a href="#" class="submenu-title">공지사항</a></li>
                                                 <li><a href="<c:url value='/customer/information.do'/>" class="submenu-title">이용안내</a></li>
-                                                <li><a href="#" class="submenu-title">FAQ</a></li>
+                                                <li><a href="<c:url value='/customer/faq.do'/>" class="submenu-title">FAQ</a></li>
                                             </ul>
                                         </li>
                                     </ul>
