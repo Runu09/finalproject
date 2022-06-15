@@ -11,8 +11,8 @@
     <meta name="description"content="Rica admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Rica admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="../admin/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../admin/images/favicon.png" type="image/x-icon">
     <title>OnAir</title>
     <!-- Google font-->
     <link
@@ -20,33 +20,33 @@
         rel="stylesheet">
 
     <!-- FontAsowme css start  -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../admin/css/font-awesome.css">
 
     <!-- Themify icon-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
+    <link rel="stylesheet" type="text/css" href="../admin/css/vendors/themify.css">
     <!-- ratio start -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/ratio.css">
+    <link rel="stylesheet" type="text/css" href="../admin/css/ratio.css">
 
     <!-- Feather icon-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
+    <link rel="stylesheet" type="text/css" href="../admin/css/vendors/feather-icon.css">
     <!-- Plugins css start-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
+    <link rel="stylesheet" type="text/css" href="../admin/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../admin/css/vendors/animate.css">
     <!-- Plugins css Ends-->
     <!-- datepicker -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/date-picker.css">
+    <link rel="stylesheet" type="text/css" href="../admin/css/vendors/date-picker.css">
     <!-- Bootstrap css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../admin/css/vendors/bootstrap.css">
     <!-- vector map css start -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vector-map.css">
+    <link rel="stylesheet" type="text/css" href="../admin/css/vector-map.css">
     <!-- vector map css start -->
     <!-- slick slider-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="../admin/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="../admin/css/slick-theme.css">
     <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../admin/css/style.css">
     <!-- Responsive css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../admin/css/responsive.css">
 </head>
 
 <body>
@@ -54,7 +54,7 @@
 
     <!-- pre-loader start -->
     <div class="loader-wrapper">
-        <img src="../assets/images/loader/loader.gif" alt="loader gif">
+        <img src="../admin/images/loader/loader.gif" alt="loader gif">
     </div>
     <!-- pre-loader End -->
 
@@ -69,15 +69,15 @@
 
                 <div class="header-logo-wrapper col-auto p-0">
                     <div class="logo-wrapper"><a href="<c:url value='/admin/adminMain'/>"><img class="img-fluid main-logo"
-                                src="../assets/images/main2.png" alt="logo">
-                            <img class="img-fluid white-logo" src="../assets/images/logo/logo-white.png" alt="logo"></a>
+                                src="../admin/images/main2.png" alt="logo">
+                            <img class="img-fluid white-logo" src="../admin/images/main.png" alt="logo"></a>
                     </div>
                     <!-- <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle"
                             data-feather="align-center"></i>
                     </div> -->
                 </div>
 
-                <form class="form-inline search-full col " action="#" method="get">
+<!--                 <form class="form-inline search-full col " action="#" method="get">
                     <div class="form-group w-100">
                         <div class="Typeahead Typeahead--twitterUsers">
                             <div class="u-posRelative">
@@ -91,7 +91,7 @@
                             <div class="Typeahead-menu"></div>
                         </div>
                     </div>
-                </form>
+                </form> -->
                 <div class="nav-right col-4 pull-right right-header p-0">
                     <ul class="nav-menus">
 
@@ -135,36 +135,26 @@
                         <li class="onhover-dropdown"><i data-feather="message-square"></i>
                             <ul class="chat-dropdown onhover-show-div">
                                 <li><i data-feather="message-square"></i>
-                                    <h6 class="f-18 mb-0">Message Box </h6>
+                                    <h6 class="f-18 mb-0">쪽지</h6>
                                 </li>
                                 <li>
                                     <div class="media"><img class="img-fluid rounded-circle me-3"
-                                            src="../assets/images/user/1.jpg" alt="user1">
+                                            src="../admin/images/user/1.jpg" alt="user1">
                                         <div class="status-circle online"></div>
-                                        <div class="media-body"><span>Erica Hughes</span>
-                                            <p>Lorem Ipsum is simply dummy...</p>
+                                        <div class="media-body"><span>관욱</span>
+                                            <p>반갑습니다.</p>
                                         </div>
-                                        <p class="f-12 font-success">58 mins ago</p>
+                                        <p class="f-12 font-success">방금 전</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="media"><img class="img-fluid rounded-circle me-3"
-                                            src="../assets/images/user/2.jpg" alt="user2">
+                                            src="../admin/images/user/2.jpg" alt="user2">
                                         <div class="status-circle online"></div>
-                                        <div class="media-body"><span>Kori Thomas</span>
-                                            <p>Lorem Ipsum is simply dummy...</p>
+                                        <div class="media-body"><span>수창</span>
+                                            <p>안녕하세요</p>
                                         </div>
-                                        <p class="f-12 font-success">1 hr ago</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media"><img class="img-fluid rounded-circle me-3"
-                                            src="../assets/images/user/4.jpg" alt="user3">
-                                        <div class="status-circle offline"></div>
-                                        <div class="media-body"><span>Ain Chavez</span>
-                                            <p>Lorem Ipsum is simply dummy...</p>
-                                        </div>
-                                        <p class="f-12 font-danger">32 mins ago</p>
+                                        <p class="f-12 font-success">1시간 전</p>
                                     </div>
                                 </li>
                                 <li class="text-center"> <a class="btn btn-primary" href="#">View All </a></li>
@@ -174,20 +164,20 @@
                                     data-feather="maximize"></i></a></li> -->
                         <li class="profile-nav onhover-dropdown pe-0 me-0">
                             <div class="media profile-media">
-                                <img class="user-profile rounded-circle" src="../assets/images/users/4.jpg"
+                                <img class="user-profile rounded-circle" src="../admin/images/users/4.jpg"
                                     alt="profile-picture">
-                                <div class="user-name-hide media-body"><span>Emay Walter</span>
+                                <div class="user-name-hide media-body"><span>김 관 리</span>
                                     <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
                                 </div>
                             </div>
                             <ul class="profile-dropdown onhover-show-div">
-                                <li><a href="#"><i data-feather="user"></i><span>Account </span></a></li>
-                                <li><a href="#"><i data-feather="mail"></i><span>Inbox</span></a></li>
-                                <li><a href="#"><i data-feather="file-text"></i><span>Taskboard</span></a></li>
-                                <li><a href="#"><i data-feather="settings"></i><span>Settings</span></a></li>
+                                <li><a href="#"><i data-feather="user"></i><span>계정</span></a></li>
+                                <li><a href="#"><i data-feather="mail"></i><span>쪽지함</span></a></li>
+                                <li><a href="#"><i data-feather="file-text"></i><span>공지사항</span></a></li>
+                                <!-- <li><a href="#"><i data-feather="settings"></i><span>Settings</span></a></li> -->
                                 <li><a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                        href="javascript:void(0)"><i data-feather="log-out"> </i><span>Log
-                                            out</span></a></li>
+                                        href="javascript:void(0)"><i data-feather="log-out"> </i>
+                                        <span>로그아웃</span></a></li>
 
                             </ul>
                         </li>
@@ -219,29 +209,29 @@
                             </i></div>
                     </div>
                     <div class="logo-icon-wrapper"><a href="<c:url value='/admin/adminMain'/>"><img class="img-fluid"
-                                src="../assets/images/logo/logo-icon.png" alt=""></a></div>
+                                src="../admin/images/logo/logo-icon.png" alt=""></a></div>
                     <nav class="sidebar-main">
                         <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
                         <div id="sidebar-menu">
                             <ul class="sidebar-links" id="simple-bar">
                                 <li class="back-btn"><a href="index.html"><img class="img-fluid"
-                                            src="../assets/images/logo/logo-icon.png" alt=""></a>
+                                            src="../admin/images/logo/logo-icon.png" alt=""></a>
                                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
                                             aria-hidden="true"></i></div>
                                 </li>
 
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="<c:url value='/admin/adminMain'/>"><i data-feather="home"> </i><span>홈</span></a></li>
-                                <li class="sidebar-list">
+                                <%-- <li class="sidebar-list">
                                     <a class="sidebar-link sidebar-title" href="#"><i
                                             data-feather="users"></i><span>유저 </span></a>
                                     <ul class="sidebar-submenu">
                                         <li><a href="<c:url value='/admin/allUser'/>">유저 조회</a></li>
                                         <li><a href="<c:url value='/admin/allUser'/>">관리자 추가</a></li>
                                     </ul>
-                                </li>
+                                </li> --%>
 
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i
+                                <!-- <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i
                                             data-feather="map"></i><span>Tour Packages</span></a>
                                     <ul class="sidebar-submenu">
                                         <li><a href="all-packages.html">All Packages</a></li>
@@ -250,9 +240,9 @@
                                         <li><a href="all-package-categories.html">All Package Categories</a></li>
                                         <li><a href="add-package-category.html">Add Package Category</a></li>
                                     </ul>
-                                </li>
+                                </li> -->
 
-                                <li class="sidebar-list">
+                               <!--  <li class="sidebar-list">
                                     <a class="linear-icon-link sidebar-link sidebar-title" href="#"><i
                                             data-feather="briefcase"></i><span>hotel
                                         </span></a>
@@ -287,25 +277,31 @@
                                         <li><a href="all-drivers.html">All Drivers</a></li>
                                         <li><a href="add-driver.html">Add Drivers</a></li>
                                     </ul>
-                                </li>
+                                </li> -->
 
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="booking.html"><i data-feather="bookmark"> </i><span>Booking</span></a>
+                                        href=""<c:url value='/admin/allUser'/>"><i data-feather="users"> </i><span>유저</span></a>
+                                </li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
+                                        href="<c:url value='/admin/adminRegister'/>"><i data-feather="plus-circle"> </i><span>관리자</span></a>
+                                </li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
+                                        href="booking.html"><i data-feather="bookmark"> </i><span>예약</span></a>
                                 </li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="reviews.html"><i data-feather="message-square">
-                                        </i><span>Reviews</span></a></li>
+                                        </i><span>쪽지함</span></a></li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
+                                        href="reviews.html"><i data-feather="file-text">
+                                        </i><span>공지사항</span></a></li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="setting.html"><i data-feather="settings"> </i><span>Setting</span></a>
                                 </li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="<c:url value='/admin/adminLogin'/>"><i data-feather="log-in"> </i><span>관리자 로그인</span></a>
-                                </li>
+
 
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="<c:url value='/admin/adminRegister'/>"><i data-feather="plus-circle"> </i><span>회원가입</span></a>
+                                        href="<c:url value='#'/>"><i data-feather="log-out"> </i><span>로그아웃</span></a>
                                 </li>
-
 
 
                             </ul>
