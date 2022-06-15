@@ -30,11 +30,17 @@
 
     <!-- Date-time picker css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/datepicker.min.css">
-
+	
+	<!-- fare calender -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/fare-calender.css">
+	
     <!--Slick slider css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/slick.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/slick-theme.css">
-
+	
+	<!-- price range css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/price-range.css">
+	
     <!-- Themify icon -->
     <link rel="stylesheet" type="text/css" href="../assets/css/magnific-popup.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
@@ -50,55 +56,14 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
     
-	 <!-- latest jquery-->
-    <script src="../assets/js/jquery-3.6.0.min.js"></script>
-    <script src="../assets/js/jquery-3.5.1.min.js"></script>
-
-    <!-- date-time picker js -->
-    <script src="../assets/js/date-picker.js"></script>
-    
-    <!-- filter js -->
-    <script src="../assets/js/filter.js"></script>
-    <script src="../assets/js/isotope.min.js"></script>
-	
-	<!-- Date-time picker css -->
+    <!-- Date-time picker css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/datepicker.min.css">
 	
 	<!-- price range css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/price-range.css">
     
-    <!-- price range js -->
-    <script src="../assets/js/price-range.js"></script>
     
-    <!-- wow js-->
-    <script src="../assets/js/wow.min.js"></script>
-	
-    <!-- footer reveal js -->
-    <script src="../assets/js/footer-reveal.min.js"></script>
 
-    <!-- video js-->
-    <script src="../assets/js/jquery.vide.min.js"></script>
-
-    <!-- slick js-->
-    <script src="../assets/js/slick.js"></script>
-
-    <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-
-    <!-- lazyload js-->
-    <script src="../assets/js/lazysizes.min.js"></script>
-
-    <!-- Theme js-->
-    <script src="../assets/js/script.js"></script>
-
-    <script>
-        $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap4'
-        });
-        $('#datepicker1').datepicker({
-            uiLibrary: 'bootstrap4'
-        });
-    </script>
 </head>
 
 <body>
@@ -150,7 +115,7 @@
                                             <a href="#" class="nav-link menu-title">커뮤니티</a>
                                             <ul class="nav-submenu menu-content">
                                                 <li><a href="<c:url value='/voc/voc_list'/>" class="submenu-title">고객의 소리</a></li>
-                                                <li><a href="#" class="submenu-title">유실물 찾기</a></li>
+                                                <li><a href="<c:url value='/lost/list.do'/>" class="submenu-title">유실물 찾기</a></li>
                                             </ul>
                                         </li>
                                         <li class="dropdown">
@@ -158,7 +123,7 @@
                                             <ul class="nav-submenu menu-content">
                                                 <li><a href="#" class="submenu-title">공지사항</a></li>
                                                 <li><a href="<c:url value='/customer/information.do'/>" class="submenu-title">이용안내</a></li>
-                                                <li><a href="#" class="submenu-title">FAQ</a></li>
+                                                <li><a href="<c:url value='/customer/faq.do'/>" class="submenu-title">FAQ</a></li>
                                             </ul>
                                         </li>
                                     </ul>

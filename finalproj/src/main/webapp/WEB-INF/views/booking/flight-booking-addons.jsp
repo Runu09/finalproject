@@ -4,17 +4,17 @@
 
 <!-- breadcrumb start -->
     <section class="breadcrumb-section small-sec flight-sec pt-0">
-        <img src="../assets/images/flights/flight-breadcrumb2.jpg" class="bg-img img-fluid blur-up lazyload" alt="">
+        <img src="http://themes.pixelstrap.com/rica/assets/images/flights/flight-breadcrumb2.jpg" class="bg-img img-fluid blur-up lazyload" alt="">
         <div class="content-bottom">
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <nav aria-label="breadcrumb" class="theme-breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="<c:url value='/main/main.do'/>">Home</a></li>
-                                <li class="breadcrumb-item"><a href="<c:url value='/booking/flight-round-trip.do'/>">flights</a></li>
-                                <li class="breadcrumb-item"><a href="<c:url value='/booking/flight-booking.do'/>">review</a></li>
-                                <li class="breadcrumb-item active">addons</li>
+                                <li class="breadcrumb-item"><a href="<c:url value='/main/main.do'/>">홈</a></li>
+                                <li class="breadcrumb-item"><a href="<c:url value='/booking/flight-round-trip.do'/>">항공편검색</a></li>
+                                <li class="breadcrumb-item"><a href="<c:url value='/booking/flight-booking.do'/>">예매</a></li>
+                                <li class="breadcrumb-item active">좌석선택</li>
                             </ol>
                         </nav>
                     </div>
@@ -33,7 +33,7 @@
                     <div class="review-section">
                         <div class="review_box">
                             <div class="title-top">
-                                <h5>add more for your trip</h5>
+                                <h5>좌석 및 수하물 추가</h5>
                             </div>
                             <div class="flight_detail">
                                 <div class="row">
@@ -46,7 +46,7 @@
                                                             data-bs-toggle="collapse" data-bs-target="#collapseTwo"
                                                             aria-expanded="false" aria-controls="collapseTwo">
                                                             <img src="../assets/images/icon/seat.png" alt=""
-                                                                class="img-fluid blur-up lazyload"> select seats
+                                                                class="img-fluid blur-up lazyload"> 좌석선택
                                                         </button>
                                                     </h2>
                                                 </div>
@@ -57,15 +57,15 @@
                                                             <ul>
                                                                 <li>
                                                                     <div class="box taken"></div>
-                                                                    <h6>taken</h6>
+                                                                    <h6>선택불가좌석</h6>
                                                                 </li>
                                                                 <li>
                                                                     <div class="box selected"></div>
-                                                                    <h6>selected</h6>
+                                                                    <h6>선택좌석</h6>
                                                                 </li>
                                                                 <li>
                                                                     <div class="box available"></div>
-                                                                    <h6>available</h6>
+                                                                    <h6>선택가능좌석</h6>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -368,225 +368,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="card">
-                                                <div class="card-header" id="headingOne">
-                                                    <h2 class="mb-0">
-                                                        <button class="btn btn-link" type="button"
-                                                            data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                                                            aria-expanded="true" aria-controls="collapseOne">
-                                                            <img src="../assets/images/icon/sandwich.png" alt=""
-                                                                class="img-fluid blur-up lazyload"> Add inflight Meals
-                                                        </button>
-                                                    </h2>
-                                                </div>
-                                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                                                    data-bs-parent="#accordionExample">
-                                                    <div class="card-body order-menu-section">
-                                                        <div class="order-section">
-                                                            <div class="order-items">
-                                                                <div class="items non-veg">
-                                                                    <h6>Barbaresca Pasta</h6>
-                                                                    <p>Spinach ravioli with combination sauce, broccoli,
-                                                                        zucchini.</p>
-                                                                    <h5>$10.00</h5>
-                                                                    <div class="addtocart_btn">
-                                                                        <button class="add-button add_cart"
-                                                                            title="Add to cart" tabindex="0">
-                                                                            add
-                                                                        </button>
-                                                                        <div class="qty-box cart_qty">
-                                                                            <div class="input-group">
-                                                                                <button type="button"
-                                                                                    class="btn qty-left-minus"
-                                                                                    data-type="minus" data-field=""
-                                                                                    tabindex="0">
-                                                                                    <i class="fa fa-minus"
-                                                                                        aria-hidden="true"></i>
-                                                                                </button>
-                                                                                <input type="text" name="quantity"
-                                                                                    class="form-control input-number qty-input"
-                                                                                    value="1" tabindex="0">
-                                                                                <button type="button"
-                                                                                    class="btn qty-right-plus"
-                                                                                    data-type="plus" data-field=""
-                                                                                    tabindex="0">
-                                                                                    <i class="fa fa-plus"
-                                                                                        aria-hidden="true"></i>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="items non-veg">
-                                                                    <h6>Sprouts Salad</h6>
-                                                                    <p>Tomato, cucumber, peppers, olives, onion, feta,
-                                                                        iceberg lettuce.</p>
-                                                                    <h5>$10.00</h5>
-                                                                    <div class="addtocart_btn">
-                                                                        <button class="add-button add_cart"
-                                                                            title="Add to cart" tabindex="0">
-                                                                            add
-                                                                        </button>
-                                                                        <div class="qty-box cart_qty">
-                                                                            <div class="input-group">
-                                                                                <button type="button"
-                                                                                    class="btn qty-left-minus"
-                                                                                    data-type="minus" data-field=""
-                                                                                    tabindex="0">
-                                                                                    <i class="fa fa-minus"
-                                                                                        aria-hidden="true"></i>
-                                                                                </button>
-                                                                                <input type="text" name="quantity"
-                                                                                    class="form-control input-number qty-input"
-                                                                                    value="1" tabindex="0">
-                                                                                <button type="button"
-                                                                                    class="btn qty-right-plus"
-                                                                                    data-type="plus" data-field=""
-                                                                                    tabindex="0">
-                                                                                    <i class="fa fa-plus"
-                                                                                        aria-hidden="true"></i>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="items veg">
-                                                                    <h6>Barbaresca Pasta</h6>
-                                                                    <p>Spinach ravioli with combination sauce, broccoli,
-                                                                        zucchini.</p>
-                                                                    <h5>$10.00</h5>
-                                                                    <div class="addtocart_btn">
-                                                                        <button class="add-button add_cart"
-                                                                            title="Add to cart" tabindex="0">
-                                                                            add
-                                                                        </button>
-                                                                        <div class="qty-box cart_qty">
-                                                                            <div class="input-group">
-                                                                                <button type="button"
-                                                                                    class="btn qty-left-minus"
-                                                                                    data-type="minus" data-field=""
-                                                                                    tabindex="0">
-                                                                                    <i class="fa fa-minus"
-                                                                                        aria-hidden="true"></i>
-                                                                                </button>
-                                                                                <input type="text" name="quantity"
-                                                                                    class="form-control input-number qty-input"
-                                                                                    value="1" tabindex="0">
-                                                                                <button type="button"
-                                                                                    class="btn qty-right-plus"
-                                                                                    data-type="plus" data-field=""
-                                                                                    tabindex="0">
-                                                                                    <i class="fa fa-plus"
-                                                                                        aria-hidden="true"></i>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="items veg">
-                                                                    <h6>Sprouts Salad</h6>
-                                                                    <p>Tomato, cucumber, peppers, olives, onion, feta,
-                                                                        iceberg lettuce.</p>
-                                                                    <h5>$10.00</h5>
-                                                                    <div class="addtocart_btn">
-                                                                        <button class="add-button add_cart"
-                                                                            title="Add to cart" tabindex="0">
-                                                                            add
-                                                                        </button>
-                                                                        <div class="qty-box cart_qty">
-                                                                            <div class="input-group">
-                                                                                <button type="button"
-                                                                                    class="btn qty-left-minus"
-                                                                                    data-type="minus" data-field=""
-                                                                                    tabindex="0">
-                                                                                    <i class="fa fa-minus"
-                                                                                        aria-hidden="true"></i>
-                                                                                </button>
-                                                                                <input type="text" name="quantity"
-                                                                                    class="form-control input-number qty-input"
-                                                                                    value="1" tabindex="0">
-                                                                                <button type="button"
-                                                                                    class="btn qty-right-plus"
-                                                                                    data-type="plus" data-field=""
-                                                                                    tabindex="0">
-                                                                                    <i class="fa fa-plus"
-                                                                                        aria-hidden="true"></i>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="items veg">
-                                                                    <h6>Barbaresca Pasta</h6>
-                                                                    <p>Spinach ravioli with combination sauce, broccoli,
-                                                                        zucchini.</p>
-                                                                    <h5>$10.00</h5>
-                                                                    <div class="addtocart_btn">
-                                                                        <button class="add-button add_cart"
-                                                                            title="Add to cart" tabindex="0">
-                                                                            add
-                                                                        </button>
-                                                                        <div class="qty-box cart_qty">
-                                                                            <div class="input-group">
-                                                                                <button type="button"
-                                                                                    class="btn qty-left-minus"
-                                                                                    data-type="minus" data-field=""
-                                                                                    tabindex="0">
-                                                                                    <i class="fa fa-minus"
-                                                                                        aria-hidden="true"></i>
-                                                                                </button>
-                                                                                <input type="text" name="quantity"
-                                                                                    class="form-control input-number qty-input"
-                                                                                    value="1" tabindex="0">
-                                                                                <button type="button"
-                                                                                    class="btn qty-right-plus"
-                                                                                    data-type="plus" data-field=""
-                                                                                    tabindex="0">
-                                                                                    <i class="fa fa-plus"
-                                                                                        aria-hidden="true"></i>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="items veg">
-                                                                    <h6>Sprouts Salad</h6>
-                                                                    <p>Tomato, cucumber, peppers, olives, onion, feta,
-                                                                        iceberg lettuce.</p>
-                                                                    <h5>$10.00</h5>
-                                                                    <div class="addtocart_btn">
-                                                                        <button class="add-button add_cart"
-                                                                            title="Add to cart" tabindex="0">
-                                                                            add
-                                                                        </button>
-                                                                        <div class="qty-box cart_qty">
-                                                                            <div class="input-group">
-                                                                                <button type="button"
-                                                                                    class="btn qty-left-minus"
-                                                                                    data-type="minus" data-field=""
-                                                                                    tabindex="0">
-                                                                                    <i class="fa fa-minus"
-                                                                                        aria-hidden="true"></i>
-                                                                                </button>
-                                                                                <input type="text" name="quantity"
-                                                                                    class="form-control input-number qty-input"
-                                                                                    value="1" tabindex="0">
-                                                                                <button type="button"
-                                                                                    class="btn qty-right-plus"
-                                                                                    data-type="plus" data-field=""
-                                                                                    tabindex="0">
-                                                                                    <i class="fa fa-plus"
-                                                                                        aria-hidden="true"></i>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                           
                                             <div class="card">
                                                 <div class="card-header" id="headingThree">
                                                     <h2 class="mb-0">
@@ -594,7 +376,7 @@
                                                             data-bs-toggle="collapse" data-bs-target="#collapseThree"
                                                             aria-expanded="false" aria-controls="collapseThree">
                                                             <img src="../assets/images/icon/suitcase.png" alt=""
-                                                                class="img-fluid blur-up lazyload"> additional baggage
+                                                                class="img-fluid blur-up lazyload"> 추가 수하물
                                                         </button>
                                                     </h2>
                                                 </div>
@@ -604,7 +386,7 @@
                                                         <div class="order-section">
                                                             <div class="order-items">
                                                                 <div class="items">
-                                                                    <h6>additional 5 KG</h6>
+                                                                    <h6>5 KG</h6>
                                                                     <h5>$10.00</h5>
                                                                     <div class="addtocart_btn">
                                                                         <button class="add-button add_cart"
@@ -614,7 +396,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="items">
-                                                                    <h6>additional 7 KG</h6>
+                                                                    <h6>7 KG</h6>
                                                                     <h5>$15.00</h5>
                                                                     <div class="addtocart_btn">
                                                                         <button class="add-button add_cart"
@@ -624,7 +406,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="items">
-                                                                    <h6>additional 10 KG</h6>
+                                                                    <h6>10 KG</h6>
                                                                     <h5>$20.00</h5>
                                                                     <div class="addtocart_btn">
                                                                         <button class="add-button add_cart"
@@ -634,7 +416,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="items">
-                                                                    <h6>additional 15 KG</h6>
+                                                                    <h6>15 KG</h6>
                                                                     <h5>$25.00</h5>
                                                                     <div class="addtocart_btn">
                                                                         <button class="add-button add_cart"
@@ -644,7 +426,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="items">
-                                                                    <h6>additional 20 KG</h6>
+                                                                    <h6>20 KG</h6>
                                                                     <h5>$30.00</h5>
                                                                     <div class="addtocart_btn">
                                                                         <button class="add-button add_cart"
@@ -670,45 +452,34 @@
                         <div class="review-section">
                             <div class="review_box">
                                 <div class="title-top">
-                                    <h5>travel addons</h5>
+                                    <h5>예매정보</h5>
                                 </div>
                                 <div class="flight_detail">
                                     <div class="summery_box">
                                         <table class="table table-borderless">
                                             <tbody>
                                                 <tr>
-                                                    <td>flight fare</td>
+                                                    <td>항공편</td>
                                                     <td>$2500</td>
                                                 </tr>
                                                 <tr class="title">
-                                                    <td>additional baggage</td>
+                                                    <td>추가 수하물</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>additional 15kg</td>
+                                                    <td>15kg</td>
                                                     <td>+ $25</td>
                                                 </tr>
                                                 <tr class="title">
-                                                    <td>inflight meals</td>
+                                                    <td>좌석</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>veg meal X (1)</td>
-                                                    <td>+ $18</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>non-veg meal X (1)</td>
-                                                    <td>+ $18</td>
-                                                </tr>
-                                                <tr class="title">
-                                                    <td>seats</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>seat(10D)</td>
+                                                    <td>좌석(10D)</td>
                                                     <td>+ $5</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                         <div class="grand_total">
-                                            <h5>grand total: <span>$2750</span></h5>
+                                            <h5>예상 결제 금액: <span>$2750</span></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -736,8 +507,8 @@
                 </div>
             </div>
             <div class="continue-btn">
-                <button class="btn btn-solid" onclick="window.location.href='flight-booking-payment.html'"
-                    type="submit">make payment</button>
+                <button class="btn btn-solid" onclick="window.location.href='<c:url value="/booking/flight-booking-payment.do"/>'"
+                    type="submit">결제하기</button>
             </div>
         </div>
     </section>
@@ -746,7 +517,7 @@
 
     <!-- book now section start -->
     <div class="book-panel">
-        <h6 class="mb-0 text">grand total : <span>$2750</span></h6>
+        <h6 class="mb-0 text">결제금액 : <span>$2750</span></h6>
         <button type="button" onclick="window.location.href='flight-booking-payment.html'"
             class="btn bottom-btn theme-color">make payment</button>
     </div>

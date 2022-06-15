@@ -32,7 +32,7 @@
                             </form> -->
                             <form>
                                 <div class="form-group">
-                                    <input type="text" class="form-control open-select" placeholder="from">
+                                    <input type="text" class="form-control open-select" placeholder="출발지">
                                     <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
                                     <div class="selector-box">
                                         <h6 class="title">popular cities</h6>
@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control open-select" placeholder="to">
+                                    <input type="text" class="form-control open-select" placeholder="도착지">
                                     <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload"
                                         alt="">
                                     <div class="selector-box">
@@ -165,45 +165,15 @@
                                         </div> -->
                                         
                                         
+                                        <div class="form-group mb-0">
+                                    <div class="row">
                                         <div class="col">
-											<div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group">
-												<input placeholder="Depart Date" id="datepicker" data-type="datepicker" data-guid="9b9d95f6-d979-d693-d495-d0b9858d19f6" data-datepicker="true" class="form-control" role="input">
-												<span class="input-group-append" role="right-icon">
-													<button class="btn btn-outline-secondary border-left-0" type="button">
-													<i class="gj-icon">
-														<svg xmlns="http://www.w3.org/2000/svg" 
-															width="16" height="16" fill="currentColor" 
-															class="bi bi-calendar-fill" viewBox="0 0 16 16">
-															<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-														</svg>
-													</i>
-												</button>
-												</span>
-											</div>
-										</div>
-										
-										<div id="dropdate" class="col">
-											<div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group">
-												<input placeholder="Return Date" id="datepicker1" data-type="datepicker" data-guid="dafd10db-4303-53ee-162a-ac110ba8aafe" data-datepicker="true" class="form-control" role="input">
-												<span class="input-group-append" role="right-icon">
-													<button class="btn btn-outline-secondary border-left-0" type="button">
-													<i class="gj-icon">
-														<svg xmlns="http://www.w3.org/2000/svg" 
-															width="16" height="16" fill="currentColor" 
-															class="bi bi-calendar-fill" viewBox="0 0 16 16">
-															<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-														</svg>
-													</i>
-													</button>
-												</span>
-											</div>
-										</div>
-                                        
-                                        
+                                            <input placeholder="탑승일" id="datepicker" />
+                                        </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <input type="text" class="form-control open-select"
-                                                    placeholder="traveller">
+                                                    placeholder="승객">
                                                 <img src="../assets/images/icon/user.png"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <div class="selector-box-flight">

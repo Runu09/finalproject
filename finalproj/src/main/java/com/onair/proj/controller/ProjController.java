@@ -16,6 +16,11 @@ public class ProjController {
 		return "/main/main";
 	}
 	
+	@RequestMapping("/customer/notice.do")
+	public String notice() {
+		return "/customer/notice";
+	}
+	
 	@RequestMapping("/customer/information.do")
 	public String information() {
 		return "/customer/information";
@@ -55,12 +60,29 @@ public class ProjController {
 	public String bookingRoundTrip() {
 		return "/booking/flight-round-trip";
 	}
+
 	@GetMapping("/lost/write.do")
-	public void lost_get() {
-		
+	public void lost_get() {	
 	}
+	
+	@RequestMapping("/lost/list.do")
+	public String lost_list() {
+		return "/lost/list";
+	}
+	
 	@GetMapping("/member/register.do")
-	public void register_get() {
+	public void register_get() {	
+	}
+	
+	@RequestMapping("/customer/faq.do")
+	public String faq() {
+		return "/customer/faq";
+	}
+	
+	@GetMapping("/member/mypage.do")
+	public void mypage_get() {
 		
 	}
+
+
 }

@@ -10732,7 +10732,8 @@ section .black-layer {
   padding: 30px 15px; }
   .flight-search .flight-search-detail .form-group {
     margin-bottom: 0;
-    position: relative; }
+    position: relative;
+    }
     .flight-search .flight-search-detail .form-group img {
       position: absolute;
       right: 0;
@@ -10779,9 +10780,12 @@ section .black-layer {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-    height: 100%; }
+    -ms-flex-align: end;
+    align-items: flex-end;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    }
     .flight-search .flight-search-detail .search-btn .btn {
       width: 100%; }
   .flight-search .flight-search-detail .responsive-close {
