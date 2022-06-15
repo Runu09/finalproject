@@ -30,11 +30,17 @@
 
     <!-- Date-time picker css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/datepicker.min.css">
-
+	
+	<!-- fare calender -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/fare-calender.css">
+	
     <!--Slick slider css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/slick.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/slick-theme.css">
-
+	
+	<!-- price range css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/price-range.css">
+	
     <!-- Themify icon -->
     <link rel="stylesheet" type="text/css" href="../assets/css/magnific-popup.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
@@ -50,8 +56,13 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
     
-    <!-- 이새별추가 -->
-	<script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
+    <!-- Date-time picker css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/datepicker.min.css">
+	
+	<!-- price range css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/price-range.css">
+    
+    
 
 </head>
 

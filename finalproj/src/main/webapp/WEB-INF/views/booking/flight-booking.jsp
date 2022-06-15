@@ -11,9 +11,9 @@
                     <div class="col">
                         <nav aria-label="breadcrumb" class="theme-breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="<c:url value='/main/main.do'/>">Home</a></li>
-                                <li class="breadcrumb-item"><a href="<c:url value='/booking/flight-round-trip.do'/>">flights</a></li>
-                                <li class="breadcrumb-item active">review</li>
+                                <li class="breadcrumb-item"><a href="<c:url value='/main/main.do'/>">홈</a></li>
+                                <li class="breadcrumb-item"><a href="<c:url value='/booking/flight-round-trip.do'/>">항공편검색</a></li>
+                                <li class="breadcrumb-item active">예매</li>
                             </ol>
                         </nav>
                     </div>
@@ -32,7 +32,7 @@
                     <div class="review-section">
                         <div class="review_box">
                             <div class="title-top">
-                                <h5>flight details</h5>
+                                <h5>여정 정보</h5>
                             </div>
                             <div class="flight_detail">
                                 <div class="row">
@@ -72,32 +72,30 @@
                         </div>
                         <div class="review_box">
                             <div class="title-top">
-                                <h5>Information</h5>
+                                <h5>정보</h5>
                             </div>
                             <div class="flight_detail">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="boxes">
-                                            <h6>Cancellation Charges</h6>
+                                            <h6>취소 비용</h6>
                                             <ul>
-                                                <li>airline fee : <span>$2012</span></li>
-                                                <li>This airline allows cancellation only before 2 hrs from
-                                                    departure time.</li>
+                                                <li>항공료 : <span>$2012</span></li>
+                                                <li>※본 항공사는 출발 시간으로부터 2시간 전까지만 일정을 변경할 수 있습니다.</li>
                                             </ul>
                                         </div>
                                         <div class="boxes">
-                                            <h6>Reschedule Charges</h6>
+                                            <h6>재예매 비용</h6>
                                             <ul>
-                                                <li>airline fee : <span>$2012</span></li>
-                                                <li>This airline allows reschedule only before 2 hrs from departure
-                                                    time.</li>
+                                                <li>항공료 : <span>$2012</span></li>
+                                                <li>※본 항공사는 출발 시간으로부터 2시간 전까지만 일정을 변경할 수 있습니다.</li>
                                             </ul>
                                         </div>
                                         <div class="boxes">
-                                            <h6>baggage policy</h6>
+                                            <h6>수하물 규정</h6>
                                             <ul>
-                                                <li>Check-in Baggage : <span>15 kg</span></li>
-                                                <li>Cabin Baggage: <span>7 kg</span></li>
+                                                <li>위탁 수하물 : <span>15 kg</span></li>
+                                                <li>기내 수하물: <span>7 kg</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -106,64 +104,29 @@
                         </div>
                         <div class="review_box">
                             <div class="title-top">
-                                <h5>traveller details</h5>
+                                <h5>승객 정보</h5>
                             </div>
                             <div class="flight_detail">
                                 <div class="row form_flight">
                                     <div class="col-md-12">
                                         <form>
-                                            <h6>adult 1</h6>
-                                            <div class="row">
-                                                <div class="form-group col-md-2">
-                                                    <label for="inputState">title</label>
-                                                    <select id="inputState" class="form-control">
-                                                        <option selected>Choose...</option>
-                                                        <option>Mr.</option>
-                                                        <option>Ms.</option>
-                                                        <option>Mrs.</option>
-                                                    </select>
-                                                </div>
+                                            <h6>승객</h6>
                                                 <div class="form-group col-md-5">
-                                                    <label for="first">first name</label>
+                                                    <label for="first">이름</label>
                                                     <input type="text" class="form-control" id="firstt">
                                                 </div>
-                                                <div class="form-group col-md-5">
-                                                    <label for="last">last name</label>
-                                                    <input type="text" class="form-control" id="lastt">
-                                                </div>
-                                            </div>
                                         </form>
-                                        <form>
-                                            <h6>adult 2</h6>
-                                            <div class="row">
-                                                <div class="form-group col-md-2">
-                                                    <label for="input">title</label>
-                                                    <select id="input" class="form-control">
-                                                        <option selected>Choose...</option>
-                                                        <option>Mr.</option>
-                                                        <option>Ms.</option>
-                                                        <option>Mrs.</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-5">
-                                                    <label for="first">first name</label>
-                                                    <input type="text" class="form-control" id="first">
-                                                </div>
-                                                <div class="form-group col-md-5">
-                                                    <label for="last">last name</label>
-                                                    <input type="text" class="form-control" id="last">
-                                                </div>
-                                            </div>
-                                        </form>
+                                        
                                         <form>
                                             <h6>contact details</h6>
                                             <div class="row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Email</label>
+                                                    <label for="inputEmail4">이메일</label>
                                                     <input type="email" class="form-control" id="inputEmail4">
                                                 </div>
+                                                <h6> </h6>
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputnumber">Phone no:</label>
+                                                    <label for="inputnumber">전화번호</label>
                                                     <input type="number" class="form-control" id="inputnumber">
                                                 </div>
                                             </div>
@@ -174,7 +137,7 @@
                         </div>
                         <div class="review_box">
                             <div class="title-top">
-                                <h5>Travel Insurance</h5>
+                                <h5>여행 보험</h5>
                             </div>
                             <div class="flight_detail">
                                 <div class="row">
@@ -207,32 +170,28 @@
                         <div class="review-section">
                             <div class="review_box">
                                 <div class="title-top">
-                                    <h5>booking summery</h5>
+                                    <h5>예매 정보</h5>
                                 </div>
                                 <div class="flight_detail">
                                     <div class="summery_box">
                                         <table class="table table-borderless">
                                             <tbody>
                                                 <tr>
-                                                    <td>adults (3 X $2501)</td>
+                                                    <td>성인 (3 X $2501)</td>
                                                     <td>$250</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>total taxes</td>
+                                                    <td>세금</td>
                                                     <td>$25</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Insurance</td>
+                                                    <td>보험</td>
                                                     <td>$15</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Convenience fee</td>
-                                                    <td>$18</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                         <div class="grand_total">
-                                            <h5>grand total: <span>$2500</span></h5>
+                                            <h5>예상 결제 금액: <span>$2500</span></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -301,7 +260,7 @@
             </div>
             <div class="continue-btn">
                 <button onclick="window.location.href='<c:url value="/booking/flight-booking-addons.do"/>'" class="btn btn-solid"
-                    type="submit">continue booking</button>
+                    type="submit">예매 진행</button>
             </div>
         </div>
     </section>
@@ -310,7 +269,7 @@
 
     <!-- book now section start -->
     <div class="book-panel">
-        <h6 class="mb-0 text">grand total : <span>$2500</span></h6>
+        <h6 class="mb-0 text">결제금액 : <span>$2500</span></h6>
         <button type="button" onclick="window.location.href='<c:url value="/booking/flight-booking-addons.do"/>'"
             class="btn bottom-btn theme-color">continue</button>
     </div>
