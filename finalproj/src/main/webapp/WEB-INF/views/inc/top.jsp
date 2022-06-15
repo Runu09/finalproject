@@ -61,6 +61,14 @@
 	
 	<!-- price range css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/price-range.css">
+
+ 
+	<style type="text/css">
+		body {
+			cursor: url('../assets/images/cursor.cur'), auto;
+		}
+	</style>
+
     
     
 
