@@ -5,7 +5,7 @@
 
   <!-- pre-loader start -->
   <div class="loader-wrapper">
-    <img src="../assets/images/loader/loader.gif" alt="loader gif">
+    <img src="../admin/images/loader/loader.gif" alt="loader gif">
   </div>
   <!-- pre-loader End -->
 
@@ -58,7 +58,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td><span><img src="../assets/images/users/1.jpg" alt="users"></span>
+                            <td><span><img src="../admin/images/users/1.jpg" alt="users"></span>
                             </td>
                             <td><a href="#"><span class="d-block ">Everett C. Green</span><span>Essex Court</span></a>
                             </td>
@@ -80,7 +80,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../assets/images/users/2.jpg" alt="users"></span>
+                            <td><span><img src="../admin/images/users/2.jpg" alt="users"></span>
                             </td>
                             <td><a href="#"><span class="  d-block">Caroline L. Harris</span><span>Davis Lane</span></a>
                             </td>
@@ -102,7 +102,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../assets/images/users/3.jpg" alt="users"></span>
+                            <td><span><img src="../admin/images/users/3.jpg" alt="users"></span>
                             </td>
                             <td><a href="#"><span class="  d-block">lucy j. Morile</span><span>Clifton</span></a>
                             </td>
@@ -123,7 +123,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../assets/images/users/4.jpg" alt="users"></span>
+                            <td><span><img src="../admin/images/users/4.jpg" alt="users"></span>
                             </td>
                             <td><a href="#"><span class="  d-block"> Jennifer A.
                                   Straight</span><span>Brunswick</span></a>
@@ -145,7 +145,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../assets/images/users/5.jpg" alt="users"></span>
+                            <td><span><img src="../admin/images/users/5.jpg" alt="users"></span>
                             </td>
                             <td><a href="#"><span class="  d-block">Louise J. Stiles</span><span>Indianapolis</span></a>
                             </td>
@@ -166,7 +166,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../assets/images/users/6.jpg" alt="users"></span>
+                            <td><span><img src="../admin/images/users/6.jpg" alt="users"></span>
                             </td>
                             <td><a href="#"><span class="  d-block">Scott T. Thomas</span><span>Kotzebue</span></a>
                             </td>
@@ -187,7 +187,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../assets/images/users/7.jpg" alt="users"></span>
+                            <td><span><img src="../admin/images/users/7.jpg" alt="users"></span>
                             </td>
                             <td><a href="#"><span class="  d-block">Ricky M. Gaynor</span><span>Coleraine</span></a>
                             </td>
@@ -208,7 +208,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../assets/images/users/8.jpg" alt="users"></span>
+                            <td><span><img src="../admin/images/users/8.jpg" alt="users"></span>
                             </td>
                             <td><a href="#"><span class="  d-block">Dillon J. Bradshaw</span><span>Redbud
                                   Drive</span></a>
@@ -231,7 +231,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../assets/images/users/9.jpg" alt="users"></span>
+                            <td><span><img src="../admin/images/users/9.jpg" alt="users"></span>
                             </td>
                             <td><a href="#"><span class="  d-block">Lorna M. Bonner</span><span> Broadway
                                   Street</span></a>
@@ -253,7 +253,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../assets/images/users/10.jpg" alt="users"></span>
+                            <td><span><img src="../admin/images/users/10.jpg" alt="users"></span>
                             </td>
                             <td><a href="#"><span class="  d-block">Richard A. Johnson</span><span>Garrett
                                   Street</span></a>
@@ -276,7 +276,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../assets/images/users/11.jpg" alt="users"></span>
+                            <td><span><img src="../admin/images/users/11.jpg" alt="users"></span>
                             </td>
                             <td><a href="#"><span class="  d-block">Lorraine D. McDowell</span><span> Woodland
                                   Terrace</span></a>
@@ -364,36 +364,36 @@
   </div>
 
   <!-- latest jquery-->
-  <script src="../assets/js/jquery-3.5.1.min.js"></script>
+  <script src="../admin/js/jquery-3.5.1.min.js"></script>
   <!-- Bootstrap js-->
-  <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../admin/js/bootstrap/bootstrap.bundle.min.js"></script>
   <!-- feather icon js-->
-  <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
-  <script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
+  <script src="../admin/js/icons/feather-icon/feather.min.js"></script>
+  <script src="../admin/js/icons/feather-icon/feather-icon.js"></script>
   <!-- scrollbar js-->
-  <script src="../assets/js/scrollbar/simplebar.js"></script>
-  <script src="../assets/js/scrollbar/custom.js"></script>
+  <script src="../admin/js/scrollbar/simplebar.js"></script>
+  <script src="../admin/js/scrollbar/custom.js"></script>
 
   <!-- customizer js start  -->
-  <script src="../assets/js/customizer.js"></script>
+  <script src="../admin/js/customizer.js"></script>
   <!-- customizer js start  -->
   <!-- Sidebar jquery-->
-  <script src="../assets/js/config.js"></script>
+  <script src="../admin/js/config.js"></script>
   <!-- Plugins JS start-->
-  <script src="../assets/js/sidebar-menu.js"></script>
-  <script src="../assets/js/notify/bootstrap-notify.min.js"></script>
+  <script src="../admin/js/sidebar-menu.js"></script>
+  <script src="../admin/js/notify/bootstrap-notify.min.js"></script>
 
 
-  <script src="../assets/js/notify/index.js"></script>
-  <script src="../assets/js/typeahead/handlebars.js"></script>
-  <script src="../assets/js/typeahead/typeahead.bundle.js"></script>
-  <script src="../assets/js/typeahead/typeahead.custom.js"></script>
-  <script src="../assets/js/typeahead-search/handlebars.js"></script>
-  <script src="../assets/js/typeahead-search/typeahead-custom.js"></script>
+  <script src="../admin/js/notify/index.js"></script>
+  <script src="../admin/js/typeahead/handlebars.js"></script>
+  <script src="../admin/js/typeahead/typeahead.bundle.js"></script>
+  <script src="../admin/js/typeahead/typeahead.custom.js"></script>
+  <script src="../admin/js/typeahead-search/handlebars.js"></script>
+  <script src="../admin/js/typeahead-search/typeahead-custom.js"></script>
 
   <!-- Plugins JS Ends-->
   <!-- Theme js-->
-  <script src="../assets/js/script.js"></script>
+  <script src="../admin/js/script.js"></script>
 
   <!-- login js-->
   <!-- Plugin used-->
