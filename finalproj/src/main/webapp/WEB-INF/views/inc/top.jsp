@@ -50,7 +50,9 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
     
-	
+    <!-- 이새별추가 -->
+	<script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
@@ -102,7 +104,7 @@
                                             <a href="#" class="nav-link menu-title">커뮤니티</a>
                                             <ul class="nav-submenu menu-content">
                                                 <li><a href="<c:url value='/voc/voc_list'/>" class="submenu-title">고객의 소리</a></li>
-                                                <li><a href="#" class="submenu-title">유실물 찾기</a></li>
+                                                <li><a href="<c:url value='/lost/list.do'/>" class="submenu-title">유실물 찾기</a></li>
                                             </ul>
                                         </li>
                                         <li class="dropdown">
@@ -110,7 +112,7 @@
                                             <ul class="nav-submenu menu-content">
                                                 <li><a href="#" class="submenu-title">공지사항</a></li>
                                                 <li><a href="<c:url value='/customer/information.do'/>" class="submenu-title">이용안내</a></li>
-                                                <li><a href="#" class="submenu-title">FAQ</a></li>
+                                                <li><a href="<c:url value='/customer/faq.do'/>" class="submenu-title">FAQ</a></li>
                                             </ul>
                                         </li>
                                     </ul>
