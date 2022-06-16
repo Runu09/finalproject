@@ -2,11 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
 
+
 <!-- breadcrumb start -->
-<section class="breadcrumb-section pt-0 bg-size">
+<section class="breadcrumb-section pt-0 bg-size"  style="height: 350px">
 	<!-- <img src="../assets/images/flights/flight-breadcrumb2.jpg" class="bg-img img-fluid blur-up" alt="">
          -->
-	<div class="breadcrumb-content dark-content">
+	<div class="breadcrumb-content dark-content" style="height: 350px">
 		<div>
 			<h2>유실물 조회</h2>
 		</div>
@@ -21,7 +22,7 @@
 	<div class="container">
 		<div class="flight-search">
 			
-			<div class="flight-search-detail">
+			<div class="flight-search-detail"  style="background-color: #dfd7d79c">
 				<form class="row m-0">
 					
 					<div class="col-lg-2" style="text-align: center"><span style="font-size: 1.3em">날짜</span></div>
@@ -62,11 +63,58 @@
     <section class="pt-0 bg-inner small-section loader-section">
 
         <div class="container">
-            <div class="row">
+            <div class="row" >
                
                     <div class="flight-detail-sec full_width-detail">
+                    
                         <div class="detail-bar">
-                            <div class="detail-wrap wow fadeInUp">
+                            <div class="detail-wrap wow fadeInUp" style="background-color: black; color: white" >
+                               <div class="row" >
+                                     <div class="col-md-3">
+                                        <div class="price" >
+                                            <div>
+                                                <h5>번호</h5>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" >
+                                        <div class="logo-sec">
+                                           <h5>사진정보</h5>
+                                            </div>
+                                    </div>
+                                    
+                                     <div class="col-md-4">
+                                        <div class="price">
+                                            <div style="">
+                                                <h5>제목</h5>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                   <div class="col-md-3">
+                                        <div class="price">
+                                            <div style="">
+                                                <h5>등록일</<h5>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                             
+                               
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="flight-detail-sec full_width-detail">
+                    
+                        <div class="detail-bar">
+                            <div class="detail-wrap wow">
                                 <div class="row" >
                                      <div class="col-md-3">
                                         <div class="price" >
@@ -100,12 +148,52 @@
                                         </div>
                                     </div>
                                 </div>
+                                
+                            </div>
+                            <div class="detail-wrap wow">
+                                <div class="row" >
+                                     <div class="col-md-3">
+                                        <div class="price" >
+                                            <div>
+                                                <h5>22-001232</h5>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" >
+                                        <div class="logo-sec">
+                                            <img src="../assets/images/upload.png" alt="">
+                                            </div>
+                                    </div>
+                                    
+                                     <div class="col-md-4">
+                                        <div class="price">
+                                            <div style="">
+                                                <h5>에어팟 한쪽 습득했습니다.</h5>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                   <div class="col-md-3">
+                                        <div class="price">
+                                            <div style="">
+                                                <h5>2022-06-15</<h5>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                             </div>
 
 
 
 
                         </div>
+                    </div>
+                    <div style="text-align: right;margin-bottom: 10px">
+                    <button class="btn btn-primary me-3" style="background-color: #4291b8" id="btWrite">등록</button>
                     </div>
                     <nav aria-label="Page navigation example" class="pagination-section mt-0">
                         <ul class="pagination">
@@ -135,7 +223,7 @@
                     </nav>
                 </div>
             </div>
-        </div>
+       
     </section>
     <!-- section End -->
 <%@include file="../inc/footer.jsp"%>
