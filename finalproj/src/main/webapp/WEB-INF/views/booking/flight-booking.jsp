@@ -199,10 +199,10 @@
                             <div class="review_box">
                                 <div class="flight_detail">
                                     <div class="promo-section">
-                                        <div class="form-group mb-0">
-                                            <label>have a coupon code?</label>
+                                        <div class="form-group mb-0" style="width: 70%;">
+                                            <label>마일리지를 사용하시겠습니까?</label>
                                             <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="Promo Code">
+                                                <input type="text" class="form-control">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">apply</span>
                                                 </div>
@@ -211,41 +211,12 @@
                                         <div class="promos">
                                             <form>
                                                 <div class="form-check">
-                                                    <input class="form-check-input radio_animated" type="radio"
-                                                        name="exampleRadios2" id="exampleRadios3" value="option1"
-                                                        checked>
                                                     <div>
                                                         <label class="form-check-label title" for="exampleRadios3">
-                                                            RICA500
+                                                        보유 마일리지
                                                         </label>
                                                         <label class="form-check-label" for="exampleRadios3">
-                                                            Use RICA50, and get $50 off on first booking
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input radio_animated" type="radio"
-                                                        name="exampleRadios2" id="exampleRadios4" value="option2">
-                                                    <div>
-                                                        <label class="form-check-label title" for="exampleRadios4">
-                                                            FLY10
-                                                        </label>
-                                                        <label class="form-check-label" for="exampleRadios4">
-                                                            Use FLY10, and get 10% off upto $50 on flight ticket
-                                                            bookings.
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input radio_animated" type="radio"
-                                                        name="exampleRadios2" id="exampleRadios5" value="option2">
-                                                    <div>
-                                                        <label class="form-check-label title" for="exampleRadios5">
-                                                            FLIGHT80
-                                                        </label>
-                                                        <label class="form-check-label" for="exampleRadios5">
-                                                            Upto 80% Off + Upto 40% Cashback on Flight booking & more +
-                                                            Extra 10% off via ICICI Cards (10th-13th Oct)
+                                                            (사용가능한 마일리지 표시)
                                                         </label>
                                                     </div>
                                                 </div>

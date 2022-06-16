@@ -148,7 +148,8 @@ section,
   padding-top: calc(30px + (100 - 30) * ((100vw - 320px) / (1920 - 320))); }
 
 .section-b-space {
-  padding-bottom: 100px; }
+    padding-top: 50px;
+    padding-bottom: 50px; }
 
 .medium-section {
   padding-top: 80px;
@@ -11435,7 +11436,10 @@ section .black-layer {
       .review-section .review_box .flight_detail .promo-section .promos .form-check {
         display: -webkit-box;
         display: -ms-flexbox;
-        display: flex; }
+        display: flex; 
+        position: relative;
+        right: 3%;
+        }
         .review-section .review_box .flight_detail .promo-section .promos .form-check + .form-check {
           margin-top: 15px; }
       .review-section .review_box .flight_detail .promo-section .promos label {
@@ -13222,7 +13226,7 @@ section .black-layer {
 
 .blog-single-detail .title-part h3 {
   margin-bottom: calc(7px + (15 - 7) * ((100vw - 320px) / (1920 - 320)));
-  margin-top: 5px;
+  margin-top: 30px;
   text-transform: capitalize;
   font-weight: 600;
   font-size: calc(18px + (24 - 18) * ((100vw - 320px) / (1920 - 320))); }
@@ -15408,14 +15412,15 @@ header {
         padding-top: 30px;
         padding-bottom: 30px; }
         header .main-navbar .nav-menu > li > a {
+          margin-top: 12px;
           display: block;
           color: white;
-          font-size: 14px;
+          font-size: 20px;
           font-weight: 900;
           line-height: 23px;
           text-decoration: none;
           text-transform: uppercase;
-          padding: 2px 18px;
+          padding: 2px 40px;
           letter-spacing: 0.07em;
           position: relative;
           border-radius: 4px; }

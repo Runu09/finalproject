@@ -2,11 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
 
+
 <!-- breadcrumb start -->
-<section class="breadcrumb-section pt-0 bg-size">
+<section class="breadcrumb-section pt-0 bg-size"  style="height: 350px">
 	<!-- <img src="../assets/images/flights/flight-breadcrumb2.jpg" class="bg-img img-fluid blur-up" alt="">
          -->
-	<div class="breadcrumb-content dark-content">
+	<div class="breadcrumb-content dark-content" style="height: 350px">
 		<div>
 			<h2>유실물 조회</h2>
 		</div>
@@ -16,28 +17,15 @@
 
 
 <!-- search section start -->
+
 <div class="bg-inner small-section pb-0">
 	<div class="container">
 		<div class="flight-search">
-			<!--  <div class="responsive-detail">
-                    <div class="destination">
-                        <span>dubai</span>
-                        <span><i class="fas fa-long-arrow-alt-right"></i></span>
-                        <span>paris</span>
-                    </div>
-                    <div class="details">
-                        <span>tue, 19-Aug-2019</span>
-                        <span class="divider">|</span>
-                        <span>2 Adults</span>
-                    </div>
-                    <div class="modify-search">
-                        <a href="javascript:void(0)" class="btn btn-solid color1"> modify search</a>
-                    </div>
-                </div> -->
-			<div class="flight-search-detail">
+			
+			<div class="flight-search-detail"  style="background-color: #dfd7d79c">
 				<form class="row m-0">
-					<div class="col-lg-1"></div>
-					<div class="col-lg-1">날짜</div>
+					
+					<div class="col-lg-2" style="text-align: center"><span style="font-size: 1.3em">날짜</span></div>
 					<div class="col-lg-2">
 						<div class="form-group">
 							<input placeholder="시작일 선택" value="" id="datepicker" />
@@ -50,8 +38,8 @@
 							<input placeholder="종료일 선택" id="datepicker1" />
 						</div>
 					</div>
-					<div class="col-lg-1">물품명</div>
-					<div class="col-lg-3">
+					<div class="col-lg-2" style="text-align: center"><span style="font-size: 1.3em">물품명</span></div>
+					<div class="col-lg-2">
 						<div class="form-group">
 							<input placeholder="물품명 입력" value="" type="text" class="form-control" />
 
@@ -70,7 +58,172 @@
 		</div>
 	</div>
 </div>
-<!-- search section end -->
 
-                
+    <!-- section start -->
+    <section class="pt-0 bg-inner small-section loader-section">
+
+        <div class="container">
+            <div class="row" >
+               
+                    <div class="flight-detail-sec full_width-detail">
+                    
+                        <div class="detail-bar">
+                            <div class="detail-wrap wow fadeInUp" style="background-color: black; color: white" >
+                               <div class="row" >
+                                     <div class="col-md-3">
+                                        <div class="price" >
+                                            <div>
+                                                <h5>번호</h5>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" >
+                                        <div class="logo-sec">
+                                           <h5>사진정보</h5>
+                                            </div>
+                                    </div>
+                                    
+                                     <div class="col-md-4">
+                                        <div class="price">
+                                            <div style="">
+                                                <h5>제목</h5>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                   <div class="col-md-3">
+                                        <div class="price">
+                                            <div style="">
+                                                <h5>등록일</<h5>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                             
+                               
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="flight-detail-sec full_width-detail">
+                    
+                        <div class="detail-bar">
+                            <div class="detail-wrap wow">
+                                <div class="row" >
+                                     <div class="col-md-3">
+                                        <div class="price" >
+                                            <div>
+                                                <h5>22-001232</h5>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" >
+                                        <div class="logo-sec">
+                                            <img src="../assets/images/upload.png" alt="">
+                                            </div>
+                                    </div>
+                                    
+                                     <div class="col-md-4">
+                                        <div class="price">
+                                            <div style="">
+                                                <h5>에어팟 한쪽 습득했습니다.</h5>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                   <div class="col-md-3">
+                                        <div class="price">
+                                            <div style="">
+                                                <h5>2022-06-15</<h5>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="detail-wrap wow">
+                                <div class="row" >
+                                     <div class="col-md-3">
+                                        <div class="price" >
+                                            <div>
+                                                <h5>22-001232</h5>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" >
+                                        <div class="logo-sec">
+                                            <img src="../assets/images/upload.png" alt="">
+                                            </div>
+                                    </div>
+                                    
+                                     <div class="col-md-4">
+                                        <div class="price">
+                                            <div style="">
+                                                <h5>에어팟 한쪽 습득했습니다.</h5>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                   <div class="col-md-3">
+                                        <div class="price">
+                                            <div style="">
+                                                <h5>2022-06-15</<h5>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                    <div style="text-align: right;margin-bottom: 10px">
+                    <button class="btn btn-primary me-3" style="background-color: #4291b8" id="btWrite">등록</button>
+                    </div>
+                    <nav aria-label="Page navigation example" class="pagination-section mt-0">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="javascript:void(0)" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">이전</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">6</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">7</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">8</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">9</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">10</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">다음</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+       
+    </section>
+    <!-- section End -->
 <%@include file="../inc/footer.jsp"%>

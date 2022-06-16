@@ -40,6 +40,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="title-part">
                             <h3>고객의 소리</h3>
                         </div>
