@@ -618,27 +618,6 @@
                             <div class="collection-collapse-block-content ">
                                 <div class="filter-block">
                                     <div class="collection-collapse-block open">
-                                        <h6 class="collapse-block-title">stops</h6>
-                                        <div class="collection-collapse-block-content">
-                                            <div class="collection-brand-filter">
-                                                <div class="form-check collection-filter-checkbox">
-                                                    <input type="checkbox" class="form-check-input" id="free-d">
-                                                    <label class="form-check-label" for="free-d">non stop</label>
-                                                </div>
-                                                <div class="form-check collection-filter-checkbox">
-                                                    <input type="checkbox" class="form-check-input" id="time">
-                                                    <label class="form-check-label" for="time">1 stop</label>
-                                                </div>
-                                                <div class="form-check collection-filter-checkbox">
-                                                    <input type="checkbox" class="form-check-input" id="zara">
-                                                    <label class="form-check-label" for="zara">2 stop</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="filter-block">
-                                    <div class="collection-collapse-block open">
                                         <h6 class="collapse-block-title">price</h6>
                                         <div class="collection-collapse-block-content">
                                             <div class="wrapper">
@@ -651,7 +630,7 @@
                                 </div>
                                 <div class="filter-block">
                                     <div class="collection-collapse-block open">
-                                        <h6 class="collapse-block-title">airlines</h6>
+                                        <h6 class="collapse-block-title">항공사</h6>
                                         <div class="collection-collapse-block-content">
                                             <div class="collection-brand-filter">
                                                 <div class="form-check collection-filter-checkbox">
@@ -692,7 +671,7 @@
                                 </div>
                                 <div class="filter-block">
                                     <div class="collection-collapse-block open">
-                                        <h6 class="collapse-block-title">departure time</h6>
+                                        <h6 class="collapse-block-title">출발 시간</h6>
                                         <div class="collection-collapse-block-content">
                                             <div class="collection-brand-filter">
                                                 <div class="form-check collection-filter-checkbox">
@@ -722,7 +701,7 @@
                                 </div>
                                 <div class="filter-block">
                                     <div class="collection-collapse-block open">
-                                        <h6 class="collapse-block-title">arrival time</h6>
+                                        <h6 class="collapse-block-title">도착시간</h6>
                                         <div class="collection-collapse-block-content">
                                             <div class="collection-brand-filter">
                                                 <div class="form-check collection-filter-checkbox">
