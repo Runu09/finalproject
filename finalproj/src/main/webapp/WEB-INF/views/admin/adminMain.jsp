@@ -71,7 +71,7 @@
                                 <div class=" custome-4-bg b-r-4 card-body">
                                     <div class="media static-top-widget">
 
-                                        <div class="media-body p-0"><span class="m-0">총 유저</span>
+                                        <div class="media-body p-0"><span class="m-0">가입한 회원</span>
                                             <h4 class="mb-0 counter">10
                                                 <span class="badge badge-light-success grow"><i
                                                         data-feather="trending-down">
@@ -151,18 +151,18 @@
                                             <tbody>
                                                 <tr>
                                                     <td><img src="<c:url value='/admin/images/tours/1.jpg'/>" alt="tour 1"></td>
-                                                    <td><span class="fw-500"> On Air</span><span>제주도</span></td>
-                                                    <td><span> 1 hour </span></td>
+                                                    <td><span class="fw-500"></span><span style="color: black;">제주도<br>6월 2일</span></td>
+                                                    <td><span>김포<br>6월 2일</span></td>
                                                     <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                                 width="24" height="24" viewBox="0 0 24 24">
                                                                 <title>flight_takeoff</title>
                                                                 <path
                                                                     d="M22.078 9.656q0.141 0.609-0.164 1.125t-0.914 0.703q-5.813 1.547-9.656 2.578l-5.297 1.406-1.594 0.469-2.625-4.5 1.453-0.375 1.969 1.5 4.969-1.313-4.125-7.172 1.922-0.516 6.891 6.422 5.344-1.406q0.609-0.188 1.148 0.141t0.68 0.938zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
                                                                 </path>
-                                                            </svg> 6월 2일</span>
+                                                            </svg>15시 30분 </span>
                                                     </td>
                                                     <td><span></span>
-                                                        <span>25h 10m (2 stop)</span>
+                                                        <span>1h 10m</span>
                                                     </td>
                                                     <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                                 width="24" height="24" viewBox="0 0 24 24">
@@ -170,27 +170,27 @@
                                                                 <path
                                                                     d="M14.016 14.438q-3.844-1.078-9.656-2.578l-1.594-0.469v-5.156l1.453 0.375 0.938 2.344 4.969 1.313v-8.25l1.922 0.516 2.766 9 5.297 1.406q0.609 0.188 0.914 0.727t0.164 1.148q-0.188 0.609-0.703 0.891t-1.125 0.141zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
                                                                 </path>
-                                                            </svg>03 November</span>
+                                                            </svg>16시 40분</span>
                                                     </td>
                                                     <td><span class="badge badge-primary">Active</span>
                                                     </td>
-                                                    <td><span>$900</span>
+                                                    <td><span>53,000원</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td><img src="../admin/images/tours/2.jpg" alt="tour 2"></td>
-                                                    <td><span> Cool Water Ride</span><span>chine</span></td>
-                                                    <td><span> 25 Night </span></td>
+                                                    <td><span class="fw-500"></span><span style="color: black;">대구<br>6월 2일</span></td>
+                                                    <td><span> 김포 </span></td>
                                                     <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                                 width="24" height="24" viewBox="0 0 24 24">
                                                                 <title>flight_takeoff</title>
                                                                 <path
                                                                     d="M22.078 9.656q0.141 0.609-0.164 1.125t-0.914 0.703q-5.813 1.547-9.656 2.578l-5.297 1.406-1.594 0.469-2.625-4.5 1.453-0.375 1.969 1.5 4.969-1.313-4.125-7.172 1.922-0.516 6.891 6.422 5.344-1.406q0.609-0.188 1.148 0.141t0.68 0.938zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
                                                                 </path>
-                                                            </svg>04 march</span>
+                                                            </svg>15시 25분</span>
                                                     </td>
                                                     <td><span></span>
-                                                        <span>10h 20m (1 stop)</span>
+                                                        <span>1h 00m</span>
                                                     </td>
                                                     <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                                 width="24" height="24" viewBox="0 0 24 24">
@@ -198,27 +198,26 @@
                                                                 <path
                                                                     d="M14.016 14.438q-3.844-1.078-9.656-2.578l-1.594-0.469v-5.156l1.453 0.375 0.938 2.344 4.969 1.313v-8.25l1.922 0.516 2.766 9 5.297 1.406q0.609 0.188 0.914 0.727t0.164 1.148q-0.188 0.609-0.703 0.891t-1.125 0.141zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
                                                                 </path>
-                                                            </svg>05 march</span>
+                                                            </svg>16시 25분</span>
                                                     </td>
                                                     <td><span class="badge badge-secondary">Booked</span>
-                                                    <td><span>$900</span>
+                                                    <td><span>47,000원</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><img src="../admin/images/tours/3.jpg" alt=""></td>
-                                                    <td><span class="fw-500"> Tour of
-                                                            Shimala</span><span>India</span></td>
-                                                    <td><span> 15 Night </span></td>
+                                                    <td><img src="<c:url value='/admin/images/tours/1.jpg'/>" alt="tour 1"></td>
+                                                    <td><span class="fw-500"></span><span style="color: black;">김포<br>6월 4일</span></td>
+                                                    <td><span>제주도<br>6월 4일</span></td>
                                                     <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                                 width="24" height="24" viewBox="0 0 24 24">
                                                                 <title>flight_takeoff</title>
                                                                 <path
                                                                     d="M22.078 9.656q0.141 0.609-0.164 1.125t-0.914 0.703q-5.813 1.547-9.656 2.578l-5.297 1.406-1.594 0.469-2.625-4.5 1.453-0.375 1.969 1.5 4.969-1.313-4.125-7.172 1.922-0.516 6.891 6.422 5.344-1.406q0.609-0.188 1.148 0.141t0.68 0.938zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
                                                                 </path>
-                                                            </svg>03 November</span>
+                                                            </svg>08시 10분 </span>
                                                     </td>
                                                     <td><span></span>
-                                                        <span>30h 20m (2 stop)</span>
+                                                        <span>1h 10m</span>
                                                     </td>
                                                     <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                                 width="24" height="24" viewBox="0 0 24 24">
@@ -226,27 +225,27 @@
                                                                 <path
                                                                     d="M14.016 14.438q-3.844-1.078-9.656-2.578l-1.594-0.469v-5.156l1.453 0.375 0.938 2.344 4.969 1.313v-8.25l1.922 0.516 2.766 9 5.297 1.406q0.609 0.188 0.914 0.727t0.164 1.148q-0.188 0.609-0.703 0.891t-1.125 0.141zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
                                                                 </path>
-                                                            </svg>03 November</span>
+                                                            </svg>09시 20분</span>
                                                     </td>
                                                     <td><span class="badge badge-primary">Active</span>
-                                                    <td><span>$1500</span>
+                                                    </td>
+                                                    <td><span>67,000원</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><img src="../admin/images/tours/4.jpg" alt=""></td>
-                                                    <td><span class="fw-500"> Beautiful Bali</span><span>Us</span>
-                                                    </td>
-                                                    <td><span> 14 Night </span></td>
+                                                    <td><img src="../admin/images/tours/2.jpg" alt="tour 2"></td>
+                                                    <td><span class="fw-500"></span><span style="color: black;">광주<br>6월 2일</span></td>
+                                                    <td><span> 김포 </span></td>
                                                     <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                                 width="24" height="24" viewBox="0 0 24 24">
                                                                 <title>flight_takeoff</title>
                                                                 <path
                                                                     d="M22.078 9.656q0.141 0.609-0.164 1.125t-0.914 0.703q-5.813 1.547-9.656 2.578l-5.297 1.406-1.594 0.469-2.625-4.5 1.453-0.375 1.969 1.5 4.969-1.313-4.125-7.172 1.922-0.516 6.891 6.422 5.344-1.406q0.609-0.188 1.148 0.141t0.68 0.938zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
                                                                 </path>
-                                                            </svg>02 November</span>
+                                                            </svg>20시 10분</span>
                                                     </td>
                                                     <td><span></span>
-                                                        <span>30h 20m (1 stop)</span>
+                                                        <span>1h 00m</span>
                                                     </td>
                                                     <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                                 width="24" height="24" viewBox="0 0 24 24">
@@ -254,10 +253,10 @@
                                                                 <path
                                                                     d="M14.016 14.438q-3.844-1.078-9.656-2.578l-1.594-0.469v-5.156l1.453 0.375 0.938 2.344 4.969 1.313v-8.25l1.922 0.516 2.766 9 5.297 1.406q0.609 0.188 0.914 0.727t0.164 1.148q-0.188 0.609-0.703 0.891t-1.125 0.141zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
                                                                 </path>
-                                                            </svg>02 November</span>
+                                                            </svg>21시 10분</span>
                                                     </td>
                                                     <td><span class="badge badge-secondary">Booked</span>
-                                                    <td><span>$1200</span>
+                                                    <td><span>49,000원</span>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -282,17 +281,17 @@
                             <div class="card ">
                                 <div class="d-flex align-items-center justify-content-between  card-header">
                                     <div class="card-header-title">
-                                        <h5>Traffic</h5>
+                                        <h5>통계</h5>
                                     </div>
 
 
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <button class="btn btn-outline-light txt-dark " type="button"
-                                            data-bs-original-title="" title="">Day</button>
+                                            data-bs-original-title="" title="">일</button>
                                         <button class="btn btn-outline-light txt-dark" type="button"
-                                            data-bs-original-title="" title="">Week</button>
+                                            data-bs-original-title="" title="">주</button>
                                         <button class="btn btn-outline-light txt-dark active" type="button"
-                                            data-bs-original-title="" title="">Month</button>
+                                            data-bs-original-title="" title="">월</button>
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -306,7 +305,7 @@
                         <div class="col-xxl-6">
                             <div class="card">
                                 <div class="card-header-title card-header">
-                                    <h5>World Map</h5>
+                                    <h5>공항 위치</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="jvector-map-height" id="world-map"></div>

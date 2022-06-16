@@ -69,7 +69,7 @@
 
                 <div class="header-logo-wrapper col-auto p-0">
                     <div class="logo-wrapper"><a href="<c:url value='/admin/adminMain'/>"><img class="img-fluid main-logo"
-                                src="../admin/images/main2.png" alt="logo">
+                                src="<c:url value='/admin/images/main2.png'/>" alt="logo">
                             <img class="img-fluid white-logo" src="../admin/images/main.png" alt="logo"></a>
                     </div>
                     <!-- <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle"
@@ -95,14 +95,12 @@
                 <div class="nav-right col-4 pull-right right-header p-0">
                     <ul class="nav-menus">
 
-                        <li> <span class="header-search"><i data-feather="search"></i></span></li>
-                        <!-- <li class="onhover-dropdown">
+                       <!-- <li> <span class="header-search"><i data-feather="search"></i></span></li>
+                        <li class="onhover-dropdown">
                             <div class="notification-box"><i class="fa fa-bell-o"> </i><span
                                     class="badge rounded-pill badge-theme">4 </span></div>
-                            <ul class="notification-dropdown onhover-show-div">
-                                <li><i data-feather="bell"></i>
-                                    <h6 class="f-18 mb-0">Notitications</h6>
-                                </li>
+                                
+                             <ul class="notification-dropdown onhover-show-div">
                                 <li>
                                     <p><i class="fa fa-circle-o me-3 font-primary"> </i>Delivery processing <span
                                             class="pull-right">10
@@ -123,19 +121,21 @@
                                             class="pull-right">6
                                             hr</span></p>
                                 </li>
-                                <li><a class="btn btn-primary" href="#">Check all notification</a></li>
+                                <li><a class="btn btn-primary" href="#">Check all notification</a></li> 
                             </ul>
-                        </li> -->
+                        </li>-->
 
+						<li><i data-feather="home"></i>
+                            <h6 class="f-18 mb-0"></h6>
+                        </li>
                         <li>
                             <div class="mode"><i class="fa fa-moon-o" aria-hidden="true"></i>
                             </div>
                         </li>
-
                         <li class="onhover-dropdown"><i data-feather="message-square"></i>
                             <ul class="chat-dropdown onhover-show-div">
                                 <li><i data-feather="message-square"></i>
-                                    <h6 class="f-18 mb-0">쪽지</h6>
+                                    <h6 class="f-18 mb-0">쪽지함</h6>
                                 </li>
                                 <li>
                                     <div class="media"><img class="img-fluid rounded-circle me-3"
@@ -157,7 +157,7 @@
                                         <p class="f-12 font-success">1시간 전</p>
                                     </div>
                                 </li>
-                                <li class="text-center"> <a class="btn btn-primary" href="#">View All </a></li>
+                                <li class="text-center"> <a class="btn btn-primary" href="#">전체 조회 </a></li>
                             </ul>
                         </li>
                         <!-- <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
@@ -172,8 +172,8 @@
                             </div>
                             <ul class="profile-dropdown onhover-show-div">
                                 <li><a href="#"><i data-feather="user"></i><span>계정</span></a></li>
-                                <li><a href="#"><i data-feather="mail"></i><span>쪽지함</span></a></li>
-                                <li><a href="#"><i data-feather="file-text"></i><span>공지사항</span></a></li>
+                                <!-- <li><a href="#"><i data-feather="mail"></i><span>쪽지함</span></a></li> -->
+                                <!-- <li><a href="#"><i data-feather="file-text"></i><span>공지사항</span></a></li> -->
                                 <!-- <li><a href="#"><i data-feather="settings"></i><span>Settings</span></a></li> -->
                                 <li><a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                         href="javascript:void(0)"><i data-feather="log-out"> </i>
@@ -278,9 +278,8 @@
                                         <li><a href="add-driver.html">Add Drivers</a></li>
                                     </ul>
                                 </li> -->
-
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href=""<c:url value='/admin/allUser'/>"><i data-feather="users"> </i><span>유저</span></a>
+                                        href="<c:url value='/admin/allUser'/>"><i data-feather="users"> </i><span>유저</span></a>
                                 </li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="<c:url value='/admin/adminRegister'/>"><i data-feather="plus-circle"> </i><span>관리자</span></a>
@@ -294,9 +293,9 @@
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="reviews.html"><i data-feather="file-text">
                                         </i><span>공지사항</span></a></li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
+                                <!-- <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="setting.html"><i data-feather="settings"> </i><span>Setting</span></a>
-                                </li>
+                                </li> -->
 
 
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
