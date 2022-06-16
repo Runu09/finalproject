@@ -115,7 +115,7 @@
             <tr>
                 <td style="padding: 0 30px 30px; text-align: center;">
                     <textarea style="width: 100%;  margin-bottom: 20px; border-color: #cecece;" rows="20"></textarea>
-                    <a href="#" class="btn">전송</a>
+                    <a href="#" class="btn">쪽지 보내기</a>
                 </td>
             </tr>
         </tbody>

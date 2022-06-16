@@ -112,7 +112,7 @@
                             <li class="page-item">
                                 <a class="page-link" href="javascript:void(0)" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
+                                    <span class="sr-only">이전</span>
                                 </a>
                             </li>
                             <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
@@ -128,7 +128,7 @@
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span>
+                                    <span class="sr-only">다음</span>
                                 </a>
                             </li>
                         </ul>
