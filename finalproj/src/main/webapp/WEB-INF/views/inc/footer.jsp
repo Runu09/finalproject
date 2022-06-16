@@ -149,9 +149,7 @@
 <!-- tap to top end -->
 
 
- 	<!-- latest jquery-->
-    <!-- 이새별추가 -->
-	<script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
+
 
     <!-- date-time picker js -->
     <script src="../assets/js/date-picker.js"></script>
