@@ -11436,7 +11436,10 @@ section .black-layer {
       .review-section .review_box .flight_detail .promo-section .promos .form-check {
         display: -webkit-box;
         display: -ms-flexbox;
-        display: flex; }
+        display: flex; 
+        position: relative;
+        right: 3%;
+        }
         .review-section .review_box .flight_detail .promo-section .promos .form-check + .form-check {
           margin-top: 15px; }
       .review-section .review_box .flight_detail .promo-section .promos label {
