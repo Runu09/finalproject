@@ -51,26 +51,22 @@
                             <th>Email</th>
                             <th>주소</th>
                             <th>보유마일리지</th>
-                            <th>보기</th>
                             <th>수정</th>
                             <th>삭제</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td><span><img src="../admin/images/users/1.jpg" alt="users"></span>
+                            <td><span class=" d-block">kkw4521</span>
                             </td>
-                            <td><a href="#"><span class="d-block ">Everett C. Green</span><span>Essex Court</span></a>
+                            <td><a href="#"><span class="d-block ">김관욱</span><span></span></a>
                             </td>
-                            <td> +802-370-2430</td>
+                            <td> 010-1111-2222</td>
                             <td>
-                              EverettCGreen@rhyta.com</td>
-                            <td class="font-primary">America</td>
+                              kkw123@naver.com</td>
+                            <td class="font-primary">인천시 계양구</td>
                             <td>
-                              <span>02</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                              <span>1000</span>
                             </td>
                             <td>
                               <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
@@ -80,19 +76,15 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../admin/images/users/2.jpg" alt="users"></span>
+                            <td><span class=" d-block">abc9872</span>
                             </td>
-                            <td><a href="#"><span class="  d-block">Caroline L. Harris</span><span>Davis Lane</span></a>
+                            <td><a href="#"><span class="  d-block">최수창</span><span></span></a>
                             </td>
-                            <td> +
-                              720-276-9403</td>
-                            <td>CarolineLHarris@rhyta.com</td>
-                            <td class="font-primary">Denver</td>
+                            <td> 010-2222-1234</td>
+                            <td>cs123@naver.com</td>
+                            <td class="font-primary">서울시 강서구</td>
                             <td>
-                              <span>02</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                              <span>300</span>
                             </td>
                             <td>
                               <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
@@ -102,18 +94,15 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../admin/images/users/3.jpg" alt="users"></span>
+                            <td><span class=" d-block">kim321</span>
                             </td>
-                            <td><a href="#"><span class="  d-block">lucy j. Morile</span><span>Clifton</span></a>
+                            <td><a href="#"><span class="  d-block">김준석</span><span></span></a>
                             </td>
-                            <td> +351-756-654</td>
-                            <td>LucyMorile456@gmail.com</td>
-                            <td class="font-primary">Clifton</td>
+                            <td> 010-9999-1234</td>
+                            <td>Lucy@gmail.com</td>
+                            <td class="font-primary">서울시 은평구</td>
                             <td>
-                              <span>02</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                              <span>5400</span>
                             </td>
                             <td>
                               <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
@@ -123,19 +112,15 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../admin/images/users/4.jpg" alt="users"></span>
+                            <td><span class=" d-block">kim877</span>
                             </td>
-                            <td><a href="#"><span class="  d-block"> Jennifer A.
-                                  Straight</span><span>Brunswick</span></a>
+                            <td><a href="#"><span class="  d-block"> 김소연</span><span></span></a>
                             </td>
-                            <td> +912-265-1550</td>
-                            <td>JenniferAStraight@rhyta.com</td>
-                            <td class="font-primary">Austin Avenue</td>
+                            <td> 010-1265-1550</td>
+                            <td>Straight@gmail.com</td>
+                            <td class="font-primary">서울시 서대문구</td>
                             <td>
-                              <span>02</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                              <span>450</span>
                             </td>
                             <td>
                               <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
@@ -145,18 +130,15 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../admin/images/users/5.jpg" alt="users"></span>
+                            <td><span>lee9645</span>
                             </td>
-                            <td><a href="#"><span class="  d-block">Louise J. Stiles</span><span>Indianapolis</span></a>
+                            <td><a href="#"><span class="  d-block">이새별</span><span></span></a>
                             </td>
-                            <td> +304-921-8122</td>
-                            <td>KevinAMillett@jourrapide.com</td>
-                            <td class="font-primary"> Barfield Lane</td>
+                            <td> 010-9231-8122</td>
+                            <td>Millett@naver.com</td>
+                            <td class="font-primary"> 서울시 강남구</td>
                             <td>
-                              <span>02</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                              <span>3900</span>
                             </td>
                             <td>
                               <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
@@ -166,18 +148,15 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../admin/images/users/6.jpg" alt="users"></span>
+                            <td><span>lee8755</span>
                             </td>
-                            <td><a href="#"><span class="  d-block">Scott T. Thomas</span><span>Kotzebue</span></a>
+                            <td><a href="#"><span class="  d-block">이창수</span><span></span></a>
                             </td>
-                            <td> +907-442-8122</td>
-                            <td>czxc@packiu.com</td>
-                            <td class="font-primary">Blackwell Street</td>
+                            <td> 010-4342-8122</td>
+                            <td>czxc@nate.com</td>
+                            <td class="font-primary">서울시 중구</td>
                             <td>
-                              <span>02</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                              <span>500</span>
                             </td>
                             <td>
                               <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
@@ -187,18 +166,15 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../admin/images/users/7.jpg" alt="users"></span>
+                            <td><span>hyok</span>
                             </td>
-                            <td><a href="#"><span class="  d-block">Ricky M. Gaynor</span><span>Coleraine</span></a>
+                            <td><a href="#"><span class="  d-block">김효건</span><span></span></a>
                             </td>
-                            <td> +218-244-7026</td>
-                            <td>KevinAMillett@jourrapide.com</td>
-                            <td class="font-primary">Coleraine</td>
+                            <td> 010-2244-7026</td>
+                            <td>Kevin@nate.com</td>
+                            <td class="font-primary">서울시 마포구</td>
                             <td>
-                              <span>02</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                              <span>900</span>
                             </td>
                             <td>
                               <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
@@ -208,20 +184,15 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../admin/images/users/8.jpg" alt="users"></span>
+                            <td><span>chlwo123</span>
                             </td>
-                            <td><a href="#"><span class="  d-block">Dillon J. Bradshaw</span><span>Redbud
-                                  Drive</span></a>
+                            <td><a href="#"><span class="  d-block">최재훈</span><span></span></a>
                             </td>
-                            <td> +
-                              347-649-7283</td>
-                            <td>DillonJBradshaw@teleworm.us</td>
-                            <td class="font-primary">Long Island City</td>
+                            <td> 010-1649-7283</td>
+                            <td>Dillon@nate.com</td>
+                            <td class="font-primary">서울시 은평구</td>
                             <td>
-                              <span>02</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                              <span>600</span>
                             </td>
                             <td>
                               <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
@@ -231,19 +202,15 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../admin/images/users/9.jpg" alt="users"></span>
+                            <td><span>god123</span>
                             </td>
-                            <td><a href="#"><span class="  d-block">Lorna M. Bonner</span><span> Broadway
-                                  Street</span></a>
+                            <td><a href="#"><span class="  d-block">김진욱</span><span></span></a>
                             </td>
-                            <td> +843-765-6166</td>
-                            <td>LornaMBonner@teleworm.us</td>
-                            <td class="font-primary">Florence</td>
+                            <td> 010-7655-6166</td>
+                            <td>god1234@naver.com</td>
+                            <td class="font-primary">서울시 구로구</td>
                             <td>
-                              <span>02</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                              <span>3000</span>
                             </td>
                             <td>
                               <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
@@ -253,20 +220,15 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../admin/images/users/10.jpg" alt="users"></span>
+                            <td><span>ohoh123</span>
                             </td>
-                            <td><a href="#"><span class="  d-block">Richard A. Johnson</span><span>Garrett
-                                  Street</span></a>
+                            <td><a href="#"><span class="  d-block">오충렬</span><span></span></a>
                             </td>
-                            <td> +
-                              267-948-4207</td>
-                            <td>RichardAJohnson@rhyta.com</td>
-                            <td class="font-primary">Philadelphia</td>
+                            <td> +267-948-4207</td>
+                            <td>Johnson@naver.com</td>
+                            <td class="font-primary">서울시 송파구</td>
                             <td>
-                              <span>02</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                              <span>2000</span>
                             </td>
                             <td>
                               <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
@@ -276,20 +238,15 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><span><img src="../admin/images/users/11.jpg" alt="users"></span>
+                            <td><span>ssg123123</span>
                             </td>
-                            <td><a href="#"><span class="  d-block">Lorraine D. McDowell</span><span> Woodland
-                                  Terrace</span></a>
+                            <td><a href="#"><span class="  d-block">성상헌</span><span></span></a>
                             </td>
-                            <td> +916-942-7555</td>
-                            <td>
-                              LorraineDMcDowell@dayrep.com</td>
-                            <td class="font-primary">Fair Oaks</td>
+                            <td> 010-9422-7555</td>
+                            <td>Dowell@naver.com</td>
+                            <td class="font-primary">서울시 동작구</td>
                             <td>
                               <span>02</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i></a>
                             </td>
                             <td>
                               <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
@@ -325,8 +282,8 @@
 
         <!-- Container-fluid Ends-->
 
-        <div class="container-fluid">
-          <!-- footer start-->
+        <!-- <div class="container-fluid">
+          <!-- footer start
           <footer class="footer">
 
             <div class="row">
@@ -335,13 +292,13 @@
               </div>
             </div>
 
-          </footer>
-        </div>
+          </footer> -->
+        </div> -->
       </div>
     </div>
 
 
-    <!-- Modal -->
+  <!--   <!-- Modal -->
     <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog  modal-dialog-centered">
@@ -361,7 +318,7 @@
       </div>
     </div>
 
-  </div>
+  </div> -->
 
   <!-- latest jquery-->
   <script src="../admin/js/jquery-3.5.1.min.js"></script>

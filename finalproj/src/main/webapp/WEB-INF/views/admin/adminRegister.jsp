@@ -48,7 +48,7 @@
                                     alt="looginpage"></a></div>
                         <div class="login-main">
                             <form class="theme-form">
-                                <h4>관리자 회원가입</h4>
+                                <h4 style="text-align: center;">관리자등록</h4>
                                 <!-- <p>Enter your personal details to create account</p> -->
                                <!--  <div class="form-group">
                                     <label class="col-form-label form-label-title  pt-0">관리자 이름</label>
@@ -63,15 +63,23 @@
                                     </div>
                                 </div> -->
                                 <div class="form-group">
-                                    <label class="col-form-label form-label-title ">관리자 아이디</label>
-                                    <input class="form-control" type="userId" required="" placeholder="관리자 아이디">
-                                </div>
-                                <div class="form-group">
                                     <label class="col-form-label form-label-title ">관리자 이름</label>
                                     <input class="form-control" type="userName" required="" placeholder="관리자 이름">
                                 </div>
                                 <div class="form-group">
+                                    <label class="col-form-label form-label-title ">관리자 아이디</label>
+                                    <input class="form-control" type="userId" required="" placeholder="관리자 아이디">
+                                </div>
+                                <div class="form-group">
                                     <label class="col-form-label form-label-title ">비밀번호</label>
+                                    <div class="form-input position-relative">
+                                        <input class="form-control" type="password" name="login[password]" required=""
+                                            placeholder="*********">
+                                        <div class="show-hide"><span class="show"></span></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label form-label-title ">비밀번호 확인</label>
                                     <div class="form-input position-relative">
                                         <input class="form-control" type="password" name="login[password]" required=""
                                             placeholder="*********">
