@@ -122,7 +122,7 @@
                                         <li class="dropdown">
                                             <a href="#" class="nav-link menu-title">커뮤니티</a>
                                             <ul class="nav-submenu menu-content">
-                                                <li><a href="<c:url value='/voc/voc_list'/>" class="submenu-title">고객의 소리</a></li>
+                                                <li><a href="<c:url value='/voc/voc_main'/>" class="submenu-title">고객의 소리</a></li>
                                                 <li><a href="<c:url value='/lost/list.do'/>" class="submenu-title">유실물 찾기</a></li>
                                             </ul>
                                         </li>
