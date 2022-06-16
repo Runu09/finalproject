@@ -3,6 +3,7 @@
 <%@include file="../inc/top.jsp"%>
 
 <style>
+
 .icon_wrap.type01{
 	padding: 10px 0;
 	border: 1px solid #ddd;
@@ -203,7 +204,7 @@ th {
             <div class="col-lg-3">
                 <div class="pro_sticky_info" data-sticky_column
                 style="position: sticky; top: 50px; right: 300px;">
-                    <div class="faq-tab">
+                    <div class="faq-tab" style="cursor: url('https://blogfiles.pstatic.net/MjAyMjA2MTVfNjQg/MDAxNjU1Mjk5MTcyNTEz.PEYJTXGViRiZgMc2Rp1yeiPDgawUifeVyh32wK3X5Xsg.cVoF7aZKk78pbhdR9YfRjz_0Iefi-hULJoflvp_J3icg.PNG.browse1009/cursor.png'), auto;">
                         <ul class="nav nav-tabs" id="top-tab" role="tablist">
                             <li class="nav-item">
                             	<a data-bs-toggle="tab" class="nav-link active" href="#planeReservation">항공권 예약</a>
