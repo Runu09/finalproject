@@ -63,10 +63,10 @@
             </div>
             <div class="row success-detail">
                 <div class="col">
-                    <h2>Payment Successful ! get ready to fly</h2>
-                    <p>thank you for you payment. we have received your payment successfully. your transaction ID is
-                        "SHJG12155215", you will get an email invoice soon!</p>
-                    <button type="submit" class="btn btn-solid color1">download invoice</button>
+                    <h2>결제가 완료되었습니다!</h2>
+                    <p>이용해주셔서 감사합니다. </p>
+                    <p>이메일로 결제 내역이 발송될 예정입니다.</p>
+                    <button type="submit" class="btn btn-solid color1">청구서 받기</button>
                 </div>
             </div>
         </div>
