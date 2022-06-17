@@ -131,7 +131,7 @@
                                         <li class="dropdown">
                                         	<a href="#" class="nav-link menu-title">고객지원</a>
                                             <ul class="nav-submenu menu-content">
-                                                <li><a href="#" class="submenu-title">공지사항</a></li>
+                                                <li><a href="<c:url value='/customer/notice.do'/>" class="submenu-title">공지사항</a></li>
                                                 <li><a href="<c:url value='/customer/information.do'/>" class="submenu-title">이용안내</a></li>
                                                 <li><a href="<c:url value='/customer/faq.do'/>" class="submenu-title">FAQ</a></li>
                                             </ul>
@@ -164,23 +164,7 @@
                                 <a href="#">
                                     <i class="fas fa-cog"></i>
                                 </a>
-                                <ul class="setting-open"><!-- 
-                                    <li class="front-setting">
-                                        <select>
-                                            <option value="volvo">USD</option>
-                                            <option value="saab">EUR</option>
-                                            <option value="opel">INR</option>
-                                            <option value="audi">AUD</option>
-                                        </select>
-                                    </li>
-                                    <li class="front-setting">
-                                        <select>
-                                            <option value="volvo">ENG</option>
-                                            <option value="saab">FRE</option>
-                                            <option value="opel">SPA</option>
-                                            <option value="audi">DUT</option>
-                                        </select>
-                                    </li> -->
+                                <ul class="setting-open">
                                 </ul>
                             </li>
                         </ul>
