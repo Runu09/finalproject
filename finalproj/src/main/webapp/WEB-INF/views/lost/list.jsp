@@ -68,7 +68,7 @@
                     <div class="flight-detail-sec full_width-detail">
                     
                         <div class="detail-bar">
-                            <div class="detail-wrap wow fadeInUp" style="background-color: black; color: white" >
+                            <div class="detail-wrap wow" style="background-color: black; color: white" >
                                <div class="row" >
                                      <div class="col-md-3">
                                         <div class="price" >
