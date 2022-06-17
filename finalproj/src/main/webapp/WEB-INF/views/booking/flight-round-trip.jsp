@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
 
+
+
 <!-- breadcrumb start -->
 <section class="breadcrumb-section small-sec pt-0">
 	<img src="http://themes.pixelstrap.com/rica/assets/images/flights/flight-breadcrumb2.jpg"
@@ -49,7 +51,7 @@
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label>탑승일</label>
-                                <input placeholder="Depart Date" value="10/01/2019" id="datepicker" />
+                                <input placeholder="Depart Date" id="datepicker" />
                             </div>
                         </div>
                         
