@@ -14,6 +14,11 @@ section.small-section.dashboard-section.bg-inner {
 }
 
 footer {position: relative;top: 65px;}
+
+#pwd{
+	width: 300px
+}
+
 </style>
 <body>
 
@@ -46,7 +51,7 @@ footer {position: relative;top: 65px;}
                             <div class="faq-tab">
                                 <ul class="nav nav-tabs" id="top-tab" role="tablist">
                                     <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active"
-                                            href="#dashboard">?</a></li>
+                                            href="#dashboard">my onair</a></li>
                                     <li class="nav-item"><a data-bs-toggle="tab" class="nav-link"
                                             href="#profile">회원정보수정</a></li>
                                     <li class="nav-item"><a data-bs-toggle="tab" class="nav-link"
@@ -712,18 +717,17 @@ footer {position: relative;top: 65px;}
                                     </div>
                                     <div class="dashboard-detail">
                                         <div class="delete-section">
-                                            <p>Hi <span class="text-bold">Mark Enderess</span>,</p>
-                                            <p>we are sorry to here you would like to delete your account.</p>
+                                            <p>Hi <span class="text-bold">회원명 님</span>,</p>
+                                            
                                             <p><span class="text-bold">note:</span></p>
-                                            <p>deleting your account will permanently remove your profile, personal
-                                                settings, and all other associated information.
-                                                once your account is deleted, you will be logged out and will be unable
-                                                to log back in.
+                                            <p>계정을 삭제하면 프로필, 개인 설정 및 기타 모든 관련 정보가 영구적으로 제거됩니다.<br>
+                                            계정이 삭제되면 로그아웃되고 다시 로그인할 수 없습니다.<br>
+											위의 내용을 이해하고 동의한 경우에도 계정을 삭제하려면 비밀번호 입력 후 탈퇴 버튼을 클릭하십시오.<br>
                                             </p>
-                                            <p>if you understand and agree to the above statement, and would still like
-                                                to delete your account, than click below</p>
+                                            <br>
+                                             <input class="form-control" type="text" id="pwd" required="" placeholder="password"><br>
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#delete-account"
-                                                class="btn btn-solid">delete my account</a>
+                                                class="btn btn-solid">회원탈퇴</a>
                                         </div>
                                     </div>
                                 </div>

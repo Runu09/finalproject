@@ -70,6 +70,8 @@
 	</style>
 
     
+    <!-- latest jquery-->
+	<script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
     
 
 </head>
@@ -122,7 +124,7 @@
                                         <li class="dropdown">
                                             <a href="#" class="nav-link menu-title">커뮤니티</a>
                                             <ul class="nav-submenu menu-content">
-                                                <li><a href="<c:url value='/voc/voc_list'/>" class="submenu-title">고객의 소리</a></li>
+                                                <li><a href="<c:url value='/voc/voc_main'/>" class="submenu-title">고객의 소리</a></li>
                                                 <li><a href="<c:url value='/lost/list.do'/>" class="submenu-title">유실물 찾기</a></li>
                                             </ul>
                                         </li>
@@ -140,7 +142,7 @@
                         </nav>
                         <ul class="header-right">
                             <li class="user user-light">
-                                <a href="#">
+                                <a href="<c:url value='/member/mypage.do'/>">
                                 <svg xmlns="http://www.w3.org/2000/svg" 
 	                           		width="16" height="16" fill="currentColor" 
 	                            	class="bi bi-person-circle" viewBox="0 0 16 16" color="white">

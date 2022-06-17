@@ -49,7 +49,7 @@
                                     alt="looginpage"></a></div>
                         <div class="login-main">
                             <form class="theme-form">
-                                <h4></h4>
+                                <h4 style="text-align: center;">관리자 로그인</h4>
                                <!--  <p>아이디와 비밀번호를 입력 후 로그인하세요!</p> -->
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">아이디</label>
