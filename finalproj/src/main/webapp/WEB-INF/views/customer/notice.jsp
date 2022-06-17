@@ -22,6 +22,7 @@
     flex: 0 0 auto;
     width: 90%;
     padding-left: 10%;
+    margin-bottom: 2rem;
 }
 
 .Search {
@@ -46,7 +47,7 @@
     -moz-appearance: none;
     appearance: none;
     border-radius: 0.25rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 button.black {
@@ -83,11 +84,15 @@ th {
 	font-color: white;
 }
 
+td {
+	font-size: 16px;
+}
+
 th, td {
     border-bottom: 1px solid #444444;
-    padding: 10px;
+    padding: 25px;
   }
-  
+
 tr:hover{
 		background-color: #F5F5F5; cursor: pointer;
 	}
@@ -176,6 +181,32 @@ tr:hover{
                     </div>
                 </div>
             </div>
+            <nav aria-label="Page navigation example" class="pagination-section mt-0">
+			    <ul class="pagination">
+			        <li class="page-item">
+			            <a class="page-link" href="javascript:void(0)" aria-label="Previous">
+			                <span aria-hidden="true">&laquo;</span>
+			                <span class="sr-only">이전</span>
+			            </a>
+			        </li>
+			        <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
+			        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+			        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+			        <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+			        <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
+			        <li class="page-item"><a class="page-link" href="javascript:void(0)">6</a></li>
+			        <li class="page-item"><a class="page-link" href="javascript:void(0)">7</a></li>
+			        <li class="page-item"><a class="page-link" href="javascript:void(0)">8</a></li>
+			        <li class="page-item"><a class="page-link" href="javascript:void(0)">9</a></li>
+			        <li class="page-item"><a class="page-link" href="javascript:void(0)">10</a></li>
+			        <li class="page-item">
+			            <a class="page-link" href="#" aria-label="Next">
+			                <span aria-hidden="true">&raquo;</span>
+			                <span class="sr-only">다음</span>
+			            </a>
+			        </li>
+			    </ul>
+			</nav>
         </div>
     </div>
 </section>
