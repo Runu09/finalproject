@@ -299,7 +299,7 @@
 
 
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="<c:url value='#'/>"><i data-feather="log-out"> </i><span>로그아웃</span></a>
+                                        href="<c:url value='/admin/adminLogin'/>"><i data-feather="log-out"> </i><span>로그아웃</span></a>
                                 </li>
 
 
