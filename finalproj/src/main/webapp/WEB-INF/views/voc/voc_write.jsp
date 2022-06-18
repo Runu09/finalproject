@@ -1,7 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-
+<script type="text/javascript" src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+<script type="text/javascript">
+	$(function(){
+		$('form[name=frmWrite]').submit(function(){
+			$('.form-control').each(function(idx, item){
+				if($.trim($(this).val()).length<1){
+					alert($(this).prev().text() + '을(를) 입력하세요');
+					$(item).focus();
+					event.preventDefault();
+					return false;  //each 탈출
+				}
+			});			
+		});
+		
+	});
+</script>
 
     <!-- breadcrumb start -->
     <section class="breadcrumb-section pt-0">
@@ -135,40 +150,41 @@
                                 <h5>고객의 소리 글등록</h5>
                             </div>
                             <div class="guest-detail">
-                                <form>
+                                <form name="frmWrite" method="post" enctype="multipart/form-data"
+									action="<c:url value='/voc/voc_write'/>" >
+									<input type="text" id="btNo" name="btNo" value="3">
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col first-name">
                                                 <label>userID</label>
-                                                <input type="text" id="firstName" class="form-control"
+                                                <input type="text" id="bId" name="bId" class="form-control"
                                                     placeholder="익명으로 가능합니다">
                                             </div>
                                             <div class="col">
                                                 <label>Password</label>
-                                                <input type="text" id="lastName" class="form-control"
+                                                <input type="password" id="bPwd" name="bPwd" class="form-control"
                                                     placeholder="비밀번호를 입력하세요">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label>title</label>
-                                        <input id="mobile-no" type="tel" class="form-control"
+                                        <input id="bTitle" type="text" name="bTitle" class="form-control"
                                         	placeholder="제목을 입력하세요">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">content</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"
+                                        <label for="bContent">content</label>
+                                        <textarea class="form-control" id="bContent" name="bContent" rows="7"
                                             placeholder="내용을 입력하세요"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1">첨부파일</label>
                                         <div class="input-group">
-                                            <input type="file" class="form-control">
+                                            <input type="file">
                                         </div>
                                     </div>
                                     <div class="submit-btn">
-                                        <button type="button" onclick="#"
-                                            class="btn btn-solid">등록하기</button>
+                                        <input type="submit" class="btn btn-solid" value="등록하기">
                                     </div>
                                 </form>
                             </div>

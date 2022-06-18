@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
     <!-- breadcrumb start -->
     <section class="breadcrumb-section pt-0">
@@ -57,6 +57,50 @@
                                                     <h6>게시글 리스트 뿌리기</h6>
                                                 </div>
                                             </div>
+                                            <div class="divList">
+												<table class="box2">
+													<colgroup>
+														<col style="width:10%;" />
+														<col style="width:50%;" />
+														<col style="width:15%;" />
+														<col style="width:15%;" />
+														<col style="width:10%;" />		
+													</colgroup>
+													<thead>
+													  <tr>
+													    <th scope="col">번호</th>
+													    <th scope="col">제목</th>
+													    <th scope="col">아이디</th>
+													    <th scope="col">작성일</th>
+													    <th scope="col">조회수</th>
+													  </tr>
+													</thead> 
+													<tbody>  
+													<c:if test="${empty list }">
+														<tr>
+															<td colspan="5" class="align_center">해당 글이 존재하지 않습니다.</td>
+														</tr>
+													</c:if>
+													<c:if test="${!empty list }">		
+														<!--고객의소리 리스트 반복문 시작  -->
+														<c:forEach var="vo" items="${list }">
+													    	<tr  style="text-align:center">
+																<td>${vo.bNo}</td>
+																<td style="text-align:left">
+												                  ${vo.bTitle }            
+												               </td>
+																<td>${vo.bId}</td>
+																<td>
+																	<fmt:formatDate value="${vo.bRegdate}" pattern="yyyy-MM-dd"/>
+																</td>
+																<td>${vo.bCount}</td>		
+															</tr>			
+														</c:forEach>	 
+														<!--반복처리 끝  -->
+													 </c:if>
+													 </tbody>
+												</table>	   
+												</div>
 										</div>
 									</div>										                                            
                         		</div>
