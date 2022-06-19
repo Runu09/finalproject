@@ -1,14 +1,27 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
+<%
 
+%>
+<script type="text/javascript">	
+	$(function(){
+		$('.list table tbody tr').hover(function(){
+			$(this).css('background','lightgray');
+		}, function(){
+			$(this).css('background','');
+		});
+	});
+</script>
 
 <style>
 .col-lg-10 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
-    width: 100%;
+    width: 90%;
+    padding-left: 10%;
 }
 
 .Search {
@@ -20,7 +33,7 @@
 }
 
 .noticeSearch {
-    /* width: 50%; */
+    width: 20%;
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -51,7 +64,35 @@ button.black {
     border-radius: 3px;
     text-align: center;
 }
+
+.list {
+	/* padding-left: 10%; */
+}
+
+.listTable {
+	width: 100%; 
+	text-align: center; 
+	border-collapse: collapse;
+	border-bottom: 1 ridge;
+}
+
+th {
+	background: #696969;
+	font-size: 15px;
+	font-weight: bold;
+	font-color: white;
+}
+
+th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+  }
+  
+tr:hover{
+		background-color: #F5F5F5; cursor: pointer;
+	}
 </style>
+
 
 <body>
 
@@ -74,14 +115,64 @@ button.black {
         <div class="row">
         	<div class="Search">
 	        	<label for="noticeSearch" style="margin-right: 10px; font-weight: bold; font-size:20px">공지사항 검색</label>
-	        	<input type="text" class="noticeSearch">
+	        	<input type="text" class="noticeSearch" placeholder="검색할 내용을 입력하세요.">
 	        	<button id="btnSearch" type="button" class="btn_M black">검색</button>
         	</div>
         	<hr size="5"><br><br>
             <div class="col-lg-10">
                 <div class="product_img_scroll" data-sticky_column>
                     <div class="faq-content tab-content" id="top-tabContent">
-                        <h1>공지사항 목록</h1>
+                        <div style="text-align: right;">
+                        	<h6>공지사항 총( )개</h6><hr>
+                        </div>
+                        <div class="list">
+                        	<table  class="listTable">
+								<thead>
+									<tr>
+										<th style="width:70%; color:white;">제목</th>
+										<th style="width:10%; color:white;">조회수</th>
+										<th style="width:20%; color:white;">등록일</th>
+									</tr>									
+								</thead>
+								<tbody>
+									<tr>
+										<td colspan="3">해당 글이 존재하지 않습니다.</td>
+									</tr>
+									<tr>
+										<td><a href="<c:url value='/customer/noticeDetail.do'/>">오늘 저녁은 뭘까?</a></td>
+										<td>76,157</td>
+										<td>22-06-16</td>
+									</tr>
+									<tr>
+										<td><a href="<c:url value='/customer/noticeDetail.do'/>">수업 끝나고 뭐하지?</a></td>
+										<td>16,359</td>
+										<td>22-06-16</td>
+									</tr>
+									<%-- <%if(list.isEmpty()){ %>
+										<tr>
+											<td colspan="3" class="align_center">해당 글이 존재하지 않습니다.</td>
+										</tr>
+									<%}else{ %>	
+										<%for(int i=0;i<pageSize;i++){ 
+											if(num-- <1) break;
+											
+											BoardVO vo = list.get(curPos++);
+											%>
+											<tr>
+												<td>제목</td>
+												<td style="text-align:left">
+													<a href="countUpdate.jsp?no=<%=vo.getNo()%>">
+													<%=vo.getTitle() %></a></td> 
+												<td>조회수</td>
+												<td><%=vo.getReadcount() %></td>
+												<td>등록일</td>
+												<td><%=sdf.format(vo.getRegdate()) %></td>
+											</tr>
+										<%}//for %>
+									<%}//if %>  --%>
+								</tbody>
+						    </table>
+                        </div>
                     </div>
                 </div>
             </div>
