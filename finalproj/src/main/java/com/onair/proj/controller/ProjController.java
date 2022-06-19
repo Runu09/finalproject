@@ -26,6 +26,11 @@ public class ProjController {
 		return "/customer/noticeDetail";
 	}
 	
+	@RequestMapping("/customer/noticeWrite.do")
+	public String noticeWrite() {
+		return "/customer/noticeWrite";
+	}
+	
 	@RequestMapping("/customer/terms.do")
 	public String terms() {
 		return "/customer/terms";
@@ -78,10 +83,6 @@ public class ProjController {
 	@RequestMapping("/lost/list.do")
 	public String lost_list() {
 		return "/lost/list";
-	}
-	
-	@GetMapping("/member/register.do")
-	public void register_get() {	
 	}
 	
 	@RequestMapping("/customer/faq.do")

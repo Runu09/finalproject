@@ -1,6 +1,8 @@
 package com.onair.proj.voc.model;
 
 
+import java.sql.Timestamp;
+
 import lombok.Data;
 
 @Data
@@ -10,8 +12,14 @@ public class VocVO {
 	private String bPwd;
 	private String bTitle;
 	private String bContent;
-	private String bRegdate;
+	private Timestamp bRegdate;
 	private int bCount;
 	private int bLike;
 	private int btNo;
+	
+	//답변형 추가
+	private int bGroupno;
+	private int bStep;
+	private int bSortno;
+	private String bDelflag;
 }
