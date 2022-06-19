@@ -2,7 +2,6 @@ package com.onair.proj.voc.controller;
 
 
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
 import java.util.List;
 import java.util.Map;
@@ -36,6 +35,7 @@ public class VoCController {
 	
 	private final VocService vocService;
 	private final FileService fileService;
+	private final FileUploadUtil fileUploadUtil;
 	
 	//안내화면
 	@RequestMapping("/voc_main")
@@ -60,7 +60,7 @@ public class VoCController {
 		long fileSize=0;
 		try {
 			List<Map<String, Object>> fileList
-			=FileUploadUtil.fileUpload(request, 
+			=fileUploadUtil.fileUpload(request, 
 					ConstUtil.UPLOAD_FILE_FLAG);
 
 			for(Map<String, Object> fileMap : fileList) {
