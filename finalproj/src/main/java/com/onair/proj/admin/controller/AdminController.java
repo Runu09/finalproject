@@ -1,5 +1,8 @@
 package com.onair.proj.admin.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -20,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AdminController {
 	private static final Logger logger
-		=LoggerFactory.getLogger(VoCController.class);
+		=LoggerFactory.getLogger(AdminController.class);
 	
 	private final AdminService adminService;
 	
@@ -46,9 +49,16 @@ public class AdminController {
 		return "/admin/adminRegister";
 	}
 	
-	@RequestMapping("/adminLogin")
+	@GetMapping("/adminLogin")
 	public String adminLogin() {
 		logger.info("로그인 화면");
+		return "/admin/adminLogin";
+	}
+	@PostMapping("/adminLogin")
+	public String adminLogin(@ModelAttribute AdminVO vo,
+			HttpServletRequest request, HttpServletResponse response,
+			Model model) {
+		logger.info("로그인 처리 결과 ");
 		return "/admin/adminLogin";
 	}
 	
