@@ -85,10 +85,6 @@ public class ProjController {
 		return "/lost/list";
 	}
 	
-	@GetMapping("/member/register.do")
-	public void register_get() {	
-	}
-	
 	@RequestMapping("/customer/faq.do")
 	public String faq() {
 		return "/customer/faq";
