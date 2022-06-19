@@ -15,10 +15,16 @@ section.small-section.dashboard-section.bg-inner {
 
 footer {position: relative;top: 65px;}
 
-#pwd{
+.form-control{
 	width: 300px
 }
 
+#hp{
+	width: 150px
+}
+#email{
+	width: 200px
+}
 </style>
 <body>
 
@@ -56,10 +62,11 @@ footer {position: relative;top: 65px;}
                                             href="#profile">회원정보수정</a></li>
                                     <li class="nav-item"><a data-bs-toggle="tab" class="nav-link"
                                             href="#bookings">항공권이용내역</a></li>
-                                    <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#added-card">
+                                    <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" 
+                                    href="#change-pwd">
                                            비밀번호변경</a></li>
                                     <li class="nav-item"><a data-bs-toggle="tab" class="nav-link"
-                                            href="#security">회원탈퇴</a></li>
+                                            href="#delete-account">회원탈퇴</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -187,122 +194,135 @@ footer {position: relative;top: 65px;}
                                     </div>
                                 </div>
                             </div>
+                            <!-- 회원정보수정 -->
                             <div class="tab-pane fade" id="profile">
                                 <div class="dashboard-box">
                                     <div class="dashboard-title">
-                                        <h4>profile</h4>
-                                        <span data-bs-toggle="modal" data-bs-target="#edit-profile">edit</span>
+                                        <h4>edit your profile</h4>
                                     </div>
+                                    <br>
                                     <div class="dashboard-detail">
                                         <ul>
                                             <li>
                                                 <div class="details">
                                                     <div class="left">
-                                                        <h6>name</h6>
+                                                        <h6>아이디</h6>
                                                     </div>
                                                     <div class="right">
-                                                        <h6>Mark Enderess</h6>
+                                                       <input class="form-control" type="userId" required="" placeholder="id" readonly="readonly">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                             <li>
+                                                <div class="details">
+                                                    <div class="left">
+                                                        <h6>이름</h6>
+                                                    </div>
+                                                    <div class="right">
+                                                      <input class="form-control" type="text" required="" placeholder="name" readonly="readonly">
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="details">
                                                     <div class="left">
-                                                        <h6>birthday</h6>
+                                                        <h6>비밀번호</h6>
                                                     </div>
                                                     <div class="right">
-                                                        <h6>25/12/1990</h6>
+                                                        <input class="form-control" type="password" name="pwd" required=""
+                                         		   placeholder="password"><br>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                           
+                                            <li>
+                                                <div class="details">
+                                                    <div class="left">
+                                                        <h6>생년월일</h6>
+                                                    </div>
+                                                    <div class="right">
+                                                         <input class="form-control" type="text" required="" placeholder="생년월일" readonly="readonly">
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="details">
                                                     <div class="left">
-                                                        <h6>gender</h6>
+                                                        <h6>우편번호</h6>
                                                     </div>
                                                     <div class="right">
-                                                        <h6>female</h6>
+                                                       <input class="form-control" type="text" required="" placeholder="우편번호">
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="details">
                                                     <div class="left">
-                                                        <h6>street address</h6>
+                                                        <h6>주소</h6>
                                                     </div>
                                                     <div class="right">
-                                                        <h6>549 Sulphur Springs Road</h6>
+                                                       <input class="form-control" type="text" required="" placeholder="주소">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                              <li>
+                                                <div class="details">
+                                                    <div class="left">
+                                                        <h6>상세주소</h6>
+                                                    </div>
+                                                    <div class="right">
+                                                       <input class="form-control" type="text" required="" placeholder="상세주소">
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="details">
                                                     <div class="left">
-                                                        <h6>city/state</h6>
+                                                        <h6>핸드폰번호</h6>
                                                     </div>
                                                     <div class="right">
-                                                        <h6>Downers Grove, IL</h6>
+                                                       <div class="row g-2">
+			                                        <div class="col-4">
+			                                            <input class="form-control" type="text" required=""
+			                                                placeholder="" id="hp">
+			                                        </div>
+			                                        <div class="col-4">
+			                                            <input class="form-control" type="text" required="" placeholder="" id="hp">
+			                                        </div>
+			                                        <div class="col-4">
+			                                            <input class="form-control" type="text" required="" placeholder="" id="hp">
+			                                        </div>
+			                                    		</div>
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li>
+                                            
+                                             <li>
                                                 <div class="details">
                                                     <div class="left">
-                                                        <h6>zip</h6>
+                                                        <h6>이메일</h6>
                                                     </div>
                                                     <div class="right">
-                                                        <h6>60515</h6>
+	                                                      <div class="row g-2">
+				                                   
+				                                        <div class="col-4">
+				                                            <input class="form-control" type="text" required="" placeholder="" id="email">
+				                                        </div> @ 
+				                                        <div class="col-4">
+				                                            <input class="form-control" type="text" required="" placeholder="" id="email">
+				                                        </div>
+			                                    		</div>
                                                     </div>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="dashboard-box">
-                                    <div class="dashboard-title">
-                                        <h4>login details</h4>
-                                    </div>
-                                    <div class="dashboard-detail">
-                                        <ul>
-                                            <li>
-                                                <div class="details">
-                                                    <div class="left">
-                                                        <h6>email address</h6>
-                                                    </div>
-                                                    <div class="right">
-                                                        <h6>mark.enderess@mail.com</h6>
-                                                        <span data-bs-toggle="modal"
-                                                            data-bs-target="#edit-address">edit</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="details">
-                                                    <div class="left">
-                                                        <h6>phone no:</h6>
-                                                    </div>
-                                                    <div class="right">
-                                                        <h6>+91 123 - 456 - 7890</h6>
-                                                        <span data-bs-toggle="modal" data-bs-target="#edit-phone">edit</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="details">
-                                                    <div class="left">
-                                                        <h6>password</h6>
-                                                    </div>
-                                                    <div class="right">
-                                                        <h6>&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</h6>
-                                                        <span data-bs-toggle="modal"
-                                                            data-bs-target="#edit-password">edit</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+								<br><br><a href="#" data-bs-toggle="modal" data-bs-target="#profile"
+                                                class="btn btn-solid">회원정보수정</a>
                             </div>
+                            <!-- 회원정보수정 끝-->
+                            
                             <div class="tab-pane fade" id="bookings">
                                 <div class="dashboard-box">
                                     <div class="dashboard-title">
@@ -569,148 +589,41 @@ footer {position: relative;top: 65px;}
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="added-card">
+                          <!-- 비밀번호변경 -->
+						 <div class="tab-pane fade" id="change-pwd">
                                 <div class="dashboard-box">
                                     <div class="dashboard-title">
-                                        <h4>cards & payment</h4>
+                                        <h4>change your password</h4>
                                     </div>
                                     <div class="dashboard-detail">
-                                        <div class="row card-payment">
-                                            <div class="col-xl-4 col-sm-6">
-                                                <div class="payment-card master">
-                                                    <div class="card-details">
-                                                        <div class="card-number">
-                                                            <h3>XXXX-XXXX-XXXX-2510</h3>
-                                                        </div>
-                                                        <div class="valid-detail">
-                                                            <div class="title">
-                                                                <span>valid</span>
-                                                                <span>thru</span>
-                                                            </div>
-                                                            <div class="date">
-                                                                <h3>12/23</h3>
-                                                            </div>
-                                                            <div class="primary">
-                                                                <span
-                                                                    class="badge bg-pill badge-light">primary</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="name-detail">
-                                                            <div class="name">
-                                                                <h5>mark jecno</h5>
-                                                            </div>
-                                                            <div class="card-img">
-                                                                <img src="../assets/images/icon/master.png"
-                                                                    class="img-fluid blur-up lazyload" alt="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="edit-card">
-                                                        <a data-bs-toggle="modal" data-bs-target="#edit-card" href="#"><i
-                                                                class="far fa-edit"></i> edit</a>
-                                                        <a href="#"><i class="far fa-minus-square"></i> delete</a>
-                                                    </div>
-                                                </div>
-                                                <div class="edit-card-mobile">
-                                                    <a data-bs-toggle="modal" data-bs-target="#edit-card" href="#"><i
-                                                            class="far fa-edit"></i> edit</a>
-                                                    <a href="javascript:void(0)"><i class="far fa-minus-square"></i>
-                                                        delete</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-4 col-sm-6">
-                                                <div class="payment-card visa">
-                                                    <div class="card-details">
-                                                        <div class="card-number">
-                                                            <h3>XXXX-XXXX-XXXX-2510</h3>
-                                                        </div>
-                                                        <div class="valid-detail">
-                                                            <div class="title">
-                                                                <span>valid</span>
-                                                                <span>thru</span>
-                                                            </div>
-                                                            <div class="date">
-                                                                <h3>12/23</h3>
-                                                            </div>
-                                                        </div>
-                                                        <div class="name-detail">
-                                                            <div class="name">
-                                                                <h5>mark jecno</h5>
-                                                            </div>
-                                                            <div class="card-img">
-                                                                <img src="../assets/images/icon/visa.png"
-                                                                    class="img-fluid blur-up lazyload" alt="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="edit-card">
-                                                        <a data-bs-toggle="modal" data-bs-target="#edit-card" href="#"><i
-                                                                class="far fa-edit"></i> edit</a>
-                                                        <a href="#"><i class="far fa-minus-square"></i> delete</a>
-                                                    </div>
-                                                </div>
-                                                <div class="edit-card-mobile">
-                                                    <a data-bs-toggle="modal" data-bs-target="#edit-card" href="#"><i
-                                                            class="far fa-edit"></i> edit</a>
-                                                    <a href="javascript:void(0)"><i class="far fa-minus-square"></i>
-                                                        delete</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-4 col-sm-6">
-                                                <div class="payment-card american-express">
-                                                    <div class="card-details">
-                                                        <div class="card-number">
-                                                            <h3>XXXX-XXXX-XXXX-2510</h3>
-                                                        </div>
-                                                        <div class="valid-detail">
-                                                            <div class="title">
-                                                                <span>valid</span>
-                                                                <span>thru</span>
-                                                            </div>
-                                                            <div class="date">
-                                                                <h3>12/23</h3>
-                                                            </div>
-                                                        </div>
-                                                        <div class="name-detail">
-                                                            <div class="name">
-                                                                <h5>mark jecno</h5>
-                                                            </div>
-                                                            <div class="card-img">
-                                                                <img src="../assets/images/icon/american.jpg"
-                                                                    class="img-fluid blur-up lazyload" alt="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="edit-card">
-                                                        <a data-bs-toggle="modal" data-bs-target="#edit-card" href="#"><i
-                                                                class="far fa-edit"></i> edit</a>
-                                                        <a href="#"><i class="far fa-minus-square"></i> delete</a>
-                                                    </div>
-                                                </div>
-                                                <div class="edit-card-mobile">
-                                                    <a data-bs-toggle="modal" data-bs-target="#edit-card" href="#"><i
-                                                            class="far fa-edit"></i> edit</a>
-                                                    <a href="javascript:void(0)"><i class="far fa-minus-square"></i>
-                                                        delete</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-4 col-sm-6">
-                                                <div class="payment-card add-card">
-                                                    <div data-bs-toggle="modal" data-bs-target="#add-card"
-                                                        class="card-details">
-                                                        <div>
-                                                            <i class="fas fa-plus"></i>
-                                                            <h5>add new card</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="delete-section">
+                                            <p>Hi <span class="text-bold">회원명 님</span>,</p>
+                                            
+                                            <p><span class="text-bold">note:</span></p>
+                                            <p>비밀번호는 영문 대소문자, 숫자, _(밑줄문자)를 조합하여 설정해 주세요.<br>
+											다른 사이트에서 사용하는 것과 동일하거나 쉬운 비밀번호는 사용하지 마세요.<br>
+											안전한 계정 사용을 위해 비밀번호는 주기적으로 변경해 주세요.<br>
+                                            </p>
+                                            <br>
+                 
+                                       			 <input class="form-control" type="password" name="currentPwd" required=""
+                                         		   placeholder="현재 비밀번호"><br>
+                                   
+                                       			 <input class="form-control" type="password" name="newPwd1" required=""
+                                         		   placeholder="새 비밀번호"><br>
+                                   				
+                                       			 <input class="form-control" type="password" name="newPwd2" required=""
+                                         		   placeholder="새 비밀번호 확인"><br>
+                                   			
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#change-pwd"
+                                                class="btn btn-solid">비밀번호 변경</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="tab-pane fade" id="security">
+                            <!-- 비밀번호변경 끝 -->
+                            <!-- 회원탈퇴 -->
+                            <div class="tab-pane fade" id="delete-account">
                                 <div class="dashboard-box">
                                     <div class="dashboard-title">
                                         <h4>delete your accont</h4>
@@ -725,13 +638,16 @@ footer {position: relative;top: 65px;}
 											위의 내용을 이해하고 동의한 경우에도 계정을 삭제하려면 비밀번호 입력 후 탈퇴 버튼을 클릭하십시오.<br>
                                             </p>
                                             <br>
-                                             <input class="form-control" type="text" id="pwd" required="" placeholder="password"><br>
+                                       			 <input class="form-control" type="password" name="pwd" required=""
+                                         		   placeholder="password"><br>
+                                   			
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#delete-account"
                                                 class="btn btn-solid">회원탈퇴</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- 회원탈퇴 끝 -->
                         </div>
                     </div>
                 </div>
