@@ -4,6 +4,7 @@ package com.onair.proj.voc.controller;
 
 
 import java.util.List;
+
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.onair.proj.common.ConstUtil;
 import com.onair.proj.common.FileUploadUtil;
-import com.onair.proj.file.model.FileService;
 import com.onair.proj.voc.model.VocService;
 import com.onair.proj.voc.model.VocVO;
 
@@ -34,7 +34,6 @@ public class VoCController {
 		=LoggerFactory.getLogger(VoCController.class);
 	
 	private final VocService vocService;
-	private final FileService fileService;
 	private final FileUploadUtil fileUploadUtil;
 	
 	//안내화면
