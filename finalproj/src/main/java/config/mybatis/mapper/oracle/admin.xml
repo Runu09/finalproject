@@ -8,8 +8,12 @@
 		<selectKey keyProperty="manNo" resultType="int" order="BEFORE">
 			select SEQ_MANAGER.nextval from dual
 		</selectKey>
-		insert into manager(manNo, manName, manId, manPwd)
+		insert into manager(man_no, man_name, man_id, man_pwd)
 		values(#{manNo},#{manName},#{manId},#{manPwd})
 	</insert>
-
+	
+	<select id="adminSelectPwd" parameterType="string" resultType="string">
+		select man_pwd from manager
+		where man_id=#{manId} 
+	</select>
 </mapper>
