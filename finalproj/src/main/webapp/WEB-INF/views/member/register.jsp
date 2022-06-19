@@ -33,93 +33,194 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    
+   <!--  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script type="text/javascript">
+	    function execDaumPostcode() {
+		    daum.postcode.load(function(){
+		        new daum.Postcode({
+		            oncomplete: function(data) {
+		              // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+		              $("#postcode").val(data.zonecode);
+		              $("#address").val(data.roadAddress);
+		            }
+		        }).open();
+		    });
+		}
+    </script> -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+	    function execDaumPostcode() {
+	        new daum.Postcode({
+	            oncomplete: function(data) {
+	                var addr = '';
+	                var extraAddr = '';
+	
+	                if (data.userSelectedType === 'R') {
+	                    addr = data.roadAddress;
+	                } else {
+	                    addr = data.jibunAddress;
+	                }
+	
+	                document.getElementById('postcode').value = data.zonecode;
+	                document.getElementById("address").value = addr;
+	                document.getElementById("detailAddress").focus();
+	            }
+	        }).open();
+	    }
+	    
+	    $(function(){
+	    	$('form[name=theme-form]').submit(function(){
+	    		if($.trim($('#name').val()) == ""){
+	    			alert("이름을 입력해주세요.");
+	    			$('#name').focus();
+	    			event.preventDefault();		  
+	    		}else if(!validate_userid($("#userid").val())) {
+	    			alert("아이디는 영문, 숫자, _(밑줄문자)만 가능합니다");
+	    			$("#userid").focus();
+	    			event.preventDefault();
+	    	 	}else if($("#pwd").val().length<1) {
+	    		    alert("비밀번호를 입력하세요");
+	    		    $("#pwd").focus();
+	    		    event.preventDefault();
+	    		}else if($("#pwd").val()!=$("#pwd2").val()) {
+	    		    alert("비밀번호가 일치하지 않습니다.");
+	    		    $("#pwd2").focus();
+	    		    event.preventDefault();
+	    		}else if(!validate_tel($('#hp2').val()) || 
+	    				!validate_tel($('#hp3').val())){
+	    			alert("전화번호는 숫자만 가능합니다");
+	    			$("#hp2").focus();
+	    			event.preventDefault();
+	    		}else if($('#chkId').val()!='Y'){
+	    			alert("아이디 중복확인해야 합니다");
+	    			$("#btnChkId").focus();
+	    			event.preventDefault();			
+	    		}
+	    	});
+	    	
+	    	
+	    });
+	</script>
 </head>
 
 <body>
     <!-- login page start-->
     <div class="container-fluid p-0">
-        <div class="row m-0">
-            <div class="col-12 p-0">
-                <div class="login-card">
-                    <div>
-                       <div><a class="logo" href="<c:url value='/main/main.do'/>"><img class="img-fluid for-light"
-                                    src="../assets/images/main2.png" alt="looginpage"><img
-                                    class="img-fluid for-dark" src="../assets/images/logo/logo-white.png"
-                                    alt="looginpage"></a></div>
-                        <div class="login-main">
-                            <form class="theme-form">
-                                <h4>회원가입</h4>
-                                <div class="form-group">
-                                    <label class="col-form-label form-label-title ">아이디</label>
-                                    <input class="form-control" type="userId" required="" placeholder="아이디">
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-form-label form-label-title ">비밀번호</label>
-                                    <div class="form-input position-relative">
-                                        <input class="form-control" type="password" name="login[password]" required=""
-                                            placeholder="*********">
-                                        <div class="show-hide"><span class="show"></span></div>
-                                    </div>
-                                </div>
-                                 <div class="form-group">
-                                    <label class="col-form-label form-label-title ">이름</label>
-                                    <input class="form-control" type="text" required="" placeholder="이름">
-                                </div>
-                                 <div class="form-group">
-                                    <label class="col-form-label form-label-title ">생년월일</label>
-                                    <input class="form-control" type="text" required="" placeholder="8자리입력(YYYYMMDD)">
-                                </div>
-                                 <div class="form-group">
-                                  <label class="col-form-label form-label-title ">우편번호</label>
-                                  <div class="col-6">
-                                            <input class="form-control" type="text" required="" placeholder="우편번호">
-                                        </div>
-                                    <label class="col-form-label form-label-title ">주소</label>
-                                    <input class="form-control" type="text" required="" placeholder="주소">
-                               
-                                    <label class="col-form-label form-label-title ">상세주소</label>
-                                    <input class="form-control" type="text" required="" placeholder="상세주소">
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-form-label form-label-title  pt-0">핸드폰번호</label>
-                                    <div class="row g-2">
-                                        <div class="col-4">
-                                            <input class="form-control" type="text" required=""
-                                                placeholder="">
-                                        </div>
-                                        <div class="col-4">
-                                            <input class="form-control" type="text" required="" placeholder="">
-                                        </div>
-                                        <div class="col-4">
-                                            <input class="form-control" type="text" required="" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-form-label form-label-title  pt-0">이메일</label>
-                                    <div class="row g-2">
-  
-                                        <div class="col-4">
-                                            <input class="form-control" type="text" required="" placeholder="">
-                                        </div>
-                                        <div class="col-8">
-                                            <input class="form-control" type="text" required="" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group mb-0">
-                                 
-                                    <button class="btn btn-primary btn-block w-100" type="submit">가입하기</button>
-                                </div>
-                               
-                                <p class="mt-4 mb-0">이미 계정이 있습니까?<a class="ms-2" href="<c:url value='/admin/adminLogin'/>">로그인</a></p>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- latest jquery-->
+		<div class="row m-0">
+			<div class="col-12 p-0">
+				<div class="login-card">
+					<div>
+						<div>
+							<a class="logo" href="<c:url value='/main/main.do'/>"><img
+								class="img-fluid for-light" src="../assets/images/main2.png"
+								alt="looginpage"><img class="img-fluid for-dark"
+								src="../assets/images/logo/logo-white.png" alt="looginpage"></a>
+						</div>
+						<div class="login-main">
+							<form class="theme-form">
+								<h4>회원가입</h4>
+								<label class="col-form-label form-label-title">아이디</label>
+								<div class="form-group">
+									<input id="userid" class="form-control" type="userId" required=""
+										placeholder="아이디" style="width: 50%; position: absolute;">
+									<input id="chkId" class="btn btn-primary btn-block" type="button"
+										value="중복확인" style=" position: relative; left: 200px; height: 37px;">
+								</div>
+								<div class="form-group">
+									<label class="col-form-label form-label-title ">비밀번호</label>
+									<div class="form-input position-relative">
+										<input id="pwd" class="form-control" type="password"
+											name="login[password]" required="" placeholder="*********">
+										<div class="show-hide">
+											<span class="show"></span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-form-label form-label-title ">비밀번호 확인</label>
+									<div class="form-input position-relative">
+										<input id="pwd2" class="form-control" type="password"
+											name="login[password]" required="" placeholder="*********">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-form-label form-label-title ">이름</label> <input
+										id="name" class="form-control" type="text" required="" placeholder="이름">
+								</div>
+								<div class="form-group">
+									<label class="col-form-label form-label-title ">생년월일</label> <input
+										class="form-control" type="text" required=""
+										placeholder="8자리입력(YYYYMMDD)">
+								</div>
+								
+								<label class="col-form-label form-label-title">우편번호</label>
+								<div class="form-group">
+									<input class="form-control" type="text" required=""
+										placeholder="우편번호" style="width: 50%; position: absolute;" id="postcode">
+									<button type="button" class="btn btn-primary btn-block" onclick="execDaumPostcode()">우편번호 찾기</button>
+									<input class="btn btn-primary btn-block" type="button"
+										value="우편번호 찾기" onclick="execDaumPostcode()" style=" position: relative; left: 50px; height: 45px;">
+								</div>
+								
+								
+								<div class="form-group">
+									<label class="col-form-label form-label-title">주소</label>
+									<input class="form-control" type="text" required="" placeholder="주소" id="address">
+								</div>
+								<div class="form-group">
+									<label class="col-form-label form-label-title ">상세주소</label> <input
+										class="form-control" type="text" required=""
+										placeholder="상세주소" id="detailAddress">
+								</div>
+								<div class="form-group">
+									<label class="col-form-label form-label-title  pt-0">핸드폰번호</label>
+									<div class="row g-2">
+										<div class="col-4">
+											<select class="form-control" style="text-align: center;">
+												<option value="010">010</option>
+												<option value="070">070</option>
+											</select>
+										</div>
+										<div class="col-4">
+											<input id="hp2" class="form-control" type="text" required=""
+												placeholder="">
+										</div>
+										<div class="col-4">
+											<input id="hp3" class="form-control" type="text" required=""
+												placeholder="">
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-form-label form-label-title  pt-0">이메일</label>
+									<div class="row g-2">
+										<div class="col-4">
+											<input class="form-control" type="text" required=""
+												placeholder="">
+										</div>
+										<div class="col-7">
+											<input class="form-control" type="text" required=""
+												placeholder="">
+										</div>
+									</div>
+								</div>
+								<div class="form-group mb-0">
+
+									<button class="btn btn-primary btn-block w-100" type="submit">가입하기</button>
+								</div>
+
+								<p class="mt-4 mb-0">
+									이미 계정이 있습니까?<a class="ms-2"
+										href="<c:url value='/admin/adminLogin'/>">로그인</a>
+								</p>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- latest jquery-->
         <script src="../assets/js/jquery-3.5.1.min.js"></script>
         <!-- Bootstrap js-->
         <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
