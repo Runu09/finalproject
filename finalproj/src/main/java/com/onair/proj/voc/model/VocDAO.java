@@ -8,4 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface VocDAO {
 	int insertVoc(VocVO vo);
 	List<VocVO> selectAll();
+	int updateCount(int bNo);
+	VocVO selectByNo(int bNo);
 }

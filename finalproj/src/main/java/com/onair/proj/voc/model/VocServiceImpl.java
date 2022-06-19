@@ -20,6 +20,16 @@ public class VocServiceImpl implements VocService{
 	public List<VocVO> selectAll() {
 		return vocDao.selectAll();
 	}
+
+	@Override
+	public int updateCount(int bNo) {
+		return vocDao.updateCount(bNo);
+	}
+
+	@Override
+	public VocVO selectByNo(int bNo) {
+		return vocDao.selectByNo(bNo);
+	}
 	
 	
 }
