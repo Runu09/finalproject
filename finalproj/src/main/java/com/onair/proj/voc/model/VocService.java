@@ -5,4 +5,7 @@ import java.util.List;
 public interface VocService {
 	int insertVoc(VocVO vo);
 	List<VocVO> selectAll();
+	int updateCount(int bNo);
+	VocVO selectByNo(int bNo);
+	
 }

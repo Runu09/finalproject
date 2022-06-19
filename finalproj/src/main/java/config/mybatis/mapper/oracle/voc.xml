@@ -13,6 +13,17 @@
 	</insert>
 	
 	<select id="selectAll" resultType="vocVo">
-		select * from board
+		select * from board order by b_no desc
 	</select>
+	
+	<update id="updateCount" parameterType="int">
+		update board
+		set b_count=b_count+1
+		where b_No=#{bNo}
+	</update>
+	
+	<select id="selectByNo" parameterType="int" resultType="vocVo">
+		select * from board where b_No=#{bNo}
+	</select>
+	
 </mapper>

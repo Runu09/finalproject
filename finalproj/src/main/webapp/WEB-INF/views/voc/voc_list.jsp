@@ -81,19 +81,19 @@
 															<td colspan="5" class="align_center">해당 글이 존재하지 않습니다.</td>
 														</tr>
 													</c:if>
-													<c:if test="${!empty list }">		
+													<c:if test="${!empty list }">
 														<!--고객의소리 리스트 반복문 시작  -->
 														<c:forEach var="vo" items="${list }">
 													    	<tr  style="text-align:center">
-																<td>${vo.bNo}</td>
+																<td>${vo.BNo}</td>
 																<td style="text-align:left">
-												                  ${vo.bTitle }            
+												                  <a href="<c:url value='/voc/updateCount?bNo=${vo.BNo }'/>">${vo.BTitle }</a>            
 												               </td>
-																<td>${vo.bId}</td>
+																<td>${vo.BId}</td>
 																<td>
-																	<fmt:formatDate value="${vo.bRegdate}" pattern="yyyy-MM-dd"/>
+																	<fmt:formatDate value="${vo.BRegdate}" pattern="yyyy-MM-dd"/>
 																</td>
-																<td>${vo.bCount}</td>		
+																<td>${vo.BCount}</td>		
 															</tr>			
 														</c:forEach>	 
 														<!--반복처리 끝  -->
