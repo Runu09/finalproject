@@ -2,7 +2,12 @@ package com.onair.proj.voc.controller;
 
 
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +19,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.onair.proj.common.ConstUtil;
+import com.onair.proj.common.FileUploadUtil;
+import com.onair.proj.file.model.FileService;
 import com.onair.proj.voc.model.VocService;
 import com.onair.proj.voc.model.VocVO;
 
@@ -27,6 +35,7 @@ public class VoCController {
 		=LoggerFactory.getLogger(VoCController.class);
 	
 	private final VocService vocService;
+	private final FileService fileService;
 	
 	//안내화면
 	@RequestMapping("/voc_main")
@@ -43,8 +52,32 @@ public class VoCController {
 	}
 	
 	@PostMapping("/voc_write")
-	public String VocWrite_post(@ModelAttribute VocVO vo) {
+	public String VocWrite_post(@ModelAttribute VocVO vo, HttpServletRequest request) {
 		logger.info("고객의 소리 글등록 처리, 파라미터 vo={}", vo);
+		
+		//파일 업로드 처리
+		String fileName="", originFileName="";
+		long fileSize=0;
+		try {
+			List<Map<String, Object>> fileList
+			=FileUploadUtil.fileUpload(request, 
+					ConstUtil.UPLOAD_FILE_FLAG);
+
+			for(Map<String, Object> fileMap : fileList) {
+				//다중 파일 업로드 처리 해야 함!
+
+				originFileName=(String) fileMap.get("originalFileName");
+				fileName=(String) fileMap.get("fileName");
+				fileSize= (long) fileMap.get("fileSize");				
+			}//for
+
+			logger.info("파일 업로드 성공, fileName={}, fileSize={}", fileName,
+					fileSize);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 		
 		int cnt=vocService.insertVoc(vo);
 		logger.info("글등록 처리 결과, cnt={}", cnt);

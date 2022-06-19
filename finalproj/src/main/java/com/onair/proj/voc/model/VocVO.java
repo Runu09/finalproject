@@ -16,4 +16,10 @@ public class VocVO {
 	private int bCount;
 	private int bLike;
 	private int btNo;
+	
+	//답변형 추가
+	private int bGroupno;
+	private int bStep;
+	private int bSortno;
+	private String bDelflag;
 }
