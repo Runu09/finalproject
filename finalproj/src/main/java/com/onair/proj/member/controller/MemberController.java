@@ -23,14 +23,20 @@ public class MemberController {
 
 	private final MemberService memberService;
 	
+	@GetMapping("/login.do")
+	public void login() {
+		logger.info("로그인 화면");
+		
+	}
 	@GetMapping("/register.do")
-	public void register() {
+	public String register_get() {
 		logger.info("회원가입 화면");
+		return "/member/register";
 
 	}
 
 	@PostMapping("/register.do")
-	public String join(@ModelAttribute MemberVO vo, Model model) {
+	public String register_post(@ModelAttribute MemberVO vo, Model model) {
 		logger.info("회원가입 처리, 파라미터 vo={}", vo);
 
 
