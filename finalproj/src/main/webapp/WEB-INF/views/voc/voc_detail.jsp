@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
 
 
@@ -40,15 +42,15 @@
                         </div>
                         <div class="title-part">
                             <ul class="post-detail">
-                                <li>25 January 2018</li>
-                                <li>Posted By : Admin Admin</li>
+                                <li>${vo.BRegdate }</li>
+                                <li>Posted By : ${vo.BId }</li>
                                 <li><i class="fa fa-heart"></i> Hits num</li>
                                 <li><i class="fa fa-comments"></i> Comment num</li>
                             </ul>
-                            <h3>TITLE</h3>
+                            <h3>${vo.BTitle }</h3>
                         </div>
                         <div class="detail-part">
-                            <p>Content</p>
+                            <p>${vo.BContent }</p>
                         </div>
                         <div class="comment-section">
                             <h4 class="comment">comments:</h4>
@@ -125,7 +127,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                                <div class="col-lg-3">
                     <div class="sticky-cls-top">
                         <div class="blog-sidebar">
                             <div class="blog-wrapper">
@@ -141,29 +143,23 @@
                                 <div class="sidebar-content">
                                     <ul class="sidebar-list">
                                         <li class="">
-                                            <a href="#">
-                                                <i aria-hidden="true" class="fa fa-angle-right"></i>Lorem Ipsum Is
-                                                Simple
+                                            <a href="<c:url value='/voc/voc_main'/>">
+                                                <i aria-hidden="true" class="fa fa-angle-right"></i>고객의소리
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="<c:url value='/voc/voc_write'/>">
+                                                <i aria-hidden="true" class="fa fa-angle-right"></i>등록하기
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="<c:url value='/voc/voc_list'/>">
+                                                <i aria-hidden="true" class="fa fa-angle-right"></i>목록
                                             </a>
                                         </li>
                                         <li class="">
                                             <a href="#">
-                                                <i aria-hidden="true" class="fa fa-angle-right"></i>Many Variations
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="#">
-                                                <i aria-hidden="true" class="fa fa-angle-right"></i>random text
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="#">
-                                                <i aria-hidden="true" class="fa fa-angle-right"></i>lorem ipsum.
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="#">
-                                                <i aria-hidden="true" class="fa fa-angle-right m-r-15"></i>it's Random.
+                                                <i aria-hidden="true" class="fa fa-angle-right"></i>내가쓴 글
                                             </a>
                                         </li>
                                     </ul>
@@ -227,24 +223,6 @@
                                                 </div>
                                             </div>
                                         </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="blog-wrapper">
-                                <div class="sidebar-title">
-                                    <h5>popular tags</h5>
-                                </div>
-                                <div class="sidebar-content">
-                                    <ul class="tags">
-                                        <li><a href="#">adventure</a></li>
-                                        <li><a href="#">luxury</a></li>
-                                        <li><a href="#">romantic</a></li>
-                                        <li><a href="#">foodie</a></li>
-                                        <li><a href="#">villas</a></li>
-                                        <li><a href="#">cruise</a></li>
-                                        <li><a href="#">shopping</a></li>
-                                        <li><a href="#">beach</a></li>
-                                        <li><a href="#">family</a></li>
                                     </ul>
                                 </div>
                             </div>
