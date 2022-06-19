@@ -14,4 +14,8 @@
 		#{mEmail1}, #{mEmail2}, #{mBirthday} #{mZipcode}, #{mAdd1}, #{mAdd1})
 	</insert>
 
+	<select id="duplicateId" parameterType="String" resultType="int">
+		select count(*) from member
+		where MEM_ID=#{memId}
+	</select>
 </mapper>
