@@ -96,6 +96,10 @@ th, td {
 tr:hover{
 		background-color: #F5F5F5; cursor: pointer;
 	}
+	
+#block {
+	background-color: blue;
+}
 </style>
 
 
@@ -103,7 +107,7 @@ tr:hover{
 
 <!-- breadcrumb start -->
 <section class="breadcrumb-section no-bg pt-0" id="block"
-	style="width: 100%;">
+	style="width: 100%; background-images: http://www.astronomer.rocks/news/photo/202103/89853_24782_324.jpeg;">
 	<div class="breadcrumb-content overlay-black">
 		<div>
 			<h2>공지사항</h2>

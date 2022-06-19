@@ -13,6 +13,9 @@
     margin-bottom: 2rem;
 }
 
+.returnList {
+	text-align: right;
+}
 </style>
 
 
@@ -46,6 +49,10 @@
                         
                         <h4 style="text-align: center;">내용</h4>
                         
+                        
+                        <div class="returnList">
+                        	<button><a href="<c:url value='/customer/notice.do'/>">목록 보기</a></button>
+                        </div>
                         
                     </div>
                 </div>
