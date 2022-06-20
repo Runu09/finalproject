@@ -18,4 +18,13 @@
 		select count(*) from member
 		where MEM_ID=#{memId}
 	</select>
+	<select id="selectPwd" parameterType="string" resultType="String">
+		select MEM_PWD from member
+		where MEM_ID=#{memId} 
+		
+	</select>
+	
+	<select id="selectByMemId" parameterType="string" resultType="memberVo">
+		select * from member where MEM_ID=#{memId}
+	</select>
 </mapper>

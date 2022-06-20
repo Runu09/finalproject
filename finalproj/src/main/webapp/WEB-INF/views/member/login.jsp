@@ -48,25 +48,33 @@
                                     class="img-fluid for-dark" src="../admin/images/logo/logo-white.png"
                                     alt="looginpage"></a></div>
                         <div class="login-main">
-                            <form class="theme-form">
+                            <form class="theme-form" method="post" 
+		action="<c:url value='/login/login.do'/>">
                                 <h4 style="text-align: center;">회원 로그인</h4>
                                <!--  <p>아이디와 비밀번호를 입력 후 로그인하세요!</p> -->
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">아이디</label>
-                                    <input class="form-control" type="userid" required="" placeholder="아이디를 입력하세요">
+                                    <input class="form-control" type="userid" required="" placeholder="아이디를 입력하세요" name="memId" value="${cookie.ckMemId.value}">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">비밀번호</label>
                                     <div class="form-input position-relative">
-                                        <input class="form-control" type="password" name="login[password]" required=""
+                                        <input class="form-control" type="password" required="" name="memPwd"
                                             placeholder="*********">
+                                       <!--  name="login[password]"  -->
+                                        
                                         <div class="show-hide"><span class="show"> </span></div>
                                     </div>
                                 </div>
                                 <div class="form-group mb-0">
                                     <div class="checkbox p-0">
-                                        <input id="checkbox1" type="checkbox">
-                                        <label class="text-muted" for="checkbox1">아이디 기억</label>
+                                    <input type="checkbox" name="chkSaveId" id="saveId"
+										<c:if test="${!empty cookie.ckMemId} ">
+											checked="checked"
+										</c:if>
+										>
+                                        <!-- <input id="checkbox1" type="checkbox" name="chkSaveId" > -->
+                                        <label class="text-muted" for="saveId">아이디 기억</label>
                                     </div><a class="link" href="">아이디 찾기</a>
                                     <div class="text-end mt-3">
                                         <button class="btn btn-primary btn-block w-100" type="submit">로그인</button>
