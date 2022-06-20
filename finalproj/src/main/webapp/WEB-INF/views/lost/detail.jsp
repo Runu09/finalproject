@@ -5,7 +5,7 @@
 <!-- breadcrumb start -->
 <section class="breadcrumb-section no-bg pt-0" id="block"
 	style="width: 100%;">
-	<div class="breadcrumb-content overlay-black" style="width: 100%;">
+	<div class="breadcrumb-content overlay-black">
 		<div>
 			<h2>유실물 조회</h2>
 		</div>
@@ -38,27 +38,16 @@
 							</p>
 							<p style="color: black; font-size: 16px">
 								내용입니다.<br> 내용입니다.<br> 내용입니다.<br>
-
-
 							</p>
-
-
 						</div>
 
 
 						<div class="col-md-4">
-
 							<img src="../assets/images/upload.png" alt="" width="400px">
 
 						</div>
 					</div>
-
-
 				</div>
-
-
-
-
 			</div>
 		</div>
 		<div style="text-align: center;">

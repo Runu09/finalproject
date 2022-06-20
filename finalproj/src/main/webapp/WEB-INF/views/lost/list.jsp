@@ -4,14 +4,14 @@
 
 
 <!-- breadcrumb start -->
-<section class="breadcrumb-section pt-0 bg-size"  style="height: 350px">
-	<!-- <img src="../assets/images/flights/flight-breadcrumb2.jpg" class="bg-img img-fluid blur-up" alt="">
-         -->
-	<div class="breadcrumb-content dark-content" style="height: 350px">
+<section class="breadcrumb-section no-bg pt-0" id="block"
+	style="width: 100%;">
+	<div class="breadcrumb-content overlay-black">
 		<div>
 			<h2>유실물 조회</h2>
 		</div>
 	</div>
+	<div class="title-breadcrumb">OnAir</div>
 </section>
 <!-- breadcrumb end -->
 
