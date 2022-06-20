@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
@@ -57,7 +59,23 @@ public class MemberController {
 		return "/common/message";
 	}
 
-	
+	@RequestMapping("/dupId.do")
+	@ResponseBody
+	public boolean dupId(@RequestParam String memId) {
+		logger.info("아이디 중복확인, 파라미터 memId={}", memId);
+
+		int result=memberService.duplicateId(memId);
+
+		logger.info("아이디 중복확인 결과, result={}", result);
+
+		boolean bool=false;	
+		if(result==MemberService.USABLE_ID) {
+			bool=true;		//사용가능
+		}else if(result==MemberService.UNUSABLE_ID) {
+			bool=false;		//사용불가
+		}
+		return bool;
+	}
 }
 
 
