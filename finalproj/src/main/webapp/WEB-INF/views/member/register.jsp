@@ -1,40 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Cuba admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
-    <meta name="keywords"
-        content="admin template, Cuba admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="pixelstrap">
-    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <title>회원가입</title>
-    <!-- Google font-->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
-    <!-- Themify icon-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
-    <!-- Feather icon-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
-    <!-- Plugins css start-->
-    <!-- Plugins css Ends-->
-    <!-- Bootstrap css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
-    <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-    <!-- Responsive css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
-    
-   <!--  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description"
+	content="Cuba admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
+<meta name="keywords"
+	content="admin template, Cuba admin template, dashboard template, flat admin template, responsive admin template, web app">
+<meta name="author" content="pixelstrap">
+<link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="../assets/images/favicon.png"
+	type="image/x-icon">
+<title>회원가입</title>
+<!-- Google font-->
+<link
+	href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/font-awesome.css">
+<!-- Themify icon-->
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/vendors/themify.css">
+<!-- Feather icon-->
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/vendors/feather-icon.css">
+<!-- Plugins css start-->
+<!-- Plugins css Ends-->
+<!-- Bootstrap css-->
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/vendors/bootstrap.css">
+<!-- App css-->
+<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+<!-- Responsive css-->
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/responsive.css">
+
+<!--  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script type="text/javascript">
 	    function execDaumPostcode() {
 		    daum.postcode.load(function(){
@@ -48,65 +54,131 @@
 		    });
 		}
     </script> -->
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script>
-	    function execDaumPostcode() {
-	        new daum.Postcode({
-	            oncomplete: function(data) {
-	                var addr = '';
-	                var extraAddr = '';
-	
-	                if (data.userSelectedType === 'R') {
-	                    addr = data.roadAddress;
-	                } else {
-	                    addr = data.jibunAddress;
-	                }
-	
-	                document.getElementById('postcode').value = data.zonecode;
-	                document.getElementById("address").value = addr;
-	                document.getElementById("detailAddress").focus();
-	            }
-	        }).open();
-	    }
-	    
-	    $(function(){
-	    	$('form[name=theme-form]').submit(function(){
-	    		if($.trim($('#name').val()) == ""){
-	    			alert("이름을 입력해주세요.");
-	    			$('#name').focus();
-	    			event.preventDefault();		  
-	    		}else if(!validate_userid($("#userid").val())) {
-	    			alert("아이디는 영문, 숫자, _(밑줄문자)만 가능합니다");
-	    			$("#userid").focus();
-	    			event.preventDefault();
-	    	 	}else if($("#pwd").val().length<1) {
-	    		    alert("비밀번호를 입력하세요");
-	    		    $("#pwd").focus();
-	    		    event.preventDefault();
-	    		}else if($("#pwd").val()!=$("#pwd2").val()) {
-	    		    alert("비밀번호가 일치하지 않습니다.");
-	    		    $("#pwd2").focus();
-	    		    event.preventDefault();
-	    		}else if(!validate_tel($('#hp2').val()) || 
-	    				!validate_tel($('#hp3').val())){
-	    			alert("전화번호는 숫자만 가능합니다");
-	    			$("#hp2").focus();
-	    			event.preventDefault();
-	    		}else if($('#chkId').val()!='Y'){
-	    			alert("아이디 중복확인해야 합니다");
-	    			$("#btnChkId").focus();
-	    			event.preventDefault();			
-	    		}
-	    	});
-	    	
-	    	
-	    });
-	</script>
+
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript"
+	src="<c:url value='/assets/js/jquery-3.6.0.min.js'/>"></script>
+<script type="text/javascript"
+	src='<c:url value="/assets/js/member.js"/>'></script>
+<script type="text/javascript">
+	function execDaumPostcode() {
+		new daum.Postcode({
+			oncomplete : function(data) {
+				var addr = '';
+				var extraAddr = '';
+
+				if (data.userSelectedType === 'R') {
+					addr = data.roadAddress;
+				} else {
+					addr = data.jibunAddress;
+				}
+
+				document.getElementById('postcode').value = data.zonecode;
+				document.getElementById("address").value = addr;
+				document.getElementById("detailAddress").focus();
+			}
+		}).open();
+	}
+
+	$(function() {
+		$('#btReg').click(
+				function() {
+					
+					if ($('#chkId').val() != 'Y') {
+						alert("아이디 중복확인해야 합니다");
+						$("#memId").focus();
+						event.preventDefault();
+					} else if ($.trim($('#name').val()) == "") {
+						alert("이름을 입력해주세요.");
+						$('#name').focus();
+						event.preventDefault();
+					} else if (!validate_userid($("#memId").val())) {
+						alert("아이디는 영문, 숫자, _(밑줄문자)만 가능합니다");
+						$("#memId").focus();
+						event.preventDefault();
+					} else if ($("#pwd").val().length < 1) {
+						alert("비밀번호를 입력하세요");
+						$("#pwd").focus();
+						event.preventDefault();
+					} else if ($("#pwd").val() != $("#pwd2").val()) {
+						alert("비밀번호가 일치하지 않습니다.");
+						$("#pwd2").focus();
+						event.preventDefault();
+					} else if (!validate_tel($('#hp2').val())
+							|| !validate_tel($('#hp3').val())) {
+						alert("전화번호는 숫자만 가능합니다");
+						$("#hp2").focus();
+						event.preventDefault();
+					}
+				});
+
+		$('#memId').keyup(function() {
+			var data = $(this).val();
+			if (validate_userid(data) && data.length >= 2) {
+				$.ajax({
+					url : "<c:url value='/member/dupId.do'/>",
+					type : 'GET',
+					data : "memId=" + data,
+					success : function(res) {
+
+						var output = "";
+						if (res) {
+							output = "사용가능한 아이디";
+							$('#chkId').val('Y');
+						} else {
+							output = "이미 등록된 아이디";
+							$('#chkId').val('N');
+						}
+						$('.error').text(output);
+					},
+					error : function(xhr, status, error) {
+						alert("error:" + error);
+					}
+
+				});
+			} else {
+				$('.error').text('아이디 규칙에 맞지 않습니다.');
+				$('#chkId').val('N');
+			}
+
+		});
+	});
+</script>
+<style type="text/css">
+.error {
+	color: red;
+	position: relative;
+	left: 200px;
+	height: 37px;
+	font-size: 14px;
+}
+#mTel1 {
+          border: none;
+          -webkit-appearance: none;
+          
+          font-size: 16px;
+          background-color: transparent;
+          background: url(<c:url value='/assets/images/icon/down-black.png'/>) no-repeat 20%;
+          position: relative;
+         
+          }
+#mEmail2 {
+          border: none;
+          -webkit-appearance: none;
+          
+          font-size: 16px;
+          background-color: transparent;
+          background: url(<c:url value='/assets/images/icon/down-black.png'/>) no-repeat 80%;
+          position: relative;
+         
+          }
+</style>
 </head>
 
 <body>
-    <!-- login page start-->
-    <div class="container-fluid p-0">
+	<!-- login page start-->
+	<div class="container-fluid p-0">
 		<div class="row m-0">
 			<div class="col-12 p-0">
 				<div class="login-card">
@@ -118,21 +190,27 @@
 								src="../assets/images/logo/logo-white.png" alt="looginpage"></a>
 						</div>
 						<div class="login-main">
-							<form class="theme-form" method="post" action="<c:url value='/member/register.do'/>">
+							<form class="theme-form" method="post"
+								action="<c:url value='/member/register.do'/>">
 								<h4>회원가입</h4>
 								<label class="col-form-label form-label-title">아이디</label>
 								<div class="form-group">
-									<input id="userid" class="form-control" type="userId" required=""
-										placeholder="아이디" name="memId" style="width: 50%; position: absolute;">
-									<input id="chkId" class="btn btn-primary btn-block" type="button"
+									<input id="memId" class="form-control" type="userId"
+										required="" placeholder="아이디" name="memId"
+										style="width: 50%; position: absolute;"> <span
+										class="error"></span><br>
+									<br>
+									<!-- <input id="chkId" class="btn btn-primary btn-block" type="button"
 										value="중복확인" style=" position: relative; left: 200px; height: 37px;">
+									 -->
 								</div>
 								<div class="form-group">
 									<label class="col-form-label form-label-title ">비밀번호</label>
 									<div class="form-input position-relative">
-										<input id="pwd" class="form-control" type="password"  name="memPwd" required="" placeholder="*********">
-											<!-- name="login[password]" --> 
-											
+										<input id="pwd" class="form-control" type="password"
+											name="memPwd" required="" placeholder="*********">
+										<!-- name="login[password]" -->
+
 										<div class="show-hide">
 											<span class="show"></span>
 										</div>
@@ -147,27 +225,32 @@
 								</div>
 								<div class="form-group">
 									<label class="col-form-label form-label-title ">이름</label> <input
-										id="name" class="form-control" type="text" required="" placeholder="이름"  name="memName" >
+										id="name" class="form-control" type="text" required=""
+										placeholder="이름" name="memName">
 								</div>
 								<div class="form-group">
 									<label class="col-form-label form-label-title ">생년월일</label> <input
 										class="form-control" type="text" required="" name="mBirthday"
 										placeholder="8자리입력(YYYYMMDD)">
 								</div>
-								
+
 								<label class="col-form-label form-label-title">우편번호</label>
 								<div class="form-group">
-									<input class="form-control" type="text" required="" name="mZipcode"
-										placeholder="우편번호" style="width: 50%; position: absolute;" id="postcode">
-									<button type="button" class="btn btn-primary btn-block" onclick="execDaumPostcode()">우편번호 찾기</button>
+									<input class="form-control" type="text" required="" ReadOnly
+										name="mZipcode" placeholder="우편번호"
+										style="width: 50%; position: absolute;" id="postcode">
+									<button type="button" class="btn btn-primary btn-block"
+										onclick="execDaumPostcode()">우편번호 찾기</button>
 									<input class="btn btn-primary btn-block" type="button"
-										value="우편번호 찾기" onclick="execDaumPostcode()" style=" position: relative; left: 50px; height: 45px;">
+										value="우편번호 찾기" onclick="execDaumPostcode()"
+										style="position: relative; left: 50px; height: 45px;">
 								</div>
-								
-								
+
+
 								<div class="form-group">
-									<label class="col-form-label form-label-title">주소</label>
-									<input class="form-control" type="text" required="" placeholder="주소" id="address" name="mAdd1">
+									<label class="col-form-label form-label-title">주소</label> <input
+										class="form-control" type="text" required="" placeholder="주소"
+										id="address" name="mAdd1">
 								</div>
 								<div class="form-group">
 									<label class="col-form-label form-label-title ">상세주소</label> <input
@@ -178,18 +261,19 @@
 									<label class="col-form-label form-label-title  pt-0">핸드폰번호</label>
 									<div class="row g-2">
 										<div class="col-4">
-											<select class="form-control" style="text-align: center;" name="mTel1">
+											<select class="form-control" 
+											style="text-align: center" name="mTel1" id="mTel1">
 												<option value="010">010</option>
 												<option value="070">070</option>
 											</select>
 										</div>
 										<div class="col-4">
-											<input id="hp2" class="form-control" type="text" required="" name="mTel2"
-												placeholder="">
+											<input id="hp2" class="form-control" type="text" required=""
+												name="mTel2" placeholder="">
 										</div>
 										<div class="col-4">
-											<input id="hp3" class="form-control" type="text" required="" name="mTel3"
-												placeholder="">
+											<input id="hp3" class="form-control" type="text" required=""
+												name="mTel3" placeholder="">
 										</div>
 									</div>
 								</div>
@@ -197,24 +281,35 @@
 									<label class="col-form-label form-label-title  pt-0">이메일</label>
 									<div class="row g-2">
 										<div class="col-4">
-											<input class="form-control" type="text" required="" name="mEmail1"
-												placeholder="">
+											<input class="form-control" type="text" required=""
+												name="mEmail1" placeholder="">
 										</div>
+										<div class="col-1" style="margin: auto 0">@</div>
 										<div class="col-7">
-											<input class="form-control" type="text" required="" name="mEmail2"
-												placeholder=""> 
+											<select class="form-control"required=""
+												name="mEmail2" placeholder="" id="mEmail2">
+												<option value="naver.com">naver.com</option>
+												<option value="hanmail.net">hanmail.net</option>
+												<option value="nate.com">nate.com</option>
+												<option value="gmail.com">gmail.com</option>
+												<option value="etc">직접입력</option></select>
+										</div>
+										<div class="col-12">
+											<input class="form-control" style="visibility: hidden" type="text" 
+												name="mEmail3" id="mEmail3" placeholder="">
 										</div>
 									</div>
 								</div>
 								<div class="form-group mb-0">
 
-									<button class="btn btn-primary btn-block w-100" type="submit">가입하기</button>
+									<button class="btn btn-primary btn-block w-100" type="submit" id="btReg">가입하기</button>
 								</div>
 
 								<p class="mt-4 mb-0">
 									이미 계정이 있습니까?<a class="ms-2"
 										href="<c:url value='/member/login.do'/>">로그인</a>
 								</p>
+								<input type="hidden" name="chkId" id="chkId">
 							</form>
 						</div>
 					</div>
@@ -222,22 +317,24 @@
 			</div>
 		</div>
 		<!-- latest jquery-->
-        <script src="../assets/js/jquery-3.5.1.min.js"></script>
-        <!-- Bootstrap js-->
-        <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
-        <!-- feather icon js-->
-        <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
-        <script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
-        <!-- scrollbar js-->
-        <!-- Sidebar jquery-->
-        <script src="../assets/js/config.js"></script>
-        <!-- Plugins JS start-->
-        <!-- Plugins JS Ends-->
-        <!-- Theme js-->
-        <script src="../assets/js/script.js"></script>
-        <!-- login js-->
-        <!-- Plugin used-->
-    </div>
+
+
+
+		<!-- Bootstrap js-->
+		<script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+		<!-- feather icon js-->
+		<script src="../assets/js/icons/feather-icon/feather.min.js"></script>
+		<script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
+		<!-- scrollbar js-->
+		<!-- Sidebar jquery-->
+		<script src="../assets/js/config.js"></script>
+		<!-- Plugins JS start-->
+		<!-- Plugins JS Ends-->
+		<!-- Theme js-->
+		<script src="../assets/js/script.js"></script>
+		<!-- login js-->
+		<!-- Plugin used-->
+	</div>
 </body>
 
 </html>
