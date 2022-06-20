@@ -25,11 +25,7 @@ public class MemberController {
 
 	private final MemberService memberService;
 	
-	@GetMapping("/login.do")
-	public void login() {
-		logger.info("로그인 화면");
-		
-	}
+	
 	@GetMapping("/register.do")
 	public String register_get() {
 		logger.info("회원가입 화면");
@@ -50,7 +46,7 @@ public class MemberController {
 		
 		if(cnt>0) {
 			msg="회원가입되었습니다.";
-			url="/member/login.do";
+			url="/login/login.do";
 		}
 
 		model.addAttribute("msg", msg);
