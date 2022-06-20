@@ -5,15 +5,15 @@
 $(function() {
 	var ctxPath="/herb";
 	
-	$('#email2').change(function() {
+	$('#mEmail2').change(function() {
 		if ($(this).val() == "etc") {
 
-			$('#email3').val("");
-			$('#email3').css('visibility', 'visible');
-			$('#email3').focus();
+			$('#mEmail3').val("");
+			$('#mEmail3').css('visibility', 'visible');
+			$('#mEmail3').focus();
 		} else {
 
-			$('#email3').css('visibility', 'hidden');
+			$('#mEmail3').css('visibility', 'hidden');
 
 		}
 

@@ -34,10 +34,16 @@ public class MemberController {
 	}
 
 	@PostMapping("/register.do")
-	public String register_post(@ModelAttribute MemberVO vo, Model model) {
-		logger.info("회원가입 처리, 파라미터 vo={}", vo);
+	public String register_post(@ModelAttribute MemberVO vo, 
+			@RequestParam String mEmail3,
+			Model model) {
+		logger.info("회원가입 처리, 파라미터 vo={}, mEmail3={}", vo,mEmail3);
 
 
+		if(vo.getMEmail2().equals("etc")) {
+			vo.setMEmail2(mEmail3);
+		}
+		
 		int cnt=memberService.memberInsert(vo);
 		
 		logger.info("회원가입 결과, cnt={}", cnt);

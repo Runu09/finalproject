@@ -294,6 +294,10 @@
 												<option value="gmail.com">gmail.com</option>
 												<option value="etc">직접입력</option></select>
 										</div>
+										<div class="col-12">
+											<input class="form-control" style="visibility: hidden" type="text" 
+												name="mEmail3" id="mEmail3" placeholder="">
+										</div>
 									</div>
 								</div>
 								<div class="form-group mb-0">
