@@ -29,4 +29,27 @@ public class MemberServiceImpl implements MemberService{
 		return result;
 	}
 
+	@Override
+	public int checkLogin(String memId, String memPwd) {
+		String dbPwd = memberDao.selectPwd(memId);
+		
+		int result=0;
+		if(dbPwd !=null && !dbPwd.isEmpty()) {
+			if(dbPwd.equals(memPwd)) {
+				result=MemberService.LOGIN_OK;
+			}else {
+				result=MemberService.DISAGREE_PWD;				
+			}
+		}else {
+			result=MemberService.NONE_USERID;
+		}
+		
+		return result;
+	}
+
+	@Override
+	public MemberVO selectByMemId(String memId) {
+		return memberDao.selectByMemId(memId);
+	}
+
 }

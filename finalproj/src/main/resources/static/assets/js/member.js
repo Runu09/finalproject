@@ -4,14 +4,7 @@
 
 $(function() {
 	var ctxPath="/herb";
-	$('#btnChkId').click(function() {
-		var id = $('#userid').val();
-		open(ctxPath+"/member/checkUserid?userid=" + id, "idcheck", "width=400, height=350, location=yes, resizable=yes, top=100, left=50");
-	});
-	$('#btnZipcode').click(function() {
-		open(ctxPath+"/zipcode/zipcode", "zip", "width=500, height=500, location=yes, resizable=yes, top=100, left=50");
-
-	});
+	
 	$('#email2').change(function() {
 		if ($(this).val() == "etc") {
 
