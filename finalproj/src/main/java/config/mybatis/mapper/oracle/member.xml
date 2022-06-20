@@ -11,7 +11,7 @@
 		insert into member(MEM_NO, MEM_ID, MEM_PWD, MEM_NAME, M_TEL1, M_TEL2, M_TEL3, 
 		M_EMAIL1, M_EMAIL2, M_BIRTHDAY, M_ZIPCODE, M_ADD1, M_ADD2)
 		values(#{memNo},#{memId},#{memPwd},#{memName},#{mTel1}, #{mTel2}, #{mTel3}, 
-		#{mEmail1}, #{mEmail2}, #{mBirthday} #{mZipcode}, #{mAdd1}, #{mAdd1})
+		#{mEmail1}, #{mEmail2}, #{mBirthday}, #{mZipcode}, #{mAdd1}, #{mAdd2})
 	</insert>
 
 	<select id="duplicateId" parameterType="String" resultType="int">

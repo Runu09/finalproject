@@ -118,20 +118,21 @@
 								src="../assets/images/logo/logo-white.png" alt="looginpage"></a>
 						</div>
 						<div class="login-main">
-							<form class="theme-form">
+							<form class="theme-form" method="post" action="<c:url value='/member/register.do'/>">
 								<h4>회원가입</h4>
 								<label class="col-form-label form-label-title">아이디</label>
 								<div class="form-group">
 									<input id="userid" class="form-control" type="userId" required=""
-										placeholder="아이디" style="width: 50%; position: absolute;">
+										placeholder="아이디" name="memId" style="width: 50%; position: absolute;">
 									<input id="chkId" class="btn btn-primary btn-block" type="button"
 										value="중복확인" style=" position: relative; left: 200px; height: 37px;">
 								</div>
 								<div class="form-group">
 									<label class="col-form-label form-label-title ">비밀번호</label>
 									<div class="form-input position-relative">
-										<input id="pwd" class="form-control" type="password"
-											name="login[password]" required="" placeholder="*********">
+										<input id="pwd" class="form-control" type="password"  name="memPwd" required="" placeholder="*********">
+											<!-- name="login[password]" --> 
+											
 										<div class="show-hide">
 											<span class="show"></span>
 										</div>
@@ -146,17 +147,17 @@
 								</div>
 								<div class="form-group">
 									<label class="col-form-label form-label-title ">이름</label> <input
-										id="name" class="form-control" type="text" required="" placeholder="이름">
+										id="name" class="form-control" type="text" required="" placeholder="이름"  name="memName" >
 								</div>
 								<div class="form-group">
 									<label class="col-form-label form-label-title ">생년월일</label> <input
-										class="form-control" type="text" required=""
+										class="form-control" type="text" required="" name="mBirthday"
 										placeholder="8자리입력(YYYYMMDD)">
 								</div>
 								
 								<label class="col-form-label form-label-title">우편번호</label>
 								<div class="form-group">
-									<input class="form-control" type="text" required=""
+									<input class="form-control" type="text" required="" name="mZipcode"
 										placeholder="우편번호" style="width: 50%; position: absolute;" id="postcode">
 									<button type="button" class="btn btn-primary btn-block" onclick="execDaumPostcode()">우편번호 찾기</button>
 									<input class="btn btn-primary btn-block" type="button"
@@ -166,28 +167,28 @@
 								
 								<div class="form-group">
 									<label class="col-form-label form-label-title">주소</label>
-									<input class="form-control" type="text" required="" placeholder="주소" id="address">
+									<input class="form-control" type="text" required="" placeholder="주소" id="address" name="mAdd1">
 								</div>
 								<div class="form-group">
 									<label class="col-form-label form-label-title ">상세주소</label> <input
-										class="form-control" type="text" required=""
+										class="form-control" type="text" name="mAdd2"
 										placeholder="상세주소" id="detailAddress">
 								</div>
 								<div class="form-group">
 									<label class="col-form-label form-label-title  pt-0">핸드폰번호</label>
 									<div class="row g-2">
 										<div class="col-4">
-											<select class="form-control" style="text-align: center;">
+											<select class="form-control" style="text-align: center;" name="mTel1">
 												<option value="010">010</option>
 												<option value="070">070</option>
 											</select>
 										</div>
 										<div class="col-4">
-											<input id="hp2" class="form-control" type="text" required=""
+											<input id="hp2" class="form-control" type="text" required="" name="mTel2"
 												placeholder="">
 										</div>
 										<div class="col-4">
-											<input id="hp3" class="form-control" type="text" required=""
+											<input id="hp3" class="form-control" type="text" required="" name="mTel3"
 												placeholder="">
 										</div>
 									</div>
@@ -196,12 +197,12 @@
 									<label class="col-form-label form-label-title  pt-0">이메일</label>
 									<div class="row g-2">
 										<div class="col-4">
-											<input class="form-control" type="text" required=""
+											<input class="form-control" type="text" required="" name="mEmail1"
 												placeholder="">
 										</div>
 										<div class="col-7">
-											<input class="form-control" type="text" required=""
-												placeholder="">
+											<input class="form-control" type="text" required="" name="mEmail2"
+												placeholder=""> 
 										</div>
 									</div>
 								</div>
@@ -212,7 +213,7 @@
 
 								<p class="mt-4 mb-0">
 									이미 계정이 있습니까?<a class="ms-2"
-										href="<c:url value='/admin/adminLogin'/>">로그인</a>
+										href="<c:url value='/member/login.do'/>">로그인</a>
 								</p>
 							</form>
 						</div>
