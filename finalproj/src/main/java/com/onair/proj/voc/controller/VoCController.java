@@ -91,9 +91,6 @@ public class VoCController {
 		List<VocVO> list=vocService.selectAll();
 		logger.info("고객의 소리 리스트 조회결과 list.size={}", list.size());
 		
-		VocVO vo=list.get(0);
-		logger.info("test vo={}", vo);
-		model.addAttribute("vo",vo);
 		model.addAttribute("list", list);
 		
 		return "/voc/voc_list";
