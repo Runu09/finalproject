@@ -94,6 +94,17 @@ public class ProjController {
 	public void mypage_get() {
 		
 	}
+	
+	@GetMapping("/mypage/mypageMain.do")
+	public void mypageMain_get() {
+		
+	}
+	
+	@GetMapping("/mypage/bookings.do")
+	public void bookings_get() {
+		
+	}
+
 
 
 }
