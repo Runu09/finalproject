@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.onair.proj.common.SearchVO;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -17,8 +19,8 @@ public class VocServiceImpl implements VocService{
 	}
 
 	@Override
-	public List<VocVO> selectAll() {
-		return vocDao.selectAll();
+	public List<VocVO> selectAll(SearchVO searchVo) {
+		return vocDao.selectAll(searchVo);
 	}
 
 	@Override
@@ -34,6 +36,11 @@ public class VocServiceImpl implements VocService{
 	@Override
 	public int updateDownCount(int bNo) {
 		return vocDao.updateDownCount(bNo);
+	}
+
+	@Override
+	public int getTotalRecord(SearchVO searchVo) {
+		return vocDao.getTotalRecord(searchVo);
 	}
 	
 	

@@ -25,6 +25,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.onair.proj.common.ConstUtil;
 import com.onair.proj.common.FileUploadUtil;
+import com.onair.proj.common.PaginationInfo;
+import com.onair.proj.common.SearchVO;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
 import com.onair.proj.voc.model.VocService;
@@ -115,13 +117,30 @@ public class VoCController {
 	}
 	
 	@RequestMapping("/voc_list")
-	public String VocList_get(Model model) {
-		logger.info("고객의 소리 리스트 화면");
+	public String VocList_get(@ModelAttribute SearchVO searchVo,Model model) {
+		logger.info("고객의 소리 리스트 화면, 파라미터 searchVo={}", searchVo);
+		//검색 조건 제목만 할것임
+		searchVo.setSearchCondition("BTitle");
 		
-		List<VocVO> list=vocService.selectAll();
+		//페이징 처리 로직 시작
+		PaginationInfo pagingInfo = new PaginationInfo();
+		pagingInfo.setBlockSize(ConstUtil.BLOCKSIZE);
+		pagingInfo.setRecordCountPerPage(ConstUtil.RECORD_COUNT);
+		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
+		
+		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+		searchVo.setRecordCountPerPage(ConstUtil.RECORD_COUNT);
+		
+		List<VocVO> list=vocService.selectAll(searchVo);
 		logger.info("고객의 소리 리스트 조회결과 list.size={}", list.size());
 		
+		int totalRecord=vocService.getTotalRecord(searchVo);
+		logger.info("글목록 TotalRecord={}", totalRecord);
+		
+		pagingInfo.setTotalRecord(totalRecord);
+		
 		model.addAttribute("list", list);
+		model.addAttribute("pagingInfo", pagingInfo);
 		
 		return "/voc/voc_list";
 	}
@@ -178,7 +197,7 @@ public class VoCController {
 		File file = new File(uploadPath,fName);
 		map.put("file", file);
 		
-		ModelAndView mav = new ModelAndView("VocDownloadView", map);
+		ModelAndView mav = new ModelAndView("vocDownloadView", map);
 		
 		return mav;
 	}

@@ -14,8 +14,34 @@
 			#{fName},#{fOriginName},#{fFileSize})
 	</insert>
 	
-	<select id="selectAll" resultType="vocVo">
-		select * from board order by b_no desc
+	<sql id="searchWhere">
+		<if test="searchKeyword !=null and searchKeyword !=''">
+			where b_title like '%' || #{searchKeyword} || '%'
+		</if>
+	</sql>
+	
+	<select id="selectAll" parameterType="searchVo" resultType="vocVo">
+		select * from
+		(
+			select rownum as RNUM, A.*
+			from
+			(
+				select B.*, (sysdate-b_regdate)*24 as dateTerm
+				from board B
+				<include refid="searchWhere"></include>
+				order by b_groupno desc, b_sortno
+			)A
+		)
+		
+		where RNUM>#{firstRecordIndex}
+		<![CDATA[
+		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage}
+		]]>
+	</select>
+	
+	<select id="getTotalRecord" parameterType="searchVo" resultType="int">
+		select count(*) from board
+		<include refid="searchWhere"></include>		
 	</select>
 	
 	<update id="updateCount" parameterType="int">
