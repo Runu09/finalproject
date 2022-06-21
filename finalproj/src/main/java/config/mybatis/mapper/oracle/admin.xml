@@ -16,4 +16,8 @@
 		select man_pwd from manager
 		where man_id=#{manId} 
 	</select>
+	
+	<select id="totalMember" parameterType="memberVo" resultType="int">
+		select count(*) from member
+	</select>
 </mapper>
