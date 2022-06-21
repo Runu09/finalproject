@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!-- footer start -->
 <footer>
-	<div class="footer section-b-space section-t-space">
+	<div class="footer section-b-space section-t-space" style="padding-left: 10%">
 		<div class="container">
 			<div class="row order-row">
 				<div class="col-xl-3 col-md-6 order-cls">
