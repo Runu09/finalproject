@@ -179,7 +179,7 @@ body {
 							<!-- 로그인 된 경우 -->
 							<c:if test="${!empty sessionScope.memId }">
 								<li class="user user-light"><a
-									href="<c:url value='/login/login.do'/>" style="color: white">
+									href="<c:url value='/login/logout.do'/>" style="color: white">
 										로그아웃 </a></li>
 								<li class="user user-light"><a
 									href="<c:url value='/mypage/mypageMain.do'/>"
