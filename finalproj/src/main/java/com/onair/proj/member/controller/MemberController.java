@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
@@ -23,11 +25,7 @@ public class MemberController {
 
 	private final MemberService memberService;
 	
-	@GetMapping("/login.do")
-	public void login() {
-		logger.info("로그인 화면");
-		
-	}
+	
 	@GetMapping("/register.do")
 	public String register_get() {
 		logger.info("회원가입 화면");
@@ -36,10 +34,16 @@ public class MemberController {
 	}
 
 	@PostMapping("/register.do")
-	public String register_post(@ModelAttribute MemberVO vo, Model model) {
-		logger.info("회원가입 처리, 파라미터 vo={}", vo);
+	public String register_post(@ModelAttribute MemberVO vo, 
+			@RequestParam String mEmail3,
+			Model model) {
+		logger.info("회원가입 처리, 파라미터 vo={}, mEmail3={}", vo,mEmail3);
 
 
+		if(vo.getMEmail2().equals("etc")) {
+			vo.setMEmail2(mEmail3);
+		}
+		
 		int cnt=memberService.memberInsert(vo);
 		
 		logger.info("회원가입 결과, cnt={}", cnt);
@@ -48,7 +52,7 @@ public class MemberController {
 		
 		if(cnt>0) {
 			msg="회원가입되었습니다.";
-			url="/member/login.do";
+			url="/login/login.do";
 		}
 
 		model.addAttribute("msg", msg);
@@ -57,6 +61,43 @@ public class MemberController {
 		return "/common/message";
 	}
 
+	@RequestMapping("/dupId.do")
+	@ResponseBody
+	public boolean dupId(@RequestParam String memId) {
+		logger.info("아이디 중복확인, 파라미터 memId={}", memId);
+
+		int result=memberService.duplicateId(memId);
+
+		logger.info("아이디 중복확인 결과, result={}", result);
+
+		boolean bool=false;	
+		if(result==MemberService.USABLE_ID) {
+			bool=true;		//사용가능
+		}else if(result==MemberService.UNUSABLE_ID) {
+			bool=false;		//사용불가
+		}
+		return bool;
+	}
+	
+	/* 마이페이지 */
+	
+	@GetMapping("/deleteMem.do")
+	public String delete_get() {
+		logger.info("회원탈퇴 화면");
+		return "/member/deleteMem";
+	}
+
+	@GetMapping("/editMem.do")
+	public String editMem_get() {
+		logger.info("회원정보수정 화면");
+		return "/member/editMem";
+	}
+	
+	@GetMapping("/editPwd.do")
+	public String editPwd_get() {
+		logger.info("비밀번호변경 화면");
+		return "/member/editPwd";
+	}
 	
 }
 
