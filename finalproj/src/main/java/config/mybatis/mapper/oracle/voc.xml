@@ -59,4 +59,28 @@
 		where b_no=#{bNo}
 	</update>
 	
+	
+	<select id="selectPwd" parameterType="int" resultType="String">
+		select b_pwd from board where b_No=#{bNo}
+	</select>
+	
+	<update id="updateVoc" parameterType="vocVo">
+		update board
+		set b_title=#{bTitle}, b_content=#{bContent}
+		<if test="FName !=null and FName!=''">
+			,f_name=#{fName}, f_filesize=#{fFileSize}, f_originname=#{fOriginName}
+		</if>
+		where b_No=#{bNo}
+	</update>
+	
+	<parameterMap type="map" id="vocDeleteParam">
+		<parameter property="BGroupno" javaType="string" jdbcType="VARCHAR" mode="IN"/>
+		<parameter property="BStep" javaType="string" jdbcType="VARCHAR" mode="IN"/>
+		<parameter property="BNo" javaType="string" jdbcType="VARCHAR" mode="IN"/>
+	</parameterMap>
+	
+	<delete id="deleteVoc" parameterMap="vocDeleteParam">
+		call vocDelete(?,?,?)
+	</delete>
+	
 </mapper>

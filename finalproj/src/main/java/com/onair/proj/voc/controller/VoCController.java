@@ -4,6 +4,7 @@ package com.onair.proj.voc.controller;
 
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -162,7 +163,7 @@ public class VoCController {
 	}
 	
 	@RequestMapping("/voc_detail")
-	public String voc_detail(@RequestParam(defaultValue = "0") int bNo,
+	public String voc_detail(@RequestParam(defaultValue = "0") int bNo,HttpSession session,
 			HttpServletRequest request,Model model) {
 		logger.info("voc 상세보기 파라미터 bNo={}", bNo);
 		
@@ -172,6 +173,12 @@ public class VoCController {
 			return "/common/message";
 		}
 		
+		//memId 비교값 넘겨주기
+		String memId=(String)session.getAttribute("memId");
+		MemberVO memVo = new MemberVO();
+		memVo.setMemId(memId);
+		logger.info("memVo={}",memVo);
+		
 		VocVO vo=vocService.selectByNo(bNo);
 		logger.info("상세보기 결과 vo={}",vo);
 		
@@ -179,6 +186,7 @@ public class VoCController {
 		String fileInfo=fileUploadUtil.getFileInfo(vo.getFOriginName(), vo.getFFileSize(), request);
 		
 		model.addAttribute("vo", vo);
+		model.addAttribute("memVo", memVo);
 		model.addAttribute("fileInfo", fileInfo);
 		
 		return "/voc/voc_detail";
@@ -200,5 +208,137 @@ public class VoCController {
 		ModelAndView mav = new ModelAndView("vocDownloadView", map);
 		
 		return mav;
+	}
+	
+	@GetMapping("/voc_edit")
+	public String edit_get(@RequestParam(defaultValue = "0") int bNo,HttpSession session, Model model) {
+		logger.info("voc 글수정, 파라미터 bNo={}", bNo);
+		
+		if(bNo==0) {
+			model.addAttribute("msg","잘못된 url입니다");
+			model.addAttribute("url","/voc/voc_list");
+			return "/common/message";
+		}
+		
+		//memId 비교값 넘겨주기
+		String memId=(String)session.getAttribute("memId");
+		MemberVO memVo = new MemberVO();
+		memVo.setMemId(memId);
+		logger.info("memVo={}",memVo);
+		
+		VocVO vo=vocService.selectByNo(bNo);
+		logger.info("수정할 글 상세보기 결과 vo={}", vo);
+		
+		model.addAttribute("vo", vo);
+		model.addAttribute("memVo", memVo);
+		
+		return "/voc/voc_edit";
+	}
+	
+	@PostMapping("/voc_edit")
+	public String edit_post(@ModelAttribute VocVO vo, @RequestParam String oldFileName,
+			HttpServletRequest request, Model model) {
+		logger.info("voc 글수정 처리, 파라미터 vo={},oldFileName={}", vo,oldFileName);
+		
+		String msg="비밀번호 체크 실패", url="/voc/voc_edit?bNo="+vo.getBNo();
+		if(vocService.checkPwd(vo.getBNo(), vo.getBPwd())) {
+			//파일 처리
+			String fileName="", originFileName="";
+			long fileSize=0;
+			List<Map<String, Object>> fileList=null;
+			try {
+				fileList=fileUploadUtil.fileUpload(request, ConstUtil.UPLOAD_FILE_FLAG);
+				for(Map<String, Object> fileMap : fileList) {
+					fileName=(String)fileMap.get("fileName");
+					originFileName=(String)fileMap.get("originalFileName");
+					fileSize=(long)fileMap.get("fileSize");
+				}//
+				
+				logger.info("글수정-파일업로드 처리 성공");
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			vo.setFName(fileName);
+			vo.setFOriginName(originFileName);
+			vo.setFFileSize(fileSize);
+			
+			int cnt=vocService.updateVoc(vo);
+			logger.info("글 수정 처리 결과, cnt={}", cnt);
+			
+			if(cnt>0) {
+				msg="글 수정되었습니다";
+				url="/voc/voc_detail?bNo="+vo.getBNo();
+				
+				if(!fileList.isEmpty()) {//새로운 파일 첨부시
+					if(oldFileName!=null && !oldFileName.isEmpty()) {
+						String uploadPath = fileUploadUtil.getUploadPath(request, ConstUtil.UPLOAD_FILE_FLAG);
+						File oldFile = new File(uploadPath, oldFileName);
+						if(oldFile.exists()) {
+							boolean bool=oldFile.delete();
+							logger.info("글수정-파일삭제 체크 : {}", bool);
+						}
+					}
+				}
+			}else {
+				msg="글 수정 실패";
+			}
+		}else {
+			msg="비밀번호 불일치";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
+	}
+	
+	@GetMapping("/voc_delete")
+	public String delete_get(@RequestParam(defaultValue = "0") int bNo, 
+			@ModelAttribute VocVO vo, Model model) {
+		logger.info("voc 글삭제 화면보기, 파라미터 bNo={}, vo={}", bNo, vo);
+		
+		if(bNo==0) {
+			model.addAttribute("msg", "잘못된 접근입니다");
+			model.addAttribute("url", "/voc/voc_list");
+			return "/common/message";
+		}
+		
+		return "/voc/voc_delete";
+	}
+	
+	@PostMapping("/voc_delete")
+	public String delete_post(@ModelAttribute VocVO vo, HttpServletRequest request, Model model) {
+		logger.info("voc 글삭제 처리, 파라미터 vo={}", vo);
+		
+		String msg="비밀번호 체크 실패",url="/voc/voc_delete?bNo="+vo.getBNo()
+		+"&BGroupno="+vo.getBGroupno()+"&BStep="+vo.getBStep()+"&FName="+vo.getFName();
+		if(vocService.checkPwd(vo.getBNo(), vo.getBPwd())) {
+			Map<String, String> map = new HashMap<>();
+			map.put("BNo", vo.getBNo()+"");
+			map.put("BGroupno", vo.getBGroupno()+"");
+			map.put("BStep", vo.getBStep()+"");
+			
+			vocService.deleteVoc(map);
+			msg="글 삭제 완료";
+			url="/voc/voc_list";
+				
+			String uploadPath=fileUploadUtil.getUploadPath(request, 
+					ConstUtil.UPLOAD_FILE_FLAG);
+			File delFile = new File(uploadPath, vo.getFName());
+			if(delFile.exists()) {
+				boolean bool=delFile.delete();
+				logger.info("파일 삭제 여부: {}",bool);
+			}
+		}else {
+			msg="비밀번호 불일치";
+		}
+		
+		model.addAttribute("msg",msg);
+		model.addAttribute("url",url);
+
+		return "/common/message";
 	}
 }

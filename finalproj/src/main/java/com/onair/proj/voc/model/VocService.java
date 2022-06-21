@@ -1,6 +1,7 @@
 package com.onair.proj.voc.model;
 
 import java.util.List;
+import java.util.Map;
 
 import com.onair.proj.common.SearchVO;
 
@@ -11,4 +12,7 @@ public interface VocService {
 	VocVO selectByNo(int bNo);
 	int updateDownCount(int bNo);
 	int getTotalRecord(SearchVO searchVo);
+	boolean checkPwd(int bNo, String bPwd);
+	int updateVoc(VocVO vo);
+	public void deleteVoc(Map<String, String> map);
 }
