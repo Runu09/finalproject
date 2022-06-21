@@ -1,12 +1,11 @@
-package com.onair.proj.voc.model;
-
+package com.onair.proj.board.model;
 
 import java.sql.Timestamp;
 
 import lombok.Data;
 
 @Data
-public class VocVO {
+public class BoardVO {
 	private int bNo;
 	private String bId;
 	private String bPwd;

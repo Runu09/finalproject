@@ -8,8 +8,10 @@
 			select SEQ_BOARD.nextval from dual
 		</selectKey>
 		
-		insert into board(b_No,b_Id,b_Pwd,b_Title,b_Content,bt_No,b_groupno)
-		values(#{bNo},#{bId},#{bPwd},#{bTitle},#{bContent},#{btNo},#{bNo})
+		insert into board(b_No,b_Id,b_Pwd,b_Title,b_Content,bt_No,b_groupno,
+			f_name,f_originname,f_filesize)
+		values(#{bNo},#{bId},#{bPwd},#{bTitle},#{bContent},#{btNo},#{bNo},
+			#{fName},#{fOriginName},#{fFileSize})
 	</insert>
 	
 	<select id="selectAll" resultType="vocVo">

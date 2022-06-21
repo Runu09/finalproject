@@ -1,10 +1,6 @@
-package com.onair.proj.voc.controller;
-
-
-
+package com.onair.proj.board.controller;
 
 import java.util.List;
-
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,10 +16,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.onair.proj.board.model.BoardService;
+import com.onair.proj.board.model.BoardVO;
 import com.onair.proj.common.ConstUtil;
 import com.onair.proj.common.FileUploadUtil;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
+import com.onair.proj.voc.controller.VoCController;
 import com.onair.proj.voc.model.VocService;
 import com.onair.proj.voc.model.VocVO;
 
@@ -31,44 +30,39 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/voc")
-public class VoCController {
+@RequestMapping("/파일명")
+public class BoardController {
 	private static final Logger logger
-		=LoggerFactory.getLogger(VoCController.class);
-	
-	private final VocService vocService;
+	=LoggerFactory.getLogger(VoCController.class);
+
+	private final BoardService boardService;
 	private final MemberService memberService;
 	private final FileUploadUtil fileUploadUtil;
-	
+
 	//안내화면
-	@RequestMapping("/voc_main")
-	public String VocMain() {
-		logger.info("고객의 소리 메인화면");
-		return "/voc/voc_main";
+	@RequestMapping("/메인jsp")
+	public String BoardMain() {
+		logger.info("~~~ 메인화면");
+		return "메인jsp";
 	}
-	
+
 	//글등록
-	@GetMapping("/voc_write")
-	public String VocWrite_get(HttpSession session,Model model) {
-		logger.info("고객의 소리 등록하기 화면");
+	@GetMapping("/등록jsp")
+	public String BoardWrite_get(HttpSession session,Model model) {
+		logger.info("~~~~ 등록하기 화면");
 		String memId=(String)session.getAttribute("memId");
-		MemberVO memVo = new MemberVO();
-		memVo.setMemId(memId);
-		
-		model.addAttribute("memVo", memVo);
-		
-		return "/voc/voc_write";
+		BoardVO boardVo = new BoardVO();
+		boardVo.setBId(memId);
+
+		model.addAttribute("boardVo", boardVo);
+
+		return "등록jsp";
 	}
-	
-	@PostMapping("/voc_write")
-	public String VocWrite_post(@ModelAttribute VocVO vo, HttpServletRequest request,Model model) {
-		logger.info("고객의 소리 글등록 처리, 파라미터 vo={}", vo);
-		
-		logger.info("체크할 아이디, 비밀번호 vo.getBId()={}, vo.getBPwd()={}", vo.getBId(), vo.getBPwd());
-		String msg="비밀번호 체크 실패", url="/voc/voc_write";
-		int result=memberService.checkLogin(vo.getBId(), vo.getBPwd());
-		
-		if(result==MemberService.LOGIN_OK) {
+
+	@PostMapping("/등록jsp")
+	public String BoardWrite_post(@ModelAttribute BoardVO vo, HttpServletRequest request,Model model) {
+		logger.info("~~~~~~ 글등록 처리, 파라미터 vo={}", vo);
+
 		//파일 업로드 처리
 		String fileName="", originFileName="";
 		long fileSize=0;
@@ -90,68 +84,60 @@ public class VoCController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		vo.setFName(fileName);
 		vo.setFOriginName(originFileName);
 		vo.setFFileSize(fileSize);
-		
-		int cnt=vocService.insertVoc(vo);
+
+		int cnt=boardService.insertBoard(vo);
 		logger.info("글등록 처리 결과, cnt={}", cnt);
-		}else if(result==MemberService.DISAGREE_PWD) {
-			msg="비밀번호가 일치하지 않습니다";
-			
-			model.addAttribute("msg", msg);
-			model.addAttribute("url", url);
-			
-			return "/common/message";
-		}
-		
-		return "redirect:/voc/voc_list";
+
+		return "보낼곳jsp";
 	}
-	
-	@RequestMapping("/voc_list")
-	public String VocList_get(Model model) {
-		logger.info("고객의 소리 리스트 화면");
-		
-		List<VocVO> list=vocService.selectAll();
-		logger.info("고객의 소리 리스트 조회결과 list.size={}", list.size());
-		
+
+	@RequestMapping("/리스트jsp")
+	public String BoardList_get(Model model) {
+		logger.info("~~~ 리스트 화면");
+
+		List<BoardVO> list=boardService.selectAll();
+		logger.info("~~~~~ 리스트 조회결과 list.size={}", list.size());
+
 		model.addAttribute("list", list);
-		
-		return "/voc/voc_list";
+
+		return "리스트jsp";
 	}
-	
+
 	@RequestMapping("/updateCount")
 	public String updateCount(@RequestParam(defaultValue = "0") int bNo,Model model) {
 		logger.info("조회수 증가, 파라미터 bNo={}",bNo);
-		
+
 		if(bNo==0) {
 			model.addAttribute("msg","잘못된 url!");
 			model.addAttribute("url","/voc/voc_list");
 			return "/common/message";
 		}
-		
-		int cnt=vocService.updateCount(bNo);
+
+		int cnt=boardService.updateCount(bNo);
 		logger.info("조회수 증가 결과, cnt={}", cnt);
-		
-		return "redirect:/voc/voc_detail?bNo="+bNo;
+
+		return "redirect:디테일jsp경로?bNo="+bNo;
 	}
-	
-	@RequestMapping("/voc_detail")
-	public String voc_detail(@RequestParam(defaultValue = "0") int bNo,Model model) {
-		logger.info("voc 상세보기 파라미터 bNo={}", bNo);
-		
+
+	@RequestMapping("디테일jsp")
+	public String board_detail(@RequestParam(defaultValue = "0") int bNo,Model model) {
+		logger.info("상세보기 파라미터 bNo={}", bNo);
+
 		if(bNo==0) {
 			model.addAttribute("msg", "잘못된 url!");
 			model.addAttribute("url", "/voc/voc_list");
 			return "/common/message";
 		}
-		
-		VocVO vo=vocService.selectByNo(bNo);
+
+		BoardVO vo=boardService.selectByNo(bNo);
 		logger.info("상세보기 결과 vo={}",vo);
-		
+
 		model.addAttribute("vo", vo);
-		
-		return "/voc/voc_detail";
+
+		return "/디테일jsp경로";
 	}
 }
