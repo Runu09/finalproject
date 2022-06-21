@@ -1,7 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
+<script type="text/javascript">
+	$(function(){
+		
+		$('#btWrite').click(function(){
+			 location.href="<c:url value='/lost/write.do'/>";	
+		});
+		
+	}); //ready()
 
+</script>
 
 <!-- breadcrumb start -->
 <section class="breadcrumb-section no-bg pt-0" id="block"
@@ -193,7 +202,8 @@
                         </div>
                     </div>
                     <div style="text-align: right;margin-bottom: 10px">
-                    <button class="btn btn-primary me-3" style="background-color: #4291b8" id="btWrite">등록</button>
+                    <button class="btn btn-primary me-3" 
+                    style="background-color: #4291b8; border-color:#4291b8; width: 80px;height: 40px;font-size: 20px" id="btWrite">등록</button>
                     </div>
                     <nav aria-label="Page navigation example" class="pagination-section mt-0">
                         <ul class="pagination">
