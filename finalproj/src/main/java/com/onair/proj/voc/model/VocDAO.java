@@ -10,4 +10,5 @@ public interface VocDAO {
 	List<VocVO> selectAll();
 	int updateCount(int bNo);
 	VocVO selectByNo(int bNo);
+	int updateDownCount(int bNo);
 }

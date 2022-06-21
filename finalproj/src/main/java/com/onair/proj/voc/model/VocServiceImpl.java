@@ -30,6 +30,11 @@ public class VocServiceImpl implements VocService{
 	public VocVO selectByNo(int bNo) {
 		return vocDao.selectByNo(bNo);
 	}
+
+	@Override
+	public int updateDownCount(int bNo) {
+		return vocDao.updateDownCount(bNo);
+	}
 	
 	
 }

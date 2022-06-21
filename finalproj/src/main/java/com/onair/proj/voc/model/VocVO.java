@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 public class VocVO {
-	private int bNo;
+	private int bNo; //게시글번호
 	private String bId;
 	private String bPwd;
 	private String bTitle;

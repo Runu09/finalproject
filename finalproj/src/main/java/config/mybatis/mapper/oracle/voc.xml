@@ -28,4 +28,9 @@
 		select * from board where b_No=#{bNo}
 	</select>
 	
+	<update id="updateDownCount" parameterType="int">
+		update board set f_count=f_count+1
+		where b_no=#{bNo}
+	</update>
+	
 </mapper>

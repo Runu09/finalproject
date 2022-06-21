@@ -3,6 +3,8 @@ package com.onair.proj.voc.controller;
 
 
 
+import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 
 import java.util.Map;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.onair.proj.common.ConstUtil;
 import com.onair.proj.common.FileUploadUtil;
@@ -95,6 +98,8 @@ public class VoCController {
 		vo.setFOriginName(originFileName);
 		vo.setFFileSize(fileSize);
 		
+		logger.info("파일명 체크 vo={}",vo);
+		
 		int cnt=vocService.insertVoc(vo);
 		logger.info("글등록 처리 결과, cnt={}", cnt);
 		}else if(result==MemberService.DISAGREE_PWD) {
@@ -138,7 +143,8 @@ public class VoCController {
 	}
 	
 	@RequestMapping("/voc_detail")
-	public String voc_detail(@RequestParam(defaultValue = "0") int bNo,Model model) {
+	public String voc_detail(@RequestParam(defaultValue = "0") int bNo,
+			HttpServletRequest request,Model model) {
 		logger.info("voc 상세보기 파라미터 bNo={}", bNo);
 		
 		if(bNo==0) {
@@ -150,8 +156,30 @@ public class VoCController {
 		VocVO vo=vocService.selectByNo(bNo);
 		logger.info("상세보기 결과 vo={}",vo);
 		
+		//파일정보 처리
+		String fileInfo=fileUploadUtil.getFileInfo(vo.getFOriginName(), vo.getFFileSize(), request);
+		
 		model.addAttribute("vo", vo);
+		model.addAttribute("fileInfo", fileInfo);
 		
 		return "/voc/voc_detail";
+	}
+	
+	@RequestMapping("/download")
+	public ModelAndView download(@RequestParam(defaultValue = "0") int bNo,
+			@RequestParam String fName, HttpServletRequest request){
+		logger.info("다운로드 처리, 파라미터 bNo={}, fName={}", bNo, fName);
+		
+		int cnt=vocService.updateDownCount(bNo);
+		logger.info("다운로드 수 증가 결과 cnt={}", cnt);
+		
+		Map<String, Object> map = new HashMap<>();
+		String uploadPath = fileUploadUtil.getUploadPath(request, ConstUtil.UPLOAD_FILE_FLAG);
+		File file = new File(uploadPath,fName);
+		map.put("file", file);
+		
+		ModelAndView mav = new ModelAndView("VocDownloadView", map);
+		
+		return mav;
 	}
 }

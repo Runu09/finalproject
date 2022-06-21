@@ -43,12 +43,19 @@
                             <ul class="post-detail">
                                 <li>${vo.BRegdate }</li>
                                 <li>Posted By : ${vo.BId }</li>
-                                <li><i class="fa fa-heart"></i> Hits num</li>
+                                <li><i class="fa fa-heart"></i> ${vo.BCount }</li>
                                 <li><i class="fa fa-comments"></i> Comment num</li>
                             </ul>
                             <h3>${vo.BTitle }</h3>
                         </div>
                         <div class="detail-part">
+                        	<p>첨부파일 : 
+                        	<c:if test="${!empty vo.FName }">
+                        	<span><a href="<c:url value='/voc/download?bNo=${param.bNo }&fName=${vo.FName }'/>">
+                        	${fileInfo }</a></span>
+                        	<span>다운로드수 : ${vo.FCount }</span>
+                        	</c:if>
+                        	</p>
                             <p>${vo.BContent }</p>
                         </div>
                         <div class="comment-section">
