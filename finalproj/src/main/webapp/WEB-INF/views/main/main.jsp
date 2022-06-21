@@ -21,7 +21,7 @@
                 <div class="col-lg-6">
                     <div class="cab-content">
                         <div>
-                            <div class="top-cls">
+                            <div class="top-cls" style="font-size: 20px">
                                 #On Air
                             </div>
                             <!-- <form class="radio-form">
@@ -168,7 +168,7 @@
                                         <div class="form-group mb-0">
                                     <div class="row">
                                         <div class="col">
-                                            <input placeholder="탑승일" id="datepicker" />
+                                            <input placeholder="탑승일" id="datepicker"/>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
@@ -212,8 +212,8 @@
                                     </div>
                                 </div>
                             </form>
-                            <a href="<c:url value='/booking/flight-round-trip.do'/>" class="btn btn-rounded btn-sm color1 float-end">search
-                                now</a>
+                            <a href="<c:url value='/booking/flight-round-trip.do'/>" 
+                            class="btn btn-rounded btn-sm color1 float-end" style="font-size: 20px">조회</a>
                         </div>
                     </div>
                 </div>

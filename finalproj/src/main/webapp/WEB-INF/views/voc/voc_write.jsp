@@ -151,13 +151,13 @@
                             <div class="guest-detail">
                                 <form name="frmWrite" method="post" enctype="multipart/form-data"
 									action="<c:url value='/voc/voc_write'/>" >
-									<input type="text" id="btNo" name="btNo" value="3">
+									<input type="hidden" id="btNo" name="btNo" value="3">
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col first-name">
                                                 <label>userID</label>
                                                 <input type="text" id="bId" name="bId" class="form-control"
-                                                    placeholder="익명으로 가능합니다">
+                                                    value="${memVo.memId }" readonly>
                                             </div>
                                             <div class="col">
                                                 <label>Password</label>
@@ -179,7 +179,8 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1">첨부파일</label>
                                         <div class="input-group">
-                                            <input type="file">
+                                            <input type="file" id="upfile" name="upfile">
+                                            <span>(최대 2M)</span>
                                         </div>
                                     </div>
                                     <div class="submit-btn">
