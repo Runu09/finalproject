@@ -1,17 +1,5 @@
 $(document).ready(
 		function() {
-			
-			function setArrival(airport){
-				$('#arrival').val(airport);
-				$('#arrBox').removeClass('show');
-				
-			};
-			function setDeparture(airport){
-				$('#departure').val(airport);
-				$('#depBox').removeClass('show');
-				
-			};
-			
 			/* 탑승 인원 늘리기/줄이기 */
 			$('#decAd').click(function(e) {
 				e.preventDefault();
