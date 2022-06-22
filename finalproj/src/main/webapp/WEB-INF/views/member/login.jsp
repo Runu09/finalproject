@@ -3,7 +3,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,6 +33,41 @@
 
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../admin/css/responsive.css">
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script>
+		function loginFormWithKakao() {
+			Kakao.init('5a6a4897538a80bef374d2b576c690ec');
+			Kakao.Auth.login({
+				success : function(authObj) {
+
+					//2. 로그인 성공시, API 호출
+					Kakao.API.request({
+						url : '/v2/user/me',
+						success : function(res) {
+							console.log(res);
+							var id = res.id;
+							var account = res.kakao_account;
+							$('#form-kakao-login input[name=email]').val(
+									account.email);
+							$('#form-kakao-login input[name=nick]').val(
+									account.profile.nickname);
+							$('#form-kakao-login input[name=img]').val(
+									account.profile.img);
+							scope: 'account_email';
+							alert('로그인성공');
+							document.querySelector('#form-kakao-login')
+									.submit();
+						}
+					})
+					console.log(authObj);
+					var token = authObj.access_token;
+				},
+				fail : function(err) {
+					alert(JSON.stringify(err));
+				}
+			});
+		};
+	</script>
 </head>
 
 <body>
@@ -78,12 +112,20 @@
                                     </div><a class="link" href="">아이디 찾기</a>
                                     <div class="text-end mt-3">
                                         <button class="btn btn-primary btn-block w-100" type="submit">로그인</button>
+										<a id="btn-kakao-login" href="javascript:loginFormWithKakao()">
+										<hr>
+										<img width="370" height="40" src="<c:url value='/assets/images/kakao_login_button.png'/>"></a>
                                     </div>
                                 </div>
                                
                                 <p class="mt-4 mb-0 text-center">계정이 없으신가요?<a class="ms-2"
                                         href="<c:url value='/member/register.do'/>">회원가입</a></p>
                             </form>
+                            <form id="form-kakao-login" method="post" action="<c:url value='/member/kakao'/>">
+				               <input type="text" name="email"/>
+				               <input type="text" name="nick"/>
+				               <input type="text" name="img"/>
+			               </form>
                         </div>
                     </div>
                 </div>
