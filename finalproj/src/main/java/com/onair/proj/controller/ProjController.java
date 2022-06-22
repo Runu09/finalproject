@@ -21,6 +21,21 @@ public class ProjController {
 		return "/customer/notice";
 	}
 	
+	@RequestMapping("/customer/noticeDetail.do")
+	public String noticeDetail() {
+		return "/customer/noticeDetail";
+	}
+	
+	@RequestMapping("/customer/noticeWrite.do")
+	public String noticeWrite() {
+		return "/customer/noticeWrite";
+	}
+	
+	@RequestMapping("/customer/terms.do")
+	public String terms() {
+		return "/customer/terms";
+	}
+	
 	@RequestMapping("/customer/information.do")
 	public String information() {
 		return "/customer/information";
@@ -61,19 +76,6 @@ public class ProjController {
 		return "/booking/flight-round-trip";
 	}
 
-	@GetMapping("/lost/write.do")
-	public void lost_get() {	
-	}
-	
-	@RequestMapping("/lost/list.do")
-	public String lost_list() {
-		return "/lost/list";
-	}
-	
-	@GetMapping("/member/register.do")
-	public void register_get() {	
-	}
-	
 	@RequestMapping("/customer/faq.do")
 	public String faq() {
 		return "/customer/faq";
@@ -83,6 +85,17 @@ public class ProjController {
 	public void mypage_get() {
 		
 	}
+	
+	@GetMapping("/mypage/mypageMain.do")
+	public void mypageMain_get() {
+		
+	}
+	
+	@GetMapping("/mypage/bookings.do")
+	public void bookings_get() {
+		
+	}
+
 
 
 }

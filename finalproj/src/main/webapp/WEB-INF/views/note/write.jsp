@@ -11,6 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap"
         rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
     <style type="text/css">
         body {
             font-family: Nunito, sans-serif;
@@ -107,14 +108,15 @@
                         style="margin: 0 auto; width: 90%; margin-top:50px; 
                         font-size:calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320)));">
                         쪽지 보내기</h2>
-                    <h3 style="width: 70%;margin: 0 auto 15px;line-height: 1.2;color: #9a9a9a;font-weight: 400;">회원에게 보낼 쪽지를 작성하세요</h3>
+                    <p style="width: 70%;margin: 0 auto 15px;line-height: 1.2;color: #9a9a9a;font-weight: 400;">회원에게 보낼 쪽지를 작성하세요</p>
                 </td>
             </tr>
-
-            
-            <tr>
+<tr>
+			<td><input class="form-control" style="width: 83%; margin: 0 auto;margin-bottom: 10px"azimuth: 10o= "type="text" required="" placeholder="받는사람"></td></tr>
+			<tr><td><input class="form-control" style="width: 83%; margin: 0 auto;margin-bottom: 10px" "type="text" required="" placeholder="제목"></td></tr>
+			 <tr>
                 <td style="padding: 0 30px 30px; text-align: center;">
-                    <textarea style="width: 100%;  margin-bottom: 20px; border-color: #cecece;" rows="20"></textarea>
+                    <textarea style="width: 90%;  margin-bottom: 20px; border-color: #cecece;" rows="20"></textarea><br>
                     <a href="#" class="btn">쪽지 보내기</a>
                 </td>
             </tr>

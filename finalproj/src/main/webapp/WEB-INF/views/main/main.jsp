@@ -44,7 +44,7 @@
                                         alt="">
                                     <div class="selector-box" id="arrBox">
                                          <h6 class="title">도착지를 선택하세요</h6>
-                                        <%@ include file="../inc/selectArrive.jsp" %>  
+                                        <%@ include file="../inc/selectArrival.jsp" %>  
                                     </div>
                                 </div>
                                <!--  <div class="form-group mb-0">

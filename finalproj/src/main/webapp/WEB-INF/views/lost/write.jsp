@@ -58,16 +58,29 @@
 
 
 <%@include file="../inc/top.jsp"%>
+<script type="text/javascript">
+	$(function() {
 
+		$('#btWrite').click(function() {
+			location.href = "<c:url value='/lost/write.do'/>";
+		});
+		$('#btCancel').click(function() {
+			
+			location.href = "<c:url value='/lost/list.do'/>";
+		});
+		
+	}); //ready()
+</script>
+							   
 <!-- breadcrumb start -->
-<section class="breadcrumb-section pt-0 bg-size">
-	<!-- <img src="../assets/images/flights/flight-breadcrumb2.jpg" class="bg-img img-fluid blur-up" alt="">
-         -->
-	<div class="breadcrumb-content dark-content">
+<section class="breadcrumb-section no-bg pt-0" id="block"
+	style="width: 100%;">
+	<div class="breadcrumb-content overlay-black">
 		<div>
-			<h2>유실물 등록</h2>
+			<h2>유실물 조회</h2>
 		</div>
 	</div>
+	<div class="title-breadcrumb">OnAir</div>
 </section>
 <!-- breadcrumb end -->
 
@@ -75,13 +88,16 @@
 <!-- pre-loader End -->
 
 <div class="lostcenter"
-	style="margin-right: 100px; margin-left: 100px; margin-top: -100px">
+	style="margin-right: 100px; margin-left: 100px; margin-top: 100px">
 	<!-- tap on top starts-->
 	<div class="tap-top">
 		<i data-feather="chevrons-up"></i>
 	</div>
 	<!-- tap on tap ends-->
 	<!-- page-wrapper Start-->
+																  
+		<form name="frmWrite" method="post" enctype="multipart/form-data"
+		action="<c:url value='/lost/write.do'/>">								   
 	<div class="page-wrapper compact-wrapper modern-type" id="pageWrapper">
 		<!-- Container-fluid starts-->
 		<div class="container-fluid">
@@ -90,25 +106,27 @@
 				<div class="col-12">
 					<div class="row">
 						<div class="col-sm-12">
-							<!--Hotel detail start-->
 							<div class="card">
 								<div class="card-header">
 									<h5>유실물 등록</h5>
 									
 									<p style="margin-top: 10px">유실물 등록 양식입니다. (*) 표시는 필수 입력 항목입니다.</p>
+							   
 								</div>
 								<div class="card-body">
-									<form class="theme-form mega-form">
+									<!-- <form class="theme-form mega-form"> -->
 										<div class="mb-3">
-											<label class="form-label-title">제목</label> <input
-												class="form-control" type="text" placeholder="제목을 입력하세요">
+											<label class="form-label-title">제목 (*)</label> <input
+												class="form-control" type="text" placeholder="제목을 입력하세요"
+												name="bTitle">
 										</div>
 
 
-										<label class="form-label-title ">내용</label>
-										<textarea id="editor1" name="editor1" cols="30" rows="10">
+										<label class="form-label-title ">내용 (*)</label>
+										<textarea id="editor1" cols="30" rows="10" name="bContent"> <!-- name="editor1"  -->
                                                     </textarea>
-									</form>
+										<!-- </form> -->
+			   
 								</div>
 							</div>
 						</div>
@@ -131,42 +149,31 @@
 									<h5>첨부파일</h5>
 								</div>
 								<div class="card-body">
-									<form class="theme-form mega-form">
-
-
-
-
-
+									<!-- <form class="theme-form mega-form"> -->
 										<div class="animate-chk">
 
-
-
 											<div class="mb-3">
-												<!--   <label class="form-label-title mt-4">첨부파일</label>
- -->
-
-												<div class="dropzone" id="singleFileUpload">
+											<input type="file" id="upfile" name="upfile" />
+										<!-- 		<div class="dropzone" id="singleFileUpload">
 													<div class="dz-message needsclick">
 														<i class="icon-cloud-up"></i>
 														<h6>첨부 파일을 선택하세요</h6>
-														<!-- <span
+														<span
                                                                     class="note needsclick">(This is just a
                                                                     demo dropzone. Selected files are
-                                                                    <strong>not</strong> actually uploaded.)</span> -->
+                                                                    <strong>not</strong> actually uploaded.)</span>
 													</div>
-												</div>
+												</div> -->
 											</div>
+									</div>
 
-
-										</div>
-
-									</form>
+									<!-- </form> -->
 								</div>
 
 								<div class="card-footer text-end">
-									<button class="btn btn-primary me-3">등록</button>
-									<button class="btn btn-outline-primary">취소</button>
-								</div>
+										<button class="btn btn-primary me-3" type="submit">등록</button>
+										<input type="button" class="btn btn-outline-primary" id="btCancel" value="취소"/>
+									</div>
 
 							</div>
 						</div>
@@ -178,9 +185,11 @@
 		<!--room detail end-->
 
 	</div>
+	</form>
 </div>
 </div>
 </div>
+
 <!-- Modal -->
 <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static"
 	data-bs-keyboard="false" tabindex="-1"
