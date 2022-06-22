@@ -33,14 +33,16 @@ public class VocDownloadView extends AbstractView{
 
 			return;
 		}
+		int a=file.getName().lastIndexOf("_");
+		int b=file.getName().lastIndexOf(".");
+		String fileName=file.getName().substring(0, a)+file.getName().substring(b);
+		logger.info("fileName={}", fileName);
 
-		logger.info("fileName={}", file.getName());
-
-		String fileName=new String(file.getName().getBytes("euc-kr"),
+		fileName=new String(fileName.getBytes("euc-kr"),
 				"8859_1");
-
+		
 		response.setContentType("application/octet-stream");
-		response.setHeader("Content-disposition", "attachment;FName="
+		response.setHeader("Content-disposition", "attachment;fileName="
 				+fileName);
 
 		OutputStream os = response.getOutputStream();

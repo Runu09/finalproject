@@ -7,4 +7,5 @@ public interface BoardService {
 	List<BoardVO> selectAll();
 	int updateCount(int bNo);
 	BoardVO selectByNo(int bNo);
+	List<BoardVO> selectLostAll();
 }

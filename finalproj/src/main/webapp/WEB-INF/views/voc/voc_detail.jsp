@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
 
-
     <!-- breadcrumb start -->
     <section class="breadcrumb-section pt-0">
         <div class="breadcrumb-content pt-0">
@@ -57,7 +56,18 @@
                         	</c:if>
                         	</p>
                             <p>${vo.BContent }</p>
+                            <c:if test="${vo.BId==memVo.memId }">
+                            <span class="submit-btn">
+                                <button class="btn btn-solid" id="btEdit" 
+                                onclick="location.href='<c:url value='/voc/voc_edit?bNo=${vo.BNo }'/>'">수정</button>
+                            </span>
+                            <span class="submit-btn">
+                                <button class="btn btn-solid" id="btDelete"
+                                onclick="location.href='<c:url value='/voc/voc_delete?bNo=${vo.BNo }&BGroupNo=${vo.BGroupno }&BStep=${vo.BStep }&FName=${vo.FName }'/>'">삭제</button>
+                            </span>
+                            </c:if>
                         </div>
+                        <br><br>
                         <div class="comment-section">
                             <h4 class="comment">comments:</h4>
                             <div class="comment-wrapper">

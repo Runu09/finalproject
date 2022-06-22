@@ -76,15 +76,6 @@ public class ProjController {
 		return "/booking/flight-round-trip";
 	}
 
-	@GetMapping("/lost/write.do")
-	public void lost_get() {	
-	}
-	
-	@RequestMapping("/lost/list.do")
-	public String lost_list() {
-		return "/lost/list";
-	}
-	
 	@RequestMapping("/customer/faq.do")
 	public String faq() {
 		return "/customer/faq";

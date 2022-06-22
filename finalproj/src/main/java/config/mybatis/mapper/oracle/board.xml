@@ -13,6 +13,16 @@
 		values(#{bNo},#{bId},#{bPwd},#{bTitle},#{bContent},#{btNo},#{bNo},
 			#{fName},#{fOriginName},#{fFileSize})
 	</insert>
+	<insert id="insertBoard" parameterType="boardVo">
+		<selectKey resultType="int" keyProperty="bNo" order="BEFORE">
+			select SEQ_BOARD.nextval from dual
+		</selectKey>
+		
+		insert into board(b_No,b_Id,b_Pwd,b_Title,b_Content,bt_No,b_groupno,
+			f_name,f_originname,f_filesize)
+		values(#{bNo},#{bId},#{bPwd},#{bTitle},#{bContent},#{btNo},#{bNo},
+			#{fName},#{fOriginName},#{fFileSize})
+	</insert>
 	
 	<select id="selectAll" resultType="vocVo">
 		select * from board order by b_no desc
@@ -26,6 +36,10 @@
 	
 	<select id="selectByNo" parameterType="int" resultType="vocVo">
 		select * from board where b_No=#{bNo}
+	</select>
+	
+	<select id="selectLostAll" resultType="boardVo">
+		select * from board where bt_no=2 order by b_no desc
 	</select>
 </mapper>
 
