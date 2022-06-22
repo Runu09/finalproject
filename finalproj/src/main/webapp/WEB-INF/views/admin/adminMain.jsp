@@ -55,12 +55,14 @@
                                 <div class=" custome-3-bg b-r-4 card-body">
                                     <div class="media static-top-widget">
 
-                                        <div class="media-body p-0"><span class="m-0">리뷰</span>
-                                            <h4 class="mb-0 counter">893
-                                                <span class="badge badge-light-secondary grow  "><i
+                                        <div class="media-body p-0"><span class="m-0">고객의 소리</span>
+                                            <h4 class="mb-0 counter">
+												${cnt2}
+                                                <!-- <span class="badge badge-light-secondary grow  "><i
                                                         data-feather="trending-up">
-                                                    </i>8.5%</span>
+                                                    </i>8.5%</span> -->
                                             </h4>
+
 
                                         </div>
                                         <div class="align-self-center text-center"><i data-feather="message-circle"></i>
@@ -76,7 +78,7 @@
 
                                         <div class="media-body p-0"><span class="m-0">가입한 회원</span>
                                             <h4 class="mb-0 counter">
-                                            	${cnt}
+                                            	${cnt1}
                                                 <!-- <span class="badge badge-light-success grow"><i
                                                         data-feather="trending-down">
                                                     </i>8.5%</span> -->

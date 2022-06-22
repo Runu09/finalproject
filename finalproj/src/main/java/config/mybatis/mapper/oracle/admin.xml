@@ -20,4 +20,9 @@
 	<select id="totalMember" parameterType="memberVo" resultType="int">
 		select count(*) from member
 	</select>
+	
+	<select id="totalboard3" parameterType="vocVo" resultType="int">
+		select count(*) from board
+		where bt_no=3
+	</select>
 </mapper>
