@@ -53,12 +53,12 @@
                                <!--  <p>아이디와 비밀번호를 입력 후 로그인하세요!</p> -->
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">아이디</label>
-                                    <input class="form-control" type="manId" required="" placeholder="아이디를 입력하세요">
+                                    <input class="form-control" type="userid" required="" placeholder="아이디를 입력하세요">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">비밀번호</label>
                                     <div class="form-input position-relative">
-                                        <input class="form-control" type="password" name="manPwd" required=""
+                                        <input class="form-control" type="password" name="login[password]" required=""
                                             placeholder="*********">
                                         <div class="show-hide"><span class="show"> </span></div>
                                     </div>

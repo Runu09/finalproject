@@ -281,11 +281,9 @@
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="<c:url value='/admin/allUser'/>"><i data-feather="users"> </i><span>유저</span></a>
                                 </li>
-                               <%--  <form  action="<c:url value='/admin/adminRegister'/>" method="post"> --%>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="<c:url value='/admin/adminRegister'/>"><i data-feather="plus-circle"> </i><span>관리자</span></a>
                                 </li>
-                                <!-- </form> -->
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="booking.html"><i data-feather="bookmark"> </i><span>예약</span></a>
                                 </li>
@@ -301,7 +299,7 @@
 
 
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="<c:url value='/admin/adminLogin'/>"><i data-feather="log-out"> </i><span>로그아웃</span></a>
+                                        href="<c:url value='#'/>"><i data-feather="log-out"> </i><span>로그아웃</span></a>
                                 </li>
 
 

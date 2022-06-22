@@ -11,8 +11,8 @@ public class CommentsVO {
 	private String cId;	//아이디
 	private String cContent;	//코멘트내용
 	private Timestamp cRegdate;	//등록날짜
-	
 	private int cGroupno;
+	
 	private int cStep;
 	private int cSortno;
 	private String cDelflag;

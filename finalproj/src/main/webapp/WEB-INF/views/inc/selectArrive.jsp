@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <script src="../assets/js/selectAirport.js"></script>
-<ul class="dep">
+<ul class="arr">
     <li>
         <a href="#">
             <h5>서울/김포</h5>

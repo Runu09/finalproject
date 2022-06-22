@@ -18,4 +18,5 @@ public class MemberVO {
 	private String mAdd1;
 	private String mAdd2;
 	private int mMileage;
+	private String mKakao;
 }

@@ -7667,7 +7667,7 @@ section .black-layer {
 .breadcrumb-section {
   background-position: center;
   background-size: cover;
-  height: 300px;
+  height: 500px;
   position: relative;
   overflow: hidden;
   z-index: 1; }
@@ -7681,7 +7681,7 @@ section .black-layer {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    height: 300px;
+    height: 500px;
     padding-top: 93px;
     text-align: center; }
     .breadcrumb-section .breadcrumb-content > div {
@@ -7786,9 +7786,9 @@ section .black-layer {
         background-color: transparent; }
   .breadcrumb-section .title-breadcrumb {
     font-family: Dancing Script;
-    font-size: 310px;
+    font-size: 510px;
     position: absolute;
-    color: rgba(230, 230, 190, 0.1);
+    color: rgba(255, 255, 255, 0.02);
     text-transform: capitalize;
     top: 0;
     line-height: 1;

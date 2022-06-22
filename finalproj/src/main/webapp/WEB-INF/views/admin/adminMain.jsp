@@ -308,8 +308,7 @@
                                     <h5>공항 위치</h5>
                                 </div>
                                 <div class="card-body">
-                                	<img src="<c:url value='/assets/images/flights/지도.png'/>">
-                                    <!-- <div class="jvector-map-height" id="world-map"></div> -->
+                                    <div class="jvector-map-height" id="world-map"></div>
                                 </div>
                             </div>
                         </div>

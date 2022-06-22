@@ -1,17 +1,16 @@
 $(document).ready(
 		function() {
 			
-			$('ul.d').find('li a').click(function(){
-				var t=$(this).find('h5').text();
-				$('#Depart').val(t);
+			function setArrival(airport){
+				$('#arrival').val(airport);
+				$('#arrBox').removeClass('show');
 				
-			});
-			
-			$('ul.a').find('li a').click(function(){
-				var t=$(this).find('h5').text();
-				$('#Arrive').val(t);
-			});
-
+			};
+			function setDeparture(airport){
+				$('#departure').val(airport);
+				$('#depBox').removeClass('show');
+				
+			};
 			
 			/* 탑승 인원 늘리기/줄이기 */
 			$('#decAd').click(function(e) {
@@ -83,6 +82,7 @@ $(document).ready(
 
 
 				$('#people').val(adNum + chNum);
+				$('#qtyBox').removeClass('show');
 			});
 			
 			$("#reservationsubmit").click(function() {
