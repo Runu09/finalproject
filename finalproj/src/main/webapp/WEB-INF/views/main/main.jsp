@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-
+<script src="../assets/js/booking.js"></script>
 
 <body>
 
@@ -32,117 +32,216 @@
                             </form> -->
                             <form>
                                 <div class="form-group">
-                                    <input type="text" class="form-control open-select" placeholder="출발지">
+                                    <input type="text" class="form-control open-select" placeholder="출발지" id="Depart">
                                     <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
-                                    <div class="selector-box">
-                                        <h6 class="title">popular cities</h6>
-                                        <ul>
+                                    <div class="selector-box" >
+                                        <h6 class="title" >출발지</h6>
+                                        <ul class="d">
                                             <li>
                                                 <a href="#">
-                                                    <h5>paris, france</h5>
-                                                    <h6>Charles de Gaulle Airport</h6>
-                                                    <span>par</span>
+                                                    <h5>서울/김포</h5>
+                                                    <h6>김포 국제공항</h6>
+                                                    <span>GMP</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <h5>Dubai, UAE</h5>
-                                                    <h6>Dubai International Airport</h6>
-                                                    <span>DXB</span>
+                                                    <h5>부산/김해</h5>
+                                                    <h6>김해 국제공항</h6>
+                                                    <span>PUS</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <h5>london</h5>
-                                                    <h6>Heathrow</h6>
-                                                    <span>LHR</span>
+                                                    <h5>제주</h5>
+                                                    <h6>제주 국제공항</h6>
+                                                    <span>CJU</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <h5>singapore, singapore</h5>
-                                                    <h6>changi Airport</h6>
-                                                    <span>par</span>
+                                                    <h5>대구</h5>
+                                                    <h6>대구 국제공항</h6>
+                                                    <span>TAE</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <h5>vancouver, canada</h5>
-                                                    <h6>vancouver International Airport</h6>
-                                                    <span>par</span>
+                                                    <h5>울산</h5>
+                                                    <h6>울산 국내공항</h6>
+                                                    <span>USN</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <h5>sydney, australia</h5>
-                                                    <h6>rose bay SPB</h6>
-                                                    <span>rse</span>
+                                                    <h5>청주</h5>
+                                                    <h6>청주 국제공항</h6>
+                                                    <span>CJJ</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <h5>kuala lumpur, malaysia</h5>
-                                                    <h6>sentral</h6>
-                                                    <span>xkl</span>
+                                                    <h5>무안</h5>
+                                                    <h6>무안 국제공항</h6>
+                                                    <span>MWX</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <h5>광주</h5>
+                                                    <h6>광주 국내공항</h6>
+                                                    <span>KWJ</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <h5>여수</h5>
+                                                    <h6>여수 국내공항</h6>
+                                                    <span>RSU</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <h5>포항</h5>
+                                                    <h6>포항 국내공항</h6>
+                                                    <span>KPO</span>
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a href="#">
+                                                    <h5>양양</h5>
+                                                    <h6>양양 국내공항</h6>
+                                                    <span>YNY</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <h5>사천</h5>
+                                                    <h6>사천 국내공항</h6>
+                                                    <span>HIN</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <h5>군산</h5>
+                                                    <h6>군산 국내공항</h6>
+                                                    <span>KUV</span>
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a href="#">
+                                                    <h5>횡성/원주</h5>
+                                                    <h6>원주 국내공항</h6>
+                                                    <span>WJU</span>
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control open-select" placeholder="도착지">
+                                    <input type="text" class="form-control open-select" placeholder="도착지" id="Arrive">
                                     <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload"
                                         alt="">
-                                    <div class="selector-box">
-                                        <h6 class="title">popular cities</h6>
-                                        <ul>
+                                    
+                                    <div class="selector-box" >
+                                        <h6 class="title">도착지</h6>
+                                        <ul class="a">
                                             <li>
                                                 <a href="#">
-                                                    <h5>paris, france</h5>
-                                                    <h6>Charles de Gaulle Airport</h6>
-                                                    <span>par</span>
+                                                    <h5>서울/김포</h5>
+                                                    <h6>김포 국제공항</h6>
+                                                    <span>GMP</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <h5>Dubai, UAE</h5>
-                                                    <h6>Dubai International Airport</h6>
-                                                    <span>DXB</span>
+                                                    <h5>부산/김해</h5>
+                                                    <h6>김해 국제공항</h6>
+                                                    <span>PUS</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <h5>london</h5>
-                                                    <h6>Heathrow</h6>
-                                                    <span>LHR</span>
+                                                    <h5>제주</h5>
+                                                    <h6>제주 국제공항</h6>
+                                                    <span>CJU</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <h5>singapore, singapore</h5>
-                                                    <h6>changi Airport</h6>
-                                                    <span>par</span>
+                                                    <h5>대구</h5>
+                                                    <h6>대구 국제공항</h6>
+                                                    <span>TAE</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <h5>vancouver, canada</h5>
-                                                    <h6>vancouver International Airport</h6>
-                                                    <span>par</span>
+                                                    <h5>울산</h5>
+                                                    <h6>울산 국내공항</h6>
+                                                    <span>USN</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <h5>sydney, australia</h5>
-                                                    <h6>rose bay SPB</h6>
-                                                    <span>rse</span>
+                                                    <h5>청주</h5>
+                                                    <h6>청주 국제공항</h6>
+                                                    <span>CJJ</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <h5>kuala lumpur, malaysia</h5>
-                                                    <h6>sentral</h6>
-                                                    <span>xkl</span>
+                                                    <h5>무안</h5>
+                                                    <h6>무안 국제공항</h6>
+                                                    <span>MWX</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <h5>광주</h5>
+                                                    <h6>광주 국내공항</h6>
+                                                    <span>KWJ</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <h5>여수</h5>
+                                                    <h6>여수 국내공항</h6>
+                                                    <span>RSU</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <h5>포항</h5>
+                                                    <h6>포항 국내공항</h6>
+                                                    <span>KPO</span>
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a href="#">
+                                                    <h5>양양</h5>
+                                                    <h6>양양 국내공항</h6>
+                                                    <span>YNY</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <h5>사천</h5>
+                                                    <h6>사천 국내공항</h6>
+                                                    <span>HIN</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <h5>군산</h5>
+                                                    <h6>군산 국내공항</h6>
+                                                    <span>KUV</span>
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a href="#">
+                                                    <h5>횡성/원주</h5>
+                                                    <h6>원주 국내공항</h6>
+                                                    <span>WJU</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -167,44 +266,42 @@
                                         
                                         <div class="form-group mb-0">
                                     <div class="row">
-                                        <div class="col">
-                                            <input placeholder="탑승일" id="datepicker" />
+                                        <div class="col" id="goDate">
+                                            <input placeholder="탑승일" id="datepicker" class="datepicker"/>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                <input type="text" class="form-control open-select"
-                                                    placeholder="승객">
+                                                <input type="text" class="form-control open-select" id="people" name="people"
+                                                    placeholder="승객" >
                                                 <img src="../assets/images/icon/user.png"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <div class="selector-box-flight">
                                                     <div class="room-cls">
                                                         <div class="qty-box">
-                                                            <label>adult</label>
+                                                            <label>성인</label>
                                                             <div class="input-group">
-                                                                <button type="button" class="btn quantity-left-minus"
+                                                                <button type="button" class="btn quantity-left-minus" id="decAd" 
                                                                     data-type="minus" data-field=""> - </button>
-                                                                <input type="text" name="quantity"
-                                                                    class="form-control qty-input input-number"
-                                                                    value="1">
+                                                                <span name="quantity"  id="numberUpDown1"
+                                                                    class="form-control qty-input input-number">1</span>
                                                                 <button type="button" class="btn quantity-right-plus"
-                                                                    data-type="plus" data-field="">+</button>
+                                                                    data-type="plus" data-field="" id="incAd">+</button>
                                                             </div>
                                                         </div>
-                                                        <div class="qty-box">
-                                                            <label>children</label>
-                                                            <div class="input-group">
-                                                                <button type="button" class="btn quantity-left-minus"
+                                                        <div class="qty-box" >
+                                                            <label>소아</label>
+                                                            <div class="input-group" >
+                                                                <button type="button" class="btn quantity-left-minus" id="decCh"
                                                                     data-type="minus" data-field=""> - </button>
-                                                                <input type="text" name="quantity"
-                                                                    class="form-control qty-input input-number"
-                                                                    value="1">
-                                                                <button type="button" class="btn quantity-right-plus"
+                                                                <span name="quantity"  id="numberUpDown2"
+                                                                    class="form-control qty-input input-number">1</span>
+                                                                <button type="button" class="btn quantity-right-plus" id="incCh"
                                                                     data-type="plus" data-field=""> + </button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="bottom-part">
-                                                        <a href="javascript:void(0)" class="btn">apply</a>
+                                                        <a href="javascript:void(0)" class="btn" id="inwonOk">확인</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -212,7 +309,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <a href="<c:url value='/booking/flight-round-trip.do'/>" class="btn btn-rounded btn-sm color1 float-end">search
+                            <a href="<c:url value='/booking/flight-round-trip.do'/>" class="btn btn-rounded btn-sm color1 float-end" id="reservationsubmit">search
                                 now</a>
                         </div>
                     </div>
@@ -221,9 +318,5 @@
         </div>
     </section>
     <!--  home section end -->
-
-
-    
-
 
 <%@include file="../inc/footer.jsp"%>
