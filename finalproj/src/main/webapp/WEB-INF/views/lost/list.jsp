@@ -1,17 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
+<script type="text/javascript">
+	$(function(){
+		
+		$('#btWrite').click(function(){
+			 location.href="<c:url value='/lost/write.do'/>";	
+		});
+		
+	}); //ready()
 
+</script>
 
 <!-- breadcrumb start -->
-<section class="breadcrumb-section pt-0 bg-size"  style="height: 350px">
-	<!-- <img src="../assets/images/flights/flight-breadcrumb2.jpg" class="bg-img img-fluid blur-up" alt="">
-         -->
-	<div class="breadcrumb-content dark-content" style="height: 350px">
+<section class="breadcrumb-section no-bg pt-0" id="block"
+	style="width: 100%;">
+	<div class="breadcrumb-content overlay-black">
 		<div>
 			<h2>유실물 조회</h2>
 		</div>
 	</div>
+	<div class="title-breadcrumb">OnAir</div>
 </section>
 <!-- breadcrumb end -->
 
@@ -193,7 +202,8 @@
                         </div>
                     </div>
                     <div style="text-align: right;margin-bottom: 10px">
-                    <button class="btn btn-primary me-3" style="background-color: #4291b8" id="btWrite">등록</button>
+                    <button class="btn btn-primary me-3" 
+                    style="background-color: #4291b8; border-color:#4291b8; width: 80px;height: 40px;font-size: 20px" id="btWrite">등록</button>
                     </div>
                     <nav aria-label="Page navigation example" class="pagination-section mt-0">
                         <ul class="pagination">

@@ -1,7 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-
+<script type="text/javascript" src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+<script type="text/javascript">	
+	$(function(){
+		
+	});
+	
+	function setArrival(airport){
+		$('#arrival').val(airport);
+		
+	}
+	function setDeparture(airport){
+		$('#departure').val(airport);
+		
+	}
+</script>
 
 <body>
 
@@ -21,7 +35,7 @@
                 <div class="col-lg-6">
                     <div class="cab-content">
                         <div>
-                            <div class="top-cls">
+                            <div class="top-cls" style="font-size: 20px">
                                 #On Air
                             </div>
                             <!-- <form class="radio-form">
@@ -32,120 +46,22 @@
                             </form> -->
                             <form>
                                 <div class="form-group">
-                                    <input type="text" class="form-control open-select" placeholder="출발지">
+                                    <input type="text" class="form-control open-select" placeholder="출발지" id="arrival">
                                     <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
                                     <div class="selector-box">
-                                        <h6 class="title">popular cities</h6>
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>paris, france</h5>
-                                                    <h6>Charles de Gaulle Airport</h6>
-                                                    <span>par</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>Dubai, UAE</h5>
-                                                    <h6>Dubai International Airport</h6>
-                                                    <span>DXB</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>london</h5>
-                                                    <h6>Heathrow</h6>
-                                                    <span>LHR</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>singapore, singapore</h5>
-                                                    <h6>changi Airport</h6>
-                                                    <span>par</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>vancouver, canada</h5>
-                                                    <h6>vancouver International Airport</h6>
-                                                    <span>par</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>sydney, australia</h5>
-                                                    <h6>rose bay SPB</h6>
-                                                    <span>rse</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>kuala lumpur, malaysia</h5>
-                                                    <h6>sentral</h6>
-                                                    <span>xkl</span>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                        <h6 class="title">출발지를 선택하세요</h6>
+                                      <%@ include file="../inc/selectArrival.jsp" %> 
+
+                                        
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control open-select" placeholder="도착지">
+                                    <input type="text" class="form-control open-select" placeholder="도착지" id="departure">
                                     <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload"
                                         alt="">
                                     <div class="selector-box">
-                                        <h6 class="title">popular cities</h6>
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>paris, france</h5>
-                                                    <h6>Charles de Gaulle Airport</h6>
-                                                    <span>par</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>Dubai, UAE</h5>
-                                                    <h6>Dubai International Airport</h6>
-                                                    <span>DXB</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>london</h5>
-                                                    <h6>Heathrow</h6>
-                                                    <span>LHR</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>singapore, singapore</h5>
-                                                    <h6>changi Airport</h6>
-                                                    <span>par</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>vancouver, canada</h5>
-                                                    <h6>vancouver International Airport</h6>
-                                                    <span>par</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>sydney, australia</h5>
-                                                    <h6>rose bay SPB</h6>
-                                                    <span>rse</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <h5>kuala lumpur, malaysia</h5>
-                                                    <h6>sentral</h6>
-                                                    <span>xkl</span>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                         <h6 class="title">도착지를 선택하세요</h6>
+                                        <%@ include file="../inc/selectDeparture.jsp" %>  
                                     </div>
                                 </div>
                                 <div class="form-group mb-0">
@@ -168,7 +84,7 @@
                                         <div class="form-group mb-0">
                                     <div class="row">
                                         <div class="col">
-                                            <input placeholder="탑승일" id="datepicker" />
+                                            <input placeholder="탑승일" id="datepicker"/>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
@@ -179,7 +95,7 @@
                                                 <div class="selector-box-flight">
                                                     <div class="room-cls">
                                                         <div class="qty-box">
-                                                            <label>adult</label>
+                                                            <label>성인</label>
                                                             <div class="input-group">
                                                                 <button type="button" class="btn quantity-left-minus"
                                                                     data-type="minus" data-field=""> - </button>
@@ -191,7 +107,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="qty-box">
-                                                            <label>children</label>
+                                                            <label>소아</label>
                                                             <div class="input-group">
                                                                 <button type="button" class="btn quantity-left-minus"
                                                                     data-type="minus" data-field=""> - </button>
@@ -204,7 +120,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="bottom-part">
-                                                        <a href="javascript:void(0)" class="btn">apply</a>
+                                                        <a href="javascript:void(0)" class="btn">선택</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -212,8 +128,8 @@
                                     </div>
                                 </div>
                             </form>
-                            <a href="<c:url value='/booking/flight-round-trip.do'/>" class="btn btn-rounded btn-sm color1 float-end">search
-                                now</a>
+                            <a href="<c:url value='/booking/flight-round-trip.do'/>" 
+                            class="btn btn-rounded btn-sm color1 float-end" style="font-size: 20px">조회</a>
                         </div>
                     </div>
                 </div>

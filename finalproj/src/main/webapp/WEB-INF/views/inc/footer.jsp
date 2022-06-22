@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 <!-- footer start -->
 <footer>
-	<div class="footer section-b-space section-t-space">
+	<div class="footer section-b-space section-t-space" style="padding-left: 10%">
 		<div class="container">
 			<div class="row order-row">
-				<div class="col-xl-2 col-md-6 order-cls">
+				<div class="col-xl-3 col-md-6 order-cls">
 					<div class="footer-title mobile-title">
 						<h5>contact us</h5>
 					</div>
@@ -16,14 +16,14 @@
 									class="img-fluid blur-up lazyload">
 							</div>
 							<ul class="contact-list">
-								<li><i class="fas fa-map-marker-alt"></i> 서울특별시 서대문구<br> 104-48 </li>
+								<li><i class="fas fa-map-marker-alt"></i> 서울특별시 서대문구 104-48 </li>
 								<li><i class="fas fa-phone-alt"></i> 010 - 1234 - 5678</li>
-								<li><i class="fas fa-envelope"></i> onair4@naver.com</li>
+								<li style="text-transform:none;"><i class="fas fa-envelope"></i> onair4@naver.com</li>
 							</ul>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-2 col-md-3">
+				<div class="col-xl-3 col-md-3">
 					<div class="footer-space">
 						<div class="footer-title">
 							<h5>about</h5>
@@ -70,7 +70,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-2 col-md-3 order-cls">
+				<div class="col-xl-3 col-md-3 order-cls">
 					<div class="footer-space">
 						<div class="footer-title">
 							<h5>고객 지원</h5>

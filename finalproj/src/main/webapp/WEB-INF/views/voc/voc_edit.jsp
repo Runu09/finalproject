@@ -17,7 +17,7 @@
 		
 	});
 </script>
-
+	
     <!-- breadcrumb start -->
     <section class="breadcrumb-section pt-0">
         <div class="breadcrumb-content pt-0">
@@ -146,11 +146,14 @@
                     <div class="review-section">
                         <div class="review_box">
                             <div class="title-top">
-                                <h5>고객의 소리 글등록</h5>
+                                <h5>고객의 소리 글수정</h5>
                             </div>
                             <div class="guest-detail">
+                            	<!-- 수정할 글번호, 수정안한 파일이름 hidden으로 보내줘야함 -->
                                 <form name="frmWrite" method="post" enctype="multipart/form-data"
-									action="<c:url value='/voc/voc_write'/>" >
+									action="<c:url value='/voc/voc_edit'/>" >
+									<input type="hidden" name="bNo" value=${param.bNo } />
+									<input type="text" name="oldFileName" value=${vo.FName } />
 									<input type="hidden" id="btNo" name="btNo" value="3">
                                     <div class="form-group">
                                         <div class="row">
@@ -169,22 +172,29 @@
                                     <div class="form-group">
                                         <label>title</label>
                                         <input id="bTitle" type="text" name="bTitle" class="form-control"
-                                        	placeholder="제목을 입력하세요">
+                                        	placeholder="제목을 입력하세요" value="${vo.BTitle }">
                                     </div>
                                     <div class="form-group">
                                         <label for="bContent">content</label>
                                         <textarea class="form-control" id="bContent" name="bContent" rows="7"
-                                            placeholder="내용을 입력하세요"></textarea>
+                                            placeholder="내용을 입력하세요">${vo.BContent }</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1">첨부파일</label>
                                         <div class="input-group">
                                             <input type="file" id="upfile" name="upfile">
-                                            <span>(최대 2M)</span>
+                                            <span>(최대 2M)</span><br>
+                                            <c:if test="${!empty vo.FName }">
+                                            	<span class="sp1"></span>
+                                            	<span style="color: red">
+                                            		첨부 파일을 새로 지정할 경우 기존 파일
+                                            		<img src="<c:url value='/images/file.gif'/>">
+                                            		${vo.FOriginName }는 삭제됩니다.</span>
+                                            </c:if>
                                         </div>
                                     </div>
                                     <div class="submit-btn">
-                                        <input type="submit" class="btn btn-solid" value="등록하기">
+                                        <input type="submit" class="btn btn-solid" value="수정하기">
                                     </div>
                                 </form>
                             </div>

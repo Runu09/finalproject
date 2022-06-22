@@ -86,4 +86,14 @@ public class LoginController {
 
 		return "/common/message";
 	}
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		logger.info("로그아웃");
+		
+		session.removeAttribute("memId");
+		session.removeAttribute("memName");
+		
+		return "redirect:/main/main.do";
+	}
+	
 }

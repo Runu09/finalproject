@@ -17,7 +17,7 @@
 		
 	});
 </script>
-
+	
     <!-- breadcrumb start -->
     <section class="breadcrumb-section pt-0">
         <div class="breadcrumb-content pt-0">
@@ -146,19 +146,19 @@
                     <div class="review-section">
                         <div class="review_box">
                             <div class="title-top">
-                                <h5>고객의 소리 글등록</h5>
+                                <h5>고객의 소리 글삭제</h5>
                             </div>
                             <div class="guest-detail">
+                            	<!-- 삭제할 글번호 hidden으로 보내줘야함 -->
                                 <form name="frmWrite" method="post" enctype="multipart/form-data"
-									action="<c:url value='/voc/voc_write'/>" >
-									<input type="hidden" id="btNo" name="btNo" value="3">
+									action="<c:url value='/voc/voc_delete'/>" >
+									<input type="text" name="BNo" value=${param.bNo } />
+									<input type="text" name="BGroupno" value=${param.BGroupNo } />
+									<input type="text" name="BStep" value=${param.BStep } />
+									<input type="text" name="FName" value=${param.FName } />
+									<p style="color: red">${param.bNo }번 글을 삭제하시겠습니까?</p>
                                     <div class="form-group">
                                         <div class="row">
-                                            <div class="col first-name">
-                                                <label>userID</label>
-                                                <input type="text" id="bId" name="bId" class="form-control"
-                                                    value="${memVo.memId }" readonly>
-                                            </div>
                                             <div class="col">
                                                 <label>Password</label>
                                                 <input type="password" id="bPwd" name="bPwd" class="form-control"
@@ -166,25 +166,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>title</label>
-                                        <input id="bTitle" type="text" name="bTitle" class="form-control"
-                                        	placeholder="제목을 입력하세요">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="bContent">content</label>
-                                        <textarea class="form-control" id="bContent" name="bContent" rows="7"
-                                            placeholder="내용을 입력하세요"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">첨부파일</label>
-                                        <div class="input-group">
-                                            <input type="file" id="upfile" name="upfile">
-                                            <span>(최대 2M)</span>
-                                        </div>
-                                    </div>
                                     <div class="submit-btn">
-                                        <input type="submit" class="btn btn-solid" value="등록하기">
+                                        <input type="submit" class="btn btn-solid" value="삭제하기">
                                     </div>
                                 </form>
                             </div>

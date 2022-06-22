@@ -78,6 +78,27 @@ public class MemberController {
 		}
 		return bool;
 	}
+	
+	/* 마이페이지 */
+	
+	@GetMapping("/deleteMem.do")
+	public String delete_get() {
+		logger.info("회원탈퇴 화면");
+		return "/member/deleteMem";
+	}
+
+	@GetMapping("/editMem.do")
+	public String editMem_get() {
+		logger.info("회원정보수정 화면");
+		return "/member/editMem";
+	}
+	
+	@GetMapping("/editPwd.do")
+	public String editPwd_get() {
+		logger.info("비밀번호변경 화면");
+		return "/member/editPwd";
+	}
+	
 }
 
 

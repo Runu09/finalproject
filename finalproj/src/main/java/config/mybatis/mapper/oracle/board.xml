@@ -2,8 +2,41 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.onair.proj.model.TestDAO">
+<mapper namespace="com.onair.proj.board.model.BoardDAO">
+	<insert id="insertVoc" parameterType="VocVo">
+		<selectKey resultType="int" keyProperty="bNo" order="BEFORE">
+			select SEQ_BOARD.nextval from dual
+		</selectKey>
+		
+		insert into board(b_No,b_Id,b_Pwd,b_Title,b_Content,bt_No,b_groupno,
+			f_name,f_originname,f_filesize)
+		values(#{bNo},#{bId},#{bPwd},#{bTitle},#{bContent},#{btNo},#{bNo},
+			#{fName},#{fOriginName},#{fFileSize})
+	</insert>
+	<insert id="insertBoard" parameterType="boardVo">
+		<selectKey resultType="int" keyProperty="bNo" order="BEFORE">
+			select SEQ_BOARD.nextval from dual
+		</selectKey>
+		
+		insert into board(b_No,b_Id,b_Pwd,b_Title,b_Content,bt_No,b_groupno,
+			f_name,f_originname,f_filesize)
+		values(#{bNo},#{bId},#{bPwd},#{bTitle},#{bContent},#{btNo},#{bNo},
+			#{fName},#{fOriginName},#{fFileSize})
+	</insert>
 	
+	<select id="selectAll" resultType="vocVo">
+		select * from board order by b_no desc
+	</select>
+	
+	<update id="updateCount" parameterType="int">
+		update board
+		set b_count=b_count+1
+		where b_No=#{bNo}
+	</update>
+	
+	<select id="selectByNo" parameterType="int" resultType="vocVo">
+		select * from board where b_No=#{bNo}
+	</select>
 </mapper>
 
 

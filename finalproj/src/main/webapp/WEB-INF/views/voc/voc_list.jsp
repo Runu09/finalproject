@@ -2,7 +2,20 @@
 	pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script type="text/javascript" src="<c:url value='/assets/js/jquery-3.6.0.min.js'/>"></script>
+<script type="text/javascript">
+	function pageProc(curPage){
+		$('input[name=currentPage]').val(curPage);
+		$('form[name=frmPage]').submit();
+	}
+</script>
 
+<!-- 페이징 처리위한 form -->
+<form action="<c:url value='/voc/voc_list'/>" method="post" name=frmPage>
+	<input type="hidden" name="searchKeyword" value="${param.searchKeyword }">
+	<input type="hidden" name="searchCondition" value="b_title">
+	<input type="hidden" name="currentPage">
+</form>
 <!-- breadcrumb start -->
 <section class="breadcrumb-section pt-0 bg-size"  style="height: 350px">
 	<!-- <img src="../assets/images/flights/flight-breadcrumb2.jpg" class="bg-img img-fluid blur-up" alt="">
@@ -31,7 +44,8 @@
 								<div class="flight-search-detail"
 									style="background-color: #dfd7d79c">
 									<!-- 검색기능 form -->
-									<form class="row m-0">
+									<form class="row m-0" name="frmSearch" method="post"
+										action="<c:url value='/voc/voc_list'/>">
 										<div class="col-lg-1" style="text-align: center">
 											<span style="font-size: 1.3em">날짜</span>
 										</div>
@@ -52,13 +66,13 @@
 										</div>
 										<div class="col-lg-2">
 											<div class="form-group">
-												<input placeholder="제목 입력" value="" type="text"
+												<input placeholder="제목 입력" name="searchKeyword" value="${param.searchKeyword }" type="text"
 													class="form-control" />
 											</div>
 										</div>
 										<div class="col-lg-2">
 											<div class="search-btn">
-												<a href="#" class="btn btn-solid color1">조회하기</a>
+												<input type="submit" class="btn btn-solid color1" value="조회하기">
 											</div>
 										</div>
 										<div class="responsive-close">
@@ -171,6 +185,37 @@
 									</c:forEach>	 
 									<!--반복처리 끝  -->
 								 </c:if>
+								 <br><br>
+								 <div class="divPage">
+									 <nav aria-label="Page navigation example" class="pagination-section mt-0">
+				                       <ul class="pagination">
+				                       	<!-- 이전블록 표시 -->
+				                       	<c:if test="${pagingInfo.firstPage>1 }">
+				                           <li class="page-item">
+				                               <a class="page-link" href="#" onclick="pageProc(${pagingInfo.firstPage-1})" aria-label="Previous">
+				                                   <span aria-hidden="true">&laquo;</span>
+				                                   <span class="sr-only">이전</span>
+				                               </a>
+				                           </li>
+				                           </c:if>
+				                           <!-- 페이지 번호추가 -->
+				                           <c:forEach var="i" begin="${pagingInfo.firstPage}" end="${pagingInfo.lastPage }">
+					                           <li class="page-item active"><a class="page-link" href="#" onclick="pageProc(${i})">${i}</a></li>
+				                           </c:forEach>
+				                           <!-- 번호처리 끝 -->
+				                           
+				                           <!-- 다음블럭 이미지 표시 -->
+				                           <c:if test="${pagingInfo.lastPage < pagingInfo.totalPage }">
+					                           <li class="page-item">
+					                               <a class="page-link" href="#" aria-label="Next">
+					                                   <span aria-hidden="true">&raquo;</span>
+					                                   <span class="sr-only">다음</span>
+					                               </a>
+					                           </li>
+				                           </c:if>
+					                       </ul>
+					                   </nav>
+                    				</div>
 								</div>
 							</div>
 						</div>
