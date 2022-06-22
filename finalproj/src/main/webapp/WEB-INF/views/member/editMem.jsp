@@ -105,8 +105,8 @@
 													<h6>아이디</h6>
 												</div>
 												<div class="right">
-													<input class="form-control" type="userId" name="memId"
-														placeholder="id" readonly="readonly">
+												 <input class="form-control" type="userId" name="memId"
+														placeholder="${sessionScope.memId }" readonly="readonly">
 												</div>
 											</div>
 										</li>
@@ -116,8 +116,8 @@
 													<h6>이름</h6>
 												</div>
 												<div class="right">
-													<input class="form-control" type="text" name="memName"
-															placeholder="name" readonly="readonly">
+												 	<input class="form-control" type="text" name="memName"
+															placeholder="${sessionScope.memName }" readonly="readonly">
 												</div>
 											</div>
 										</li>
