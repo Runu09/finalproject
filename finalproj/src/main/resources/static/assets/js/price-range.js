@@ -2372,13 +2372,12 @@
 // Trigger
 
 $(function () {
-  
 var $range = $(".js-range-slider"),
     $inputFrom = $(".js-input-from"),
     $inputTo = $(".js-input-to"),
     instance,
     min = 0,
-    max = 1500,
+    max = 1500000,
     from = 0,
     to = 0;
 
@@ -2387,11 +2386,11 @@ $range.ionRangeSlider({
     min: min,
     max: max,
     from: 0,
-    to: 3000,
-  prefix: '$',
+    to: 3000000,
+  prefix: '￦',
     onStart: updateInputs,
     onChange: updateInputs,
-    step: 100,
+    step: 10000,
     prettify_enabled: true,
     prettify_separator: ".",
   values_separator: " - ",
