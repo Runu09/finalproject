@@ -34,8 +34,7 @@
 	}
 
 	$(function() {
-		$('#btEdit').click(
-				function() {
+		$('#btEdit').submit(function() {
 					if ($("#pwd").val().length < 1) {
 						alert("비밀번호를 입력하세요");
 						$("#pwd").focus();
@@ -96,7 +95,7 @@
 							<div class="dashboard-title">
 								<h4>edit your profile</h4>
 							</div><br>
-							<form class="memEdit" method="post" action="<c:url value='/member/memEdit.do'/>">
+							<form class="memEdit" method="post" action="<c:url value='/member/editMem.do'/>">
 								<div class="dashboard-detail">
 									<ul>
 										<li>
@@ -105,6 +104,10 @@
 													<h6>아이디</h6>
 												</div>
 												<div class="right">
+												<!-- 회원번호 -->
+												<input class="form-control" type="hidden" name="MemNo">
+												<!-- 회원번호 끝-->
+												
 												 <input class="form-control" type="userId" name="memId"
 														placeholder="${sessionScope.memId }" readonly="readonly">
 												</div>
@@ -117,7 +120,8 @@
 												</div>
 												<div class="right">
 												 	<input class="form-control" type="text" name="memName"
-															placeholder="${sessionScope.memName }" readonly="readonly">
+															placeholder="${sessionScope.memName }" 
+															readonly="readonly" value="${vo.memName }">
 												</div>
 											</div>
 										</li>
@@ -131,7 +135,7 @@
 														id="pwd" placeholder="password"><br>
 													<!-- 비번확인용 -->
 													<input class="form-control" type="hidden" name="memPwd"
-														id="memPwd">
+														id="memPwd" >
 												</div>
 											</div>
 										</li>
@@ -142,7 +146,7 @@
 												</div>
 												<div class="right">
 													<input class="form-control" type="text" name="mBirthday"
-														placeholder="생년월일" readonly="readonly">
+														placeholder="${vo.MBirthday }" readonly="readonly">
 												</div>
 											</div>
 										</li>
@@ -153,8 +157,9 @@
 												</div>
 												<div class="right">
 													<input class="form-control" type="text"
-														readonly="readonly" name="mZipcode" placeholder="우편번호"
-														style="width: 151px; position: absolute;" id="postcode">
+														readonly="readonly" name="mZipcode" placeholder="${vo.MZipcode }"
+														style="width: 151px; position: absolute;" id="postcode"
+														value="${vo.MZipcode }">
 													
 													<input class="btn btn-solid" type="button"
 														value="우편번호 찾기" onclick="execDaumPostcode()"
@@ -168,8 +173,8 @@
 													<h6>주소</h6>
 												</div>
 												<div class="right">
-													 <input	class="form-control" type="text" placeholder="주소"
-														id="address" name="mAdd1">
+													 <input	class="form-control" type="text" placeholder="${vo.MAdd1 }"
+														title="주소" id="address" name="mAdd1" value="${vo.MAdd1 }" readonly>
 												</div>
 											</div>
 										</li>
@@ -180,7 +185,7 @@
 												</div>
 												<div class="right">
 													<input class="form-control" type="text" name="mAdd2"
-														placeholder="상세주소" id="detailAddress">
+														title="상세주소" id="detailAddress" value="${vo.MAdd2 }">
 												</div>
 											</div>
 										</li>
@@ -191,13 +196,21 @@
 												</div>
 												<div class="right">
 													<select id="mTel1" class="form-control" style="text-align: center;" name="mTel1">
-														<option value="010">010</option>
-														<option value="070">070</option>
+														<option value="010" 
+														<c:if test="${vo.MTel1 =='010' }">
+														 selected="selected" 
+														 </c:if>
+														 >010</option>
+														<option value="070"
+														<c:if test="${vo.MTel1 =='070' }">
+														 selected="selected" 
+														 </c:if>
+														>070</option>
 													</select>
 														
-													<input id="mTel2" class="form-control" type="text" name="mTel2">
+													<input id="mTel2" class="form-control" type="text" name="mTel2" value="${vo.MTel2 }">
 															
-													<input id="mTel3" class="form-control" type="text" name="mTel3">
+													<input id="mTel3" class="form-control" type="text" name="mTel3" value="${vo.MTel3 }">
 												</div>
 											</div>
 										</li>
@@ -207,29 +220,70 @@
 													<h6>이메일</h6>
 												</div>
 												<div class="right">
-													<input class="form-control" type="text" name="mEmail1" id="mEmail1">
+												<!-- mEmail2 직접입력에 대한 처리 -->
+													<c:set var="etcYn" value=""/>
+													<c:choose>
+														<c:when test="${vo.MEmail2 =='naver.com' 
+																	|| vo.MEmail2 =='hanmail.net'
+																	|| vo.MEmail2 =='nate.com'
+																	|| vo.MEmail2 =='gmail.com'
+																	|| empty voMEmail2 }">
+															<c:set var="etcYn" value="N"/>
+														</c:when>
+														<c:otherwise>
+																<c:set var="etcYn" value="Y"/>
+														</c:otherwise>
+													</c:choose>
+													<input class="form-control" type="text" name="mEmail1" id="mEmail1" value="${vo.MEmail1 }">
 														
 													<div class="col-1">@</div>
 													
 													<select class="form-control" name="mEmail2" id="mEmail2">
-														<option value="naver.com">naver.com</option>
-														<option value="hanmail.net">hanmail.net</option>
-														<option value="nate.com">nate.com</option>
-														<option value="gmail.com">gmail.com</option>
-														<option value="etc">직접입력</option>
+														<option value="naver.com"
+															<c:if test="${vo.MEmail2=='naver.com' }">
+																selected="selected"
+															</c:if>
+														>naver.com</option>
+														<option value="hanmail.net"
+															<c:if test="${vo.MEmail2=='hanmail.net' }">
+																selected="selected"
+															</c:if>
+														>hanmail.net</option>
+														<option value="nate.com"
+															<c:if test="${vo.MEmail2=='nate.com' }">
+																selected="selected"
+															</c:if>
+														>nate.com</option>
+														<option value="gmail.com"
+															<c:if test="${vo.MEmail2=='gmail.com' }">
+																selected="selected"
+															</c:if>
+															>gmail.com</option>
+														<option value="etc"
+															<c:if test="${etcYn=='Y' }">
+																selected="selected"
+															</c:if>
+														>직접입력</option>
 													</select>
 													
-													<input class="form-control" style="visibility: hidden"
-																type="text" name="mEmail3" id="mEmail3">
+													<input class="form-control" type="text" name="mEmail3" id="mEmail3"
+														<c:if test="${etcYn =='N' }">
+															style="visibility:hidden"
+														</c:if>
+														<c:if test="${etcYn =='Y' }">
+															value="${vo.MEmail2 }"
+														</c:if>
+													>
 												</div>
 											</div>
 										</li>
 									</ul>
 								</div>
+								<div id=btEdit>
+									<input class="btn btn-solid" type="submit" id="submitEdit"
+										value="회원정보수정" style="height: 40px;">
+								</div>
 							</form><br> 
-								<input class="btn btn-solid" type="button" id="btEdit"
-									value="회원정보수정" onclick="#"
-								style="height: 40px;">
 							</div>
 							<!-- 회원정보 수정 끝-->
 						</div>
