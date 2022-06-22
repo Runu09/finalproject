@@ -88,7 +88,15 @@ public class LostController {
 
 
 	@RequestMapping("/list.do")
-	public String lost_list() {
+	public String lost_list(Model model) {
+		logger.info("유실물 조회 글 목록");
+
+		
+		List<BoardVO> list=boardService.selectLostAll();
+		logger.info("유실물 조회 게시판 결과, list.size={}", list.size());
+
+		model.addAttribute("list", list);
+		
 		return "/lost/list";
 	}
 

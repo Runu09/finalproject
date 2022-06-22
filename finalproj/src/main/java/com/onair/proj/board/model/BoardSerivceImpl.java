@@ -30,6 +30,11 @@ public class BoardSerivceImpl implements BoardService{
 	public BoardVO selectByNo(int bNo) {
 		return boardDao.selectByNo(bNo);
 	}
+
+	@Override
+	public List<BoardVO> selectLostAll() {
+		return boardDao.selectLostAll();
+	}
 	
 	
 }

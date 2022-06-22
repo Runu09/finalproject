@@ -17,7 +17,7 @@ $(function(){
 
 <ul class="dep">
 	<li><a href="#"">
-			<h5>무안+</h5>
+			<h5>무안</h5>
 			<h6>Muan</h6> <span>NAARKJB</span>
 	</a></li>
 	<li><a href="#">

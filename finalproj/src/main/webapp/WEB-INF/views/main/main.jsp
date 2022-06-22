@@ -9,12 +9,16 @@
 	
 	function setArrival(airport){
 		$('#arrival').val(airport);
+		$('#arrBox').removeClass('show');
 		
 	}
 	function setDeparture(airport){
 		$('#departure').val(airport);
+		$('#depBox').removeClass('show');
 		
 	}
+	
+	
 </script>
 
 <body>
@@ -48,7 +52,7 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control open-select" placeholder="출발지" id="arrival">
                                     <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
-                                    <div class="selector-box">
+                                    <div class="selector-box" id="arrBox">
                                         <h6 class="title">출발지를 선택하세요</h6>
                                       <%@ include file="../inc/selectArrival.jsp" %> 
 
@@ -59,7 +63,7 @@
                                     <input type="text" class="form-control open-select" placeholder="도착지" id="departure">
                                     <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload"
                                         alt="">
-                                    <div class="selector-box">
+                                    <div class="selector-box" id="depBox">
                                          <h6 class="title">도착지를 선택하세요</h6>
                                         <%@ include file="../inc/selectDeparture.jsp" %>  
                                     </div>
