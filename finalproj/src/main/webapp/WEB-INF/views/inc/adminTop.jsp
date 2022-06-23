@@ -77,7 +77,7 @@
                     </div> -->
                 </div>
 
-<!--                 <form class="form-inline search-full col " action="#" method="get">
+                 <!-- <form class="form-inline search-full col " action="#" method="get">
                     <div class="form-group w-100">
                         <div class="Typeahead Typeahead--twitterUsers">
                             <div class="u-posRelative">
@@ -125,8 +125,11 @@
                             </ul>
                         </li>-->
 
-						<li><i data-feather="home"></i>
+						<li>
+							<a href="<c:url value='/admin/adminMain'/>"></a>
+							<i data-feather="home"></i>
                             <h6 class="f-18 mb-0"></h6>
+                            
                         </li>
                         <li>
                             <div class="mode"><i class="fa fa-moon-o" aria-hidden="true"></i>
@@ -166,8 +169,8 @@
                             <div class="media profile-media">
                                 <img class="user-profile rounded-circle" src="../admin/images/users/4.jpg"
                                     alt="profile-picture">
-                                <div class="user-name-hide media-body"><span>김 관 리</span>
-                                    <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
+                                <div class="user-name-hide media-body"><span></span>
+                                    <p class="mb-0 font-roboto">${sessionScope.manId } <i class="middle fa fa-angle-down"></i></p>
                                 </div>
                             </div>
                             <ul class="profile-dropdown onhover-show-div">
@@ -175,8 +178,8 @@
                                 <!-- <li><a href="#"><i data-feather="mail"></i><span>쪽지함</span></a></li> -->
                                 <!-- <li><a href="#"><i data-feather="file-text"></i><span>공지사항</span></a></li> -->
                                 <!-- <li><a href="#"><i data-feather="settings"></i><span>Settings</span></a></li> -->
-                                <li><a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                        href="javascript:void(0)"><i data-feather="log-out"> </i>
+                                <li><a 
+                                        href="<c:url value='/admin/adminLogout'/>"><i data-feather="log-out"> </i>
                                         <span>로그아웃</span></a></li>
 
                             </ul>
@@ -301,7 +304,7 @@
 
 
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="<c:url value='/admin/adminLogin'/>"><i data-feather="log-out"> </i><span>로그아웃</span></a>
+                                        href="<c:url value='/admin/adminLogout'/>"><i data-feather="log-out"> </i><span>로그아웃</span></a>
                                 </li>
 
 

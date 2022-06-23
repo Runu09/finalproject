@@ -77,7 +77,7 @@
             <div class="col-12 p-0">
                 <div class="login-card">
                     <div>
-                        <div><a class="logo" href="<c:url value='/admin/adminMain'/>"><img class="img-fluid for-light"
+                        <div><a class="logo" href="<c:url value='/main/main.do'/>"><img class="img-fluid for-light"
                                     src="../admin/images/main2.png" alt="looginpage"><img
                                     class="img-fluid for-dark" src="../admin/images/logo/logo-white.png"
                                     alt="looginpage"></a></div>
@@ -111,10 +111,10 @@
                                         <label class="text-muted" for="saveId">아이디 기억</label>
                                     </div><a class="link" href="">아이디 찾기</a>
                                     <div class="text-end mt-3">
-                                        <button class="btn btn-primary btn-block w-100" type="submit">로그인</button>
+                                        <button class="btn btn-primary btn-block w-100" style="height: 50px" type="submit">로그인</button>
 										<a id="btn-kakao-login" href="javascript:loginFormWithKakao()">
 										<hr>
-										<img width="370" height="40" src="<c:url value='/assets/images/kakao_login_button.png'/>"></a>
+										<img width="370px" height="50px" src="<c:url value='/assets/images/kakao_login_medium_wide.png'/>"></a>
                                     </div>
                                 </div>
                                
@@ -122,9 +122,9 @@
                                         href="<c:url value='/member/register.do'/>">회원가입</a></p>
                             </form>
                             <form id="form-kakao-login" method="post" action="<c:url value='/member/kakao'/>">
-				               <input type="text" name="email"/>
-				               <input type="text" name="nick"/>
-				               <input type="text" name="img"/>
+				               <input type="hidden" name="email"/>
+				               <input type="hidden" name="nick"/>
+				               <input type="hidden" name="img"/>
 			               </form>
                         </div>
                     </div>

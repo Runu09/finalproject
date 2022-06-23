@@ -16,4 +16,8 @@
 		select man_pwd from manager
 		where man_id=#{manId} 
 	</select>
+	
+	<select id="memberSelectAll">
+		select * from member order by mem_no
+	</select>
 </mapper>

@@ -1,7 +1,9 @@
 package com.onair.proj.admin.controller;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +13,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.onair.proj.admin.model.AdminService;
 import com.onair.proj.admin.model.AdminVO;
+import com.onair.proj.member.model.MemberService;
 import com.onair.proj.voc.controller.VoCController;
 
 import lombok.RequiredArgsConstructor;
@@ -46,20 +50,62 @@ public class AdminController {
 		
 		int cnt= adminService.adminInsert(vo);
 		logger.info("관리자 등록 결과, 파라미터 cnt=", cnt);
-		return "/admin/adminRegister";
+		return "/admin/adminLogin";
 	}
 	
 	@GetMapping("/adminLogin")
-	public String adminLogin() {
-		logger.info("로그인 화면");
-		return "/admin/adminLogin";
+	public void adminLogin() {
+		logger.info("관리자 로그인 화면");
 	}
+	
 	@PostMapping("/adminLogin")
-	public String adminLogin(@ModelAttribute AdminVO vo,
+	public String adminLogin(@ModelAttribute AdminVO vo, 
+			@RequestParam(required = false) String ckhSaveId,
 			HttpServletRequest request, HttpServletResponse response,
 			Model model) {
-		logger.info("로그인 처리 결과 ");
-		return "/admin/adminLogin";
+		logger.info("관리자 로그인 처리, 파라미터 vo={}, ckhSaveId={}",vo,ckhSaveId);
+		
+		int result=adminService.adminLogin(vo.getManId(), vo.getManPwd());
+		logger.info("관리자 로그인 처리 결과 result={}",result);
+		
+		String msg="관리자 로그인 처리 실패", url="/admin/adminLogin";
+		if(result==MemberService.LOGIN_OK) {
+			HttpSession session = request.getSession();
+			session.setAttribute("manId", vo.getManId());
+			session.setAttribute("manName", vo.getManName());
+			
+			Cookie ck = new Cookie("ck_manId", vo.getManId());
+			ck.setPath("/");
+			if(ckhSaveId!=null) {
+				ck.setMaxAge(1000*24*60*60);
+				response.addCookie(ck);
+			}else {
+				ck.setMaxAge(0);
+				response.addCookie(ck);
+			}
+			msg= "관리자님이 로그인 되었습니다.";
+			url= "/admin/adminMain";
+			
+		}else if(result==MemberService.DISAGREE_PWD) {
+			msg="비밀번호가 일치하지 않습니다 다시 입력해주세요.";
+		}else if(result==MemberService.NONE_USERID) {
+			msg="해당 아이디가 존재하지 않습니다.";
+		}
+		
+		model.addAttribute("msg",msg);
+		model.addAttribute("url",url);
+		
+		return "/common/message";
+	}
+	
+	@RequestMapping("/adminLogout")
+	public String logout(HttpSession session) {
+		logger.info("관리자 로그아웃");
+		
+		session.removeAttribute("manId");
+		session.removeAttribute("manName");
+		
+		return "redirect:/admin/adminLogin";
 	}
 	
 	@RequestMapping("/allUser")

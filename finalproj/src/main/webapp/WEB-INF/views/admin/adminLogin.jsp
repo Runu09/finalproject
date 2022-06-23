@@ -48,24 +48,27 @@
                                     class="img-fluid for-dark" src="../admin/images/logo/logo-white.png"
                                     alt="looginpage"></a></div>
                         <div class="login-main">
-                            <form class="theme-form">
+                            <form class="theme-form" method="post" action="<c:url value='/admin/adminLogin'/>">
                                 <h4 style="text-align: center;">관리자 로그인</h4>
                                <!--  <p>아이디와 비밀번호를 입력 후 로그인하세요!</p> -->
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">아이디</label>
-                                    <input class="form-control" type="manId" required="" placeholder="아이디를 입력하세요">
+                                    <input class="form-control" type="text" name="manId" id="manPwd" required="" placeholder="아이디를 입력하세요"
+                                    		value="${cookie.ck_manId.value }">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">비밀번호</label>
                                     <div class="form-input position-relative">
-                                        <input class="form-control" type="password" name="manPwd" required=""
+                                        <input class="form-control" type="password" name="manPwd" id="manPwd" required=""
                                             placeholder="*********">
                                         <div class="show-hide"><span class="show"> </span></div>
                                     </div>
                                 </div>
                                 <div class="form-group mb-0">
                                     <div class="checkbox p-0">
-                                        <input id="checkbox1" type="checkbox">
+                                        <input id="checkbox1" type="checkbox" name="ckhSaveId" id="ckhSaveId">
+                                        	<c:if test="${!empty cookie.ck_manId }">
+                                        	</c:if>
                                         <label class="text-muted" for="checkbox1">아이디 기억</label>
                                     </div><a class="link" href="">아이디 찾기</a>
                                     <div class="text-end mt-3">
