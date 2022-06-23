@@ -1,7 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("a[name='trigger']").toggle(function() {
+		$(this).closest("form").next().show();
+	}, function() {
+		$(this).closest("form").next().hide();
+	});
+});
+</script>
     <!-- breadcrumb start -->
     <section class="breadcrumb-section pt-0">
         <div class="breadcrumb-content pt-0">
@@ -72,6 +81,8 @@
                             <h4 class="comment">comments:</h4>
                             <div class="comment-wrapper">
                                 <div class="comment-box">
+                                    <!-- 댓글리스트 반복 시작 -->
+                                    <c:forEach var="vo" items="${list }">
                                     <div class="media">
                                         <img src="../assets/images/avtar/1.jpg" class="img-fluid blur-up lazyload"
                                             alt="">
@@ -79,61 +90,53 @@
                                             <div class="title">
                                                 <div class="comment-user">
                                                     <i class="fa fa-user"></i>
-                                                    <h6>User_Id</h6>
+                                                    <h6>${vo.CId }</h6>
                                                 </div>
                                                 <div class="comment-date">
                                                     <i class="fas fa-clock"></i>
-                                                    <h6> Dec 16, 2014 </h6>
+                                                    <h6> ${vo.CRegdate } </h6>
                                                 </div>
                                             </div>
                                             <div class="comment-detail">
-                                                <p>comments_Line</p>
+                                                <p>${vo.CContent }</p>
                                             </div>
+                                            <!-- 대댓글 form -->
                                             <div class="reply-btn">
-                                                <a href="#"><i class="fa fa-reply pe-2"></i> reply</a>
+                                                <a href="#" name="trigger"><i class="fa fa-reply pe-2"></i> reply</a>
                                             </div>
+                                            <form method="post" action="<c:url value='/comments_write'/>" class="hide">
+                                            <input type="hidden" name="bNo" value="${vo.BNo }">
+				                                <div class="row">
+				                                	<div class="form-group col-md-6">
+				                                        <input name="cId" class="form-control" type="hidden" value="${memVo.memId }">
+				                                    </div>
+				                                	<span>
+				                                        <input name="cContent" class="form-control" type="text">
+				                                    </span>
+				                                    <span class="reply-btn">
+						                                <a href="#" name="trigger"><i class="fa fa-reply pe-2"></i> RE-Reply</a>
+				                            		</span>
+				                                </div>
+                                            </form>
                                         </div>
                                     </div>
-                                    <div class="media inner-comment">
-                                        <img src="../assets/images/avtar/3.jpg" class="img-fluid blur-up lazyload"
-                                            alt="">
-                                        <div class="media-body">
-                                            <div class="title">
-                                                <div class="comment-user">
-                                                    <i class="fa fa-user"></i>
-                                                    <h6>User_Id_reply</h6>
-                                                </div>
-                                                <div class="comment-date">
-                                                    <i class="fas fa-clock"></i>
-                                                    <h6> Dec 16, 2014 </h6>
-                                                </div>
-                                            </div>
-                                            <div class="comment-detail">
-                                                <p>comments_Reply</p>
-                                            </div>
-                                            <div class="reply-btn">
-                                                <a href="#"><i class="fa fa-reply pe-2"></i> reply</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
+                                    
                                 </div>
                             </div>
                         </div>
                         <div class="leave-comment">
                             <h4 class="comment">Content Textarea</h4>
-                            <form>
+                            <form method="post" action="<c:url value='/comments_write'/>">
+                            	<input type="text" name="bNo" value="${vo.BNo }">
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <input class="form-control" placeholder="Enter Your Name" required=""
-                                            type="text">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <input class="form-control" id="inputEmail4" placeholder="Enter Your Email"
-                                            required="" type="email">
+                                        <span>Posted by : </span>
+                                        <input name="cId" class="form-control" type="text" value="${memVo.memId }">
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <textarea class="form-control" id="exampleTextarea"
-                                            placeholder="Leave a Comment" required="" rows="4"></textarea>
+                                        <textarea name="cContent" class="form-control" id="exampleTextarea"
+                                            placeholder="Leave a Comment" rows="4"></textarea>
                                     </div>
                                 </div>
                                 <div class="submit-btn">
@@ -174,7 +177,7 @@
                                             </a>
                                         </li>
                                         <li class="">
-                                            <a href="#">
+                                            <a href="<c:url value='/voc/voc_list'/>">
                                                 <i aria-hidden="true" class="fa fa-angle-right"></i>내가쓴 글
                                             </a>
                                         </li>

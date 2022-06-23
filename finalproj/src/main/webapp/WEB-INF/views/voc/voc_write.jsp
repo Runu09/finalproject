@@ -71,7 +71,7 @@
                                             </a>
                                         </li>
                                         <li class="">
-                                            <a href="#">
+                                            <a href="<c:url value='/voc/voc_list'/>">
                                                 <i aria-hidden="true" class="fa fa-angle-right"></i>내가쓴 글
                                             </a>
                                         </li>
