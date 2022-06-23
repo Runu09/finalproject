@@ -27,7 +27,6 @@ public class MemberController {
 
 	private final MemberService memberService;
 	
-	
 	@GetMapping("/register.do")
 	public String register_get() {
 		logger.info("회원가입 화면");
@@ -40,7 +39,7 @@ public class MemberController {
 			@RequestParam String mEmail3,
 			Model model) {
 		logger.info("회원가입 처리, 파라미터 vo={}, mEmail3={}", vo,mEmail3);
-
+		
 
 		if(vo.getMEmail2().equals("etc")) {
 			vo.setMEmail2(mEmail3);
@@ -108,7 +107,6 @@ public class MemberController {
 		logger.info("비밀번호변경 화면");
 		return "/member/editPwd";
 	}
-	
 }
 
 

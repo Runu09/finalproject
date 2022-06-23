@@ -15,12 +15,20 @@
 	</insert>
 	
 	<sql id="searchWhere">
-		<if test="searchKeyword !=null and searchKeyword !=''">
-			where b_title like '%' || #{searchKeyword} || '%'
-		</if>
+		<where>
+			<if test="searchKeyword !=null and searchKeyword !=''">
+				b_title like '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="bId !=null and bId !=''">
+			and b_Id = #{bId}
+			</if>
+			and b_regdate >= #{startDay}
+			<![CDATA[
+			and b_regdate < to_date(#{endDay})+1 ]]>
+		</where>
 	</sql>
 	
-	<select id="selectAll" parameterType="searchVo" resultType="vocVo">
+	<select id="selectAll" parameterType="DateSearchVo" resultType="vocVo">
 		select * from
 		(
 			select rownum as RNUM, A.*
@@ -82,5 +90,7 @@
 	<delete id="deleteVoc" parameterMap="vocDeleteParam">
 		call vocDelete(?,?,?)
 	</delete>
+	
+	
 	
 </mapper>

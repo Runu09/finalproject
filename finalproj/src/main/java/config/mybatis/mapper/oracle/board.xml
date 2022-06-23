@@ -34,13 +34,58 @@
 		where b_No=#{bNo}
 	</update>
 	
-	<select id="selectByNo" parameterType="int" resultType="vocVo">
+	<select id="selectByNo" parameterType="int" resultType="boardVo">
 		select * from board where b_No=#{bNo}
 	</select>
 	
-	<select id="selectLostAll" resultType="boardVo">
-		select * from board where bt_no=2 order by b_no desc
+	
+	<sql id="lostListWhere">
+			<if test="searchKeyword !=null and searchKeyword !=''">
+			and b_title like '%' || #{searchKeyword} || '%'
+			</if>
+			and b_regdate>=#{startDay}
+			<![CDATA[
+			and b_regdate<to_date(#{endDay})+1]]>
+		
+	</sql>
+	
+	
+	<select id="selectLostAll" parameterType="DateSearchVO" resultType="boardVo">
+	
+	select *
+		from
+		(
+		    select rownum as RNUM, A.*
+		    from
+		    (
+		       	select * from board where bt_no=2 
+				<include refid="lostListWhere"></include>
+		    )A
+		)
+		where RNUM>#{firstRecordIndex} 
+		<![CDATA[
+		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
+		order by b_no desc
 	</select>
+	
+	<!-- <select id="">
+		select * from board
+		where b_title like '%' || #{searchKeyword} || '%'
+		and bt_no=1
+	</select> -->
+	
+	<select id="selectNoticeAll" resultType="boardVo">
+		select * from board
+		where bt_no=1
+		order by b_no desc
+	</select>
+
+	<select id="selectLostTotalRecord" parameterType="DateSearchVO" resultType="int">
+			select count(*) from board where bt_no=2 
+			<include refid="lostListWhere"></include>
+		   
+	</select>
+	
 </mapper>
 
 

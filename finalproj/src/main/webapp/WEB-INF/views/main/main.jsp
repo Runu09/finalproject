@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-
 <body>
 
  <!-- home section start -->
@@ -30,23 +29,24 @@
                                 <label for="radio-2" class="radio-label">one way</label>
                             </form> -->
                             <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control open-select" placeholder="출발지" id="departure">
-                                    <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
-                                    <div class="selector-box" id="depBox">
-	                                    <h6 class="title">출발지를 선택하세요</h6>
-	                                    <%@ include file="../inc/selectDeparture.jsp" %> 
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control open-select" placeholder="도착지" id="arrival">
+                            	<div class="form-group">
+                                    <input type="text" class="form-control open-select" placeholder="출발지" id="arrival">
                                     <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload"
                                         alt="">
                                     <div class="selector-box" id="arrBox">
-                                         <h6 class="title">도착지를 선택하세요</h6>
-                                        <%@ include file="../inc/selectArrive.jsp" %>  
+                                         <h6 class="title">출발지를 선택하세요</h6>
+                                        <%@ include file="../inc/selectArrival.jsp" %>  
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control open-select" placeholder="도착지" id="departure">
+                                    <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
+                                    <div class="selector-box" id="depBox">
+	                                    <h6 class="title">도착지를 선택하세요</h6>
+	                                    <%@ include file="../inc/selectDeparture.jsp" %> 
+                                    </div>
+                                </div>
+                                
                                <!--  <div class="form-group mb-0">
                                     <div class="row">
                                         <div class="col">

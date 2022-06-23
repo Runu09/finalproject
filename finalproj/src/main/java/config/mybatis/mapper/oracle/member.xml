@@ -27,4 +27,5 @@
 	<select id="selectByMemId" parameterType="string" resultType="memberVo">
 		select * from member where MEM_ID=#{memId}
 	</select>
+	
 </mapper>

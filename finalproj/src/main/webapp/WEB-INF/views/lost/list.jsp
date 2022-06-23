@@ -10,8 +10,30 @@
 			location.href = "<c:url value='/lost/write.do'/>";
 		});
 
+		
+		//startDay, endDay 유효성 검사
+		
+		
 	}); //ready()
+	
+	function pageFunc(curPage){
+		$('input[name=currentPage]').val(curPage);
+		$('form[name=frmPage]').submit();
+		
+	}
+	
+	
 </script>
+
+<!-- 페이징 처리를 위한 form 시작-->
+<form name="frmPage" method="post">
+	<input type="hidden" name="startDay" value="${dateSearchVO.startDay }"> <input type="hidden" name="endDay"
+		value="${dateSearchVO.endDay }"> <input
+		type="hidden" name="currentPage">
+		<input type="hidden" name="searchKeyword" value="${dateSearchVO.searchKeyword }"> 
+</form>
+<!-- 페이징 처리 form 끝 -->
+
 
 <!-- breadcrumb start -->
 <section class="breadcrumb-section no-bg pt-0" id="block"
@@ -33,21 +55,24 @@
 		<div class="flight-search">
 
 			<div class="flight-search-detail" style="background-color: #dfd7d79c">
-				<form class="row m-0">
 
+				<form name="frm1" method="post"
+					action="<c:url value='/lost/list.do'/>" class="row m-0">
 					<div class="col-lg-2" style="text-align: center">
 						<span style="font-size: 1.3em">날짜</span>
 					</div>
 					<div class="col-lg-2">
 						<div class="form-group">
-							<input placeholder="시작일 선택" value="" id="datepicker" />
+							<input placeholder="시작일 선택" name="startDay"
+								value="${dateSearchVO.startDay }" id="datepicker" />
 
 						</div>
 					</div>
 					<div class="col-lg-2">
 
 						<div class="form-group">
-							<input placeholder="종료일 선택" id="datepicker1" />
+							<input placeholder="종료일 선택" name="endDay"
+								value="${dateSearchVO.endDay }" id="datepicker1" />
 						</div>
 					</div>
 					<div class="col-lg-2" style="text-align: center">
@@ -55,14 +80,15 @@
 					</div>
 					<div class="col-lg-2">
 						<div class="form-group">
-							<input placeholder="물품명 입력" value="" type="text"
+							<input placeholder="물품명 입력" value="${dateSearchVO.searchKeyword }" type="text" name="searchKeyword" 
 								class="form-control" />
 
 						</div>
 					</div>
 					<div class="col-lg-2">
 						<div class="search-btn">
-							<a href="#" class="btn btn-solid color1">조회하기</a>
+							<input type="submit" class="btn btn-solid color1" id="btSearch" value="조회하기"
+								value="조회하기">
 						</div>
 					</div>
 					<div class="responsive-close">
@@ -157,13 +183,15 @@
 									</div>
 									<div class="col-md-2">
 										<div class="logo-sec">
-											<img src="../assets/images/upload.png" alt="">
+											<img src="<c:url value='/img_upload/${vo.FName }'/>"
+												alt="${vo.BTitle}" style="width: 60px; height: 60px">
 										</div>
 									</div>
 
 									<div class="col-md-4">
 										<div class="price">
-											<h5>${vo.BTitle}</h5>
+											<a href="<c:url value='/lost/detail.do?bNo=${vo.BNo }'/>"><h5>${vo.BTitle}</h5></a>
+
 										</div>
 									</div>
 
@@ -192,11 +220,20 @@
 			<nav aria-label="Page navigation example"
 				class="pagination-section mt-0">
 				<ul class="pagination">
-					<li class="page-item"><a class="page-link"
-						href="javascript:void(0)" aria-label="Previous"> <span
-							aria-hidden="true">&laquo;</span> <span class="sr-only">이전</span>
-					</a></li>
-					<li class="page-item active"><a class="page-link"
+
+					<c:if test="${pagingInfo.firstPage>1 }">
+						<li class="page-item"><a class="page-link"
+							onclick="pageFunc(${pagingInfo.firstPage-1})" href="#"
+							aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+								<span class="sr-only">이전</span>
+						</a></li>
+
+
+					</c:if>
+
+
+
+					<!-- <li class="page-item active"><a class="page-link"
 						href="javascript:void(0)">1</a></li>
 					<li class="page-item"><a class="page-link"
 						href="javascript:void(0)">2</a></li>
@@ -205,21 +242,29 @@
 					<li class="page-item"><a class="page-link"
 						href="javascript:void(0)">4</a></li>
 					<li class="page-item"><a class="page-link"
-						href="javascript:void(0)">5</a></li>
-					<li class="page-item"><a class="page-link"
-						href="javascript:void(0)">6</a></li>
-					<li class="page-item"><a class="page-link"
-						href="javascript:void(0)">7</a></li>
-					<li class="page-item"><a class="page-link"
-						href="javascript:void(0)">8</a></li>
-					<li class="page-item"><a class="page-link"
-						href="javascript:void(0)">9</a></li>
-					<li class="page-item"><a class="page-link"
-						href="javascript:void(0)">10</a></li>
-					<li class="page-item"><a class="page-link" href="#"
-						aria-label="Next"> <span aria-hidden="true">&raquo;</span> <span
-							class="sr-only">다음</span>
-					</a></li>
+					-->
+					<c:forEach var="i" begin="${pagingInfo.firstPage }"
+						end="${pagingInfo.lastPage }">
+						<c:if test="${i==pagingInfo.currentPage }">
+
+							<li class="page-item active"><a class="page-link">${i }</a></li>
+						</c:if>
+
+						<c:if test="${i!=pagingInfo.currentPage }">
+							<li class="page-item"><a class="page-link" href="#"
+								onclick="pageFunc(${i})">${i }</a></li>
+						</c:if>
+					</c:forEach>
+
+					<c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">
+						<li class="page-item"><a class="page-link" href="#"
+							onclick="pageFunc(${pagingInfo.lastPage+1})" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span> <span class="sr-only">다음</span>
+						</a></li>
+					</c:if>
+
+
+
 				</ul>
 			</nav>
 		</div>
