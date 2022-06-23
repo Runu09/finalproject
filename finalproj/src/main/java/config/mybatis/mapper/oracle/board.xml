@@ -41,6 +41,18 @@
 	<select id="selectLostAll" resultType="boardVo">
 		select * from board where bt_no=2 order by b_no desc
 	</select>
+	
+	<!-- <select id="">
+		select * from board
+		where b_title like '%' || #{searchKeyword} || '%'
+		and bt_no=1
+	</select> -->
+	
+	<select id="selectNoticeAll" resultType="boardVo">
+		select * from board
+		where bt_no=1
+		order by b_no desc
+	</select>
 </mapper>
 
 

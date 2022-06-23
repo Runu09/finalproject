@@ -35,6 +35,11 @@ public class BoardSerivceImpl implements BoardService{
 	public List<BoardVO> selectLostAll() {
 		return boardDao.selectLostAll();
 	}
+
+	@Override
+	public List<BoardVO> selectNoticeAll() {
+		return boardDao.selectNoticeAll();
+	}
 	
 	
 }
