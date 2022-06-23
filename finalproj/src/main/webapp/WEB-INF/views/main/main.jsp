@@ -1,26 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-<script type="text/javascript" src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
-<script type="text/javascript">	
-	$(function(){
-		
-	});
-	
-	function setArrival(airport){
-		$('#arrival').val(airport);
-		$('#arrBox').removeClass('show');
-		
-	}
-	function setDeparture(airport){
-		$('#departure').val(airport);
-		$('#depBox').removeClass('show');
-		
-	}
-	
-	
-</script>
-
 <body>
 
  <!-- home section start -->
@@ -49,28 +29,27 @@
                                 <label for="radio-2" class="radio-label">one way</label>
                             </form> -->
                             <form>
-                                <div class="form-group">
+                            	<div class="form-group">
                                     <input type="text" class="form-control open-select" placeholder="출발지" id="arrival">
-                                    <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
+                                    <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload"
+                                        alt="">
                                     <div class="selector-box" id="arrBox">
-                                        <h6 class="title">출발지를 선택하세요</h6>
-                                      <%@ include file="../inc/selectArrival.jsp" %> 
-
-                                        
+                                         <h6 class="title">출발지를 선택하세요</h6>
+                                        <%@ include file="../inc/selectArrival.jsp" %>  
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control open-select" placeholder="도착지" id="departure">
-                                    <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload"
-                                        alt="">
+                                    <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
                                     <div class="selector-box" id="depBox">
-                                         <h6 class="title">도착지를 선택하세요</h6>
-                                        <%@ include file="../inc/selectDeparture.jsp" %>  
+	                                    <h6 class="title">도착지를 선택하세요</h6>
+	                                    <%@ include file="../inc/selectDeparture.jsp" %> 
                                     </div>
                                 </div>
-                                <div class="form-group mb-0">
+                                
+                               <!--  <div class="form-group mb-0">
                                     <div class="row">
-                                        <!-- <div class="col">
+                                        <div class="col">
                                             <input placeholder="Depart Date" id="datepicker" />
                                         </div>
                                         <div id="dropdate" class="col">
@@ -92,39 +71,37 @@
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                <input type="text" class="form-control open-select"
-                                                    placeholder="승객">
+                                                <input type="text" class="form-control open-select" id="people" name="people"
+                                                    placeholder="승객" >
                                                 <img src="../assets/images/icon/user.png"
                                                     class="img-fluid blur-up lazyload" alt="">
-                                                <div class="selector-box-flight">
+                                                <div class="selector-box-flight" id="qtyBox">
                                                     <div class="room-cls">
                                                         <div class="qty-box">
                                                             <label>성인</label>
                                                             <div class="input-group">
-                                                                <button type="button" class="btn quantity-left-minus"
+                                                                <button type="button" class="btn quantity-left-minus" id="decAd" 
                                                                     data-type="minus" data-field=""> - </button>
-                                                                <input type="text" name="quantity"
-                                                                    class="form-control qty-input input-number"
-                                                                    value="1">
+                                                                <span name="quantity"  id="numberUpDown1"
+                                                                    class="form-control qty-input input-number">0</span>
                                                                 <button type="button" class="btn quantity-right-plus"
-                                                                    data-type="plus" data-field="">+</button>
+                                                                    data-type="plus" data-field="" id="incAd">+</button>
                                                             </div>
                                                         </div>
-                                                        <div class="qty-box">
+                                                        <div class="qty-box" >
                                                             <label>소아</label>
-                                                            <div class="input-group">
-                                                                <button type="button" class="btn quantity-left-minus"
+                                                            <div class="input-group" >
+                                                                <button type="button" class="btn quantity-left-minus" id="decCh"
                                                                     data-type="minus" data-field=""> - </button>
-                                                                <input type="text" name="quantity"
-                                                                    class="form-control qty-input input-number"
-                                                                    value="1">
-                                                                <button type="button" class="btn quantity-right-plus"
+                                                                <span name="quantity"  id="numberUpDown2"
+                                                                    class="form-control qty-input input-number">0</span>
+                                                                <button type="button" class="btn quantity-right-plus" id="incCh"
                                                                     data-type="plus" data-field=""> + </button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="bottom-part">
-                                                        <a href="javascript:void(0)" class="btn">선택</a>
+                                                        <a href="javascript:void(0)" class="btn" id="inwonOk">확인</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -132,8 +109,8 @@
                                     </div>
                                 </div>
                             </form>
-                            <a href="<c:url value='/booking/flight-round-trip.do'/>" 
-                            class="btn btn-rounded btn-sm color1 float-end" style="font-size: 20px">조회</a>
+                            <a href="<c:url value='/booking/flight-round-trip.do'/>" class="btn btn-rounded btn-sm color1 float-end" id="reservationsubmit">search
+                                now</a>
                         </div>
                     </div>
                 </div>
@@ -141,9 +118,5 @@
         </div>
     </section>
     <!--  home section end -->
-
-
-    
-
 
 <%@include file="../inc/footer.jsp"%>

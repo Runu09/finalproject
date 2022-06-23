@@ -25,4 +25,8 @@
 		select count(*) from board
 		where bt_no=3
 	</select>
+	
+	<select id="memberSelectAll">
+		select * from member order by mem_no
+	</select>
 </mapper>

@@ -2,8 +2,9 @@ package com.onair.proj.voc.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
-//github.com/Runu09/finalproject.git
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +22,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.onair.proj.comments.model.CommentsService;
+import com.onair.proj.comments.model.CommentsVO;
 import com.onair.proj.common.ConstUtil;
+import com.onair.proj.common.DateSearchVO;
 import com.onair.proj.common.FileUploadUtil;
 import com.onair.proj.common.PaginationInfo;
 import com.onair.proj.common.SearchVO;
@@ -41,6 +45,7 @@ public class VoCController {
 
 	private final VocService vocService;
 	private final MemberService memberService;
+	private final CommentsService commentsService;
 	private final FileUploadUtil fileUploadUtil;
 	
 	//안내화면
@@ -115,10 +120,25 @@ public class VoCController {
 	}
 	
 	@RequestMapping("/voc_list")
-	public String VocList_get(@ModelAttribute SearchVO searchVo,Model model) {
+	public String VocList_get(@ModelAttribute DateSearchVO searchVo,
+			Model model) {
 		logger.info("고객의 소리 리스트 화면, 파라미터 searchVo={}", searchVo);
 		//검색 조건 제목만 할것임
 		searchVo.setSearchCondition("BTitle");
+		
+		//조회하기 버튼 안눌러도 특정 일자 사이 글 목록 보여주기
+		if(searchVo.getStartDay()==null || searchVo.getStartDay().isEmpty()) {
+			Date date = new Date(2022-1900, 0, 1);
+			Date today = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			String str = sdf.format(date);
+			String str2 = sdf.format(today);
+			searchVo.setStartDay(str);
+			searchVo.setEndDay(str2);
+			
+			logger.info("현재 셋팅된 searchVo={}", searchVo);
+		}
+		logger.info("현재 셋팅된 searchVo={}", searchVo);
 		
 		//페이징 처리 로직 시작
 		PaginationInfo pagingInfo = new PaginationInfo();
@@ -141,6 +161,55 @@ public class VoCController {
 		model.addAttribute("pagingInfo", pagingInfo);
 		
 		return "/voc/voc_list";
+	}
+	
+	@RequestMapping("/voc_mylist")
+	public String VocMyList_get(@ModelAttribute DateSearchVO searchVo,
+			HttpSession session,Model model) {
+		logger.info("고객의 소리 리스트 화면, 파라미터 searchVo={}", searchVo);
+		//검색 조건 제목만 할것임
+		searchVo.setSearchCondition("BTitle");
+		
+		//검색 매퍼위한 userid세팅
+		String userId=(String)session.getAttribute("memId");
+		logger.info("userId={}",userId);
+		searchVo.setBId(userId);
+		
+		//조회하기 버튼 안눌러도 특정 일자 사이 글 목록 보여주기
+		if(searchVo.getStartDay()==null || searchVo.getStartDay().isEmpty()) {
+			Date date = new Date(2022-1900, 0, 1);
+			Date today = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			String str = sdf.format(date);
+			String str2 = sdf.format(today);
+			searchVo.setStartDay(str);
+			searchVo.setEndDay(str2);
+			
+			logger.info("현재 셋팅된 searchVo={}", searchVo);
+		}
+		logger.info("현재 셋팅된 searchVo={}", searchVo);
+		
+		//페이징 처리 로직 시작
+		PaginationInfo pagingInfo = new PaginationInfo();
+		pagingInfo.setBlockSize(ConstUtil.BLOCKSIZE);
+		pagingInfo.setRecordCountPerPage(ConstUtil.RECORD_COUNT);
+		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
+		
+		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+		searchVo.setRecordCountPerPage(ConstUtil.RECORD_COUNT);
+		
+		List<VocVO> list=vocService.selectAll(searchVo);
+		logger.info("고객의 소리 리스트 조회결과 list.size={}", list.size());
+		
+		int totalRecord=vocService.getTotalRecord(searchVo);
+		logger.info("글목록 TotalRecord={}", totalRecord);
+		
+		pagingInfo.setTotalRecord(totalRecord);
+		
+		model.addAttribute("list", list);
+		model.addAttribute("pagingInfo", pagingInfo);
+		
+		return "/voc/voc_mylist";
 	}
 	
 	@RequestMapping("/updateCount")
@@ -185,6 +254,12 @@ public class VoCController {
 		model.addAttribute("vo", vo);
 		model.addAttribute("memVo", memVo);
 		model.addAttribute("fileInfo", fileInfo);
+		
+		//댓글정보 리스트 처리
+		List<CommentsVO> list=commentsService.selectByNo(bNo);
+		logger.info("댓글 조회 리스트 결과 list.size={}", list);
+		model.addAttribute("list", list);
+		
 		
 		return "/voc/voc_detail";
 	}

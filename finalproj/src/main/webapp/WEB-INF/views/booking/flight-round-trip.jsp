@@ -2,8 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
 
-
-
 <!-- breadcrumb start -->
 <section class="breadcrumb-section small-sec pt-0">
 	<img src="http://themes.pixelstrap.com/rica/assets/images/flights/flight-breadcrumb2.jpg"
@@ -18,9 +16,9 @@
             <div class="flight-search">
                 <div class="responsive-detail">
                     <div class="destination">
-                        <span>dubai</span>
+                        <span>서울/김포</span>
                         <span><i class="fas fa-long-arrow-alt-right"></i></span>
-                        <span>paris</span>
+                        <span>제주</span>
                     </div>
                     <div class="details">
                         <span>tue, 19-Aug-2019</span>
@@ -36,17 +34,23 @@
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label>출발지</label>
-                                <input type="text" class="form-control open-select" id="exampleInputEmail1"
-                                    value="dubai(DXB)" placeholder="from">
-                                <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
+                                <input type="text" class="form-control open-select" value="서울/김포" placeholder="to" id="arrival">
+                                <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload" alt="">
+                                <div class="selector-box" id="arrBox">
+								       <%@ include file="../inc/selectArrival.jsp" %>                                   
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label>도착지</label>
-                                <input type="text" class="form-control open-select" value="paris(PAR)" placeholder="to">
-                                <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload" alt="">
-                            </div>
+                                <input type="text" class="form-control open-select"
+                                    value="부산/김해" placeholder="from" id="departure">
+                                <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
+                                <div class="selector-box" id="depBox">
+                                        <%@ include file="../inc/selectDeparture.jsp" %>
+                                </div>
+                        	</div>           
                         </div>
                         <div class="col-lg-2">
                             <div class="form-group">
@@ -58,44 +62,43 @@
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label>승객 선택</label>
-                                <input type="text" class="form-control  open-select" value="1 traveller"
-                                    placeholder="to">
+                                <input type="text" class="form-control open-select" id="people" name="people" placeholder="to">
                                 <img src="../assets/images/icon/user.png" class="img-fluid blur-up lazyload" alt="">
-                                <div class="selector-box-flight">
+                                <div class="selector-box-flight" id="qtyBox">
                                     <div class="room-cls">
                                         <div class="qty-box">
-                                            <label>성인</label>
-                                            <div class="input-group">
-                                                <button type="button" class="btn quantity-left-minus" data-type="minus"
-                                                    data-field=""> - </button>
-                                                <input type="text" name="quantity"
-                                                    class="form-control qty-input input-number" value="1">
-                                                <button type="button" class="btn quantity-right-plus" data-type="plus"
-                                                    data-field="">+</button>
-                                            </div>
-                                        </div>
-                                        <div class="qty-box">
-                                            <label>소아</label>
-                                            <div class="input-group">
-                                                <button type="button" class="btn quantity-left-minus" data-type="minus"
-                                                    data-field=""> - </button>
-                                                <input type="text" name="quantity"
-                                                    class="form-control qty-input input-number" value="1">
-                                                <button type="button" class="btn quantity-right-plus" data-type="plus"
-                                                    data-field=""> + </button>
-                                            </div>
-                                        </div>
+	                                        <label>성인</label>
+	                                        <div class="input-group">
+	                                            <button type="button" class="btn quantity-left-minus" id="decAd" 
+	                                                data-type="minus" data-field=""> - </button>
+	                                            <span name="quantity"  id="numberUpDown1"
+	                                                class="form-control qty-input input-number">1</span>
+	                                            <button type="button" class="btn quantity-right-plus"
+	                                                data-type="plus" data-field="" id="incAd">+</button>
+	                                        </div>
+	                                    </div>
+	                                    <div class="qty-box" >
+	                                        <label>소아</label>
+	                                        <div class="input-group" >
+	                                            <button type="button" class="btn quantity-left-minus" id="decCh"
+	                                                data-type="minus" data-field=""> - </button>
+	                                            <span name="quantity"  id="numberUpDown2"
+	                                                class="form-control qty-input input-number">1</span>
+	                                            <button type="button" class="btn quantity-right-plus" id="incCh"
+	                                                data-type="plus" data-field=""> + </button>
+	                                        </div>
+	                                    </div>
                                     </div>
                                     
                                     <div class="bottom-part">
-                                        <a href="javascript:void(0)" class="btn">apply</a>
+                                        <a href="javascript:void(0)" class="btn" id="inwonOk">확인</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-2">
                             <div class="search-btn">
-                                <a href="#" class="btn btn-solid color1">search</a>
+                                <a href="#" class="btn btn-solid color1">검색</a>
                             </div>
                         </div>
                         <div class="responsive-close">
@@ -177,105 +180,20 @@
             <div class="row">
                 <div class="col-lg-9 ratio3_2">
                     <a href="javascript:void(0)" class="mobile-filter border-top-0">
-                        <h5>latest filter</h5>
+                        <h5>최근 검색 조건</h5>
                         <img src="../assets/images/icon/adjust.png" class="img-fluid blur-up lazyload" alt="">
                     </a>
-                    <div class="top-bar-flight">
-                        <div class="date-fare-slider">
-                            <div class="fare-6">
-                                <div>
-                                    <a href="javascript:void(0)">
-                                        <div class="fare-box">
-                                            <h5 class="date">oct 14</h5>
-                                            <h6 class="fare">$250</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="javascript:void(0)">
-                                        <div class="fare-box">
-                                            <h5 class="date">oct 15</h5>
-                                            <h6 class="fare">$250</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="javascript:void(0)">
-                                        <div class="fare-box active">
-                                            <h5 class="date">oct 16</h5>
-                                            <h6 class="fare">$250</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="javascript:void(0)">
-                                        <div class="fare-box">
-                                            <h5 class="date">oct 17</h5>
-                                            <h6 class="fare">$250</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="javascript:void(0)">
-                                        <div class="fare-box">
-                                            <h5 class="date">oct 18</h5>
-                                            <h6 class="fare">$250</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="javascript:void(0)">
-                                        <div class="fare-box">
-                                            <h5 class="date">oct 19</h5>
-                                            <h6 class="fare">$250</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <div class="fare-box">
-                                        <h5 class="date">oct 22</h5>
-                                        <h6 class="fare">$250</h6>
-                                    </div>
-                                </div>
-                                <div>
-                                    <a href="javascript:void(0)">
-                                        <div class="fare-box">
-                                            <h5 class="date">oct 22</h5>
-                                            <h6 class="fare">$250</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="javascript:void(0)">
-                                        <div class="fare-box">
-                                            <h5 class="date">oct 22</h5>
-                                            <h6 class="fare">$250</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="fare-calender">
-                            <div>
-                                <i class="far fa-calendar-alt"></i>
-                                <h6 class="title">fare calender</h6>
-                            </div>
-                            <div class="calender-external">
-                                <div id='calendar'></div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="flight-detail-sec">
                         <div class="title-bar">
                             <div class="row">
                                 <div class="col-2">
-                                    <p>Airline</p>
+                                    <p>항공사</p>
                                 </div>
                                 <div class="col-5">
-                                    <p>departure & arrival</p>
+                                    <p>출발지 & 도착지</p>
                                 </div>
                                 <div class="col-2">
-                                    <p>price</p>
+                                    <p>가격</p>
                                 </div>
                             </div>
                         </div>
@@ -284,35 +202,34 @@
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="logo-sec">
-                                            <img src="../assets/images/flights/airlines/1.png"
+                                            <img src="../assets/images/flights/airlines/8.png"
                                                 class="img-fluid blur-up lazyload" alt="">
-                                            <span class="title">Egyptair</span>
+                                            <span class="title">대한항공</span>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="airport-part">
                                             <div class="airport-name">
                                                 <h4>17.00</h4>
-                                                <h6>DXB</h6>
+                                                <h6>GMP</h6>
                                             </div>
                                             <div class="airport-progress">
                                                 <i class="fas fa-plane-departure float-start"></i>
                                                 <i class="fas fa-plane-arrival float-end"></i>
                                                 <div class="stop">
-                                                    30h 20m (1 stop)
+                                                    45분
                                                 </div>
                                             </div>
                                             <div class="airport-name arrival">
-                                                <h4>22.20</h4>
-                                                <h6>CDG</h6>
+                                                <h4>17.45</h4>
+                                                <h6>CJU</h6>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="price">
                                             <div>
-                                                <h4>$1200</h4>
-                                                <span>non refundable</span>
+                                                <h4>120,000원</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -323,264 +240,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="detail-wrap wow fadeInUp">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="logo-sec">
-                                            <img src="../assets/images/flights/airlines/2.png"
-                                                class="img-fluid blur-up lazyload" alt="">
-                                            <span class="title">emirates</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="airport-part">
-                                            <div class="airport-name">
-                                                <h4>17.00</h4>
-                                                <h6>DXB</h6>
-                                            </div>
-                                            <div class="airport-progress">
-                                                <i class="fas fa-plane-departure float-start"></i>
-                                                <i class="fas fa-plane-arrival float-end"></i>
-                                                <div class="stop">
-                                                    30h 20m (1 stop)
-                                                </div>
-                                            </div>
-                                            <div class="airport-name arrival">
-                                                <h4>22.20</h4>
-                                                <h6>CDG</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="price">
-                                            <div>
-                                                <h4>$1200</h4>
-                                                <span>non refundable</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="book-flight">
-                                            <a href="<c:url value='/booking/flight-booking.do'/>" class="btn btn-solid color1 ">book now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail-wrap wow fadeInUp">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="logo-sec">
-                                            <img src="../assets/images/flights/airlines/3.png"
-                                                class="img-fluid blur-up lazyload" alt="">
-                                            <span class="title">oman air</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="airport-part">
-                                            <div class="airport-name">
-                                                <h4>17.00</h4>
-                                                <h6>DXB</h6>
-                                            </div>
-                                            <div class="airport-progress">
-                                                <i class="fas fa-plane-departure float-start"></i>
-                                                <i class="fas fa-plane-arrival float-end"></i>
-                                                <div class="stop">
-                                                    30h 20m (1 stop)
-                                                </div>
-                                            </div>
-                                            <div class="airport-name arrival">
-                                                <h4>22.20</h4>
-                                                <h6>CDG</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="price">
-                                            <div>
-                                                <h4>$1200</h4>
-                                                <span>non refundable</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="book-flight">
-                                            <a href="<c:url value='/booking/flight-booking.do'/>" class="btn btn-solid color1 ">book now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail-wrap wow fadeInUp">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="logo-sec">
-                                            <img src="../assets/images/flights/airlines/4.png"
-                                                class="img-fluid blur-up lazyload" alt="">
-                                            <span class="title">Middle East</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="airport-part">
-                                            <div class="airport-name">
-                                                <h4>17.00</h4>
-                                                <h6>DXB</h6>
-                                            </div>
-                                            <div class="airport-progress">
-                                                <i class="fas fa-plane-departure float-start"></i>
-                                                <i class="fas fa-plane-arrival float-end"></i>
-                                                <div class="stop">
-                                                    30h 20m (1 stop)
-                                                </div>
-                                            </div>
-                                            <div class="airport-name arrival">
-                                                <h4>22.20</h4>
-                                                <h6>CDG</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="price">
-                                            <div>
-                                                <h4>$1200</h4>
-                                                <span>non refundable</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="book-flight">
-                                            <a href="<c:url value='/booking/flight-booking.do'/>" class="btn btn-solid color1 ">book now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail-wrap wow fadeInUp">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="logo-sec">
-                                            <img src="../assets/images/flights/airlines/5.png"
-                                                class="img-fluid blur-up lazyload" alt="">
-                                            <span class="title">gulf air</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="airport-part">
-                                            <div class="airport-name">
-                                                <h4>17.00</h4>
-                                                <h6>DXB</h6>
-                                            </div>
-                                            <div class="airport-progress">
-                                                <i class="fas fa-plane-departure float-start"></i>
-                                                <i class="fas fa-plane-arrival float-end"></i>
-                                                <div class="stop">
-                                                    30h 20m (1 stop)
-                                                </div>
-                                            </div>
-                                            <div class="airport-name arrival">
-                                                <h4>22.20</h4>
-                                                <h6>CDG</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="price">
-                                            <div>
-                                                <h4>$1200</h4>
-                                                <span>non refundable</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="book-flight">
-                                            <a href="<c:url value='/booking/flight-booking.do'/>" class="btn btn-solid color1 ">book now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail-wrap wow fadeInUp">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="logo-sec">
-                                            <img src="../assets/images/flights/airlines/6.png"
-                                                class="img-fluid blur-up lazyload" alt="">
-                                            <span class="title">Royal Jordanian</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="airport-part">
-                                            <div class="airport-name">
-                                                <h4>17.00</h4>
-                                                <h6>DXB</h6>
-                                            </div>
-                                            <div class="airport-progress">
-                                                <i class="fas fa-plane-departure float-start"></i>
-                                                <i class="fas fa-plane-arrival float-end"></i>
-                                                <div class="stop">
-                                                    30h 20m (1 stop)
-                                                </div>
-                                            </div>
-                                            <div class="airport-name arrival">
-                                                <h4>22.20</h4>
-                                                <h6>CDG</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="price">
-                                            <div>
-                                                <h4>$1200</h4>
-                                                <span>non refundable</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="book-flight">
-                                            <a href="<c:url value='/booking/flight-booking.do'/>" class="btn btn-solid color1 ">book now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail-wrap wow fadeInUp">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="logo-sec">
-                                            <img src="../assets/images/flights/airlines/7.png"
-                                                class="img-fluid blur-up lazyload" alt="">
-                                            <span class="title">China Eastern</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="airport-part">
-                                            <div class="airport-name">
-                                                <h4>17.00</h4>
-                                                <h6>DXB</h6>
-                                            </div>
-                                            <div class="airport-progress">
-                                                <i class="fas fa-plane-departure float-start"></i>
-                                                <i class="fas fa-plane-arrival float-end"></i>
-                                                <div class="stop">
-                                                    30h 20m (1 stop)
-                                                </div>
-                                            </div>
-                                            <div class="airport-name arrival">
-                                                <h4>22.20</h4>
-                                                <h6>CDG</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="price">
-                                            <div>
-                                                <h4>$1200</h4>
-                                                <span>non refundable</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="book-flight">
-                                            <a href="<c:url value='/booking/flight-booking.do'/>" class="btn btn-solid color1 ">book now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
+                            
+                            
                         </div>
                     </div>
                     <nav aria-label="Page navigation example" class="pagination-section mt-0">
@@ -614,13 +276,13 @@
                         </div>
                         <div class="middle-part collection-collapse-block open">
                             <a href="javascript:void(0)" class="section-title collapse-block-title">
-                                <h5>latest filter</h5>
+                                <h5>검색 조건</h5>
                                 <img src="../assets/images/icon/adjust.png" class="img-fluid blur-up lazyload" alt="">
                             </a>
                             <div class="collection-collapse-block-content ">
                                 <div class="filter-block">
                                     <div class="collection-collapse-block open">
-                                        <h6 class="collapse-block-title">price</h6>
+                                        <h6 class="collapse-block-title">가격</h6>
                                         <div class="collection-collapse-block-content">
                                             <div class="wrapper">
                                                 <div class="range-slider">
@@ -637,35 +299,39 @@
                                             <div class="collection-brand-filter">
                                                 <div class="form-check collection-filter-checkbox">
                                                     <input type="checkbox" class="form-check-input" id="wifi">
-                                                    <label class="form-check-label" for="wifi">Qatar airways</label>
+                                                    <label class="form-check-label" for="wifi">대한항공(KAL)</label>
                                                 </div>
                                                 <div class="form-check collection-filter-checkbox">
                                                     <input type="checkbox" class="form-check-input" id="spa">
-                                                    <label class="form-check-label" for="spa">singapore
-                                                        airlines</label>
+                                                    <label class="form-check-label" for="spa">아시아나항공(AAR)</label>
                                                 </div>
                                                 <div class="form-check collection-filter-checkbox">
                                                     <input type="checkbox" class="form-check-input" id="pet">
-                                                    <label class="form-check-label" for="pet">Nippon Airways</label>
+                                                    <label class="form-check-label" for="pet">에어로케이(EOK)</label>
                                                 </div>
                                                 <div class="form-check collection-filter-checkbox">
                                                     <input type="checkbox" class="form-check-input" id="parking">
-                                                    <label class="form-check-label" for="parking">Cathay
-                                                        Pacific</label>
+                                                    <label class="form-check-label" for="parking">에어부산(ABL)</label>
                                                 </div>
                                                 <div class="form-check collection-filter-checkbox">
                                                     <input type="checkbox" class="form-check-input" id="swimming">
-                                                    <label class="form-check-label" for="swimming">Emirates</label>
+                                                    <label class="form-check-label" for="swimming">에어서울(ASV)</label>
                                                 </div>
                                                 <div class="form-check collection-filter-checkbox">
                                                     <input type="checkbox" class="form-check-input" id="chinese">
-                                                    <label class="form-check-label" for="chinese">Hainan
-                                                        Airlines</label>
+                                                    <label class="form-check-label" for="chinese">제주항공(JJA)</label>
                                                 </div>
                                                 <div class="form-check collection-filter-checkbox">
                                                     <input type="checkbox" class="form-check-input" id="restaurant">
-                                                    <label class="form-check-label" for="restaurant">Qantas
-                                                        Airways</label>
+                                                    <label class="form-check-label" for="restaurant">진에어(JJA)</label>
+                                                </div>
+                                                <div class="form-check collection-filter-checkbox">
+                                                    <input type="checkbox" class="form-check-input" id="restaurant">
+                                                    <label class="form-check-label" for="restaurant">티웨이항공(TWB)</label>
+                                                </div>
+                                                <div class="form-check collection-filter-checkbox">
+                                                    <input type="checkbox" class="form-check-input" id="restaurant">
+                                                    <label class="form-check-label" for="restaurant">플라이강원(FGW)</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -680,21 +346,21 @@
                                                     <input type="checkbox" class="form-check-input" id="suomi">
                                                     <label class="form-check-label" for="suomi"><img
                                                             src="../assets/images/icon/time/sunrise.png"
-                                                            class="img-fluid blur-up lazyload me-1" alt=""> morning (6am
+                                                            class="img-fluid blur-up lazyload me-1" alt=""> 아침 (6am
                                                         to 12pm)</label>
                                                 </div>
                                                 <div class="form-check collection-filter-checkbox">
                                                     <input type="checkbox" class="form-check-input" id="english">
                                                     <label class="form-check-label" for="english"><img
                                                             src="../assets/images/icon/time/sun.png"
-                                                            class="img-fluid blur-up lazyload me-1" alt=""> noon (12pm
+                                                            class="img-fluid blur-up lazyload me-1" alt=""> 점심 (12pm
                                                         to 6pm)</label>
                                                 </div>
                                                 <div class="form-check collection-filter-checkbox">
                                                     <input type="checkbox" class="form-check-input" id="sign">
                                                     <label class="form-check-label" for="sign"><img
                                                             src="../assets/images/icon/time/night.png"
-                                                            class="img-fluid blur-up lazyload me-1" alt=""> evening
+                                                            class="img-fluid blur-up lazyload me-1" alt=""> 저녁
                                                         (after 6pm)</label>
                                                 </div>
                                             </div>
@@ -710,21 +376,21 @@
                                                     <input type="checkbox" class="form-check-input" id="morning">
                                                     <label class="form-check-label" for="morning"><img
                                                             src="../assets/images/icon/time/sunrise.png"
-                                                            class="img-fluid blur-up lazyload me-1" alt=""> morning (6am
+                                                            class="img-fluid blur-up lazyload me-1" alt=""> 아침 (6am
                                                         to 12pm)</label>
                                                 </div>
                                                 <div class="form-check collection-filter-checkbox">
                                                     <input type="checkbox" class="form-check-input" id="noon">
                                                     <label class="form-check-label" for="noon"><img
                                                             src="../assets/images/icon/time/sun.png"
-                                                            class="img-fluid blur-up lazyload me-1" alt=""> noon (12pm
+                                                            class="img-fluid blur-up lazyload me-1" alt=""> 점심 (12pm
                                                         to 6pm)</label>
                                                 </div>
                                                 <div class="form-check collection-filter-checkbox">
                                                     <input type="checkbox" class="form-check-input" id="evening">
                                                     <label class="form-check-label" for="evening"><img
                                                             src="../assets/images/icon/time/night.png"
-                                                            class="img-fluid blur-up lazyload me-1" alt=""> evening
+                                                            class="img-fluid blur-up lazyload me-1" alt=""> 저녁
                                                         (after 6pm)</label>
                                                 </div>
                                             </div>

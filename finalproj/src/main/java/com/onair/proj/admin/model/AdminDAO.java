@@ -10,4 +10,5 @@ public interface AdminDAO {
 	int adminInsert(AdminVO vo);
 	int totalMember(MemberVO vo);
 	int totalboard3(VocVO vo);
+	String adminSelectPwd(String manId);
 }

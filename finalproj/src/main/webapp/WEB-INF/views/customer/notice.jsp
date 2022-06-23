@@ -13,6 +13,11 @@
 			$(this).css('background','');
 		});
 	});
+	
+	function pageProc(curPage){
+		$('input[name=currentPage]').val(curPage);
+		$('form[name=frmPage]').submit();
+	}
 </script>
 
 <style>
@@ -124,7 +129,7 @@ tr:hover{
         <div class="row">
         	<div class="Search">
 	        	<label for="noticeSearch" style="margin-right: 10px; font-weight: bold; font-size:20px">공지사항 검색</label>
-	        	<input type="text" class="noticeSearch" placeholder="검색할 내용을 입력하세요.">
+	        	<input type="text" class="noticeSearch" name="searchKeyword" value="${param.searchKeyword }" placeholder="검색할 내용을 입력하세요.">
 	        	<button id="btnSearch" type="button" class="btn_M black">검색</button>
         	</div>
         	<hr size="5"><br><br>
@@ -157,11 +162,12 @@ tr:hover{
 										<td>16,359</td>
 										<td>22-06-16</td>
 									</tr>
-									<%-- <%if(list.isEmpty()){ %>
+									<%-- <c:if test="${empty noticeList }">
 										<tr>
 											<td colspan="3" class="align_center">해당 글이 존재하지 않습니다.</td>
 										</tr>
-									<%}else{ %>	
+									</c:if>
+									<c:if test="${!empty noticeList }">
 										<%for(int i=0;i<pageSize;i++){ 
 											if(num-- <1) break;
 											
@@ -177,8 +183,7 @@ tr:hover{
 												<td>등록일</td>
 												<td><%=sdf.format(vo.getRegdate()) %></td>
 											</tr>
-										<%}//for %>
-									<%}//if %>  --%>
+									</c:if> --%>
 								</tbody>
 						    </table>
                         </div>
