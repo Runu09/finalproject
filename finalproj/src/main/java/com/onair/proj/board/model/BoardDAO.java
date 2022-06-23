@@ -1,9 +1,10 @@
 package com.onair.proj.board.model;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+
+import com.onair.proj.common.DateSearchVO;
 
 @Mapper
 public interface BoardDAO {
@@ -11,4 +12,8 @@ public interface BoardDAO {
 	List<BoardVO> selectAll();
 	int updateCount(int bNo);
 	BoardVO selectByNo(int bNo);
+	List<BoardVO> selectLostAll(DateSearchVO searchVo);
+	int selectLostTotalRecord(DateSearchVO searchVo);
+	
+
 }

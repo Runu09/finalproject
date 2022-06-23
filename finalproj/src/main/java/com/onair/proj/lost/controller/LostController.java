@@ -1,5 +1,7 @@
 package com.onair.proj.lost.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -14,11 +16,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.onair.proj.board.model.BoardService;
 import com.onair.proj.board.model.BoardVO;
 import com.onair.proj.common.ConstUtil;
+import com.onair.proj.common.DateSearchVO;
 import com.onair.proj.common.FileUploadUtil;
+import com.onair.proj.common.PaginationInfo;
 import com.onair.proj.member.model.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -35,9 +40,16 @@ public class LostController {
 	private final MemberService memberService;
 	private final FileUploadUtil fileUploadUtil;
 	
+	
 	@RequestMapping("/detail.do")
-	public void detail() {
-
+	public String detail(@RequestParam(defaultValue = "0") int bNo, Model model) {
+		logger.info("유실물 상세 조회");
+		BoardVO vo=boardService.selectByNo(bNo);
+		logger.info("상품 상세 조회 결과 vo={}",vo);
+		
+		model.addAttribute("vo", vo);
+		
+		return "/lost/detail";
 	}
 
 	@GetMapping("/write.do")
@@ -88,7 +100,47 @@ public class LostController {
 
 
 	@RequestMapping("/list.do")
-	public String lost_list() {
+	public String lost_list(@ModelAttribute DateSearchVO searchVo,
+			Model model) {
+		logger.info("유실물 조회 글 목록, 파라미터 searchVo={}", searchVo);
+
+		
+		//[조회] 버튼을 누르지 않더라도 오늘 날짜의 주문 내역은 자동으로 나오게 한다
+				if(searchVo.getStartDay()==null || searchVo.getStartDay().isEmpty())
+				{	
+					Date today=new Date();
+					SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+					String str=sdf.format(today);
+					
+					searchVo.setStartDay(str);
+					searchVo.setEndDay(str);
+					
+					logger.info("현재일자 setting searchVo={}",searchVo);
+				}
+				
+				//페이징에 필요한 변수 셋팅
+				PaginationInfo pagingInfo=new PaginationInfo();
+				pagingInfo.setBlockSize(ConstUtil.BLOCKSIZE);
+				pagingInfo.setCurrentPage(searchVo.getCurrentPage());
+				pagingInfo.setRecordCountPerPage(ConstUtil.RECORD_COUNT);
+				
+				searchVo.setRecordCountPerPage(ConstUtil.RECORD_COUNT);
+				searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+				
+				List<BoardVO> list=boardService.selectLostAll(searchVo);
+				logger.info("유실물 조회 결과 list.size={}", list.size());
+				
+				int totalRecord=boardService.selectLostTotalRecord(searchVo);
+				logger.info("유실물 조회 결과 totalRecord={}", totalRecord);
+				
+				pagingInfo.setTotalRecord(totalRecord);
+				
+				model.addAttribute("list",list);
+				model.addAttribute("pagingInfo",pagingInfo);
+					
+		
+	
+		
 		return "/lost/list";
 	}
 

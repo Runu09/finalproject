@@ -150,6 +150,9 @@
         });
         new WOW().init();
     </script>
+    
+    <script src="../assets/js/booking.js"></script>
+	<script src="../assets/js/selectAirport.js"></script>
 </body>
 
 </html>

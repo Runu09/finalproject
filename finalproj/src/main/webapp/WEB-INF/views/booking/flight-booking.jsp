@@ -38,32 +38,31 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="logo-sec">
-                                            <img src="../assets/images/flights/airlines/1.png"
+                                            <img src="../assets/images/flights/airlines/8.png"
                                                 class="img-fluid blur-up lazyload" alt="">
-                                            <span class="title">Egyptair</span>
+                                            <span class="title">대한항공</span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="airport-part">
                                             <div class="airport-name">
-                                                <h6>DXB <span>17.00</span></h6>
-                                                <p>sat, 12 oct 2019</p>
+                                                <h6>GMP <span>17.00</span></h6>
+                                                <p>2022-08-22 금</p>
                                             </div>
                                             <div class="airport-progress">
                                                 <i class="fas fa-plane-departure float-start"></i>
                                                 <i class="fas fa-plane-arrival float-end"></i>
                                             </div>
                                             <div class="airport-name arrival">
-                                                <h6>CDG <span>17.00</span></h6>
-                                                <p>sat, 12 oct 2019</p>
+                                                <h6>CJU <span>17.45</span></h6>
+                                                <p>2022-08-22 금</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="duration">
                                             <div>
-                                                <h6>20h 45m</h6>
-                                                <p>1 stop</p>
+                                                <h6>45분</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -177,21 +176,17 @@
                                         <table class="table table-borderless">
                                             <tbody>
                                                 <tr>
-                                                    <td>성인 (3 X $2501)</td>
-                                                    <td>$250</td>
+                                                    <td>성인</td>
+                                                    <td>120,000원</td>
                                                 </tr>
                                                 <tr>
                                                     <td>세금</td>
-                                                    <td>$25</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>보험</td>
-                                                    <td>$15</td>
+                                                    <td>25,000원</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                         <div class="grand_total">
-                                            <h5>예상 결제 금액: <span>$2500</span></h5>
+                                            <h5>예상 결제 금액: <span>145,000원</span></h5>
                                         </div>
                                     </div>
                                 </div>

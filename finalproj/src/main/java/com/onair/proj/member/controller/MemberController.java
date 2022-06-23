@@ -1,5 +1,7 @@
 package com.onair.proj.member.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -80,6 +82,19 @@ public class MemberController {
 	}
 	
 	/* 마이페이지 */
+	//회원정보수정
+	@GetMapping("/editMem.do")
+	public String editMem_get(HttpSession session, Model model) {
+		String memId = (String)session.getAttribute("memId");
+		logger.info("회원 정보 수정 화면, 파라미터 memId={}", memId);
+		
+		MemberVO vo = memberService.selectByMemId(memId);
+		logger.info("회원 정보 조회 결과 vo={}", vo);
+		
+		model.addAttribute("vo" , vo);
+		
+		return "/member/editMem";
+	}
 	
 	@GetMapping("/deleteMem.do")
 	public String delete_get() {
@@ -87,11 +102,6 @@ public class MemberController {
 		return "/member/deleteMem";
 	}
 
-	@GetMapping("/editMem.do")
-	public String editMem_get() {
-		logger.info("회원정보수정 화면");
-		return "/member/editMem";
-	}
 	
 	@GetMapping("/editPwd.do")
 	public String editPwd_get() {

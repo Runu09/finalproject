@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.onair.proj.common.DateSearchVO;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -30,6 +32,19 @@ public class BoardSerivceImpl implements BoardService{
 	public BoardVO selectByNo(int bNo) {
 		return boardDao.selectByNo(bNo);
 	}
+
+	@Override
+	public List<BoardVO> selectLostAll(DateSearchVO searchVo) {
+		return boardDao.selectLostAll(searchVo);
+	
+	}
+
+	@Override
+	public int selectLostTotalRecord(DateSearchVO searchVo) {
+		return boardDao.selectLostTotalRecord(searchVo);
+	}
+
+	
 	
 	
 }
