@@ -35,7 +35,7 @@
 									<div class="dashboard-detail">
 										<div class="delete-section">
 											<p>
-												Hi <span class="text-bold">회원명 님</span>,
+												Hi <span class="text-bold">${sessionScope.memName } 님</span>,
 											</p>
 
 											<p>
