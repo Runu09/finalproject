@@ -1,15 +1,11 @@
 package com.onair.proj.voc.controller;
 
-
-
-
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -46,7 +42,7 @@ import lombok.RequiredArgsConstructor;
 public class VoCController {
 	private static final Logger logger
 		=LoggerFactory.getLogger(VoCController.class);
-	
+
 	private final VocService vocService;
 	private final MemberService memberService;
 	private final CommentsService commentsService;

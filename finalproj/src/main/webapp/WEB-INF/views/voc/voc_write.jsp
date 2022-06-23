@@ -19,7 +19,7 @@
 </script>
 
     <!-- breadcrumb start -->
-    <section class="breadcrumb-section pt-0">
+    <!-- <section class="breadcrumb-section pt-0">
         <div class="breadcrumb-content pt-0">
             <div>
                 <h2>blog</h2>
@@ -32,8 +32,21 @@
             </div>
         </div>
         <div class="title-breadcrumb">Rica</div>
-    </section>
+    </section> -->
     <!-- breadcrumb end -->
+    
+    
+	<!-- breadcrumb start -->
+	<section class="breadcrumb-section no-bg pt-0" id="block"
+		style="width: 100%; background-images: http://www.astronomer.rocks/news/photo/202103/89853_24782_324.jpeg;">
+		<div class="breadcrumb-content overlay-black">
+			<div>
+				<h2>고객의소리</h2>
+			</div>
+		</div>
+		<div class="title-breadcrumb">OnAir</div>
+	</section>
+	<!-- breadcrumb end -->
 
 
     <!-- blog detail section start -->

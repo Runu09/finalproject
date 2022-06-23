@@ -15,5 +15,4 @@ public interface MemberService {
 	int duplicateId(String memId);
 	int checkLogin(String memId, String memPwd);
 	MemberVO selectByMemId(String memId);
-	
 }

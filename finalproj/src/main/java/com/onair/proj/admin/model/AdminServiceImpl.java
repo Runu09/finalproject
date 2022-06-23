@@ -3,7 +3,8 @@ package com.onair.proj.admin.model;
 import org.springframework.stereotype.Service;
 
 import com.onair.proj.member.model.MemberService;
-
+import com.onair.proj.member.model.MemberVO;
+import com.onair.proj.voc.model.VocVO;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -18,6 +19,15 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
+	public int totalMember(MemberVO vo) {
+		return adminDao.totalMember(vo);
+	}
+
+	@Override
+	public int totalboard3(VocVO vo) {
+		return adminDao.totalboard3(vo);
+	}
+	
 	public int adminLogin(String manId, String manPwd) {
 		String dbPwd= adminDao.adminSelectPwd(manId);
 		int result=0;
@@ -32,6 +42,5 @@ public class AdminServiceImpl implements AdminService{
 		}
 		return result;
 	}
-
 
 }

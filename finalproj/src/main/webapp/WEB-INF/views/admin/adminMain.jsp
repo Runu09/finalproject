@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+
 <%@include file="../inc/adminTop.jsp"%>
          
             <div class="page-body">
@@ -7,7 +10,7 @@
                 <!-- Container-fluid starts-->
                 <div class="container-fluid">
                     <div class="row">
-                        <!-- chart caard section start -->
+                        <!-- chart card section start -->
                         <div class="col-sm-6 col-xxl-3 col-lg-6">
                             <div class="b-b-primary border-5 border-0 card o-hidden">
                                 <div class="custome-1-bg b-r-4 card-body">
@@ -52,12 +55,14 @@
                                 <div class=" custome-3-bg b-r-4 card-body">
                                     <div class="media static-top-widget">
 
-                                        <div class="media-body p-0"><span class="m-0">리뷰</span>
-                                            <h4 class="mb-0 counter">893
-                                                <span class="badge badge-light-secondary grow  "><i
+                                        <div class="media-body p-0"><span class="m-0">고객의 소리</span>
+                                            <h4 class="mb-0 counter">
+												${cnt2}
+                                                <!-- <span class="badge badge-light-secondary grow  "><i
                                                         data-feather="trending-up">
-                                                    </i>8.5%</span>
+                                                    </i>8.5%</span> -->
                                             </h4>
+
 
                                         </div>
                                         <div class="align-self-center text-center"><i data-feather="message-circle"></i>
@@ -72,10 +77,11 @@
                                     <div class="media static-top-widget">
 
                                         <div class="media-body p-0"><span class="m-0">가입한 회원</span>
-                                            <h4 class="mb-0 counter">10
-                                                <span class="badge badge-light-success grow"><i
+                                            <h4 class="mb-0 counter">
+                                            	${cnt1}
+                                                <!-- <span class="badge badge-light-success grow"><i
                                                         data-feather="trending-down">
-                                                    </i>8.5%</span>
+                                                    </i>8.5%</span> -->
                                             </h4>
 
                                         </div>
@@ -85,7 +91,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- chart caard section start -->
+                        <!-- chart card section start -->
                         <!-- visitors chart  start-->
                         <div class="col-xl-4">
                             <div class="h-100">

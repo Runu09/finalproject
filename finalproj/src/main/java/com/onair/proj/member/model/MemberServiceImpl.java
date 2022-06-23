@@ -51,5 +51,5 @@ public class MemberServiceImpl implements MemberService{
 	public MemberVO selectByMemId(String memId) {
 		return memberDao.selectByMemId(memId);
 	}
-
+	
 }

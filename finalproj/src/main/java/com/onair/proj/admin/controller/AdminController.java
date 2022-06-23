@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.onair.proj.admin.model.AdminService;
 import com.onair.proj.admin.model.AdminVO;
 import com.onair.proj.member.model.MemberService;
-import com.onair.proj.voc.controller.VoCController;
+import com.onair.proj.member.model.MemberVO;
+import com.onair.proj.voc.model.VocVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -32,8 +33,18 @@ public class AdminController {
 	private final AdminService adminService;
 	
 	@RequestMapping("/adminMain")
-	public String adminMain() {
+	public String adminMain(@ModelAttribute MemberVO membervo , @ModelAttribute VocVO vocvo, Model model) {
 		logger.info("관리자 메인화면");
+		
+		int cnt1=adminService.totalMember(membervo);
+		logger.info("가입한 총 회원수={}", cnt1);
+		
+		int cnt2=adminService.totalboard3(vocvo);
+		logger.info("고객의 소리 총 글갯수={}", cnt2);
+		
+		model.addAttribute("cnt1", cnt1);
+		model.addAttribute("cnt2", cnt2);
+		
 		return "/admin/adminMain";
 	}
 	
@@ -113,5 +124,4 @@ public class AdminController {
 		logger.info("전체 유저 조회 화면");
 		return "/admin/allUser";
 	}
-	
 }

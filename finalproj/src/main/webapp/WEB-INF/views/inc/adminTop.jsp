@@ -295,9 +295,15 @@
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="reviews.html"><i data-feather="message-square">
                                         </i><span>쪽지함</span></a></li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="reviews.html"><i data-feather="file-text">
-                                        </i><span>공지사항</span></a></li>
+                                        
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i
+                                            data-feather="navigation"></i><span>공지사항</span></a>
+                                    <ul class="sidebar-submenu">
+                                        <li><a href="all-cars.html">공지사항 목록</a></li>
+                                        <li><a href="cars-detail.html">공지사항 등록</a></li>
+                                        <li><a href="add-new-cars.html">공지사항 수정</a></li>
+                                    </ul>
+                                </li> 
                                 <!-- <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="setting.html"><i data-feather="settings"> </i><span>Setting</span></a>
                                 </li> -->
