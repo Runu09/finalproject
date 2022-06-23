@@ -3,11 +3,17 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.onair.proj.comments.model.CommentsDAO">
-	<insert id="">
+	
+	<insert id="insertComment" parameterType="commentsVo">
 		<selectKey resultType="int" keyProperty="cNo" order="BEFORE">
-			select seq_comment.nextval form dual
+			select seq_comments.nextval from dual
 		</selectKey>
 		
-		insert into comments(c_No, b_No, c_Id, c_Content)
+		insert into comments(c_No, b_No, c_Id, c_Content,c_GroupNo)
+		values(#{cNo}, #{bNo}, #{cId}, #{cContent},#{cNo})
 	</insert>
+	
+	<select id="selectByNo" parameterType="int" resultType="commentsVo">
+		select * from comments where b_no=#{bNo}
+	</select>
 </mapper>

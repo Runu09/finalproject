@@ -1,6 +1,7 @@
 package com.onair.proj.comments.model;
 
-import java.security.Timestamp;
+
+import java.sql.Timestamp;
 
 import lombok.Data;
 
@@ -16,6 +17,4 @@ public class CommentsVO {
 	private int cStep;
 	private int cSortno;
 	private String cDelflag;
-	
-
 }
