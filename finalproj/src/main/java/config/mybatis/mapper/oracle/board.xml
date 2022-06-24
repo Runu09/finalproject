@@ -86,6 +86,21 @@
 		   
 	</select>
 	
+	<update id="updateBoard" parameterType="boardVo">
+		update board
+		set b_title=#{bTitle}, b_Content=#{bContent}
+		<!-- 파일이 존재하면 업데이트 -->
+		<if test="fName != null and fName != ''">
+			, f_name=#{fName}, f_filesize=#{fFileSize}, 
+			f_originname=#{fOriginName}
+		</if>
+		where b_no=#{bNo}
+	</update>
+	
+	
+	<delete id="deleteBoard" parameterType="int">
+		call lostDelete(#{bNo})
+	</delete>
 </mapper>
 
 

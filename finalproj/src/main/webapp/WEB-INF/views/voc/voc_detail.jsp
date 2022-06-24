@@ -1,14 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
-$(function() {
-	$("a[name='trigger']").toggle(function() {
-		$(this).closest("form").next().show();
-	}, function() {
-		$(this).closest("form").next().hide();
+$(function(){
+
+	
+	$('.replyForm').submit(function(){
+		if($.trim($('#nickName').val()).length<1){
+			alert("닉네임을 입력하세요");
+			$('#nickName').focus();
+			event.preventDefault();
+		}else if($.trim($('#content').val()).length<1){
+			alert("내용을 입력하세요");
+			$('#content').focus();
+			event.preventDefault();
+		}
 	});
+
+});
 });
 </script>
     <!-- breadcrumb start -->
@@ -79,56 +89,71 @@ $(function() {
                         <br><br>
                         <div class="comment-section">
                             <h4 class="comment">comments:</h4>
-                            <div class="comment-wrapper">
-                                <div class="comment-box">
-                                    <!-- 댓글리스트 반복 시작 -->
-                                    <c:forEach var="vo" items="${list }">
-                                    <div class="media">
-                                        <img src="../assets/images/avtar/1.jpg" class="img-fluid blur-up lazyload"
-                                            alt="">
-                                        <div class="media-body">
-                                            <div class="title">
-                                                <div class="comment-user">
-                                                    <i class="fa fa-user"></i>
-                                                    <h6>${vo.CId }</h6>
-                                                </div>
-                                                <div class="comment-date">
-                                                    <i class="fas fa-clock"></i>
-                                                    <h6> ${vo.CRegdate } </h6>
-                                                </div>
-                                            </div>
-                                            <div class="comment-detail">
-                                                <p>${vo.CContent }</p>
-                                            </div>
-                                            <!-- 대댓글 form -->
-                                            <div class="reply-btn">
-                                                <a href="#" name="trigger"><i class="fa fa-reply pe-2"></i> reply</a>
-                                            </div>
-                                            <form method="post" action="<c:url value='/comments_write'/>" class="hide">
-                                            <input type="hidden" name="bNo" value="${vo.BNo }">
-				                                <div class="row">
-				                                	<div class="form-group col-md-6">
-				                                        <input name="cId" class="form-control" type="hidden" value="${memVo.memId }">
-				                                    </div>
-				                                	<span>
-				                                        <input name="cContent" class="form-control" type="text">
-				                                    </span>
-				                                    <span class="reply-btn">
-						                                <a href="#" name="trigger"><i class="fa fa-reply pe-2"></i> RE-Reply</a>
-				                            		</span>
-				                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    </c:forEach>
-                                    
-                                </div>
-                            </div>
-                        </div>
+						<div class="comment-wrapper">
+							<div class="comment-box">
+								<!-- 댓글리스트 반복 시작 -->
+								<c:forEach var="vo" items="${list }">
+									<div class="media">
+										<img src="../assets/images/avtar/1.jpg"
+											class="img-fluid blur-up lazyload" alt="">
+										<div class="media-body">
+											<div class="title">
+												<div class="comment-user">
+													<i class="fa fa-user"></i>
+													<h6>${vo.CId }</h6>
+												</div>
+												<div class="comment-date">
+													<i class="fas fa-clock"></i>
+													<h6>${vo.CRegdate }&nbsp;</h6>
+												</div>
+												<c:if test="${vo.CId==memVo.memId }">
+													<div id="tr" >
+						                            <div class="reply-btn">
+														<a href="#" name="replyEdit">
+														<i class="fa fa-reply pe-2"></i>수정&nbsp;</a>
+													</div>
+													</div>
+						                            <div class="reply-btn">
+														<a href="<c:url value='/voc/reply_delete?cNo=${vo.CNo }&bNo=${vo.BNo }'/>">
+														<i class="fa fa-reply pe-2"></i>삭제</a>
+													</div>
+                            					</c:if>
+											</div>
+											<div class="comment-detail">
+												<p>${vo.CContent }</p>
+											</div>
+											<div class="reply-btn">
+												<a href="#" name="trigger"><i class="fa fa-reply pe-2"></i>
+													reply</a>
+											</div>
+											<!-- 대댓글 form -->
+											<div id="tr" class="hide" style="display: none;">
+											<form method="post" action="<c:url value='/voc/comments_write'/>">
+												<input type="hidden" name="bNo" value="${vo.BNo }">
+												<div class="row">
+													<div class="form-group col-md-6">
+														<input name="cId" class="form-control" type="hidden"
+															value="${memVo.memId }">
+													</div>
+													<span> <input name="cContent" class="form-control"
+														type="text">
+													</span> <span class="reply-btn"> <button onclick="<c:url value='/comments_write'/>"><i
+															class="fa fa-reply pe-2"></i> RE-Reply</button>
+													</span>
+												</div>
+											</form>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+
+							</div>
+						</div>
+					</div>
                         <div class="leave-comment">
                             <h4 class="comment">Content Textarea</h4>
-                            <form method="post" action="<c:url value='/comments_write'/>">
-                            	<input type="text" name="bNo" value="${vo.BNo }">
+                            <form method="post" action="<c:url value='/voc/comments_write'/>">
+                            	<input type="hidden" name="bNo" value="${vo.BNo }">
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <span>Posted by : </span>

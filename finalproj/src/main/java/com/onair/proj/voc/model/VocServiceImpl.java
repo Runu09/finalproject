@@ -65,6 +65,11 @@ public class VocServiceImpl implements VocService{
 	public void deleteVoc(Map<String, String> map) {
 		vocDao.deleteVoc(map);
 	}
+
+	@Override
+	public int deleteReply(int cNo) {
+		return vocDao.deleteReply(cNo);
+	}
 	
 	
 }
