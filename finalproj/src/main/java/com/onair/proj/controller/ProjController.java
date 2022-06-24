@@ -95,6 +95,11 @@ public class ProjController {
 	public void bookings_get() {
 		
 	}
+	
+	@GetMapping("/note/write.do")
+	public void write_get() {
+		
+	}
 
 
 
