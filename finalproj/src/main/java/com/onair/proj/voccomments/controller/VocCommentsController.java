@@ -1,4 +1,4 @@
-package com.onair.proj.comments.controller;
+package com.onair.proj.voccomments.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,9 +18,10 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class CommentsController {
+@RequestMapping("/voc")
+public class VocCommentsController {
 	private static final Logger logger
-		=LoggerFactory.getLogger(CommentsController.class);
+		=LoggerFactory.getLogger(VocCommentsController.class);
 	
 	private final CommentsService commentsService;
 	
@@ -40,6 +41,7 @@ public class CommentsController {
 	}
 	
 	//댓글수정
+	@RequestMapping("/reply_update")
 	public String replyUpdate_post(@ModelAttribute CommentsVO vo) {
 		logger.info("댓글수정 파라미터, vo={}", vo);
 		

@@ -15,4 +15,5 @@ public interface VocService {
 	boolean checkPwd(int bNo, String bPwd);
 	int updateVoc(VocVO vo);
 	public void deleteVoc(Map<String, String> map);
+	int deleteReply(int cNo);
 }
