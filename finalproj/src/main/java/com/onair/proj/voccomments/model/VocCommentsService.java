@@ -7,4 +7,6 @@ public interface VocCommentsService {
 	List<VocCommentsVO> selectByNo(int bNo);
 	int updateComment(VocCommentsVO vo);
 	int deleteReply(int cNo);
+	VocCommentsVO selectByCNo(int cNo);
+	int updateCommentDel(int cNo);
 }
