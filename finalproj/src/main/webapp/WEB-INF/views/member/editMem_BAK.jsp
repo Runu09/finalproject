@@ -35,9 +35,9 @@
 
 	$(function() {
 		$('form[name=memEdit]').submit(function() {
-					if ($("#memPwd").val().length < 1) {
+					if ($("#pwd").val().length < 1) {
 						alert("비밀번호를 입력하세요");
-						$("#memPwd").focus();
+						$("#pwd").focus();
 						event.preventDefault();
 					} else if (!validate_tel($('#mTel2').val())
 							|| !validate_tel($('#mTel3').val())) {
@@ -46,6 +46,28 @@
 						event.preventDefault();
 					}
 		});
+		
+		$('#memPwd').keyup(function(){
+				$.ajax({
+					url:"<c:url value='/member/ajax/checkPwd'/>",
+					type:'GET',
+					data:{memId: $('#memId').val(),
+							memPwd: $('#memPwd').val()},
+					success:function(res){
+						var output="";
+						if(res){
+							output="비밀번호 일치";
+						}else{
+							output="비밀번호 불일치";
+						}
+						$('.error').text(output);
+					},error:function(xhr, status, error){
+						alert("error:"+error);
+					}
+				});//ajax
+		});
+		
+		
 	});
 </script>
 <style>
@@ -128,6 +150,7 @@
 												<div class="right">
 													<input class="form-control" type="password" name="memPwd"
 														id="memPwd" placeholder="password"><span class="error1"></span><br>
+													
 												</div>
 											</div>
 										</li>

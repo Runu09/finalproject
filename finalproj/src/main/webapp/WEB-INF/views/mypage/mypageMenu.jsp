@@ -55,7 +55,7 @@ footer {
 									<li class="nav-item"><a 
 										class="nav-link" href="<c:url value='/member/editPwd.do'/>"> 비밀번호변경</a></li>
 									<li class="nav-item"><a
-										class="nav-link" href="<c:url value='/member/deleteMem.do'/>">회원탈퇴</a></li>
+										class="nav-link" href="<c:url value='/member/outMem.do'/>">회원탈퇴</a></li>
 								</ul>
 							</div>
 						</div>
