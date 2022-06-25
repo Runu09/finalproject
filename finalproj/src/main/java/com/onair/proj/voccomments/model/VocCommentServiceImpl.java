@@ -31,4 +31,14 @@ public class VocCommentServiceImpl implements VocCommentsService{
 		return vocCommentsDao.deleteReply(cNo);
 	}
 
+	@Override
+	public VocCommentsVO selectByCNo(int cNo) {
+		return vocCommentsDao.selectByCNo(cNo);
+	}
+
+	@Override
+	public int updateCommentDel(int cNo) {
+		return vocCommentsDao.updateCommentDel(cNo);
+	}
+
 }

@@ -1,27 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
-$(function(){
-
-	
-	$('.replyForm').submit(function(){
-		if($.trim($('#nickName').val()).length<1){
-			alert("닉네임을 입력하세요");
-			$('#nickName').focus();
-			event.preventDefault();
-		}else if($.trim($('#content').val()).length<1){
-			alert("내용을 입력하세요");
-			$('#content').focus();
-			event.preventDefault();
-		}
-	});
-
-});
-});
 </script>
-    <!-- breadcrumb start -->
+<!-- breadcrumb start -->
     <section class="breadcrumb-section pt-0">
         <div class="breadcrumb-content pt-0">
             <div>
@@ -107,11 +89,9 @@ $(function(){
 													<h6>${vo.CRegdate }&nbsp;</h6>
 												</div>
 												<c:if test="${vo.CId==memVo.memId }">
-													<div id="tr" >
 						                            <div class="reply-btn">
-														<a href="#" name="replyEdit">
+														<a href="<c:url value='/voc/updateReply?cNo=${vo.CNo }'/>" name="replyEdit">
 														<i class="fa fa-reply pe-2"></i>수정&nbsp;</a>
-													</div>
 													</div>
 						                            <div class="reply-btn">
 														<a href="<c:url value='/voc/reply_delete?cNo=${vo.CNo }&bNo=${vo.BNo }'/>">
@@ -119,29 +99,24 @@ $(function(){
 													</div>
                             					</c:if>
 											</div>
-											<div class="comment-detail">
-												<p>${vo.CContent }</p>
-											</div>
+											<c:choose>
+												<c:when test="${vo.CDelflag == 'N' }">
+													<div class="comment-detail">
+														<p>${vo.CContent }</p>
+													</div>
+												</c:when>
+												<c:otherwise>
+													<form action="<c:url value='/voc/vocReplyEdit'/>" method="post">
+														<input type="hidden" name="bNo" value="${vo.BNo }">
+														<input type="hidden" name="cNo" value="${vo.CNo }">
+														<input type="text" name="cContent" value="${vo.CContent }" />
+														<button type="submit">등록</button>
+													</form>
+												</c:otherwise>
+											</c:choose>
 											<div class="reply-btn">
 												<a href="#" name="trigger"><i class="fa fa-reply pe-2"></i>
 													reply</a>
-											</div>
-											<!-- 대댓글 form -->
-											<div id="tr" class="hide" style="display: none;">
-											<form method="post" action="<c:url value='/voc/comments_write'/>">
-												<input type="hidden" name="bNo" value="${vo.BNo }">
-												<div class="row">
-													<div class="form-group col-md-6">
-														<input name="cId" class="form-control" type="hidden"
-															value="${memVo.memId }">
-													</div>
-													<span> <input name="cContent" class="form-control"
-														type="text">
-													</span> <span class="reply-btn"> <button onclick="<c:url value='/comments_write'/>"><i
-															class="fa fa-reply pe-2"></i> RE-Reply</button>
-													</span>
-												</div>
-											</form>
 											</div>
 										</div>
 									</div>

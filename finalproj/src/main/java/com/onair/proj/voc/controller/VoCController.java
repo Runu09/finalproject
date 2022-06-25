@@ -33,6 +33,8 @@ import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
 import com.onair.proj.voc.model.VocService;
 import com.onair.proj.voc.model.VocVO;
+import com.onair.proj.voccomments.model.VocCommentsService;
+import com.onair.proj.voccomments.model.VocCommentsVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -45,7 +47,7 @@ public class VoCController {
 
 	private final VocService vocService;
 	private final MemberService memberService;
-	private final CommentsService commentsService;
+	private final VocCommentsService voccommentsService;
 	private final FileUploadUtil fileUploadUtil;
 	
 	//안내화면
@@ -229,7 +231,8 @@ public class VoCController {
 	}
 	
 	@RequestMapping("/voc_detail")
-	public String voc_detail(@RequestParam(defaultValue = "0") int bNo,HttpSession session,
+	public String voc_detail(@RequestParam(defaultValue = "0") int bNo,
+			HttpSession session,
 			HttpServletRequest request,Model model) {
 		logger.info("voc 상세보기 파라미터 bNo={}", bNo);
 		
@@ -256,10 +259,9 @@ public class VoCController {
 		model.addAttribute("fileInfo", fileInfo);
 		
 		//댓글정보 리스트 처리
-		List<CommentsVO> list=commentsService.selectByNo(bNo);
+		List<VocCommentsVO> list=voccommentsService.selectByNo(bNo);
 		logger.info("댓글 조회 리스트 결과 list.size={}", list);
 		model.addAttribute("list", list);
-		
 		
 		return "/voc/voc_detail";
 	}
