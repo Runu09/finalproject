@@ -96,11 +96,7 @@ public class ProjController {
 		
 	}
 	
-	@GetMapping("/note/write.do")
-	public void write_get() {
-		
-	}
-
+	
 
 
 }
