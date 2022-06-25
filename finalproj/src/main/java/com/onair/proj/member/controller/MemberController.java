@@ -95,6 +95,7 @@ public class MemberController {
 		return "/member/editMem";
 	}
 	
+
 	@GetMapping("/deleteMem.do")
 	public String delete_get() {
 		logger.info("회원탈퇴 화면");

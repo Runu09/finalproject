@@ -8,4 +8,5 @@ public interface MemberDAO {
 	public int duplicateId(String memId);
 	String selectPwd(String memId);
 	MemberVO selectByMemId(String memId);
+
 }

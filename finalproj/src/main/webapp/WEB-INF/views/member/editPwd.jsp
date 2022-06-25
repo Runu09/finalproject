@@ -20,7 +20,7 @@
 		data-sticky_parent>
 		<div class="container">
 			<div class="row">
-				<%@include file="../inc/mypageMenu.jsp"%>
+				<%@include file="../mypage/mypageMenu.jsp"%>
 
 				<div class="col-lg-9">
 					<div class="product_img_scroll" data-sticky_column>

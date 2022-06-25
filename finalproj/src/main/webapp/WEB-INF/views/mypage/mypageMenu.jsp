@@ -41,8 +41,7 @@ footer {
 								</div>
 								<div class="profile-detail">
 									<h5>${sessionScope.memName } 님</h5>
-									<h6>+91 123 - 456 - 7890</h6>
-									<h6>mark.enderess@mail.com</h6>
+									<h6>${sessionScope.memId}</h6>
 								</div>
 							</div>
 							<div class="faq-tab">
