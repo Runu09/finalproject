@@ -21,7 +21,6 @@
 	<select id="selectPwd" parameterType="string" resultType="String">
 		select MEM_PWD from member
 		where MEM_ID=#{memId} and M_OUTDATE is null
-		
 	</select>
 	
 	<select id="selectByMemId" parameterType="string" resultType="memberVo">
@@ -41,6 +40,5 @@
 		set M_OUTDATE=sysdate
 		where MEM_ID=#{memId}
 	</update>
-	
-	
+
 </mapper>

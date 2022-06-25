@@ -127,7 +127,7 @@
 												</div>
 												<div class="right">
 													<input class="form-control" type="password" name="memPwd"
-														id="memPwd" placeholder="password"><span class="error1"></span><br>
+														id="memPwd" required="" placeholder="password"><span class="error1"></span><br>
 												</div>
 											</div>
 										</li>
