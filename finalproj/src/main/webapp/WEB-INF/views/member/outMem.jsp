@@ -20,7 +20,7 @@
 		data-sticky_parent>
 		<div class="container">
 			<div class="row">
-				<%@include file="../inc/mypageMenu.jsp"%>
+				<%@include file="../mypage/mypageMenu.jsp"%>
 
 				<div class="col-lg-9">
 					<div class="product_img_scroll" data-sticky_column>
@@ -35,7 +35,7 @@
 									<div class="dashboard-detail">
 										<div class="delete-section">
 											<p>
-												Hi <span class="text-bold">회원명 님</span>,
+												Hi <span class="text-bold">${sessionScope.memName } 님</span>,
 											</p>
 
 											<p>
@@ -46,11 +46,15 @@
 												삭제되면 로그아웃되고 다시 로그인할 수 없습니다.<br> 위의 내용을 이해하고 동의한 경우에도
 												계정을 삭제하려면 비밀번호 입력 후 탈퇴 버튼을 클릭하십시오.<br>
 											</p>
-											<br> <input class="form-control" type="password"
-												name="pwd" required="" placeholder="password"><br>
-
-											<a href="#" data-bs-toggle="modal"
-												data-bs-target="#delete-account" class="btn btn-solid">회원탈퇴</a>
+											<form name="memOut" method="post" action="<c:url value='/member/outMem.do'/>">
+												<br> <input class="form-control" type="password"
+													name="memPwd" required="" placeholder="password"><br>
+												
+												<div id=btOut>
+													<input class="btn btn-solid" type="submit" id="submitOut"
+													value="회원탈퇴" style="height: 40px;">
+												</div>
+											</form>
 										</div>
 									</div>
 								</div>

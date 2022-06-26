@@ -1,8 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
+<script type="text/javascript">
+	function reply(idx, bNo,groupno,step,sortno){
+		var insReply = '';
+		insReply += '<form method="post" action="<c:url value='/voc/comments_reply'/>">';
+		insReply += '<input type="hidden" name="bNo" value='+bNo+'>';
+		insReply += '<input type="hidden" name="cGroupno" value='+groupno+'>';
+		insReply += '<input type="hidden" name="cStep" value='+step+'>';
+		insReply += '<input type="hidden" name="cSortno" value='+sortno+'>';
+		insReply += '<input type="text" name="cContent">';
+		insReply += '<button type="submit">등록</button>';
+		insReply += '<input type="button" value="취소">';
+		insReply += '</form>';
 
-    <!-- breadcrumb start -->
+		$("#replyBox"+idx).html(insReply);
+	}
+	
+	function replyCancel(idx){
+		$("#replyBox"+idx).slideUp(500);
+	}
+</script>
+<!-- breadcrumb start -->
     <section class="breadcrumb-section pt-0">
         <div class="breadcrumb-content pt-0">
             <div>
@@ -70,70 +89,81 @@
                         <br><br>
                         <div class="comment-section">
                             <h4 class="comment">comments:</h4>
-                            <div class="comment-wrapper">
-                                <div class="comment-box">
-                                    <div class="media">
-                                        <img src="../assets/images/avtar/1.jpg" class="img-fluid blur-up lazyload"
-                                            alt="">
-                                        <div class="media-body">
-                                            <div class="title">
-                                                <div class="comment-user">
-                                                    <i class="fa fa-user"></i>
-                                                    <h6>User_Id</h6>
-                                                </div>
-                                                <div class="comment-date">
-                                                    <i class="fas fa-clock"></i>
-                                                    <h6> Dec 16, 2014 </h6>
-                                                </div>
-                                            </div>
-                                            <div class="comment-detail">
-                                                <p>comments_Line</p>
-                                            </div>
-                                            <div class="reply-btn">
-                                                <a href="#"><i class="fa fa-reply pe-2"></i> reply</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media inner-comment">
-                                        <img src="../assets/images/avtar/3.jpg" class="img-fluid blur-up lazyload"
-                                            alt="">
-                                        <div class="media-body">
-                                            <div class="title">
-                                                <div class="comment-user">
-                                                    <i class="fa fa-user"></i>
-                                                    <h6>User_Id_reply</h6>
-                                                </div>
-                                                <div class="comment-date">
-                                                    <i class="fas fa-clock"></i>
-                                                    <h6> Dec 16, 2014 </h6>
-                                                </div>
-                                            </div>
-                                            <div class="comment-detail">
-                                                <p>comments_Reply</p>
-                                            </div>
-                                            <div class="reply-btn">
-                                                <a href="#"><i class="fa fa-reply pe-2"></i> reply</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+						<div class="comment-wrapper">
+							<div class="comment-box">
+								<!-- 댓글리스트 반복 시작 -->
+								<c:forEach var="vo" items="${list }">
+									<div class="media">
+									<c:if test="${vo.CStep>0 }">
+										<c:forEach var="i" begin="1" end="${vo.CStep }">
+										<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+										</c:forEach>
+									</c:if>
+										<img src="../assets/images/avtar/1.jpg"
+											class="img-fluid blur-up lazyload" alt="">
+										<div class="media-body">
+											<div class="title">
+												<div class="comment-user">
+													<i class="fa fa-user"></i>
+													<h6>${vo.CId }</h6>
+												</div>
+												<div class="comment-date">
+													<i class="fas fa-clock"></i>
+													<h6>${vo.CRegdate }&nbsp;</h6>
+												</div>
+												<c:if test="${vo.CId==memVo.memId }">
+						                            <div class="reply-btn">
+														<a href="<c:url value='/voc/updateReply?cNo=${vo.CNo }'/>" name="replyEdit">
+														<i class="fa fa-reply pe-2"></i>수정&nbsp;</a>
+													</div>
+						                            <div class="reply-btn">
+														<a href="<c:url value='/voc/reply_delete?cNo=${vo.CNo }&bNo=${vo.BNo }'/>">
+														<i class="fa fa-reply pe-2"></i>삭제</a>
+													</div>
+                            					</c:if>
+											</div>
+											<c:choose>
+												<c:when test="${vo.CDelflag == 'N' }">
+													<div class="comment-detail">
+														<p>${vo.CContent }</p>
+													</div>
+												</c:when>
+												<c:otherwise>
+													<form action="<c:url value='/voc/vocReplyEdit'/>" method="post">
+														<input type="hidden" name="bNo" value="${vo.BNo }">
+														<input type="hidden" name="cNo" value="${vo.CNo }">
+														<input type="text" name="cContent" value="${vo.CContent }" />
+														<button type="submit">등록</button>
+													</form>
+												</c:otherwise>
+											</c:choose>
+											<div class="reply-btn">
+												<a href="javascript:reply(${vo.CNo },${vo.BNo },${vo.CGroupno },${vo.CStep },${vo.CSortno });"><i class="fa fa-reply pe-2"></i>
+													reply</a>
+											</div>
+											<!-- 대댓글 form -->
+											<div id="replyBox${vo.CNo }">
+											</div>
+											<!-- 대댓글 form 끝-->
+										</div>
+									</div>
+								</c:forEach>
+
+							</div>
+						</div>
+					</div>
                         <div class="leave-comment">
                             <h4 class="comment">Content Textarea</h4>
-                            <form>
+                            <form method="post" action="<c:url value='/voc/comments_write'/>">
+                            	<input type="hidden" name="bNo" value="${vo.BNo }">
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <input class="form-control" placeholder="Enter Your Name" required=""
-                                            type="text">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <input class="form-control" id="inputEmail4" placeholder="Enter Your Email"
-                                            required="" type="email">
+                                        <span>Posted by : </span>
+                                        <input name="cId" class="form-control" type="text" value="${memVo.memId }">
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <textarea class="form-control" id="exampleTextarea"
-                                            placeholder="Leave a Comment" required="" rows="4"></textarea>
+                                        <textarea name="cContent" class="form-control" id="exampleTextarea"
+                                            placeholder="Leave a Comment" rows="4"></textarea>
                                     </div>
                                 </div>
                                 <div class="submit-btn">
@@ -174,7 +204,7 @@
                                             </a>
                                         </li>
                                         <li class="">
-                                            <a href="#">
+                                            <a href="<c:url value='/voc/voc_list'/>">
                                                 <i aria-hidden="true" class="fa fa-angle-right"></i>내가쓴 글
                                             </a>
                                         </li>

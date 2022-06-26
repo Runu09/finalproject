@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.onair.proj.common.DateSearchVO;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -32,9 +34,37 @@ public class BoardSerivceImpl implements BoardService{
 	}
 
 	@Override
-	public List<BoardVO> selectLostAll() {
-		return boardDao.selectLostAll();
+	public List<BoardVO> selectLostAll(DateSearchVO searchVo) {
+		return boardDao.selectLostAll(searchVo);
 	}
+
+	@Override
+	public List<BoardVO> selectNoticeAll() {
+		return boardDao.selectNoticeAll();
+	}
+	
+	public int selectLostTotalRecord(DateSearchVO searchVo) {
+		return boardDao.selectLostTotalRecord(searchVo);
+	}
+
+	@Override
+	public List<BoardVO> selectLostAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int updateBoard(BoardVO vo) {
+		return boardDao.updateBoard(vo);
+	}
+
+	@Override
+	public int deleteBoard(int bNo) {
+		
+		return boardDao.deleteBoard(bNo);
+	}
+
+
 	
 	
 }

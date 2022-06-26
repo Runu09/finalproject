@@ -21,10 +21,7 @@ import com.onair.proj.board.model.BoardVO;
 import com.onair.proj.common.ConstUtil;
 import com.onair.proj.common.FileUploadUtil;
 import com.onair.proj.member.model.MemberService;
-import com.onair.proj.member.model.MemberVO;
 import com.onair.proj.voc.controller.VoCController;
-import com.onair.proj.voc.model.VocService;
-import com.onair.proj.voc.model.VocVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -139,5 +136,17 @@ public class BoardController {
 		model.addAttribute("vo", vo);
 
 		return "/디테일jsp경로";
+	}
+	
+	@RequestMapping("/customer/notice.do")
+	public String notice(Model model) {
+		logger.info("공지사항 목록 화면");
+
+		List<BoardVO> noticeList=boardService.selectNoticeAll();
+		logger.info("공지사항 목록 조회결과 noticeList.size={}", noticeList.size());
+
+		model.addAttribute("noticeList", noticeList);
+
+		return "/customer/notice";
 	}
 }

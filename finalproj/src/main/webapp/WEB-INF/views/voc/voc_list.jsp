@@ -4,10 +4,31 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script type="text/javascript" src="<c:url value='/assets/js/jquery-3.6.0.min.js'/>"></script>
 <script type="text/javascript">
+	$.setDate = function(){ //controller에 보낼 form의 text 값에 날짜넣기위한 함수화
+		var str=$('.endDay').val().split('-'); //endDay 문자열화
+		var d=new Date(str[0], str[1]-1, str[2]);
+		
+		$('.startDay').val($.findDate(d));
+	}
+	
+	$.findDate = function(date){
+		return date.getFullYear()+"-"+ $.formatDate(date.getMonth()+1)+"-"
+			+$.formatDate(date.getDate());
+	}
+	
+	$.formatDate = function(d){
+		if(d<10)
+			d="0" + d;
+		
+		return d;
+	}
+	
 	function pageProc(curPage){
 		$('input[name=currentPage]').val(curPage);
 		$('form[name=frmPage]').submit();
 	}
+	
+	
 </script>
 
 <!-- 페이징 처리위한 form -->
@@ -15,18 +36,34 @@
 	<input type="hidden" name="searchKeyword" value="${param.searchKeyword }">
 	<input type="hidden" name="searchCondition" value="b_title">
 	<input type="hidden" name="currentPage">
+	<input type="hidden" class="startDay" name="startDay" value="${dateSearchVO.startDay }">
+	<input type="hidden" class="endDay" name="endDay" value="${dateSearchVO.endDay }">
 </form>
+
 <!-- breadcrumb start -->
-<section class="breadcrumb-section pt-0 bg-size"  style="height: 350px">
-	<!-- <img src="../assets/images/flights/flight-breadcrumb2.jpg" class="bg-img img-fluid blur-up" alt="">
-         -->
+<!-- <section class="breadcrumb-section pt-0 bg-size"  style="height: 350px">
+	<img src="../assets/images/flights/flight-breadcrumb2.jpg" class="bg-img img-fluid blur-up" alt="">
+        
 	<div class="breadcrumb-content dark-content" style="height: 350px">
 		<div>
 			<h2>고객의 소리</h2>
 		</div>
 	</div>
-</section>
+</section> -->
 <!-- breadcrumb end -->
+
+
+	<!-- breadcrumb start -->
+	<section class="breadcrumb-section no-bg pt-0" id="block"
+		style="width: 100%; background-images: http://www.astronomer.rocks/news/photo/202103/89853_24782_324.jpeg;">
+		<div class="breadcrumb-content overlay-black">
+			<div>
+				<h2>고객의소리</h2>
+			</div>
+		</div>
+		<div class="title-breadcrumb">OnAir</div>
+	</section>
+	<!-- breadcrumb end -->
 
 
 <!-- blog detail section start -->
@@ -51,14 +88,14 @@
 										</div>
 										<div class="col-lg-3">
 											<div class="form-group">
-												<input placeholder="시작일 선택" value="" id="datepicker" />
+												<input type=text placeholder="시작일 선택" name="startDay" class="startDay" value="${dateSearchVO.startDay }" id="datepicker" />
 
 											</div>
 										</div>
 										<div class="col-lg-3">
 
 											<div class="form-group">
-												<input placeholder="종료일 선택" id="datepicker1" />
+												<input type=text placeholder="종료일 선택" name="endDay" class="endDay" value="${dateSearchVO.endDay }" id="datepicker1" />
 											</div>
 										</div>
 										<div class="col-lg-1" style="text-align: center">
@@ -247,7 +284,7 @@
 									<li class=""><a href="<c:url value='/voc/voc_list'/>">
 											<i aria-hidden="true" class="fa fa-angle-right"></i>목록
 									</a></li>
-									<li class=""><a href="#"> <i aria-hidden="true"
+									<li class=""><a href="<c:url value='/voc/voc_mylist'/>"> <i aria-hidden="true"
 											class="fa fa-angle-right"></i>내가쓴 글
 									</a></li>
 								</ul>

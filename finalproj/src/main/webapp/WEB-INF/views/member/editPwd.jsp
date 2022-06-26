@@ -20,7 +20,7 @@
 		data-sticky_parent>
 		<div class="container">
 			<div class="row">
-				<%@include file="../inc/mypageMenu.jsp"%>
+				<%@include file="../mypage/mypageMenu.jsp"%>
 
 				<div class="col-lg-9">
 					<div class="product_img_scroll" data-sticky_column>
@@ -35,7 +35,7 @@
 									<div class="dashboard-detail">
 										<div class="delete-section">
 											<p>
-												Hi <span class="text-bold">회원명 님</span>,
+												Hi <span class="text-bold">${sessionScope.memName } 님</span>,
 											</p>
 
 											<p>

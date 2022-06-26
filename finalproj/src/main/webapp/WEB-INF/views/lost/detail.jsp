@@ -1,8 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- breadcrumb start -->
+<script type="text/javascript">
+	$(function() {
+
+		$('#btList').click(function() {
+			location.href = "<c:url value='/lost/list.do'/>";
+		});
+		$('#btEdit').click(function() {
+			location.href = "<c:url value='/lost/edit.do?bNo=${vo.BNo}'/>";
+		});
+		$('#btDel').click(function() {
+			if(confirm('삭제하시겠습니까?')){
+				location.href = "<c:url value='/lost/delete.do?bNo=${vo.BNo }'/>";
+			}else{
+				event.preventDefault();
+			}
+			
+		});
+
+	}); //ready()
+</script>
+
+
 <section class="breadcrumb-section no-bg pt-0" id="block"
 	style="width: 100%;">
 	<div class="breadcrumb-content overlay-black">
@@ -23,27 +45,29 @@
 					<div class="row">
 						<div class="col-md-8" style="padding: 20px 100px">
 							<!-- 상세보기 출력 -->
-							<p style="color: black; font-size: 16px">
-								<label for="" style="width: 200px">번호</label> <span>22-001232</span>
+							<p style="color: black; font-size: 18px">
+								<label for="" style="width: 200px">번호</label> <span>${vo.BNo }</span>
 							<hr>
 							</p>
-							<p style="color: black; font-size: 16px">
-								<label for="" style="width: 200px">제목</label> <span>에어팟
-									한쪽 습득했습니다.</span>
+							<p style="color: black; font-size: 18px">
+								<label for="" style="width: 200px">제목</label> <span>${vo.BTitle}</span>
 							<hr>
 							</p>
-							<p style="color: black; font-size: 16px">
-								<label for="" style="width: 200px">등록일</label> <span>2022-06-15</span>
+							<p style="color: black; font-size: 18px">
+								<label for="" style="width: 200px">등록일</label> <span> <fmt:formatDate
+										value="${vo.BRegdate}" pattern="yyyy-MM-dd" /></span>
 							<hr>
 							</p>
-							<p style="color: black; font-size: 16px">
-								내용입니다.<br> 내용입니다.<br> 내용입니다.<br>
-							</p>
+
+							${vo.BContent}
+
 						</div>
 
 
 						<div class="col-md-4">
-							<img src="../assets/images/upload.png" alt="" width="400px">
+
+							<img src="<c:url value='/img_upload/${vo.FName }'/>"
+								alt="${vo.BTitle}" style="width: 400px; height: 400px">
 
 						</div>
 					</div>
@@ -53,8 +77,18 @@
 		<div style="text-align: center;">
 			<button class="btn btn-primary me-3"
 				style="background-color: #4291b8; border-color: #4291b8" id="btList">목록</button>
+				<!-- 글작성자인 경우 -->
+
+			<c:if test="${sessionScope.memId==vo.BId }">
+				<button class="btn btn-primary me-3"
+				style="background-color: blue; border-color: blue" id="btEdit">수정</button>
+				<button class="btn btn-primary me-3"
+				style="background-color: red; border-color: red" id="btDel">삭제</button>
+			<br> <br>
+			</c:if>
 			<br> <br>
 
+			
 		</div>
 	</div>
 
@@ -66,7 +100,8 @@
 
 			<div class="detail-bar">
 				<div class="detail-wrap wow">
-					<section class="section-b-space bg-white" style="padding-top: 0; padding-bottom: 20px;">
+					<section class="section-b-space bg-white"
+						style="padding-top: 0; padding-bottom: 20px;">
 						<div class="container">
 							<div class="row" style="margin-bottom: 20px">
 								<div class="col-lg-11" style="margin: 0 auto">
@@ -78,7 +113,7 @@
 											<div class="comment-wrapper">
 												<div class="comment-box">
 													<div class="media">
-														
+
 														<div class="media-body">
 															<div class="title">
 																<div class="comment-user">
@@ -99,7 +134,7 @@
 														</div>
 													</div>
 													<div class="media inner-comment">
-														
+
 														<div class="media-body">
 															<div class="title">
 																<div class="comment-user">
@@ -150,12 +185,12 @@
 
 			<div class="detail-bar">
 				<div class="detail-wrap wow">
-				
+
 					<form>
 						<div class="row">
 
 							<div class="form-group col-md-11" style="margin: 0 auto">
-							<h4 class="comment">댓글 작성</h4>
+								<h4 class="comment">댓글 작성</h4>
 								<textarea class="form-control" id="exampleTextarea"
 									placeholder="내용을 입력하세요" required="" rows="4"></textarea>
 							</div>

@@ -1,4 +1,4 @@
-package com.onair.proj.comments.model;
+package com.onair.proj.voccomments.model;
 
 
 import java.sql.Timestamp;
@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 import lombok.Data;
 
 @Data
-public class CommentsVO {
+public class VocCommentsVO {
 	private int cNo;	// 코멘트 번호 
 	private int bNo;	// 게시판번호 
 	private String cId;	//아이디

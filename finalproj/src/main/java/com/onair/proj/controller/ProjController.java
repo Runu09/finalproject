@@ -16,10 +16,10 @@ public class ProjController {
 		return "/main/main";
 	}
 	
-	@RequestMapping("/customer/notice.do")
-	public String notice() {
-		return "/customer/notice";
-	}
+	/*
+	 * @RequestMapping("/customer/notice.do") public String notice() { return
+	 * "/customer/notice"; }
+	 */
 	
 	@RequestMapping("/customer/noticeDetail.do")
 	public String noticeDetail() {
@@ -81,21 +81,4 @@ public class ProjController {
 		return "/customer/faq";
 	}
 	
-	@GetMapping("/member/mypage.do")
-	public void mypage_get() {
-		
-	}
-	
-	@GetMapping("/mypage/mypageMain.do")
-	public void mypageMain_get() {
-		
-	}
-	
-	@GetMapping("/mypage/bookings.do")
-	public void bookings_get() {
-		
-	}
-
-
-
 }
