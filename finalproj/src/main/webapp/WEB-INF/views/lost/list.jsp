@@ -5,7 +5,7 @@
 
 <script type="text/javascript">
 	$(function() {
-
+ 
 		$('#btWrite').click(function() {
 			location.href = "<c:url value='/lost/write.do'/>";
 		});
