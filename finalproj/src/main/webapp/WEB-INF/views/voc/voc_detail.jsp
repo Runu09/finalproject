@@ -2,6 +2,24 @@
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
 <script type="text/javascript">
+	function reply(idx, bNo,groupno,step,sortno){
+		var insReply = '';
+		insReply += '<form method="post" action="<c:url value='/voc/comments_reply'/>">';
+		insReply += '<input type="hidden" name="bNo" value='+bNo+'>';
+		insReply += '<input type="hidden" name="cGroupno" value='+groupno+'>';
+		insReply += '<input type="hidden" name="cStep" value='+step+'>';
+		insReply += '<input type="hidden" name="cSortno" value='+sortno+'>';
+		insReply += '<input type="text" name="cContent">';
+		insReply += '<button type="submit">등록</button>';
+		insReply += '<input type="button" value="취소">';
+		insReply += '</form>';
+
+		$("#replyBox"+idx).html(insReply);
+	}
+	
+	function replyCancel(idx){
+		$("#replyBox"+idx).slideUp(500);
+	}
 </script>
 <!-- breadcrumb start -->
     <section class="breadcrumb-section pt-0">
@@ -76,6 +94,11 @@
 								<!-- 댓글리스트 반복 시작 -->
 								<c:forEach var="vo" items="${list }">
 									<div class="media">
+									<c:if test="${vo.CStep>0 }">
+										<c:forEach var="i" begin="1" end="${vo.CStep }">
+										<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+										</c:forEach>
+									</c:if>
 										<img src="../assets/images/avtar/1.jpg"
 											class="img-fluid blur-up lazyload" alt="">
 										<div class="media-body">
@@ -115,9 +138,13 @@
 												</c:otherwise>
 											</c:choose>
 											<div class="reply-btn">
-												<a href="#" name="trigger"><i class="fa fa-reply pe-2"></i>
+												<a href="javascript:reply(${vo.CNo },${vo.BNo },${vo.CGroupno },${vo.CStep },${vo.CSortno });"><i class="fa fa-reply pe-2"></i>
 													reply</a>
 											</div>
+											<!-- 대댓글 form -->
+											<div id="replyBox${vo.CNo }">
+											</div>
+											<!-- 대댓글 form 끝-->
 										</div>
 									</div>
 								</c:forEach>

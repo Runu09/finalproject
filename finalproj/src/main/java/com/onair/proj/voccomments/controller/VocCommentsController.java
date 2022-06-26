@@ -77,4 +77,22 @@ public class VocCommentsController {
 		return "redirect:/voc/voc_detail?bNo="+bNo;
 	}
 	
+	//댓글등록처리
+	@RequestMapping("/comments_reply")
+	public String comments_reply(HttpSession session,VocCommentsVO vo,Model model) {
+		logger.info("대댓글등록 파라미터, vo={}", vo);
+		
+		//id 안받았으면 session에서 id 받아서 값 설정하기
+		String memId=(String)session.getAttribute("memId");
+		vo.setCId(memId);
+		
+		int update=voccommentsService.updatereComment(vo);
+		logger.info("대댓글처리 전 댓글 로직 업데이트 결과, update={}", update);
+		
+		int cnt=voccommentsService.insertreComment(vo);
+		logger.info("대댓글등록 처리결과 cnt={}", cnt);
+		
+		return "redirect:/voc/voc_detail?bNo="+vo.getBNo();
+	}
+	
 }

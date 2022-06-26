@@ -41,4 +41,14 @@ public class VocCommentServiceImpl implements VocCommentsService{
 		return vocCommentsDao.updateCommentDel(cNo);
 	}
 
+	@Override
+	public int insertreComment(VocCommentsVO vo) {
+		return vocCommentsDao.insertreComment(vo);
+	}
+
+	@Override
+	public int updatereComment(VocCommentsVO vo) {
+		return vocCommentsDao.updatereComment(vo);
+	}
+
 }
