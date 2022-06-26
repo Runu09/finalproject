@@ -205,10 +205,43 @@ public class MemberController {
 		
 	}
 	
+	//비번변경
 	@GetMapping("/editPwd.do")
 	public String editPwd_get() {
 		logger.info("비밀번호변경 화면");
 		return "/member/editPwd";
+	}
+	
+	@PostMapping("/editPwd.do")
+	public String editPwd_post(@ModelAttribute MemberVO vo, 
+			HttpSession session, @RequestParam String newPwd,
+			Model model) {
+		String memId=(String)session.getAttribute("memId");
+		vo.setMemId(memId);
+		
+		logger.info("비밀번호변경 처리, MemberVo={}", vo);
+		
+		int result=memberService.checkLogin(vo.getMemId(), vo.getMemPwd());
+		logger.info("비밀번호변경 처리, 현재 사용중인 비밀번호 체크 결과 result={}", result);
+		
+		//비밀번호 체크
+		String msg="비밀번호 체크 실패", url="/member/editPwd.do";
+		if(result==memberService.LOGIN_OK) {
+			int cnt=memberService.pwdChange(vo.getMemId(), newPwd);
+			
+			if(cnt>0) {
+				msg="비밀번호를 변경하였습니다.";
+			}else {
+				msg="비밀번호 변경을 실패하였습니다.";
+			}
+		}else if(result==memberService.DISAGREE_PWD) {
+			msg="입력하신 현재 비밀번호가 일치하지 않습니다.";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "/common/message";
 	}
 }
 

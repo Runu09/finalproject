@@ -40,5 +40,10 @@
 		set M_OUTDATE=sysdate
 		where MEM_ID=#{memId}
 	</update>
-
+	
+	<update id="pwdChange" parameterType="string">
+		update member
+		set MEM_PWD=#{memPwd}
+		where MEM_ID=#{memId}
+	</update>
 </mapper>
