@@ -20,7 +20,7 @@ import com.onair.proj.airport.model.AirportVO;
 @Controller
 public class AirportController {
 	private static final Logger logger
-	=LoggerFactory.getLogger(AirportApiController.class);
+	=LoggerFactory.getLogger(AirportController.class);
 	
 	private AirportService airportService;
 	
