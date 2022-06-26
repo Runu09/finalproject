@@ -14,7 +14,7 @@
 	</insert>
 	  
 	<select id="selectByNo" parameterType="int" resultType="commentsVo">
-		select * from comments where b_no=#{bNo}
+		select * from comments where b_no=#{bNo} order by c_no
 	</select>
 	
 	<update id="updateComment" parameterType="commentsVo">
