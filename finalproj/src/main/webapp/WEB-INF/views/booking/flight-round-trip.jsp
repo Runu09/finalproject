@@ -72,7 +72,7 @@
 	                                            <button type="button" class="btn quantity-left-minus" id="decAd" 
 	                                                data-type="minus" data-field=""> - </button>
 	                                            <span name="quantity"  id="numberUpDown1"
-	                                                class="form-control qty-input input-number">1</span>
+	                                                class="form-control qty-input input-number">0</span>
 	                                            <button type="button" class="btn quantity-right-plus"
 	                                                data-type="plus" data-field="" id="incAd">+</button>
 	                                        </div>
@@ -83,7 +83,7 @@
 	                                            <button type="button" class="btn quantity-left-minus" id="decCh"
 	                                                data-type="minus" data-field=""> - </button>
 	                                            <span name="quantity"  id="numberUpDown2"
-	                                                class="form-control qty-input input-number">1</span>
+	                                                class="form-control qty-input input-number">0</span>
 	                                            <button type="button" class="btn quantity-right-plus" id="incCh"
 	                                                data-type="plus" data-field=""> + </button>
 	                                        </div>
