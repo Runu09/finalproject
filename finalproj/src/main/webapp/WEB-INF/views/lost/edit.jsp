@@ -61,12 +61,10 @@
 <script type="text/javascript">
 	$(function() {
 
-		$('#btWrite').click(function() {
-			location.href = "<c:url value='/lost/write.do'/>";
-		});
+		
 		$('#btCancel').click(function() {
 
-			location.href = "<c:url value='/lost/list.do'/>";
+			location.href = "<c:url value='/lost/detail.do?bNo=${vo.BNo}'/>";
 		});
 
 	}); //ready()
@@ -97,7 +95,9 @@
 	<!-- page-wrapper Start-->
 
 	<form name="frmWrite" method="post" enctype="multipart/form-data"
-		action="<c:url value='/lost/write.do'/>">
+		action="<c:url value='/lost/edit.do'/>">
+		<input type="hidden" name="bNo" value="${param.bNo}"/>
+		<input type="hidden" name="oldFileName" value="${vo.FName}"/>
 		<div class="page-wrapper compact-wrapper modern-type" id="pageWrapper">
 			<!-- Container-fluid starts-->
 			<div class="container-fluid">
@@ -119,12 +119,14 @@
 										<div class="mb-3">
 											<label class="form-label-title">제목 (*)</label> <input
 												class="form-control" type="text" placeholder="제목을 입력하세요"
-												name="bTitle">
+												name="bTitle" value="${vo.BTitle}">
 										</div>
 
 
 										<label class="form-label-title ">내용 (*)</label>
-										<textarea id="editor1" cols="30" rows="10" name="bContent"> <!-- name="editor1"  -->
+										<textarea id="editor1" cols="30" rows="10" name="bContent"> 
+										${vo.BContent}
+										<!-- name="editor1"  -->
                                                     </textarea>
 										<!-- </form> -->
 
@@ -154,7 +156,12 @@
 										<div class="animate-chk">
 
 											<div class="mb-3">
-												<input type="file" id="upfile" name="upfile" /> 
+												<input type="file" id="upfile" name="upfile" />
+												<c:if test="${!empty vo.FName }">
+													<span style="color: red; font-weight: bold;"> 첨부
+														파일을 새로 지정할 경우 기존파일은 삭제됩니다.
+													</span>
+												</c:if>
 												<!-- <div class="dropzone">
 													<div class="fallback" id="singleFileUpload">
 														<input type="file" id="upfile" name="upfile" />
@@ -171,7 +178,7 @@
 											</div>
 
 											<div class="card-footer text-end">
-												<button class="btn btn-primary me-3" type="submit">등록</button>
+												<button class="btn btn-primary me-3" type="submit" id="btEdit">수정</button>
 												<input type="button" class="btn btn-outline-primary"
 													id="btCancel" value="취소" />
 											</div>

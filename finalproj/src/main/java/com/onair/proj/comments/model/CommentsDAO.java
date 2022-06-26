@@ -8,4 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface CommentsDAO {
 	int insertComment(CommentsVO vo);
 	List<CommentsVO> selectByNo(int bNo);
+	int updateComment(CommentsVO vo);
+	int deleteReply(int cNo);
 }

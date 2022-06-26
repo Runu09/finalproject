@@ -18,4 +18,5 @@ public interface VocDAO {
 	String selectPwd(int bNo);
 	int updateVoc(VocVO vo);
 	public void deleteVoc(Map<String, String> map);
+	int deleteReply(int cNo);
 }

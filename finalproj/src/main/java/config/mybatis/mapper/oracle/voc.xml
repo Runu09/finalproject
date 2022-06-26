@@ -91,6 +91,8 @@
 		call vocDelete(?,?,?)
 	</delete>
 	
-	
+	<delete id="deleteReply" parameterType="int">
+		delete comments where c_no=#{cNo}
+	</delete>
 	
 </mapper>
