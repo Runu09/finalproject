@@ -12,7 +12,7 @@
 		$('#btEdit').click(function() {
 			location.href = "<c:url value='/lost/edit.do?bNo=${vo.BNo}'/>";
 		});
-		$('#btDel').click(function() { 
+		$('#btDel').click(function() {
 			if(confirm('삭제하시겠습니까?')){
 				location.href = "<c:url value='/lost/delete.do?bNo=${vo.BNo }'/>";
 			}else{

@@ -37,7 +37,7 @@ public class LostController {
 
 	private static final Logger logger
 	= LoggerFactory.getLogger(LostController.class);
- 
+
 	private final BoardService boardService;
 	private final MemberService memberService;
 	private final FileUploadUtil fileUploadUtil;
