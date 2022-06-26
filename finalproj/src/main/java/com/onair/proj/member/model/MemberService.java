@@ -17,5 +17,6 @@ public interface MemberService {
 	MemberVO selectByMemId(String memId);
 	int memberUpdate(MemberVO vo);
 	int memberDelete(String memId);
+	int pwdChange(String memId, String memPwd);
 
 }
