@@ -10,4 +10,7 @@ public interface CommentsDAO {
 	List<CommentsVO> selectByNo(int bNo);
 	int updateComment(CommentsVO vo);
 	int deleteReply(int cNo);
+	int updateSortNo(CommentsVO vo);
+	int reply(CommentsVO vo);
+
 }

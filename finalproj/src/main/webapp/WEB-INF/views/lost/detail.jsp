@@ -39,8 +39,25 @@
 		
 	}
 	function del(cno,bno) {
-		location.href = "<c:url value='/lost/cmtDel.do?cNo="+cno+"&bNo="+bno+"'/>";
+		if (confirm('삭제하시겠습니까?')) {
+			location.href = "<c:url value='/lost/cmtDel.do?cNo="+cno+"&bNo="+bno+"'/>";
+		} else {
+			event.preventDefault();
+		}
 		
+		
+	}
+	function reply(i, groupNo, step, sortNo, bNo){
+		alert('답글');
+		var res="<form id='frmReply' action='<c:url value='/lost/replyWrite.do'/>' method='post'>";
+		res+="<input type='text' value='"+groupNo+"' name='cGroupno'>";
+		res+="<input type='text' value='"+step+"' name='cStep'>";
+		res+="<input type='text' value='"+sortNo+"' name='cSortno'>";
+		res+="<input type='text' value='"+bNo+"' name='bNo'>";
+		res+="<textarea style='width: 80%; height: 70px;' name='cContent'></textarea>";
+		res+="<button class='btn btn-primary me-3' style='margin-bottom: 28px;margin-left: 10px;'type='submit'>등록</button>";
+		res+="</form>";
+		$('.reply-btn').eq(i).parent().append(res);
 	}
 </script>
 
@@ -137,10 +154,14 @@
 													<c:if test="${!empty list}">
 															<c:set var="i" value="0" />
 														<c:forEach var="vo" items="${list}">
-															<div class="media">
-
-																<div class="media-body">
-																	<div class="title">
+															<c:if test="${vo.CStep >0}"> <!-- 답글이면 class 변경 -->
+															<div class="media inner-comment">
+															</c:if>
+															<c:if test="${vo.CStep ==0}"> 
+															<div class="media" style="border-bottom: 1px solid #dddddd;margin-bottom: 10px"> 
+															</c:if> 
+															<div class="media-body">
+																	<div class="title" style="border-bottom: none">
 																		<div class="comment-user">
 																			<i class="fa fa-user"></i>
 																			<h6 style="text-transform: none">${vo.CId }</h6>
@@ -161,9 +182,9 @@
 																	<div class="comment-detail">
 																		<p>${vo.CContent }</p>
 																	</div>
-																	<div class="reply-btn">
-																		<a href="#"><i class="fa fa-reply pe-2"></i> 답글</a>
-																	</div>
+																	<div class="reply-btn" style="padding-bottom:5px">
+																		<a href="#comment" 
+																		onclick="javascript:reply(${i},${vo.CGroupno},${vo.CStep }, ${vo.CSortno }, ${vo.BNo });"><i class="fa fa-reply pe-2"></i> 답글</a></div>
 																</div>
 															</div>
 															<c:set var="i" value="${i+1 }" />

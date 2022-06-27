@@ -52,10 +52,10 @@ public class LostController {
 		logger.info("유실물 상세 조회");
 		BoardVO vo=boardService.selectByNo(bNo);
 		logger.info("상품 상세 조회 결과 vo={}",vo);
-		
+
 		List<CommentsVO> list=commentsService.selectByNo(bNo);
 		logger.info("댓글 조회 결과 list.size()={}",list.size());
-		
+
 		model.addAttribute("vo", vo);
 		model.addAttribute("list", list);
 
@@ -264,39 +264,54 @@ public class LostController {
 		return "common/message";
 	}
 
+	//댓글등록
+	@PostMapping("/cmtWrite.do")
+	public String cmtWrite(HttpSession session,CommentsVO vo,Model model) {
+		logger.info("댓글등록 파라미터, vo={}", vo);
+
+		String memId=(String)session.getAttribute("memId");
+		vo.setCId(memId);
+
+		int cnt=commentsService.insertComment(vo);
+		logger.info("댓글등록 처리결과 cnt={}", cnt);
+
+		return "redirect:/lost/detail.do?bNo="+vo.getBNo();
+	}
+
 	//댓글 수정
-		@PostMapping("/cmtWrite.do")
-		public String cmtWrite(HttpSession session,CommentsVO vo,Model model) {
-			logger.info("댓글등록 파라미터, vo={}", vo);
-			
-			String memId=(String)session.getAttribute("memId");
-			vo.setCId(memId);
-			
-			int cnt=commentsService.insertComment(vo);
-			logger.info("댓글등록 처리결과 cnt={}", cnt);
-			
-			return "redirect:/lost/detail.do?bNo="+vo.getBNo();
-		}
-		@PostMapping("/cmtEdit.do")
-		public String cmtEdit(CommentsVO vo) {
-			logger.info("댓글 수정 파라미터, vo={}", vo);
-			int cnt=commentsService.updateComment(vo);
-			
-			logger.info("댓글 수정 처리결과 cnt={}", cnt);
-			
-			return "redirect:/lost/detail.do?bNo="+vo.getBNo();
-		}
-		
-		//댓글 삭제
-		@GetMapping("/cmtDel.do")
-		public String cmtDel(@RequestParam(defaultValue = "0") int cNo, @RequestParam(defaultValue = "0") int bNo) {
-			logger.info("댓글 삭제 파라미터, cNo={}, bNo={}", cNo, bNo);
-			
-			int cnt=commentsService.deleteReply(cNo);
-			logger.info("댓글 삭제 처리결과 cnt={}", cnt);
-			
-			return "redirect:/lost/detail.do?bNo="+bNo;
-		}
-		
-		
+	@PostMapping("/cmtEdit.do")
+	public String cmtEdit(CommentsVO vo) {
+		logger.info("댓글 수정 파라미터, vo={}", vo);
+		int cnt=commentsService.updateComment(vo);
+
+		logger.info("댓글 수정 처리결과 cnt={}", cnt);
+
+		return "redirect:/lost/detail.do?bNo="+vo.getBNo();
+	}
+
+	//댓글 삭제
+	@GetMapping("/cmtDel.do")
+	public String cmtDel(@RequestParam(defaultValue = "0") int cNo, @RequestParam(defaultValue = "0") int bNo) {
+		logger.info("댓글 삭제 파라미터, cNo={}, bNo={}", cNo, bNo);
+
+		int cnt=commentsService.deleteReply(cNo);
+		logger.info("댓글 삭제 처리결과 cnt={}", cnt);
+
+		return "redirect:/lost/detail.do?bNo="+bNo;
+	}
+	//대댓글등록
+	@PostMapping("/replyWrite.do")
+	public String replyWrite(HttpSession session,CommentsVO vo,Model model) {
+		logger.info("답글 등록 파라미터, vo={}", vo);
+
+		String memId=(String)session.getAttribute("memId");
+		vo.setCId(memId);
+
+		int cnt=commentsService.reply(vo);
+		logger.info("답글 등록 처리결과 cnt={}", cnt);
+
+		return "redirect:/lost/detail.do?bNo="+vo.getBNo();
+	}
+
+
 }
