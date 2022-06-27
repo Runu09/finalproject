@@ -432,4 +432,9 @@ public class VoCController {
 		
 		return "/voc/bestList";
 	}
+	
+	@GetMapping("/test_payment")
+	public void test_payment() {
+		
+	}
 }
