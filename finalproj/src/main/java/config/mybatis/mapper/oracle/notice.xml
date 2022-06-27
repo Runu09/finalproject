@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.onair.proj.notice.model.NoticeDAO">
+	<sql id="searchNoticeWhere">
+		<where>
+			<if test="searchKeyword !=null and searchKeyword !=''">
+				b_title like '%' || #{searchKeyword} || '%'
+			</if>
+			and b_regdate >= #{startDay}
+			<![CDATA[
+			and b_regdate < to_date(#{endDay})+1 ]]>
+		</where>
+	</sql>
+	
+	<select id="selectNoticeAll" parameterType="DateSearchVo" resultType="noticeVo">
+		select * from
+		(
+			select rownum as RNUM, A.*
+			from
+			(
+				select B.*, (sysdate-b_regdate)*24 as dateTerm
+				from board B
+				<include refid="searchNoticeWhere"></include>
+				order by b_groupno desc, b_sortno
+			)A
+		)
+		
+		where RNUM>#{firstRecordIndex}
+		<![CDATA[
+		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage}
+		]]>
+	</select>
+	
+	<insert id="insertNotice" parameterType="noticeVo">
+		<selectKey resultType="int" keyProperty="bNo" order="BEFORE">
+			select SEQ_BOARD.nextval from dual
+		</selectKey>
+		
+		insert into board(b_No,b_Id,b_Pwd,b_Title,b_Content,bt_No,b_groupno,
+			f_name,f_originname,f_filesize)
+		values(#{bNo},#{bId},#{bPwd},#{bTitle},#{bContent},#{btNo},#{bNo},
+			#{fName},#{fOriginName},#{fFileSize})
+	</insert>
+	
+	<update id="updateCount" parameterType="int">
+		update board
+		set b_count=b_count+1
+		where b_No=#{bNo}
+	</update>
+	
+	<select id="selectByNo" parameterType="int" resultType="boardVo">
+		select * from board where b_No=#{bNo}
+	</select>
+	
+	<delete id="deleteNotice" parameterType="int">
+		call lostDelete(#{bNo})
+	</delete>
+	
+	<sql id="searchWhere">
+		<where>
+			<if test="searchKeyword !=null and searchKeyword !=''">
+				b_title like '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="bId !=null and bId !=''">
+			and b_Id = #{bId}
+			</if>
+			and b_regdate >= #{startDay}
+			<![CDATA[
+			and b_regdate < to_date(#{endDay})+1 ]]>
+		</where>
+	</sql>
+	
+	<select id="totalRecord" parameterType="searchVo" resultType="int">
+		select count(*) from board
+		<include refid="searchWhere"></include>		
+	</select>
+	
+	
+	
+	<!-- <insert id="insertVoc" parameterType="VocVo">
+		<selectKey resultType="int" keyProperty="bNo" order="BEFORE">
+			select SEQ_BOARD.nextval from dual
+		</selectKey>
+		
+		insert into board(b_No,b_Id,b_Pwd,b_Title,b_Content,bt_No,b_groupno,
+			f_name,f_originname,f_filesize)
+		values(#{bNo},#{bId},#{bPwd},#{bTitle},#{bContent},#{btNo},#{bNo},
+			#{fName},#{fOriginName},#{fFileSize})
+	</insert>
+	
+	<sql id="lostListWhere">
+			<if test="searchKeyword !=null and searchKeyword !=''">
+			and b_title like '%' || #{searchKeyword} || '%'
+			</if>
+			and b_regdate>=#{startDay}
+			<![CDATA[
+			and b_regdate<to_date(#{endDay})+1]]>
+	</sql>
+	
+	
+	<select id="selectLostAll" parameterType="DateSearchVO" resultType="boardVo">
+	
+	select *
+		from
+		(
+		    select rownum as RNUM, A.*
+		    from
+		    (
+		       	select * from board where bt_no=2 
+				<include refid="lostListWhere"></include>
+		    )A
+		)
+		where RNUM>#{firstRecordIndex} 
+		<![CDATA[
+		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
+		order by b_no desc
+	</select>
+
+	<select id="selectLostTotalRecord" parameterType="DateSearchVO" resultType="int">
+			select count(*) from board where bt_no=2 
+			<include refid="lostListWhere"></include>	   
+	</select>
+	
+	<update id="updateBoard" parameterType="boardVo">
+		update board
+		set b_title=#{bTitle}, b_Content=#{bContent}
+		파일이 존재하면 업데이트
+		<if test="fName != null and fName != ''">
+			, f_name=#{fName}, f_filesize=#{fFileSize}, 
+			f_originname=#{fOriginName}
+		</if>
+		where b_no=#{bNo}
+	</update> -->
+</mapper>
+
+
+
+
+
+
+
+
+
