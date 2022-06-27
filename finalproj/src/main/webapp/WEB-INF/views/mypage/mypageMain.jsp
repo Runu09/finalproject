@@ -20,39 +20,40 @@
 		data-sticky_parent>
 		<div class="container">
 			<div class="row">
-				<%@include file="../inc/mypageMenu.jsp"%>
+				<%@include file="../mypage/mypageMenu.jsp"%>
 
 				<div class="col-lg-9">
 					<div class="product_img_scroll" data-sticky_column>
 						<div class="faq-content tab-content" id="top-tabContent">
 
-						<!-- 비밀번호변경 -->
-														<div class="tab-pane fade show active" id="dashboard">
+					
+						<div class="tab-pane fade show active" id="dashboard">
 								<div class="dashboard-main">
 									<div class="dashboard-intro">
+										<form action="<c:url value='/member/editMem.do'/>">
 										<h5>
-											welcome! <span>Mark Enderess</span>
+											welcome! <span>${vo.memName}님</span>
 										</h5>
-										<p>you have completed 70% of your profile. add basic info
-											to complete profile.</p>
+										</form>
+										<p>${vo.memName}님의 현재 OnAir 이용 현황을 확인해 보세요!</p>
 										<div class="complete-profile">
 											<div class="row">
 												<div class="col-xl-4">
 													<div class="complete-box">
 														<i class="far fa-check-square"></i>
-														<h6>verified email ID</h6>
+														<h6>Mileage : ${vo.MMileage } </h6>
 													</div>
 												</div>
 												<div class="col-xl-4">
 													<div class="complete-box">
 														<i class="far fa-check-square"></i>
-														<h6>verified phone number</h6>
+														<h6>Tel : ${vo.MTel1 } - ${vo.MTel2 } -  ${vo.MTel3 }</h6>
 													</div>
 												</div>
 												<div class="col-xl-4">
-													<div class="complete-box not-complete">
-														<i class="far fa-window-close"></i>
-														<h6>complete basic info</h6>
+													<div class="complete-box">
+														<i class="far fa-check-square"></i>
+														<h6>Email : ${vo.MEmail1 }@${vo.MEmail2 }</h6>
 													</div>
 												</div>
 											</div>
@@ -131,7 +132,7 @@
 								</div>
 							</div>
 							
-							<!-- 비밀번호변경 끝 -->
+					
 						</div>
 					</div>
 				</div>

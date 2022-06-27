@@ -20,12 +20,30 @@
 	</select>
 	<select id="selectPwd" parameterType="string" resultType="String">
 		select MEM_PWD from member
-		where MEM_ID=#{memId} 
-		
+		where MEM_ID=#{memId} and M_OUTDATE is null
 	</select>
 	
 	<select id="selectByMemId" parameterType="string" resultType="memberVo">
 		select * from member where MEM_ID=#{memId}
 	</select>
 	
+	<update id="memberUpdate" parameterType="memberVo">
+		update member
+		set M_EMAIL1=#{mEmail1}, M_EMAIL2=#{mEmail2},
+		M_TEL1=#{mTel1}, M_TEL2=#{mTel2}, M_TEL3=#{mTel3},
+    	M_ZIPCODE=#{mZipcode}, M_ADD1=#{mAdd1}, M_ADD2=#{mAdd2}
+		where MEM_ID=#{memId}
+	</update>
+	
+	<update id="memberDelete" parameterType="string">
+		update member 
+		set M_OUTDATE=sysdate
+		where MEM_ID=#{memId}
+	</update>
+	
+	<update id="pwdChange" parameterType="string">
+		update member
+		set MEM_PWD=#{memPwd}
+		where MEM_ID=#{memId}
+	</update>
 </mapper>

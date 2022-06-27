@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.onair.proj.voccomments.model.VocCommentsDAO">
+	
+	<insert id="insertComment" parameterType="voccommentsVo">
+		<selectKey resultType="int" keyProperty="cNo" order="BEFORE">
+			select seq_comments.nextval from dual
+		</selectKey>
+		
+		insert into comments(c_No, b_No, c_Id, c_Content,c_GroupNo)
+		values(#{cNo}, #{bNo}, #{cId}, #{cContent},#{cNo})
+	</insert>
+	
+	<insert id="insertreComment" parameterType="voccommentsVo">
+		<selectKey resultType="int" keyProperty="cNo" order="BEFORE">
+			select seq_comments.nextval from dual
+		</selectKey>
+		insert into comments(c_No, b_No, c_Id, c_Content,c_GroupNo,c_step,c_sortno)
+		values(#{cNo}, #{bNo}, #{cId}, #{cContent},#{cGroupno},#{cStep}+1,#{cSortno}+1)
+	</insert>
+	
+	<update id="updatereComment" parameterType="voccommentsVo">
+		update comments set c_sortno = c_sortno + 1 
+		where c_groupno = #{cGroupno} and c_sortno > #{cSortno}
+		
+	</update>
+	
+	<select id="selectByNo" parameterType="int" resultType="voccommentsVo">
+		select * from comments where b_no=#{bNo} order by c_groupno desc,c_sortno
+	</select>
+	
+	<update id="updateComment" parameterType="voccommentsVo">
+		<if test='CDelflag=="Y"'>
+			update comments 
+			set c_content=#{cContent}, c_delflag='N' where c_no=#{cNo}
+		</if>
+		<if test='CDelflag=="N"'>
+			update comments 
+			set c_content=#{cContent}, c_delflag='Y' where c_no=#{cNo}
+		</if>
+	</update>
+	
+	<delete id="deleteReply" parameterType="int">
+		delete comments where c_no=#{cNo}
+	</delete>
+	
+	<select id="selectByCNo" parameterType="int" resultType="voccommentsVo">
+		select * from comments where c_no=#{cNo}
+	</select>
+	
+	<update id="updateCommentDel" parameterType="int">
+	update comments 
+	set c_delflag='Y' where c_no=#{cNo}
+	</update>	
+	
+	
+</mapper>

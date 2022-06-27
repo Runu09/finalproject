@@ -16,4 +16,6 @@ public interface BoardDAO {
 	List<BoardVO> selectNoticeAll();
 	List<BoardVO> selectLostAll(DateSearchVO searchVo);
 	int selectLostTotalRecord(DateSearchVO searchVo);
+	int updateBoard(BoardVO vo);
+	int deleteBoard(int bNo);
 }

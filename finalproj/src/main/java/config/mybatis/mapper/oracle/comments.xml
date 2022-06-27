@@ -12,8 +12,18 @@
 		insert into comments(c_No, b_No, c_Id, c_Content,c_GroupNo)
 		values(#{cNo}, #{bNo}, #{cId}, #{cContent},#{cNo})
 	</insert>
-	
+	  
 	<select id="selectByNo" parameterType="int" resultType="commentsVo">
-		select * from comments where b_no=#{bNo}
+		select * from comments where b_no=#{bNo} order by c_no
 	</select>
+	
+	<update id="updateComment" parameterType="commentsVo">
+		update comments 
+		set c_content=#{cContent} where c_no=#{cNo}
+	</update>
+	
+	<delete id="deleteReply" parameterType="int">
+		delete comments where c_no=#{cNo}
+	</delete>
+	
 </mapper>

@@ -34,14 +34,10 @@
 	}
 
 	$(function() {
-		$('#btEdit').submit(function() {
-					if ($("#pwd").val().length < 1) {
+		$('form[name=memEdit]').submit(function() {
+					if ($("#memPwd").val().length < 1) {
 						alert("비밀번호를 입력하세요");
-						$("#pwd").focus();
-						event.preventDefault();
-					} else if ($("#pwd").val() != $("#memPwd").val()) {
-						alert("비밀번호가 일치하지 않습니다.");
-						$("#pwd").focus();
+						$("#memPwd").focus();
 						event.preventDefault();
 					} else if (!validate_tel($('#mTel2').val())
 							|| !validate_tel($('#mTel3').val())) {
@@ -49,7 +45,7 @@
 						$("#mTel2").focus();
 						event.preventDefault();
 					}
-				});
+		});
 	});
 </script>
 <style>
@@ -79,6 +75,9 @@
     margin-left: 7px;
     width: 0px;
 }
+.error{
+	color: red;
+}
 </style>
 
 <body>
@@ -86,16 +85,16 @@
 <section class="small-section dashboard-section bg-inner" data-sticky_parent>
 	<div class="container">
 		<div class="row">
-		<%@include file="../inc/mypageMenu.jsp"%>
+		<%@include file="../mypage/mypageMenu.jsp"%>
 			<div class="col-lg-9">
 				<div class="product_img_scroll" data-sticky_column>
 					<div class="faq-content tab-content" id="top-tabContent">
-						<!-- 회원정보 수정 -->
 						<div class="dashboard-box">
 							<div class="dashboard-title">
 								<h4>edit your profile</h4>
 							</div><br>
-							<form class="memEdit" method="post" action="<c:url value='/member/editMem.do'/>">
+						<!-- 회원정보 수정 -->
+							<form name="memEdit" method="post" action="<c:url value='/member/editMem.do'/>">
 								<div class="dashboard-detail">
 									<ul>
 										<li>
@@ -103,13 +102,9 @@
 												<div class="left">
 													<h6>아이디</h6>
 												</div>
-												<div class="right">
-												<!-- 회원번호 -->
-												<input class="form-control" type="hidden" name="MemNo">
-												<!-- 회원번호 끝-->
-												
-												 <input class="form-control" type="userId" name="memId"
-														placeholder="${sessionScope.memId }" readonly="readonly">
+												<div class="right">			
+												 <input class="form-control" type="userId" id="memId" name="memId"
+												 	 value="${sessionScope.memId }" placeholder="${sessionScope.memId }" readonly="readonly">
 												</div>
 											</div>
 										</li>
@@ -131,11 +126,8 @@
 													<h6>비밀번호</h6>
 												</div>
 												<div class="right">
-													<input class="form-control" type="password" name="pwd"
-														id="pwd" placeholder="password"><br>
-													<!-- 비번확인용 -->
-													<input class="form-control" type="hidden" name="memPwd"
-														id="memPwd" >
+													<input class="form-control" type="password" name="memPwd"
+														id="memPwd" required="" placeholder="password"><span class="error1"></span><br>
 												</div>
 											</div>
 										</li>

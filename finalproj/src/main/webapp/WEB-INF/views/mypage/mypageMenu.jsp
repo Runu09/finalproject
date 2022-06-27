@@ -41,8 +41,7 @@ footer {
 								</div>
 								<div class="profile-detail">
 									<h5>${sessionScope.memName } 님</h5>
-									<h6>+91 123 - 456 - 7890</h6>
-									<h6>mark.enderess@mail.com</h6>
+									<h6>${sessionScope.memId}</h6>
 								</div>
 							</div>
 							<div class="faq-tab">
@@ -56,7 +55,7 @@ footer {
 									<li class="nav-item"><a 
 										class="nav-link" href="<c:url value='/member/editPwd.do'/>"> 비밀번호변경</a></li>
 									<li class="nav-item"><a
-										class="nav-link" href="<c:url value='/member/deleteMem.do'/>">회원탈퇴</a></li>
+										class="nav-link" href="<c:url value='/member/outMem.do'/>">회원탈퇴</a></li>
 								</ul>
 							</div>
 						</div>

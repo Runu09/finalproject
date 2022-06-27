@@ -25,6 +25,7 @@
 			and b_regdate >= #{startDay}
 			<![CDATA[
 			and b_regdate < to_date(#{endDay})+1 ]]>
+			and bt_no=3
 		</where>
 	</sql>
 	
@@ -34,10 +35,10 @@
 			select rownum as RNUM, A.*
 			from
 			(
-				select B.*, (sysdate-b_regdate)*24 as dateTerm
+				select B.*
 				from board B
 				<include refid="searchWhere"></include>
-				order by b_groupno desc, b_sortno
+				order by b_no desc
 			)A
 		)
 		
@@ -91,6 +92,12 @@
 		call vocDelete(?,?,?)
 	</delete>
 	
+	<delete id="deleteReply" parameterType="int">
+		delete comments where c_no=#{cNo}
+	</delete>
 	
-	
+	<select id="selectBestList" parameterType="int" resultType="vocVo">
+		select * from(select * from board where bt_no=3 order by b_count desc) 
+		<![CDATA[where rownum<=4]]>
+	</select>
 </mapper>
