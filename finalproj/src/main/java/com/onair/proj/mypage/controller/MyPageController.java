@@ -43,4 +43,8 @@ public class MyPageController {
 		
 	}
 	
+	@GetMapping("/mypageMenu.do")
+	public String mypageMenu_get() {
+		return  "/mypage/mypageMenu";
+	}
 }
