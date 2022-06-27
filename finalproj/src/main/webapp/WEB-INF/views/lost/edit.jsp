@@ -37,6 +37,8 @@
 	href="../assets/css/vendors/animate.css">
 <link rel="stylesheet" type="text/css"
 	href="../assets/css/vendors/chartist.css">
+
+
 <link rel="stylesheet" type="text/css"
 	href="../assets/css/vendors/date-picker.css">
 <!-- Plugins css Ends-->
@@ -61,7 +63,22 @@
 <script type="text/javascript">
 	$(function() {
 
-		
+		$('#frmWrite').submit(function() {
+
+			if ($.trim($("#bTitle").val()).length == 0) {
+				alert("제목을 입력하세요");
+				$("#bTitle").focus();
+				event.preventDefault();
+				return;
+
+			} else if ($.trim($("#editor1").val()).length == 0) {
+				alert("내용을 입력하세요");
+				$("#editor1").focus();
+				event.preventDefault();
+				return;
+			}
+			location.href = "<c:url value='/lost/write.do'/>";
+		});
 		$('#btCancel').click(function() {
 
 			location.href = "<c:url value='/lost/detail.do?bNo=${vo.BNo}'/>";
@@ -84,7 +101,7 @@
 
 
 <!-- pre-loader End -->
-
+<div>
 <div class="lostcenter"
 	style="margin-right: 100px; margin-left: 100px; margin-top: 100px">
 	<!-- tap on top starts-->
@@ -95,9 +112,9 @@
 	<!-- page-wrapper Start-->
 
 	<form name="frmWrite" method="post" enctype="multipart/form-data"
-		action="<c:url value='/lost/edit.do'/>">
-		<input type="hidden" name="bNo" value="${param.bNo}"/>
-		<input type="hidden" name="oldFileName" value="${vo.FName}"/>
+			id="frmWrite" action="<c:url value='/lost/edit.do'/>">
+			<input type="hidden" name="bNo" value="${param.bNo}" /> <input
+				type="hidden" name="oldFileName" value="${vo.FName}" />
 		<div class="page-wrapper compact-wrapper modern-type" id="pageWrapper">
 			<!-- Container-fluid starts-->
 			<div class="container-fluid">
@@ -119,15 +136,12 @@
 										<div class="mb-3">
 											<label class="form-label-title">제목 (*)</label> <input
 												class="form-control" type="text" placeholder="제목을 입력하세요"
-												name="bTitle" value="${vo.BTitle}">
+												name="bTitle" id="bTitle" value="${vo.BTitle}">
 										</div>
 
 
 										<label class="form-label-title ">내용 (*)</label>
-										<textarea id="editor1" cols="30" rows="10" name="bContent"> 
-										${vo.BContent}
-										<!-- name="editor1"  -->
-                                                    </textarea>
+										<textarea id="editor1" cols="30" rows="10" name="bContent">${vo.BContent}</textarea>
 										<!-- </form> -->
 
 									</div>
@@ -142,10 +156,7 @@
 
 			<!--room detail start-->
 			<div class="container-fluid">
-				<div class="row">
-
-					<div class="col-12">
-						<div class="row">
+				<div class="col-12"><div class="row">
 							<div class="col-sm-12">
 								<div class="card">
 									<div class="card-header">
@@ -156,29 +167,15 @@
 										<div class="animate-chk">
 
 											<div class="mb-3">
-												<input type="file" id="upfile" name="upfile" />
+												<input type="file" id="upfile" name="upfile" /> 
 												<c:if test="${!empty vo.FName }">
-													<span style="color: red; font-weight: bold;"> 첨부
-														파일을 새로 지정할 경우 기존파일은 삭제됩니다.
-													</span>
-												</c:if>
-												<!-- <div class="dropzone">
-													<div class="fallback" id="singleFileUpload">
-														<input type="file" id="upfile" name="upfile" />
-													</div>
-													<div class="dz-message needsclick">
-														<i class="icon-cloud-up"></i>
-														<h6>첨부 파일을 선택하세요</h6>
-
-													</div>
-														</div>
-												</div> -->
-
-												<!-- </form> -->
+												<span style="color: red; font-weight: bold;"> 첨부 파일을
+													새로 지정할 경우 기존파일은 삭제됩니다. </span>
+											</c:if>
 											</div>
 
 											<div class="card-footer text-end">
-												<button class="btn btn-primary me-3" type="submit" id="btEdit">수정</button>
+												<button class="btn btn-primary me-3" type="submit">수정</button>
 												<input type="button" class="btn btn-outline-primary"
 													id="btCancel" value="취소" />
 											</div>
@@ -188,66 +185,18 @@
 
 								</div>
 							</div>
-						</div>
+						
+						
 					</div>
 					<!--room detail end-->
 
 				</div>
+				</div>
 	</form>
 </div>
 </div>
-</div>
 
-<!-- Modal -->
-<div class="modal fade " id="staticBackdrop" data-bs-backdrop="static"
-	data-bs-keyboard="false" tabindex="-1"
-	aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<div class="modal-dialog  modal-dialog-centered">
-		<div class="modal-content">
 
-			<div class="modal-body">
-				<h5 class="modal-title" id="staticBackdropLabel">Logging Out</h5>
-				<p>Are you sure you want to log out?</p>
-				<button type="button" class="btn-close" data-bs-dismiss="modal"
-					aria-label="Close"></button>
-
-				<div class="button-box">
-					<button type="button" class="btn btn--no " data-bs-dismiss="modal">No</button>
-					<button type="button" class="btn  btn--yes btn-primary">Yes</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- feather icon js-->
-<script src="../assets/js/icons/feather-icon/feather.min.js"></script>
-<script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
-<!-- scrollbar js-->
-<script src="../assets/js/scrollbar/simplebar.js"></script>
-<script src="../assets/js/scrollbar/custom.js"></script>
-
-<!-- Plugins JS start-->
-<script src="../assets/js/sidebar-menu.js"></script>
-<script src="../assets/js/chart/knob/knob.min.js"></script>
-<!-- <script src="../assets/js/notify/bootstrap-notify.min.js"></script>
- -->
-
-<script src="../assets/js/notify/index.js"></script>
-<script src="../assets/js/datepicker/date-time-picker/moment.min.js"></script>
-<script
-	src="../assets/js/datepicker/date-time-picker/tempusdominus-bootstrap-4.min.js"></script>
-<script
-	src="../assets/js/datepicker/date-time-picker/datetimepicker.custom.js"></script>
-<script src="../assets/js/typeahead/handlebars.js"></script>
-<script src="../assets/js/typeahead/typeahead.bundle.js"></script>
-<script src="../assets/js/typeahead/typeahead.custom.js"></script>
-<script src="../assets/js/typeahead-search/handlebars.js"></script>
-<script src="../assets/js/typeahead-search/typeahead-custom.js"></script>
-<!-- Plugins JS Ends-->
-
-<script src="../assets/js/dropzone/dropzone.js"></script>
-<script src="../assets/js/dropzone/dropzone-script.js"></script>
 
 <!--ckEditor js start-->
 <script src="../assets/js/ckeditor/ckeditor.js"></script>
@@ -255,9 +204,6 @@
 <script src="../assets/js/ckeditor/ckeditor.custom.js"></script>
 
 <!--ckEditor js end-->
-
-<!-- bootstrap tag-input JS start-->
-<script src="../assets/js/bootstrap-tagsinput.min.js"></script>
 
 
 <%@include file="../inc/footer.jsp"%>

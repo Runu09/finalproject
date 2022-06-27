@@ -62,6 +62,11 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.memberDelete(memId);
 	}
 
+	@Override
+	public int pwdChange(String memId, String memPwd) {
+		return memberDao.pwdChange(memId,memPwd);
+	}
+
 
 	
 }

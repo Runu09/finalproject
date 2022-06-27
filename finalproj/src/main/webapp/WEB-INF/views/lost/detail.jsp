@@ -12,16 +12,53 @@
 		$('#btEdit').click(function() {
 			location.href = "<c:url value='/lost/edit.do?bNo=${vo.BNo}'/>";
 		});
-		$('#btDel').click(function() {
-			if(confirm('삭제하시겠습니까?')){
-				location.href = "<c:url value='/lost/delete.do?bNo=${vo.BNo }'/>";
-			}else{
-				event.preventDefault();
-			}
-			
-		});
+		$('#btDel')
+				.click(
+						function() {
+							if (confirm('삭제하시겠습니까?')) {
+								location.href = "<c:url value='/lost/delete.do?bNo=${vo.BNo }'/>";
+							} else {
+								event.preventDefault();
+							}
 
+						});
+		
 	}); //ready()
+
+	function edit(i, cno, bno) {
+		var origin=$('.comment-detail').eq(i).find('p').text();
+		var res="<form id='frmEdit' action='<c:url value='/lost/cmtEdit.do'/>' method='post'>";
+		res+="<input type='hidden' value='"+cno+"' name='cNo'>";
+		res+="<input type='hidden' value='"+bno+"' name='bNo'>";
+		res+="<textarea style='width: 80%; height: 70px;' name='cContent'>"+origin+"</textarea>";
+		res+="<button class='btn btn-primary me-3' style='margin-bottom: 28px;margin-left: 10px;'type='submit'>등록</button>";
+		
+		res+="</form>";
+		$('.comment-detail').eq(i).html(res);
+		
+		
+	}
+	function del(cno,bno) {
+		if (confirm('삭제하시겠습니까?')) {
+			location.href = "<c:url value='/lost/cmtDel.do?cNo="+cno+"&bNo="+bno+"'/>";
+		} else {
+			event.preventDefault();
+		}
+		
+		
+	}
+	function reply(i, groupNo, step, sortNo, bNo){
+		alert('답글');
+		var res="<form id='frmReply' action='<c:url value='/lost/replyWrite.do'/>' method='post'>";
+		res+="<input type='text' value='"+groupNo+"' name='cGroupno'>";
+		res+="<input type='text' value='"+step+"' name='cStep'>";
+		res+="<input type='text' value='"+sortNo+"' name='cSortno'>";
+		res+="<input type='text' value='"+bNo+"' name='bNo'>";
+		res+="<textarea style='width: 80%; height: 70px;' name='cContent'></textarea>";
+		res+="<button class='btn btn-primary me-3' style='margin-bottom: 28px;margin-left: 10px;'type='submit'>등록</button>";
+		res+="</form>";
+		$('.reply-btn').eq(i).parent().append(res);
+	}
 </script>
 
 
@@ -35,6 +72,7 @@
 	<div class="title-breadcrumb">OnAir</div>
 </section>
 <!-- breadcrumb end -->
+
 <div class="bg-inner small-section pb-0">
 	<div class="container">
 
@@ -77,18 +115,19 @@
 		<div style="text-align: center;">
 			<button class="btn btn-primary me-3"
 				style="background-color: #4291b8; border-color: #4291b8" id="btList">목록</button>
-				<!-- 글작성자인 경우 -->
+			<!-- 글작성자인 경우 -->
 
 			<c:if test="${sessionScope.memId==vo.BId }">
 				<button class="btn btn-primary me-3"
-				style="background-color: blue; border-color: blue" id="btEdit">수정</button>
+					style="background-color: blue; border-color: blue" id="btEdit">수정</button>
 				<button class="btn btn-primary me-3"
-				style="background-color: red; border-color: red" id="btDel">삭제</button>
-			<br> <br>
+					style="background-color: red; border-color: red" id="btDel">삭제</button>
+				<br>
+				<br>
 			</c:if>
 			<br> <br>
 
-			
+
 		</div>
 	</div>
 
@@ -109,51 +148,48 @@
 
 
 										<div class="comment-section">
-											<h4 class="comment">댓글 목록</h4>
+											<h4 class="comment" id="comment">댓글 목록</h4>
 											<div class="comment-wrapper">
 												<div class="comment-box">
-													<div class="media">
-
-														<div class="media-body">
-															<div class="title">
-																<div class="comment-user">
-																	<i class="fa fa-user"></i>
-																	<h6>hong</h6>
+													<c:if test="${!empty list}">
+															<c:set var="i" value="0" />
+														<c:forEach var="vo" items="${list}">
+															<c:if test="${vo.CStep >0}"> <!-- 답글이면 class 변경 -->
+															<div class="media inner-comment">
+															</c:if>
+															<c:if test="${vo.CStep ==0}"> 
+															<div class="media" style="border-bottom: 1px solid #dddddd;margin-bottom: 10px"> 
+															</c:if> 
+															<div class="media-body">
+																	<div class="title" style="border-bottom: none">
+																		<div class="comment-user">
+																			<i class="fa fa-user"></i>
+																			<h6 style="text-transform: none">${vo.CId }</h6>
+																		</div>
+																		<div class="comment-date">
+																			<i class="fas fa-clock"></i>
+																			<h6>
+																				<fmt:formatDate value="${vo.CRegdate }"
+																					pattern="yyyy-MM-dd" />
+																			</h6>
+																		</div>
+																		
+																		<c:if test="${vo.CId==sessionScope.memId }">
+																			<a href="#comment" style="margin:0px 10px" onclick="javascript:edit(${i},${vo.CNo },${vo.BNo });">수정</a>
+																			<a href="#" style="color: red" onclick="javascript:del(${vo.CNo },${vo.BNo });">삭제</a>
+																		</c:if>
+																	</div>
+																	<div class="comment-detail">
+																		<p>${vo.CContent }</p>
+																	</div>
+																	<div class="reply-btn" style="padding-bottom:5px">
+																		<a href="#comment" 
+																		onclick="javascript:reply(${i},${vo.CGroupno},${vo.CStep }, ${vo.CSortno }, ${vo.BNo });"><i class="fa fa-reply pe-2"></i> 답글</a></div>
 																</div>
-																<div class="comment-date">
-																	<i class="fas fa-clock"></i>
-																	<h6>2022-06-20</h6>
-																</div>
 															</div>
-															<div class="comment-detail">
-																<p>댓글</p>
-															</div>
-															<div class="reply-btn">
-																<a href="#"><i class="fa fa-reply pe-2"></i> 답글</a>
-															</div>
-														</div>
-													</div>
-													<div class="media inner-comment">
-
-														<div class="media-body">
-															<div class="title">
-																<div class="comment-user">
-																	<i class="fa fa-user"></i>
-																	<h6>park</h6>
-																</div>
-																<div class="comment-date">
-																	<i class="fas fa-clock"></i>
-																	<h6>2022-06-20</h6>
-																</div>
-															</div>
-															<div class="comment-detail">
-																<p>대댓글</p>
-															</div>
-															<div class="reply-btn">
-																<a href="#"><i class="fa fa-reply pe-2"></i> 답글</a>
-															</div>
-														</div>
-													</div>
+															<c:set var="i" value="${i+1 }" />
+														</c:forEach>
+													</c:if>
 												</div>
 
 											</div>
@@ -186,12 +222,13 @@
 			<div class="detail-bar">
 				<div class="detail-wrap wow">
 
-					<form>
+					<form id="frmCmt" action="<c:url value='/lost/cmtWrite.do'/>" method="post">
+					<input type="hidden" value="${vo.BNo }" name="bNo">
 						<div class="row">
 
 							<div class="form-group col-md-11" style="margin: 0 auto">
 								<h4 class="comment">댓글 작성</h4>
-								<textarea class="form-control" id="exampleTextarea"
+								<textarea class="form-control" id="exampleTextarea" name="cContent"
 									placeholder="내용을 입력하세요" required="" rows="4"></textarea>
 							</div>
 						</div>

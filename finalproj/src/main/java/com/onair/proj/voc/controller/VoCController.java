@@ -162,6 +162,13 @@ public class VoCController {
 		model.addAttribute("list", list);
 		model.addAttribute("pagingInfo", pagingInfo);
 		
+		//bestList
+		if(list.get(0)!=null) {
+			VocVO vo=list.get(0);
+			List<VocVO> blist=vocService.selectBestList(vo.getBtNo());
+			model.addAttribute("blist", blist);
+		}
+		
 		return "/voc/voc_list";
 	}
 	
@@ -416,4 +423,18 @@ public class VoCController {
 		return "/common/message";
 	}
 	
+	@RequestMapping("/bestList")
+	public String bestList(Model model) {
+		logger.info("bestList 조회 페이지");
+		
+		List<VocVO> blist=vocService.selectBestList(3);
+		model.addAttribute("blist", blist);
+		
+		return "/voc/bestList";
+	}
+	
+	@GetMapping("/test_payment")
+	public void test_payment() {
+		
+	}
 }

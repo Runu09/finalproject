@@ -12,9 +12,9 @@
 		insert into comments(c_No, b_No, c_Id, c_Content,c_GroupNo)
 		values(#{cNo}, #{bNo}, #{cId}, #{cContent},#{cNo})
 	</insert>
-	
+	  
 	<select id="selectByNo" parameterType="int" resultType="commentsVo">
-		select * from comments where b_no=#{bNo}
+		select * from comments where b_no=#{bNo} order by c_groupno, c_step,c_sortno desc
 	</select>
 	
 	<update id="updateComment" parameterType="commentsVo">
@@ -25,5 +25,22 @@
 	<delete id="deleteReply" parameterType="int">
 		delete comments where c_no=#{cNo}
 	</delete>
+	
+	<update id="updateSortNo" parameterType="commentsVo">
+		update comments set c_sortno = c_sortno + 1 
+		where c_groupno = #{cGroupno} and c_sortno > #{cSortno}
+	</update>
+	
+	<insert id="reply" parameterType="commentsVo">
+		<selectKey resultType="int" keyProperty="cNo" order="BEFORE">
+			select seq_comments.nextval from dual
+		</selectKey>
+		insert into comments(c_No, b_No, c_Id, c_Content,c_GroupNo,c_step,c_sortno)
+		values(#{cNo}, #{bNo}, #{cId}, #{cContent},#{cGroupno},#{cStep}+1,#{cSortno}+1)
+	
+		
+	</insert>
+	
+	
 	
 </mapper>

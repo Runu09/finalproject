@@ -3,5 +3,20 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.onair.proj.airport.model.AirportDAO">
-	
+	<insert id="insertAirport" parameterType="AirportVo">
+		<selectKey keyProperty="aNo" resultType="int" order="BEFORE">
+			select seq_AIRPORT.nextval from dual
+		</selectKey>
+		MERGE 
+		INTO airport
+		USING dual
+		ON (a_name = #{aName})
+		WHEN NOT MATCHED THEN
+      	INSERT (a_no, a_name, a_loc)
+      	VALUES (#{aNo}, #{aName}, #{aLoc})
+    </insert>
+
+    <select id="selectAllAirport" resultType="AirportVO">
+        select * from airport
+    </select>
 </mapper>

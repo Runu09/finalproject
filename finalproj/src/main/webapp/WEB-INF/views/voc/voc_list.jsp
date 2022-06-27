@@ -295,60 +295,35 @@
 								<h5>popular post</h5>
 							</div>
 							<div class="sidebar-content">
-								<ul class="blog-post">
-									<li>
+								<c:import url="/voc/bestList"></c:import>
+								<!-- <ul class="blog-post">
+									<c:if test="${empty blist }">
+										<li>
 										<div class="media">
-											<img class="img-fluid blur-up lazyload"
-												src="../assets/images/portfolio/6.jpg"
-												alt="Generic placeholder image">
 											<div class="media-body align-self-center">
 												<div>
-													<h6>25 Dec 2018</h6>
-													<p>100 hits</p>
+													<h6>해당 글이 존재하지 않습니다</h6>
 												</div>
 											</div>
 										</div>
 									</li>
+									</c:if>
+									<c:if test="${!empty blist }">
+									<c:forEach var="bvo" items="${blist}">
 									<li>
 										<div class="media">
-											<img class="img-fluid blur-up lazyload"
-												src="../assets/images/portfolio/7.jpg"
-												alt="Generic placeholder image">
 											<div class="media-body align-self-center">
 												<div>
-													<h6>25 Dec 2018</h6>
-													<p>540 hits</p>
+													<h6><fmt:formatDate value="${bvo.BRegdate}" pattern="yyyy-MM-dd"/></h6>
+													<p>${bvo.BTitle}</p>
+													<p>${bvo.BCount} hits</p>
 												</div>
 											</div>
 										</div>
-									</li>
-									<li>
-										<div class="media">
-											<img class="img-fluid blur-up lazyload"
-												src="../assets/images/portfolio/8.jpg"
-												alt="Generic placeholder image">
-											<div class="media-body align-self-center">
-												<div>
-													<h6>25 Dec 2018</h6>
-													<p>250 hits</p>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="media">
-											<img class="img-fluid blur-up lazyload"
-												src="../assets/images/portfolio/2.jpg"
-												alt="Generic placeholder image">
-											<div class="media-body align-self-center">
-												<div>
-													<h6>25 Dec 2018</h6>
-													<p>30 hits</p>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
+									</li><br>
+									</c:forEach>
+									</c:if>
+								</ul> -->
 							</div>
 						</div>
 					</div>
