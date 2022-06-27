@@ -13,15 +13,12 @@ public class MvcConfiguration implements WebMvcConfigurer{
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(new LoginInterceptor())
-		.addPathPatterns("/lost/write.do");
-		
 
-		/*
-		 * registry.addInterceptor(new AdminLoginInterceptor())
-		 * .excludePathPatterns("/admin/login/adminLogin")
-		 * .addPathPatterns("/admin/**");
-		 */
+		registry.addInterceptor(new LoginInterceptor())
+		.addPathPatterns("/lost/write.do", "/lost/cmtWrite.do", "/lost/replyWrite.do",
+				"/member/editMem.do","/member/outMem.do",
+				"/member/editPwd.do","/mypage/*");
+
 		
 		
 	}
