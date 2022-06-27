@@ -1,5 +1,7 @@
 package com.onair.proj.admin.controller;
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.onair.proj.admin.model.AdminService;
 import com.onair.proj.admin.model.AdminVO;
+import com.onair.proj.common.ConstUtil;
+import com.onair.proj.common.PaginationInfo;
+import com.onair.proj.common.SearchVO;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
 import com.onair.proj.voc.model.VocVO;
@@ -120,8 +125,29 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/allUser")
-	public String allUser() {
-		logger.info("전체 유저 조회 화면");
+	public String allUser(@ModelAttribute SearchVO searchVo,
+			Model model) {
+		logger.info("전체 유저 조회 파라미터 searchVo={}", searchVo);
+		
+		PaginationInfo pagingInfo=new PaginationInfo();
+		pagingInfo.setBlockSize(ConstUtil.BLOCKSIZE);
+		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
+		pagingInfo.setRecordCountPerPage(ConstUtil.RECORD_COUNT1);
+		
+		searchVo.setRecordCountPerPage(ConstUtil.RECORD_COUNT1);
+		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+		
+		List<MemberVO> alist = adminService.selectMemberAll(searchVo);
+		logger.info("회원 정보 조회 결과 alist={}",alist);
+		
+		int totalRecord = adminService.selectMemberTotalRecord(searchVo);
+		logger.info("회원 정보 조회 결과 totalRecord={}",totalRecord);
+		pagingInfo.setTotalRecord(totalRecord);
+		
+		model.addAttribute("alist", alist);
+		model.addAttribute("pagingInfo", pagingInfo);
+		
 		return "/admin/allUser";
 	}
+	
 }

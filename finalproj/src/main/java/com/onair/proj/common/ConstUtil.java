@@ -3,6 +3,7 @@ package com.onair.proj.common;
 public interface ConstUtil {
 	//게시판 페이징 관련 상수
 	public static final int RECORD_COUNT=5;
+	public static final int RECORD_COUNT1=10;
 	int BLOCKSIZE=10;
 
 	//파일 업로드 관련 상수

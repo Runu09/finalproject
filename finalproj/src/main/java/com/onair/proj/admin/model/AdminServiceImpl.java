@@ -1,10 +1,14 @@
 package com.onair.proj.admin.model;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.onair.proj.common.SearchVO;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
 import com.onair.proj.voc.model.VocVO;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -41,6 +45,16 @@ public class AdminServiceImpl implements AdminService{
 			result=MemberService.NONE_USERID;
 		}
 		return result;
+	}
+
+	@Override
+	public List<MemberVO> selectMemberAll(SearchVO searchVo) {
+		return adminDao.selectMemberAll(searchVo);
+	}
+
+	@Override
+	public int selectMemberTotalRecord(SearchVO searchVo) {
+		return adminDao.selectMemberTotalRecord(searchVo);
 	}
 
 }
