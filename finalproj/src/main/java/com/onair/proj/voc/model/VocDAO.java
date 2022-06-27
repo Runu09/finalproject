@@ -19,4 +19,5 @@ public interface VocDAO {
 	int updateVoc(VocVO vo);
 	public void deleteVoc(Map<String, String> map);
 	int deleteReply(int cNo);
+	List<VocVO> selectBestList(int btNo);
 }

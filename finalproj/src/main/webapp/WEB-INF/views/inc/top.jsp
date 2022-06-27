@@ -98,9 +98,9 @@ body {
 
 
 	<!-- pre-loader start -->
-	<div class="loader-wrapper img-gif">
+	<!-- <div class="loader-wrapper img-gif">
 		<img src="../assets/images/loader.gif" alt="">
-	</div>
+	</div> -->
 	<!-- pre-loader end -->
 
 
