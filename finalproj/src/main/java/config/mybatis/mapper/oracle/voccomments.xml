@@ -32,8 +32,14 @@
 	</select>
 	
 	<update id="updateComment" parameterType="voccommentsVo">
-		update comments 
-		set c_content=#{cContent}, c_delflag='N' where c_no=#{cNo}
+		<if test='CDelflag=="Y"'>
+			update comments 
+			set c_content=#{cContent}, c_delflag='N' where c_no=#{cNo}
+		</if>
+		<if test='CDelflag=="N"'>
+			update comments 
+			set c_content=#{cContent}, c_delflag='Y' where c_no=#{cNo}
+		</if>
 	</update>
 	
 	<delete id="deleteReply" parameterType="int">
