@@ -38,9 +38,9 @@
 		
 		
 	}
-	function del(cno,bno) {
+	function del(cno,bno, groupno, step) {
 		if (confirm('삭제하시겠습니까?')) {
-			location.href = "<c:url value='/lost/cmtDel.do?cNo="+cno+"&bNo="+bno+"'/>";
+			location.href = "<c:url value='/lost/cmtDel.do?cNo="+cno+"&bNo="+bno+"&groupNo="+groupno+"&step="+step+"'/>";
 		} else {
 			event.preventDefault();
 		}
@@ -151,9 +151,13 @@
 											<h4 class="comment" id="comment">댓글 목록</h4>
 											<div class="comment-wrapper">
 												<div class="comment-box">
+												<c:if test="${empty list}">
+												등록된 댓글이 없습니다.
+												</c:if>
 													<c:if test="${!empty list}">
 															<c:set var="i" value="0" />
 														<c:forEach var="vo" items="${list}">
+														
 															<c:if test="${vo.CStep >0}"> <!-- 답글이면 class 변경 -->
 															<div class="media inner-comment">
 															</c:if>
@@ -161,6 +165,10 @@
 															<div class="media" style="border-bottom: 1px solid #dddddd;margin-bottom: 10px"> 
 															</c:if> 
 															<div class="media-body">
+															<c:if test="${vo.CDelflag=='Y' }">
+															<div style="height: 50px; color:gray;font-size:16px">삭제된 댓글입니다.</div>
+															</c:if>
+															<c:if test="${vo.CDelflag=='N' }">
 																	<div class="title" style="border-bottom: none">
 																		<div class="comment-user">
 																			<i class="fa fa-user"></i>
@@ -176,7 +184,7 @@
 																		
 																		<c:if test="${vo.CId==sessionScope.memId }">
 																			<a href="#comment" style="margin:0px 10px" onclick="javascript:edit(${i},${vo.CNo },${vo.BNo });">수정</a>
-																			<a href="#" style="color: red" onclick="javascript:del(${vo.CNo },${vo.BNo });">삭제</a>
+																			<a href="#" style="color: red" onclick="javascript:del(${vo.CNo },${vo.BNo }, ${vo.CGroupno }, ${vo.CStep });">삭제</a>
 																		</c:if>
 																	</div>
 																	<div class="comment-detail">
@@ -185,6 +193,7 @@
 																	<div class="reply-btn" style="padding-bottom:5px">
 																		<a href="#comment" 
 																		onclick="javascript:reply(${i},${vo.CGroupno},${vo.CStep }, ${vo.CSortno }, ${vo.BNo });"><i class="fa fa-reply pe-2"></i> 답글</a></div>
+																</c:if>
 																</div>
 															</div>
 															<c:set var="i" value="${i+1 }" />

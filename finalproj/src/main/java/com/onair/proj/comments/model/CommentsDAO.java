@@ -1,6 +1,7 @@
 package com.onair.proj.comments.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -10,7 +11,10 @@ public interface CommentsDAO {
 	List<CommentsVO> selectByNo(int bNo);
 	int updateComment(CommentsVO vo);
 	int deleteReply(int cNo);
-	int updateSortNo(CommentsVO vo);
-	int reply(CommentsVO vo);
 
+	int updateSortNo(CommentsVO vo); 
+	int reply(CommentsVO vo);
+	
+	void deleteComments(Map<String, String> map);
+	
 }

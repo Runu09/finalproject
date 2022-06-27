@@ -14,21 +14,21 @@
 	</insert>
 	  
 	<select id="selectByNo" parameterType="int" resultType="commentsVo">
-		select * from comments where b_no=#{bNo} order by c_groupno, c_step,c_sortno desc
+		select * from comments where b_no=#{bNo} order by c_groupno, c_sortno
 	</select>
 	
 	<update id="updateComment" parameterType="commentsVo">
 		update comments 
-		set c_content=#{cContent} where c_no=#{cNo}
+		set c_content=#{cContent} where c_no=#{cNo} 
 	</update>
 	
 	<delete id="deleteReply" parameterType="int">
 		delete comments where c_no=#{cNo}
-	</delete>
+	</delete> 
 	
 	<update id="updateSortNo" parameterType="commentsVo">
-		update comments set c_sortno = c_sortno + 1 
-		where c_groupno = #{cGroupno} and c_sortno > #{cSortno}
+		update comments set c_sortno = c_sortno + 1  
+		where c_groupno = #{cGroupno} and c_sortno > #{cSortno} 
 	</update>
 	
 	<insert id="reply" parameterType="commentsVo">
@@ -41,6 +41,14 @@
 		
 	</insert>
 	
-	
+	<parameterMap type="map" id="commentsDeleteParam">
+		<parameter property="groupNo" javaType="string" jdbcType="VARCHAR" mode="IN"/>
+		<parameter property="step" javaType="string" jdbcType="VARCHAR" mode="IN"/>
+		<parameter property="no" javaType="string" jdbcType="VARCHAR" mode="IN"/>
+		
+	</parameterMap>
+	<delete id="deleteComments" parameterMap="commentsDeleteParam">
+		call commentsDelete(?,?,?)
+	</delete>
 	
 </mapper>

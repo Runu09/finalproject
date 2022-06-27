@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +30,6 @@ import com.onair.proj.common.DateSearchVO;
 import com.onair.proj.common.FileUploadUtil;
 import com.onair.proj.common.PaginationInfo;
 import com.onair.proj.member.model.MemberService;
-import com.onair.proj.voccomments.model.VocCommentsVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -250,14 +250,15 @@ public class LostController {
 		msg="글 삭제 완료";
 		url="/lost/list.do";
 
-		String uploadPath = fileUploadUtil.getUploadPath(request, 
-				ConstUtil.UPLOAD_IMAGE_FLAG);
-		File delFile = new File(uploadPath, delFilename);
-		if(delFile.exists()) {
-			boolean bool=delFile.delete();
-			logger.info("파일 삭제 여부: {}", bool);
+		if(delFilename!=null) {
+			String uploadPath = fileUploadUtil.getUploadPath(request, 
+					ConstUtil.UPLOAD_IMAGE_FLAG);
+			File delFile = new File(uploadPath, delFilename);
+			if(delFile.exists()) {
+				boolean bool=delFile.delete();
+				logger.info("파일 삭제 여부: {}", bool);
+			}
 		}
-
 		model.addAttribute("msg",msg);
 		model.addAttribute("url",url);
 
@@ -291,13 +292,23 @@ public class LostController {
 
 	//댓글 삭제
 	@GetMapping("/cmtDel.do")
-	public String cmtDel(@RequestParam(defaultValue = "0") int cNo, @RequestParam(defaultValue = "0") int bNo) {
+	public String cmtDel(@RequestParam(defaultValue = "0") int cNo, @RequestParam(defaultValue = "0") int bNo,
+			@RequestParam(defaultValue = "0") int groupNo,@RequestParam(defaultValue = "0") int step,Model model) {
 		logger.info("댓글 삭제 파라미터, cNo={}, bNo={}", cNo, bNo);
 
-		int cnt=commentsService.deleteReply(cNo);
-		logger.info("댓글 삭제 처리결과 cnt={}", cnt);
+		Map<String, String> map = new HashMap<>();
+		map.put("no", cNo+"");
+		map.put("groupNo", groupNo+"");
+		map.put("step", step+"");
 
-		return "redirect:/lost/detail.do?bNo="+bNo;
+		commentsService.deleteComments(map);			
+		String msg="댓글 삭제 완료";
+		String url="/lost/detail.do?bNo="+bNo;
+		
+		model.addAttribute("msg",msg);
+		model.addAttribute("url",url);
+		
+		return "common/message";
 	}
 	//대댓글등록
 	@PostMapping("/replyWrite.do")
@@ -308,7 +319,7 @@ public class LostController {
 		vo.setCId(memId);
 
 		int cnt=commentsService.reply(vo);
-		logger.info("답글 등록 처리결과 cnt={}", cnt);
+		logger.info("reply 처리결과 cnt={}", cnt);
 
 		return "redirect:/lost/detail.do?bNo="+vo.getBNo();
 	}
