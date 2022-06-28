@@ -100,8 +100,6 @@
 										<li>
 											<div class="details">
 												<div class="left">
-<<<<<<< HEAD
-												
 												</div>
 												<!-- 프로필사진 -->	
 													<div class="profile-image2">
@@ -128,8 +126,7 @@
 										<li>
 											<div class="details">
 												<div class="left">
-=======
->>>>>>> branch 'main' of https://github.com/Runu09/finalproject.git
+
 													<h6>아이디</h6>
 												</div>
 												<div class="right">			
