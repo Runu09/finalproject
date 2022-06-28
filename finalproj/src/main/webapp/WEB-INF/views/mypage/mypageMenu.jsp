@@ -24,9 +24,9 @@ footer {
 						<div class="dashboard-sidebar">
 							<div class="profile-top">
 								<div class="profile-image">
-								
-									<img src="../assets/images/avtar/1.jpg"
-										class="img-fluid blur-up lazyload" alt="">
+									<img src="<c:url value='/user_upload/${vo.MPic }'/>" 
+										onerror="this.src='../assets/images/avtar/1.jpg';"
+										class="img-fluid blur-up lazyload" alt="프로필사진"/>
 								</div>
 								<div class="profile-detail">
 									<h5>${sessionScope.memName } 님</h5>
