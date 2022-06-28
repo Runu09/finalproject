@@ -42,12 +42,13 @@
 		    (
 		       	select * from member
 				<include refid="searchWhere"></include>
+				order by mem_no desc
 		    )A
 		)
 		where RNUM>#{firstRecordIndex} 
 		<![CDATA[
 		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
-		order by mem_no desc
+		<!-- order by mem_no desc -->
 	</select>
 	
 	<select id="selectMemberTotalRecord" parameterType="SearchVO" resultType="int">

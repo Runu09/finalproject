@@ -5,7 +5,7 @@
 <!-- breadcrumb start -->
 <script type="text/javascript">
 	$(function() {
-
+		
 		$('#btList').click(function() {
 			location.href = "<c:url value='/lost/list.do'/>";
 		});
@@ -23,21 +23,25 @@
 
 						});
 		
+		
 	}); //ready()
 
 	function edit(i, cno, bno) {
 		var origin=$('.comment-detail').eq(i).find('p').text();
-		var res="<form id='frmEdit' action='<c:url value='/lost/cmtEdit.do'/>' method='post'>";
+		var res="<form id='frmEdit"+i+"' action='<c:url value='/lost/cmtEdit.do'/>' method='post'>";
 		res+="<input type='hidden' value='"+cno+"' name='cNo'>";
 		res+="<input type='hidden' value='"+bno+"' name='bNo'>";
 		res+="<textarea style='width: 80%; height: 70px;' name='cContent'>"+origin+"</textarea>";
 		res+="<button class='btn btn-primary me-3' style='margin-bottom: 28px;margin-left: 10px;'type='submit'>등록</button>";
-		
+		res+="<input type='button' value='취소'  class='btn btn-primary me-3' style='background-color:red;border-color:red;margin-bottom: 28px' onclick='editCancel("+i+")'>";	
 		res+="</form>";
-		$('.comment-detail').eq(i).html(res);
+		$('.comment-detail').eq(i).append(res);
 		
 		
 	}
+	function editCancel(i){
+		$('#frmEdit'+i).hide();
+ 	}
 	function del(cno,bno, groupno, step) {
 		if (confirm('삭제하시겠습니까?')) {
 			location.href = "<c:url value='/lost/cmtDel.do?cNo="+cno+"&bNo="+bno+"&groupNo="+groupno+"&step="+step+"'/>";
@@ -48,17 +52,21 @@
 		
 	}
 	function reply(i, groupNo, step, sortNo, bNo){
-		alert('답글');
-		var res="<form id='frmReply' action='<c:url value='/lost/replyWrite.do'/>' method='post'>";
-		res+="<input type='text' value='"+groupNo+"' name='cGroupno'>";
-		res+="<input type='text' value='"+step+"' name='cStep'>";
-		res+="<input type='text' value='"+sortNo+"' name='cSortno'>";
-		res+="<input type='text' value='"+bNo+"' name='bNo'>";
+		/* alert('답글'); */
+		var res="<form id='frmReply"+i+"' action='<c:url value='/lost/replyWrite.do'/>' method='post'>";
+		res+="<input type='hidden' value='"+groupNo+"' name='cGroupno'>";
+		res+="<input type='hidden' value='"+step+"' name='cStep'>";
+		res+="<input type='hidden' value='"+sortNo+"' name='cSortno'>";
+		res+="<input type='hidden' value='"+bNo+"' name='bNo'>";
 		res+="<textarea style='width: 80%; height: 70px;' name='cContent'></textarea>";
 		res+="<button class='btn btn-primary me-3' style='margin-bottom: 28px;margin-left: 10px;'type='submit'>등록</button>";
+		res+="<input type='button' value='취소'  class='btn btn-primary me-3' style='background-color:red;border-color:red;margin-bottom: 28px' onclick='replyCancel("+i+")'>";	
 		res+="</form>";
 		$('.reply-btn').eq(i).parent().append(res);
 	}
+	function replyCancel(i){
+		$('#frmReply'+i).hide();
+ 	}
 </script>
 
 
@@ -103,10 +111,14 @@
 
 
 						<div class="col-md-4">
-
-							<img src="<c:url value='/img_upload/${vo.FName }'/>"
-								alt="${vo.BTitle}" style="width: 400px; height: 400px">
-
+							<c:if test="${empty vo.FName}">
+								<img src="<c:url value='/images/no_image.png'/>" alt="이미지없음"
+									style="width: 400px; height: 400px">
+							</c:if>
+							<c:if test="${!empty vo.FName}">
+								<img src="<c:url value='/img_upload/${vo.FName }'/>"
+									alt="${vo.BTitle}" style="width: 400px; height: 400px">
+							</c:if>
 						</div>
 					</div>
 				</div>
@@ -160,17 +172,17 @@
 
 															<c:if test="${vo.CStep >0}">
 																<!-- 답글이면 class 변경 -->
-																<div class="media inner-comment">
+																<div class="media inner-comment" style="border-bottom: 1px solid #dddddd;">
 															</c:if>
 															<c:if test="${vo.CStep ==0}">
 																<div class="media"
 																	style="border-bottom: 1px solid #dddddd; margin-bottom: 10px">
 															</c:if>
-															<div class="media-body">
+															<div class="media-body" id="media-body${vo.CNo }">
 																<c:if test="${vo.CDelflag=='Y' }">
-																	<div class="reply-btn" style="margin:20px 0px;text-align: left; color: red">
-																		삭제된 댓글입니다.
-																	</div>
+																	<div class="reply-btn"
+																		style="margin: 20px 0px; text-align: left; color: red">
+																		삭제된 댓글입니다.</div>
 																	<!-- <div style="height: 50px; color:gray;font-size:16px">삭제된 댓글입니다.</div> -->
 																</c:if>
 																<c:if test="${vo.CDelflag=='N' }">
@@ -188,17 +200,18 @@
 																		</div>
 
 																		<c:if test="${vo.CId==sessionScope.memId }">
-																			<a href="#comment" style="margin: 0px 10px"
+																			<a style="margin: 0px 10px;color:blue"
 																				onclick="javascript:edit(${i},${vo.CNo },${vo.BNo });">수정</a>
-																			<a href="#" style="color: red"
-																				onclick="javascript:del(${vo.CNo },${vo.BNo }, ${vo.CGroupno }, ${vo.CStep });">삭제</a>
+																			<a style="color: red" onclick="javascript:del(${vo.CNo },${vo.BNo }, ${vo.CGroupno }, ${vo.CStep });">삭제</a>
+																			<!-- href="#"  -->
+																
 																		</c:if>
 																	</div>
 																	<div class="comment-detail">
 																		<p>${vo.CContent }</p>
 																	</div>
 																	<div class="reply-btn" style="padding-bottom: 5px">
-																		<a href="#comment"
+																		<a href="#media-body${vo.CNo }"
 																			onclick="javascript:reply(${i},${vo.CGroupno},${vo.CStep }, ${vo.CSortno }, ${vo.BNo });"><i
 																			class="fa fa-reply pe-2"></i> 답글</a>
 																	</div>
