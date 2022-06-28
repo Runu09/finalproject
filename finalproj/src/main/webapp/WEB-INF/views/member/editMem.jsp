@@ -94,13 +94,13 @@
 								<h4>edit your profile</h4>
 							</div><br>
 						<!-- 회원정보 수정 -->
-							<form name="memEdit" method="post" action="<c:url value='/member/editMem.do'/>"
-							enctype="multipart/form-data">
+							<form name="memEdit" method="post" action="<c:url value='/member/editMem.do'/>">
 								<div class="dashboard-detail">
 									<ul>
 										<li>
 											<div class="details">
 												<div class="left">
+<<<<<<< HEAD
 												
 												</div>
 												<!-- 프로필사진 -->	
@@ -128,6 +128,8 @@
 										<li>
 											<div class="details">
 												<div class="left">
+=======
+>>>>>>> branch 'main' of https://github.com/Runu09/finalproject.git
 													<h6>아이디</h6>
 												</div>
 												<div class="right">			

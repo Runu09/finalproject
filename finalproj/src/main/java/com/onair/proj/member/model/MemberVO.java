@@ -23,5 +23,4 @@ public class MemberVO {
 	private String mAdd2;
 	private int mMileage;
 	private Timestamp mOutdate;
-	private String mPic;
 }

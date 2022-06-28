@@ -29,6 +29,13 @@ public class MyPageController {
 		String memId = (String)session.getAttribute("memId");
 		logger.info("마이페이지 메인, 파라미터 memId={}", memId);
 		
+		if(memId==null || memId.isEmpty()) {
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			model.addAttribute("url", "/login/login.do");
+
+			return "/common/message";
+		}
+		
 		MemberVO vo = memberService.selectByMemId(memId);
 		logger.info("마이페이지 메인 조회 결과 vo={}", vo);
 		
@@ -43,8 +50,4 @@ public class MyPageController {
 		
 	}
 	
-	@GetMapping("/mypageMenu.do")
-	public String mypageMenu_get() {
-		return  "/mypage/mypageMenu";
-	}
 }

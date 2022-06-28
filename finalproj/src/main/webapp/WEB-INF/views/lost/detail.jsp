@@ -151,24 +151,29 @@
 											<h4 class="comment" id="comment">댓글 목록</h4>
 											<div class="comment-wrapper">
 												<div class="comment-box">
-												<c:if test="${empty list}">
+													<c:if test="${empty list}">
 												등록된 댓글이 없습니다.
 												</c:if>
 													<c:if test="${!empty list}">
-															<c:set var="i" value="0" />
+														<c:set var="i" value="0" />
 														<c:forEach var="vo" items="${list}">
-														
-															<c:if test="${vo.CStep >0}"> <!-- 답글이면 class 변경 -->
-															<div class="media inner-comment">
+
+															<c:if test="${vo.CStep >0}">
+																<!-- 답글이면 class 변경 -->
+																<div class="media inner-comment">
 															</c:if>
-															<c:if test="${vo.CStep ==0}"> 
-															<div class="media" style="border-bottom: 1px solid #dddddd;margin-bottom: 10px"> 
-															</c:if> 
+															<c:if test="${vo.CStep ==0}">
+																<div class="media"
+																	style="border-bottom: 1px solid #dddddd; margin-bottom: 10px">
+															</c:if>
 															<div class="media-body">
-															<c:if test="${vo.CDelflag=='Y' }">
-															<div style="height: 50px; color:gray;font-size:16px">삭제된 댓글입니다.</div>
-															</c:if>
-															<c:if test="${vo.CDelflag=='N' }">
+																<c:if test="${vo.CDelflag=='Y' }">
+																	<div class="reply-btn" style="margin:20px 0px;text-align: left; color: red">
+																		삭제된 댓글입니다.
+																	</div>
+																	<!-- <div style="height: 50px; color:gray;font-size:16px">삭제된 댓글입니다.</div> -->
+																</c:if>
+																<c:if test="${vo.CDelflag=='N' }">
 																	<div class="title" style="border-bottom: none">
 																		<div class="comment-user">
 																			<i class="fa fa-user"></i>
@@ -181,44 +186,48 @@
 																					pattern="yyyy-MM-dd" />
 																			</h6>
 																		</div>
-																		
+
 																		<c:if test="${vo.CId==sessionScope.memId }">
-																			<a href="#comment" style="margin:0px 10px" onclick="javascript:edit(${i},${vo.CNo },${vo.BNo });">수정</a>
-																			<a href="#" style="color: red" onclick="javascript:del(${vo.CNo },${vo.BNo }, ${vo.CGroupno }, ${vo.CStep });">삭제</a>
+																			<a href="#comment" style="margin: 0px 10px"
+																				onclick="javascript:edit(${i},${vo.CNo },${vo.BNo });">수정</a>
+																			<a href="#" style="color: red"
+																				onclick="javascript:del(${vo.CNo },${vo.BNo }, ${vo.CGroupno }, ${vo.CStep });">삭제</a>
 																		</c:if>
 																	</div>
 																	<div class="comment-detail">
 																		<p>${vo.CContent }</p>
 																	</div>
-																	<div class="reply-btn" style="padding-bottom:5px">
-																		<a href="#comment" 
-																		onclick="javascript:reply(${i},${vo.CGroupno},${vo.CStep }, ${vo.CSortno }, ${vo.BNo });"><i class="fa fa-reply pe-2"></i> 답글</a></div>
+																	<div class="reply-btn" style="padding-bottom: 5px">
+																		<a href="#comment"
+																			onclick="javascript:reply(${i},${vo.CGroupno},${vo.CStep }, ${vo.CSortno }, ${vo.BNo });"><i
+																			class="fa fa-reply pe-2"></i> 답글</a>
+																	</div>
 																</c:if>
-																</div>
 															</div>
-															<c:set var="i" value="${i+1 }" />
-														</c:forEach>
-													</c:if>
 												</div>
-
+												<c:set var="i" value="${i+1 }" />
+												</c:forEach>
+												</c:if>
 											</div>
-										</div>
 
+										</div>
 									</div>
+
 								</div>
 							</div>
 						</div>
-					</section>
-
 				</div>
-
-
-
+				</section>
 
 			</div>
-		</div>
 
+
+
+
+		</div>
 	</div>
+
+</div>
 </div>
 
 
@@ -231,14 +240,15 @@
 			<div class="detail-bar">
 				<div class="detail-wrap wow">
 
-					<form id="frmCmt" action="<c:url value='/lost/cmtWrite.do'/>" method="post">
-					<input type="hidden" value="${vo.BNo }" name="bNo">
+					<form id="frmCmt" action="<c:url value='/lost/cmtWrite.do'/>"
+						method="post">
+						<input type="hidden" value="${vo.BNo }" name="bNo">
 						<div class="row">
 
 							<div class="form-group col-md-11" style="margin: 0 auto">
 								<h4 class="comment">댓글 작성</h4>
-								<textarea class="form-control" id="exampleTextarea" name="cContent"
-									placeholder="내용을 입력하세요" required="" rows="4"></textarea>
+								<textarea class="form-control" id="exampleTextarea"
+									name="cContent" placeholder="내용을 입력하세요" required="" rows="4"></textarea>
 							</div>
 						</div>
 						<div class="submit-btn"

@@ -32,15 +32,25 @@ public class CommentServiceImpl implements CommentsService{
 	@Override public int deleteReply(int cNo) { 
 		return commentsDao.deleteReply(cNo); }
 
-
+	/*
 	@Override
 	@Transactional
 	public int reply(CommentsVO vo) {
-		int cnt=commentsDao.updateSortNo(vo); 
-		cnt=commentsDao.reply(vo);
+		int cnt=commentsDao.updateSortNo(vo);
+		 cnt=commentsDao.reply(vo);
 		return cnt;
 	}
-
+	 */
+	
+	@Override
+	@Transactional
+	public int reply(CommentsVO vo) {
+		int cnt=commentsDao.reply(vo);
+		 cnt=commentsDao.updateSortNo(vo);
+		return cnt;
+	}
+	
+	
 	@Override
 	public void deleteComments(Map<String, String> map) {
 		commentsDao.deleteComments(map);
