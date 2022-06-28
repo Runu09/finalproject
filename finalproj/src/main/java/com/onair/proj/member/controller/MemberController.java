@@ -1,11 +1,6 @@
 package com.onair.proj.member.controller;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -20,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.onair.proj.common.ConstUtil;
-import com.onair.proj.common.FileUploadUtil;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
 
@@ -35,7 +28,6 @@ public class MemberController {
 	=LoggerFactory.getLogger(MemberController.class);
 
 	private final MemberService memberService;
-	private final FileUploadUtil fileUploadUtil;
 	
 	@GetMapping("/register.do")
 	public String register_get() {
@@ -105,12 +97,10 @@ public class MemberController {
 		return "/member/editMem";
 	}
 	
-
 	@PostMapping("/editMem.do")
 	public String editMem_post(@ModelAttribute MemberVO vo,
 			@RequestParam String mEmail3, HttpSession session,
-			HttpServletRequest request, Model model) {
-		
+			Model model) {
 		String memId = (String)session.getAttribute("memId");
 		vo.setMemId(memId);
 		logger.info("회원정보수정, MemberVO={}, mEmail3={}", vo, mEmail3);
@@ -145,24 +135,6 @@ public class MemberController {
 		vo.setMEmail1(mEmail1);
 		vo.setMEmail2(mEmail2);
 		
-		//파일 업로드처리
-		String fileName="";
-		
-		List<Map<String, Object>> fileList;
-		
-		try {
-			fileList 
-			= fileUploadUtil.fileUpload(request, ConstUtil.UPLOAD_IMAGE_FLAG);
-		
-			for(Map<String, Object> fileMap : fileList) {
-				fileName=(String)fileMap.get("fileName");
-			}
-		} catch (IllegalStateException | IOException e) {
-			e.printStackTrace();
-		}
-		
-		vo.setMPic(fileName);
-		
 		//비밀번호 체크
 		String msg="비밀번호 체크 실패", url="/member/editMem.do";
 		int result=memberService.checkLogin(vo.getMemId(), vo.getMemPwd());
@@ -186,6 +158,7 @@ public class MemberController {
 		
 		return "/common/message";
 	}
+
 	//회원탈퇴
 	@GetMapping("/outMem.do")
 	public String outMem_get() {
@@ -231,7 +204,6 @@ public class MemberController {
 		return "/common/message";
 		
 	}
-
 	
 	//비번변경
 	@GetMapping("/editPwd.do")
@@ -271,72 +243,6 @@ public class MemberController {
 		
 		return "/common/message";
 	}
-
-	
-	/* 회원정보수정(파일첨부X)
-	@PostMapping("/editMem.do")
-	public String editMem_post(@ModelAttribute MemberVO vo,
-			@RequestParam String mEmail3, HttpSession session,
-			Model model) {
-		String memId = (String)session.getAttribute("memId");
-		vo.setMemId(memId);
-		logger.info("회원정보수정, MemberVO={}, mEmail3={}", vo, mEmail3);
-		
-		//hp처리
-		String mTel1=vo.getMTel1(); 
-		String mTel2=vo.getMTel2(); 
-		String mTel3=vo.getMTel3();
-		
-		if(mTel2==null || vo.getMTel2().isEmpty() 
-				|| mTel3==null || vo.getMTel3().isEmpty()) {
-			mTel1="";
-			mTel2="";
-			mTel3="";
-		}
-		vo.setMTel1(mTel1);
-		vo.setMTel2(mTel2);
-		vo.setMTel3(mTel3);
-		
-		//email처리
-		String mEmail1=vo.getMEmail1();		
-		String mEmail2=vo.getMEmail2();
-		
-		if(mEmail1==null || mEmail1.isEmpty()) {
-			mEmail1="";
-			mEmail2="";
-		}else {
-			if(mEmail2.equals("etc")) {
-				mEmail2=mEmail3;
-			}
-		}
-		vo.setMEmail1(mEmail1);
-		vo.setMEmail2(mEmail2);
-		
-		//비밀번호 체크
-		String msg="비밀번호 체크 실패", url="/member/editMem.do";
-		int result=memberService.checkLogin(vo.getMemId(), vo.getMemPwd());
-		logger.info("비밀번호 체크 결과, result={}", result);
-		
-		if(result==memberService.LOGIN_OK) {
-			int cnt=memberService.memberUpdate(vo);
-			logger.info("회원정보 수정 결과, cnt={}", cnt);
-			
-			if(cnt>0) {
-				msg="회원정보를 수정하였습니다.";
-			}else {
-				msg="회원정보 수정을 실패하였습니다.";
-			}
-		}else if(result==memberService.DISAGREE_PWD) {
-			msg="비밀번호가 일치하지 않습니다";
-		}
-		
-		model.addAttribute("msg", msg);
-		model.addAttribute("url", url);
-		
-		return "/common/message";
-	}
-	 */
-
 }
 
 
