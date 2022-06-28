@@ -100,6 +100,33 @@
 										<li>
 											<div class="details">
 												<div class="left">
+												</div>
+												<!-- 프로필사진 -->	
+													<div class="profile-image2">
+													<img src="<c:url value='/user_upload/${vo.MPic }'/>"
+													 onerror="this.src='../assets/images/avtar/1.jpg';"
+													class="img-fluid blur-up lazyload" alt="프로필사진"/>
+													
+													</div>
+												<!-- 프로필사진 -->
+												
+											</div>
+										</li>
+										<li>
+										<div class="details">
+											<div class="left">
+												<h6>프로필사진</h6>
+											</div>
+											<div class="right">
+													<input class="form-control" type="file" name="imageUpload" id="imageUpload" 
+													placeholder="사진 등록" style="height: 55px;">
+												</div>
+										</div>
+										</li>
+										<li>
+											<div class="details">
+												<div class="left">
+
 													<h6>아이디</h6>
 												</div>
 												<div class="right">			

@@ -65,13 +65,16 @@
 
 		$('#frmWrite').submit(function() {
 
+			var chk=CKEDITOR.instances['editor1'].getData();
+			
 			if ($.trim($("#bTitle").val()).length == 0) {
 				alert("제목을 입력하세요");
 				$("#bTitle").focus();
 				event.preventDefault();
 				return;
 
-			} else if ($.trim($("#editor1").val()).length == 0) {
+			} else if (chk==''||chk.length==0){
+				
 				alert("내용을 입력하세요");
 				$("#editor1").focus();
 				event.preventDefault();

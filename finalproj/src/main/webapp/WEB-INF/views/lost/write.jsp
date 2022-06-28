@@ -31,19 +31,24 @@
 	href="../assets/css/vendors/bootstrap.css">
 
 <!-- Bootstrap-tag input css
- --><link rel="stylesheet" type="text/css"
+ -->
+<link rel="stylesheet" type="text/css"
 	href="../assets/css/vendors/bootstrap-tagsinput.css">
 <!-- App css
- --><link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+ -->
+<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 <!-- Responsive css
- --><link rel="stylesheet" type="text/css"
-	href="../assets/css/responsive.css"> 
-	
+ -->
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/responsive.css">
+
 <%@include file="../inc/top.jsp"%>
 <script type="text/javascript">
 	$(function() {
 		
 		$('#frmWrite').submit(function() {
+			
+			var chk=CKEDITOR.instances['editor1'].getData();
 			
 			if ($.trim($("#bTitle").val()).length == 0) {
 				alert("제목을 입력하세요");
@@ -51,7 +56,8 @@
 				event.preventDefault();
 				return;
 				
-			}else if ($.trim($("#editor1").val()).length == 0) {
+			}else if (chk==''||chk.length==0){
+				
 				alert("내용을 입력하세요");
 				$("#editor1").focus();
 				event.preventDefault();
@@ -79,59 +85,61 @@
 <!-- breadcrumb end -->
 
 <div>
-<div class="lostcenter"
-	style="margin-right: 100px; margin-left: 100px; margin-top: 100px">
-	<!-- tap on top starts-->
-	<div class="tap-top">
-		<i data-feather="chevrons-up"></i>
-	</div>
-	<!-- tap on tap ends-->
-	<!-- page-wrapper Start-->
+	<div class="lostcenter"
+		style="margin-right: 100px; margin-left: 100px; margin-top: 100px">
+		<!-- tap on top starts-->
+		<div class="tap-top">
+			<i data-feather="chevrons-up"></i>
+		</div>
+		<!-- tap on tap ends-->
+		<!-- page-wrapper Start-->
 
-	<form name="frmWrite" method="post" enctype="multipart/form-data" id="frmWrite"
-		action="<c:url value='/lost/write.do'/>">
-		<div class="page-wrapper compact-wrapper modern-type" id="pageWrapper">
-			<!-- Container-fluid starts-->
-			<div class="container-fluid">
-				<div class="row">
+		<form name="frmWrite" method="post" enctype="multipart/form-data"
+			id="frmWrite" action="<c:url value='/lost/write.do'/>">
+			<div class="page-wrapper compact-wrapper modern-type"
+				id="pageWrapper">
+				<!-- Container-fluid starts-->
+				<div class="container-fluid">
+					<div class="row">
 
-					<div class="col-12">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="card">
-									<div class="card-header">
-										<h5>유실물 등록</h5>
+						<div class="col-12">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="card">
+										<div class="card-header">
+											<h5>유실물 등록</h5>
 
-										<p style="margin-top: 10px">유실물 등록 양식입니다. (*) 표시는 필수 입력
-											항목입니다.</p>
+											<p style="margin-top: 10px">유실물 등록 양식입니다. (*) 표시는 필수 입력
+												항목입니다.</p>
 
-									</div>
-									<div class="card-body">
-										<!-- <form class="theme-form mega-form"> -->
-										<div class="mb-3">
-											<label class="form-label-title">제목 (*)</label> <input
-												class="form-control" type="text" placeholder="제목을 입력하세요"
-												name="bTitle" id="bTitle">
 										</div>
+										<div class="card-body">
+											<!-- <form class="theme-form mega-form"> -->
+											<div class="mb-3">
+												<label class="form-label-title">제목 (*)</label> <input
+													class="form-control" type="text" placeholder="제목을 입력하세요"
+													name="bTitle" id="bTitle">
+											</div>
 
 
-										<label class="form-label-title ">내용 (*)</label>
-										<textarea id="editor1" cols="30" rows="10" name="bContent"></textarea>
-										<!-- </form> -->
+											<label class="form-label-title ">내용 (*)</label>
+											<textarea id="editor1" cols="30" rows="10" name="bContent"></textarea>
+											<!-- </form> -->
 
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- Container-fluid Ends-->
+				<!-- Container-fluid Ends-->
 
 
-			<!--room detail start-->
-			<div class="container-fluid">
-				<div class="col-12"><div class="row">
+				<!--room detail start-->
+				<div class="container-fluid">
+					<div class="col-12">
+						<div class="row">
 							<div class="col-sm-12">
 								<div class="card">
 									<div class="card-header">
@@ -142,8 +150,8 @@
 										<div class="animate-chk">
 
 											<div class="mb-3">
-												<input type="file" id="upfile" name="upfile" /> 
-												
+												<input type="file" id="upfile" name="upfile" />
+
 											</div>
 
 											<div class="card-footer text-end">
@@ -157,27 +165,29 @@
 
 								</div>
 							</div>
-						
-					</div>
-					<!--room detail end-->
 
+						</div>
+						<!--room detail end-->
+
+					</div>
 				</div>
-				</div>
-	</form>
-</div>
+		</form>
+	</div>
 </div>
 
 <!-- feather icon js-->
 <!-- <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
 <script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
- --><!-- scrollbar js-->
+ -->
+<!-- scrollbar js-->
 <!-- <script src="../assets/js/scrollbar/simplebar.js"></script>
 <script src="../assets/js/scrollbar/custom.js"></script>
  -->
 <!-- Plugins JS start-->
 <!-- <script src="../assets/js/sidebar-menu.js"></script>
 <script src="../assets/js/chart/knob/knob.min.js"></script>
- --><!-- <script src="../assets/js/notify/bootstrap-notify.min.js"></script>
+ -->
+<!-- <script src="../assets/js/notify/bootstrap-notify.min.js"></script>
  -->
 
 <!-- <script src="../assets/js/notify/index.js"></script>
@@ -191,10 +201,11 @@
 <script src="../assets/js/typeahead/typeahead.custom.js"></script>
 <script src="../assets/js/typeahead-search/handlebars.js"></script>
 <script src="../assets/js/typeahead-search/typeahead-custom.js"></script>
- --><!-- Plugins JS Ends-->
+ -->
+<!-- Plugins JS Ends-->
 
 <!--ckEditor js start-->
- <script src="../assets/js/ckeditor/ckeditor.js"></script>
+<script src="../assets/js/ckeditor/ckeditor.js"></script>
 <script src="../assets/js/ckeditor/styles.js"></script>
 <script src="../assets/js/ckeditor/ckeditor.custom.js"></script>
 <!--ckEditor js end-->
