@@ -7,6 +7,9 @@ function pageFunc(curPage){
 	$('input[name=currentPage]').val(curPage);
 	$('form[name=frmPage]').submit();
 	
+	$('#btSearch').click(function() {
+		location.href = "<c:url value='/admin/allUser'/>";
+	});
 }
 </script>
 <form name="frmPage" method="post">
@@ -49,7 +52,8 @@ function pageFunc(curPage){
                   </form> -->
 
                 </div>
-
+                
+			
                 <div class="card-body">
                   <div>
                     <div class="table-responsive table-desi">
@@ -59,6 +63,7 @@ function pageFunc(curPage){
                             <th>유저아이디</th>
                             <th>이름</th>
                             <th>전화번호</th>
+                            <th>생년월일</th>
                             <th>Email</th>
                             <th>주소</th>
                             <th>보유마일리지</th>
@@ -69,7 +74,7 @@ function pageFunc(curPage){
                         <tbody>
                         <c:if test="${empty alist }">
                         	<tr>
-                        		<td colspan="8" style="text-align: center;"><span class=" d-block">가입한 회원이 없습니다.</span></td>
+                        		<td colspan="9" style="text-align: center;"><span class=" d-block">가입한 회원이 없습니다.</span></td>
                         	</tr>
                         </c:if>
                         <c:if test="${!empty alist }">
@@ -80,6 +85,8 @@ function pageFunc(curPage){
                             <td><a href="#"><span class="d-block ">${vo.memName }</span><span></span></a>
                             </td>
                             <td>${vo.MTel1}-${vo.MTel2}-${vo.MTel3}</td>
+                            <td>${vo.MBirthday }
+                              </td>
                             <td>${vo.MEmail1}@${vo.MEmail2}
                               </td>
                             <td class="font-primary">${vo.MAdd1} ${vo.MAdd2}</td>
@@ -87,7 +94,8 @@ function pageFunc(curPage){
                               <span>${vo.MMileage}</span>
                             </td>
                             <td>
-                              <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                              <a href="<c:url value='/member/editMem.do'/>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+							<!--<a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
                             </td>
                             <td>
                               <a href="javascript:void(0)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
@@ -99,9 +107,18 @@ function pageFunc(curPage){
                       </table>
                     </div>
                   </div>
+                  
                 </div>
+                  <form method="post" action="<c:url value='/admin/allUser'/>">
+		          	<div class="form-group">
+						<input placeholder="" value="${SearchVO.searchKeyword }" type="text" name="searchKeyword" 
+							class="form-control" style="width: 450px; text-align: right: ; margin-left: 550px" />
+							<button class="btn btn-primary me-3" style="background-color: #4291b8; border-color: #4291b8; width: 84px; height: 40px; font-size: 13px; margin-left: 1000px; margin-top: -60px" id="btSearch">검색</button>
+					</div>
+		          </form>
                 <div class=" pagination-box">
                   <nav class="ms-auto me-auto " aria-label="...">
+                  
                     <ul class="pagination pagination-primary">
                       <!-- <li class="page-item "><a class="page-link" href="javascript:void(0)"
                           tabindex="-1">Previous</a>
@@ -114,7 +131,7 @@ function pageFunc(curPage){
                       <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
                       <li class="page-item"><a class="page-link" href="javascript:void(0)">Next</a></li> -->
                     	
-                    	<c:if test="${pagingInfo.firstPage>1 }">
+                    <c:if test="${pagingInfo.firstPage>1 }">
 						<li class="page-item"><a class="page-link"
 							onclick="pageFunc(${pagingInfo.firstPage-1})" href="#"
 							tabindex="-1"> Previous</a>
@@ -141,12 +158,7 @@ function pageFunc(curPage){
 					</c:if>
                     </ul>
                   </nav>
-		          <form method="post" action="<c:url value='/admin/allUser'/>">
-		          	<div class="form-group">
-						<input placeholder="" value="${SearchVO.searchKeyword }" type="text" name="searchKeyword" 
-							class="form-control" style="width: 400px" />
-					</div>
-		          </form>
+		          
                 </div>
               </div>
             </div>
@@ -167,13 +179,13 @@ function pageFunc(curPage){
             </div>
 
           </footer> -->
-        </div> -->
+        </div>
       </div>
       </form>
     </div>
 
 
-  <!--   <!-- Modal -->
+     <!-- Modal -->
     <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog  modal-dialog-centered">
@@ -193,8 +205,10 @@ function pageFunc(curPage){
       </div>
     </div>
 
-  </div> -->
-
+  </div>
+<form name="excelForm" id="excelForm" method="post" action="<c:url value='/excelDown'/>">
+     <input type="submit" id="excelDown" value="EXCEL다운">
+</form>
   <!-- latest jquery-->
   <script src="../admin/js/jquery-3.5.1.min.js"></script>
   <!-- Bootstrap js-->

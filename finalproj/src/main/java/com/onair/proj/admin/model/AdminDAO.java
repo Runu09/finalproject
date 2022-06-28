@@ -16,4 +16,6 @@ public interface AdminDAO {
 	String adminSelectPwd(String manId);
 	List<MemberVO> selectMemberAll(SearchVO searchVo);
 	int selectMemberTotalRecord(SearchVO searchVo);
+	List<MemberVO> selectMemberAll2(MemberVO memberVo);
+	
 }
