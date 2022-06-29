@@ -1,7 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/adminTop.jsp"%>
+<script type="text/javascript">
 
+function pageFunc(curPage){
+	$('input[name=currentPage]').val(curPage);
+	$('form[name=frmPage]').submit();
+	
+	$('#btSearch').click(function() {
+		location.href = "<c:url value='/admin/allUser'/>";
+	});
+}
+</script>
+<form name="frmPage" method="post">
+	<input type="hidden" name="currentPage">
+	<input type="hidden" name="searchKeyword" value="${SearchVO.searchKeyword }"> 
+</form>
 
   <!-- pre-loader start -->
   <div class="loader-wrapper">
@@ -14,7 +28,7 @@
   <!-- tap on tap ends-->
   <!-- page-wrapper Start-->
   <div class="page-wrapper compact-wrapper modern-type" id="pageWrapper">
-
+	<form method="post" action="<c:url value='/admin/allUser'/>">
     <!-- Page Body Start-->
     <div class="page-body-wrapper">
       
@@ -38,7 +52,8 @@
                   </form> -->
 
                 </div>
-
+                
+			
                 <div class="card-body">
                   <div>
                     <div class="table-responsive table-desi">
@@ -48,6 +63,7 @@
                             <th>유저아이디</th>
                             <th>이름</th>
                             <th>전화번호</th>
+                            <th>생년월일</th>
                             <th>Email</th>
                             <th>주소</th>
                             <th>보유마일리지</th>
@@ -56,214 +72,55 @@
                           </tr>
                         </thead>
                         <tbody>
+                        <c:if test="${empty alist }">
+                        	<tr>
+                        		<td colspan="9" style="text-align: center;"><span class=" d-block">가입한 회원이 없습니다.</span></td>
+                        	</tr>
+                        </c:if>
+                        <c:if test="${!empty alist }">
+                        <c:forEach var="vo" items="${alist }">
                           <tr>
-                            <td><span class=" d-block">kkw4521</span>
+                            <td><span class=" d-block">${vo.memId }</span>
                             </td>
-                            <td><a href="#"><span class="d-block ">김관욱</span><span></span></a>
+                            <td><a href="#"><span class="d-block ">${vo.memName }</span><span></span></a>
                             </td>
-                            <td> 010-1111-2222</td>
+                            <td>${vo.MTel1}-${vo.MTel2}-${vo.MTel3}</td>
+                            <td>${vo.MBirthday }
+                              </td>
+                            <td>${vo.MEmail1}@${vo.MEmail2}
+                              </td>
+                            <td class="font-primary">${vo.MAdd1} ${vo.MAdd2}</td>
                             <td>
-                              kkw123@naver.com</td>
-                            <td class="font-primary">인천시 계양구</td>
-                            <td>
-                              <span>1000</span>
+                              <span>${vo.MMileage}</span>
                             </td>
                             <td>
-                              <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                              <a href="<c:url value='/member/editMem.do'/>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+							<!--<a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
                             </td>
                             <td>
                               <a href="javascript:void(0)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                             </td>
                           </tr>
-                          <tr>
-                            <td><span class=" d-block">abc9872</span>
-                            </td>
-                            <td><a href="#"><span class="  d-block">최수창</span><span></span></a>
-                            </td>
-                            <td> 010-2222-1234</td>
-                            <td>cs123@naver.com</td>
-                            <td class="font-primary">서울시 강서구</td>
-                            <td>
-                              <span>300</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><span class=" d-block">kim321</span>
-                            </td>
-                            <td><a href="#"><span class="  d-block">김준석</span><span></span></a>
-                            </td>
-                            <td> 010-9999-1234</td>
-                            <td>Lucy@gmail.com</td>
-                            <td class="font-primary">서울시 은평구</td>
-                            <td>
-                              <span>5400</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><span class=" d-block">kim877</span>
-                            </td>
-                            <td><a href="#"><span class="  d-block"> 김소연</span><span></span></a>
-                            </td>
-                            <td> 010-1265-1550</td>
-                            <td>Straight@gmail.com</td>
-                            <td class="font-primary">서울시 서대문구</td>
-                            <td>
-                              <span>450</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><span>lee9645</span>
-                            </td>
-                            <td><a href="#"><span class="  d-block">이새별</span><span></span></a>
-                            </td>
-                            <td> 010-9231-8122</td>
-                            <td>Millett@naver.com</td>
-                            <td class="font-primary"> 서울시 강남구</td>
-                            <td>
-                              <span>3900</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><span>lee8755</span>
-                            </td>
-                            <td><a href="#"><span class="  d-block">이창수</span><span></span></a>
-                            </td>
-                            <td> 010-4342-8122</td>
-                            <td>czxc@nate.com</td>
-                            <td class="font-primary">서울시 중구</td>
-                            <td>
-                              <span>500</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><span>hyok</span>
-                            </td>
-                            <td><a href="#"><span class="  d-block">김효건</span><span></span></a>
-                            </td>
-                            <td> 010-2244-7026</td>
-                            <td>Kevin@nate.com</td>
-                            <td class="font-primary">서울시 마포구</td>
-                            <td>
-                              <span>900</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><span>chlwo123</span>
-                            </td>
-                            <td><a href="#"><span class="  d-block">최재훈</span><span></span></a>
-                            </td>
-                            <td> 010-1649-7283</td>
-                            <td>Dillon@nate.com</td>
-                            <td class="font-primary">서울시 은평구</td>
-                            <td>
-                              <span>600</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><span>god123</span>
-                            </td>
-                            <td><a href="#"><span class="  d-block">김진욱</span><span></span></a>
-                            </td>
-                            <td> 010-7655-6166</td>
-                            <td>god1234@naver.com</td>
-                            <td class="font-primary">서울시 구로구</td>
-                            <td>
-                              <span>3000</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><span>ohoh123</span>
-                            </td>
-                            <td><a href="#"><span class="  d-block">오충렬</span><span></span></a>
-                            </td>
-                            <td> +267-948-4207</td>
-                            <td>Johnson@naver.com</td>
-                            <td class="font-primary">서울시 송파구</td>
-                            <td>
-                              <span>2000</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><span>ssg123123</span>
-                            </td>
-                            <td><a href="#"><span class="  d-block">성상헌</span><span></span></a>
-                            </td>
-                            <td> 010-9422-7555</td>
-                            <td>Dowell@naver.com</td>
-                            <td class="font-primary">서울시 동작구</td>
-                            <td>
-                              <span>02</span>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            </td>
-                            <td>
-                              <a href="javascript:void(0)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </td>
-                          </tr>
+                          </c:forEach>
+                          </c:if>
                         </tbody>
                       </table>
                     </div>
                   </div>
+                  
                 </div>
+                  <form method="post" action="<c:url value='/admin/allUser'/>">
+		          	<div class="form-group">
+						<input placeholder="" value="${SearchVO.searchKeyword }" type="text" name="searchKeyword" 
+							class="form-control" style="width: 450px; text-align: right: ; margin-left: 550px" />
+							<button class="btn btn-primary me-3" style="background-color: #4291b8; border-color: #4291b8; width: 84px; height: 40px; font-size: 13px; margin-left: 1000px; margin-top: -60px" id="btSearch">검색</button>
+					</div>
+		          </form>
                 <div class=" pagination-box">
                   <nav class="ms-auto me-auto " aria-label="...">
+                  
                     <ul class="pagination pagination-primary">
-                      <li class="page-item "><a class="page-link" href="javascript:void(0)"
+                      <!-- <li class="page-item "><a class="page-link" href="javascript:void(0)"
                           tabindex="-1">Previous</a>
                       </li>
                       <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
@@ -272,9 +129,36 @@
                       <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
                       <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
                       <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
-                      <li class="page-item"><a class="page-link" href="javascript:void(0)">Next</a></li>
+                      <li class="page-item"><a class="page-link" href="javascript:void(0)">Next</a></li> -->
+                    	
+                    <c:if test="${pagingInfo.firstPage>1 }">
+						<li class="page-item"><a class="page-link"
+							onclick="pageFunc(${pagingInfo.firstPage-1})" href="#"
+							tabindex="-1"> Previous</a>
+						</li>
+					</c:if>
+					
+					<c:forEach var="i" begin="${pagingInfo.firstPage }"
+						end="${pagingInfo.lastPage }">
+						<c:if test="${i==pagingInfo.currentPage }">
+							<li class="page-item"><a class="page-link">${i }</a></li>
+						</c:if>
+
+						<c:if test="${i!=pagingInfo.currentPage }">
+							<li class="page-item"><a class="page-link" href="#"
+								onclick="pageFunc(${i})">${i }</a></li>
+						</c:if>
+					</c:forEach>
+
+					<c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">
+						<li class="page-item"><a class="page-link" href="#"
+							onclick="pageFunc(${pagingInfo.lastPage+1})" >
+								Next
+						</a></li>
+					</c:if>
                     </ul>
                   </nav>
+		          
                 </div>
               </div>
             </div>
@@ -295,12 +179,13 @@
             </div>
 
           </footer> -->
-        </div> -->
+        </div>
       </div>
+      </form>
     </div>
 
 
-  <!--   <!-- Modal -->
+     <!-- Modal -->
     <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog  modal-dialog-centered">
@@ -320,8 +205,10 @@
       </div>
     </div>
 
-  </div> -->
-
+  </div>
+<form name="excelForm" id="excelForm" method="post" action="<c:url value='/excelDown'/>">
+     <input type="submit" id="excelDown" value="EXCEL다운">
+</form>
   <!-- latest jquery-->
   <script src="../admin/js/jquery-3.5.1.min.js"></script>
   <!-- Bootstrap js-->

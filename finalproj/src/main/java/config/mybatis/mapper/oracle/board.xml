@@ -101,6 +101,7 @@
 	<delete id="deleteBoard" parameterType="int">
 		call lostDelete(#{bNo})
 	</delete>
+	
 </mapper>
 
 

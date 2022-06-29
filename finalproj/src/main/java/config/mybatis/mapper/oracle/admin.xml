@@ -26,7 +26,34 @@
 		where bt_no=3
 	</select>
 	
-	<select id="memberSelectAll">
-		select * from member order by mem_no
+	<sql id="searchWhere">
+		<if test="searchKeyword !=null and searchKeyword !=''">
+        	where mem_name 
+        		like '%' || #{searchKeyword} || '%'
+        </if>
+	</sql>
+	
+	<select id="selectMemberAll" parameterType="SearchVO" resultType="memberVo">
+	select *
+		from
+		(
+		    select rownum as RNUM, A.*
+		    from
+		    (
+		       	select * from member
+				<include refid="searchWhere"></include>
+				order by mem_no desc
+		    )A
+		)
+		where RNUM>#{firstRecordIndex} 
+		<![CDATA[
+		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
+		<!-- order by mem_no desc -->
 	</select>
+	
+	<select id="selectMemberTotalRecord" parameterType="SearchVO" resultType="int">
+		select count(*) from member
+			<include refid="searchWhere"></include>
+	</select>
+	
 </mapper>

@@ -5,7 +5,7 @@
 
 <script type="text/javascript">
 	$(function() {
- 
+
 		$('#btWrite').click(function() {
 			location.href = "<c:url value='/lost/write.do'/>";
 		});
@@ -27,10 +27,10 @@
 
 <!-- 페이징 처리를 위한 form 시작-->
 <form name="frmPage" method="post">
-	<input type="hidden" name="startDay" value="${dateSearchVO.startDay }"> <input type="hidden" name="endDay"
-		value="${dateSearchVO.endDay }"> <input
-		type="hidden" name="currentPage">
-		<input type="hidden" name="searchKeyword" value="${dateSearchVO.searchKeyword }"> 
+	<input type="hidden" name="startDay" value="${dateSearchVO.startDay }">
+	<input type="hidden" name="endDay" value="${dateSearchVO.endDay }">
+	<input type="hidden" name="currentPage"> <input type="hidden"
+		name="searchKeyword" value="${dateSearchVO.searchKeyword }">
 </form>
 <!-- 페이징 처리 form 끝 -->
 
@@ -80,15 +80,16 @@
 					</div>
 					<div class="col-lg-2">
 						<div class="form-group">
-							<input placeholder="물품명 입력" value="${dateSearchVO.searchKeyword }" type="text" name="searchKeyword" 
-								class="form-control" />
+							<input placeholder="물품명 입력"
+								value="${dateSearchVO.searchKeyword }" type="text"
+								name="searchKeyword" class="form-control" />
 
 						</div>
 					</div>
 					<div class="col-lg-2">
 						<div class="search-btn">
-							<input type="submit" class="btn btn-solid color1" id="btSearch" value="조회하기"
-								value="조회하기">
+							<input type="submit" class="btn btn-solid color1" id="btSearch"
+								value="조회하기" value="조회하기">
 						</div>
 					</div>
 					<div class="responsive-close">
@@ -183,8 +184,19 @@
 									</div>
 									<div class="col-md-2">
 										<div class="logo-sec">
-											<img src="<c:url value='/img_upload/${vo.FName }'/>"
-												alt="${vo.BTitle}" style="width: 60px; height: 60px">
+
+											<c:if test="${empty vo.FName}">
+												<img src="<c:url value='/images/no_image.png'/>" alt="이미지없음"
+													style="width: 60px; height: 60px">
+											</c:if>
+											<c:if test="${!empty vo.FName}">
+												<img src="<c:url value='/img_upload/${vo.FName }'/>"
+													alt="${vo.BTitle}" style="width: 60px; height: 60px">
+											</c:if>
+
+
+											<%-- <img src="<c:url value='/img_upload/${vo.FName }'/>"
+												alt="${vo.BTitle}" style="width: 60px; height: 60px"> --%>
 										</div>
 									</div>
 

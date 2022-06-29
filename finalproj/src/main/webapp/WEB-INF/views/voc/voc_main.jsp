@@ -43,7 +43,7 @@
                         <div class="top-image">
                             <div class="slide-1 arrow-dark">
                                 <div>
-                                    <img src="../assets/images/portfolio/13.jpg" alt=""
+                                    <img src="../assets/images/portfolio/vocBanner.jpg" alt=""
                                         class="img-fluid blur-up lazyload">
                                 </div>
                                 <div>
@@ -123,61 +123,8 @@
                                     <h5>popular post</h5>
                                 </div>
                                 <div class="sidebar-content">
-                                    <ul class="blog-post">
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-fluid blur-up lazyload"
-                                                    src="../assets/images/portfolio/6.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body align-self-center">
-                                                    <div>
-                                                        <h6>25 Dec 2018</h6>
-                                                        <p>100 hits</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-fluid blur-up lazyload"
-                                                    src="../assets/images/portfolio/7.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body align-self-center">
-                                                    <div>
-                                                        <h6>25 Dec 2018</h6>
-                                                        <p>540 hits</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-fluid blur-up lazyload"
-                                                    src="../assets/images/portfolio/8.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body align-self-center">
-                                                    <div>
-                                                        <h6>25 Dec 2018</h6>
-                                                        <p>250 hits</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-fluid blur-up lazyload"
-                                                    src="../assets/images/portfolio/2.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body align-self-center">
-                                                    <div>
-                                                        <h6>25 Dec 2018</h6>
-                                                        <p>30 hits</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+								<c:import url="/voc/bestList"></c:import>
+							</div>
                             </div>
                         </div>
                     </div>

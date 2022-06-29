@@ -2,24 +2,37 @@
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
 <script type="text/javascript">
+	
 	function reply(idx, bNo,groupno,step,sortno){
 		var insReply = '';
-		insReply += '<form method="post" action="<c:url value='/voc/comments_reply'/>">';
+		insReply += '<form name="vocReplyRe" method="post" action="<c:url value='/voc/comments_reply'/>">';
 		insReply += '<input type="hidden" name="bNo" value='+bNo+'>';
 		insReply += '<input type="hidden" name="cGroupno" value='+groupno+'>';
 		insReply += '<input type="hidden" name="cStep" value='+step+'>';
 		insReply += '<input type="hidden" name="cSortno" value='+sortno+'>';
 		insReply += '<input type="text" name="cContent">';
 		insReply += '<button type="submit">등록</button>';
-		insReply += '<input type="button" value="취소">';
+		insReply += '<input type="button" value="취소" onclick="javascript:replyCancel('+idx+')">';
 		insReply += '</form>';
 
+		$("#replyBox"+idx).slideDown(500);
 		$("#replyBox"+idx).html(insReply);
+		
+		$('form[name=vocReplyRe]').submit(function(){
+			if($.trim($('#cContent').val()) == ""){
+				alert("내용을 입력해주세요");
+				$('input[name=cContent]').focus();
+				event.preventDefault();
+			}
+		});
 	}
 	
 	function replyCancel(idx){
 		$("#replyBox"+idx).slideUp(500);
 	}
+	
+	
+	
 </script>
 <!-- breadcrumb start -->
     <section class="breadcrumb-section pt-0">
@@ -48,7 +61,7 @@
                         <div class="top-image">
                             <div class="slide-1 arrow-dark">
                                 <div>
-                                    <img src="../assets/images/portfolio/13.jpg" alt=""
+                                    <img src="../assets/images/portfolio/vocBanner.jpg" alt=""
                                         class="img-fluid blur-up lazyload">
                                 </div>
                                 <div>
@@ -64,9 +77,11 @@
                                 <li><i class="fa fa-heart"></i> ${vo.BCount }</li>
                                 <li><i class="fa fa-comments"></i> Comment num</li>
                             </ul>
-                            <h3>${vo.BTitle }</h3>
+                            <hr>
+                            <h2>${vo.BTitle }</h2>
                         </div>
                         <div class="detail-part">
+                        	<hr>
                         	<p>첨부파일 : 
                         	<c:if test="${!empty vo.FName }">
                         	<span><a href="<c:url value='/voc/download?bNo=${param.bNo }&fName=${vo.FName }'/>">
@@ -74,7 +89,7 @@
                         	<span>다운로드수 : ${vo.FCount }</span>
                         	</c:if>
                         	</p>
-                            <p>${vo.BContent }</p>
+                            <h4>${vo.BContent }</h4>
                             <c:if test="${vo.BId==memVo.memId }">
                             <span class="submit-btn">
                                 <button class="btn btn-solid" id="btEdit" 
@@ -99,8 +114,10 @@
 										<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 										</c:forEach>
 									</c:if>
-										<img src="../assets/images/avtar/1.jpg"
+										<c:if test="${vo.CStep>0 }">
+										<img src="../assets/images/avtar/reply.png"
 											class="img-fluid blur-up lazyload" alt="">
+										</c:if>
 										<div class="media-body">
 											<div class="title">
 												<div class="comment-user">
@@ -132,8 +149,9 @@
 													<form action="<c:url value='/voc/vocReplyEdit'/>" method="post">
 														<input type="hidden" name="bNo" value="${vo.BNo }">
 														<input type="hidden" name="cNo" value="${vo.CNo }">
+														<input type="hidden" name="cDelflag" value="${vo.CDelflag }">
 														<input type="text" name="cContent" value="${vo.CContent }" />
-														<button type="submit">등록</button>
+														<button type="submit">등록</button>&nbsp;<button type="submit">취소</button>
 													</form>
 												</c:otherwise>
 											</c:choose>
@@ -153,7 +171,6 @@
 						</div>
 					</div>
                         <div class="leave-comment">
-                            <h4 class="comment">Content Textarea</h4>
                             <form method="post" action="<c:url value='/voc/comments_write'/>">
                             	<input type="hidden" name="bNo" value="${vo.BNo }">
                                 <div class="row">
@@ -204,7 +221,7 @@
                                             </a>
                                         </li>
                                         <li class="">
-                                            <a href="<c:url value='/voc/voc_list'/>">
+                                            <a href="#">
                                                 <i aria-hidden="true" class="fa fa-angle-right"></i>내가쓴 글
                                             </a>
                                         </li>
@@ -216,61 +233,9 @@
                                     <h5>popular post</h5>
                                 </div>
                                 <div class="sidebar-content">
-                                    <ul class="blog-post">
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-fluid blur-up lazyload"
-                                                    src="../assets/images/portfolio/6.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body align-self-center">
-                                                    <div>
-                                                        <h6>25 Dec 2018</h6>
-                                                        <p>100 hits</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-fluid blur-up lazyload"
-                                                    src="../assets/images/portfolio/7.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body align-self-center">
-                                                    <div>
-                                                        <h6>25 Dec 2018</h6>
-                                                        <p>540 hits</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-fluid blur-up lazyload"
-                                                    src="../assets/images/portfolio/8.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body align-self-center">
-                                                    <div>
-                                                        <h6>25 Dec 2018</h6>
-                                                        <p>250 hits</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-fluid blur-up lazyload"
-                                                    src="../assets/images/portfolio/2.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body align-self-center">
-                                                    <div>
-                                                        <h6>25 Dec 2018</h6>
-                                                        <p>30 hits</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+								<c:import url="/voc/bestList"></c:import>
+							</div>
+                            </div>
                             </div>
                         </div>
                     </div>
