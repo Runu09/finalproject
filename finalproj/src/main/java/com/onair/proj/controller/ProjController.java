@@ -80,5 +80,6 @@ public class ProjController {
 	public String faq() {
 		return "/customer/faq";
 	}
+
 	
 }

@@ -35,7 +35,18 @@
                                         alt="">
                                     <div class="selector-box" id="arrBox">
                                          <h6 class="title">출발지를 선택하세요</h6>
-                                        <%@ include file="../inc/selectArrival.jsp" %>  
+                                         <ul class="arr">
+	                                         <c:forEach items="${selectAllAirport}" var="airfort">
+											    <li>
+											        <a href="#">
+											            <h5><c:out value="${airfort.ALoc}"/></h5>
+											            <h6><c:out value="${airfort.ALoc}"/> 국내공항</h6>
+											            <span><c:out value="${airfort.AName.substring(4, 7)}"/></span>
+											        </a>
+											    </li>
+											</c:forEach>
+										</ul>
+                                        <%-- <%@ include file="../inc/selectArrival.jsp" %> --%>  
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -43,7 +54,18 @@
                                     <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
                                     <div class="selector-box" id="depBox">
 	                                    <h6 class="title">도착지를 선택하세요</h6>
-	                                    <%@ include file="../inc/selectDeparture.jsp" %> 
+	                                    <ul class="dep">
+	                                         <c:forEach items="${selectAllAirport}" var="airfort">
+											    <li>
+											        <a href="#">
+											            <h5><c:out value="${airfort.ALoc}"/></h5>
+											            <h6><c:out value="${airfort.ALoc}"/> 국내공항</h6>
+											            <span><c:out value="${airfort.AName.substring(4, 7)}"/></span>
+											        </a>
+											    </li>
+											</c:forEach>
+										</ul>
+	                                    <%-- <%@ include file="../inc/selectDeparture.jsp" %> --%> 
                                     </div>
                                 </div>
                                 

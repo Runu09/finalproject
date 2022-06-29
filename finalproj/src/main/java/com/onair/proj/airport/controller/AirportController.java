@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.xml.sax.SAXException;
 
 import com.onair.proj.airport.model.AirportInfoExplorer;
@@ -43,13 +45,31 @@ public class AirportController {
         //List에 담겨있는 정보들을 db에 넣기 위해서 사용
         for (AirportVO vo : list) {
 
-        	airportService.insertAirport(vo);
+        	airportService.insertAirportApi(vo);
 
         }
 
-        model.addAttribute("selectAllAirport",airportService.selectAllAirport());
+        model.addAttribute("selectAllAirportApi",airportService.selectAllAirportApi());
 
         logger.info("파싱 정보 입력끝");
+    }
+    
+    @GetMapping("/main/main.do")
+    public String AirportMainGet(Model model) {
+    	List<AirportVO> list = airportService.selectAllAirport();
+    	
+    	model.addAttribute("selectAllAirport",list);
+    	
+    	return "/main/main";
+    }
+    
+    @GetMapping("/booking/flight-round-trip.do")
+    public String AirportRound(Model model) {
+    	List<AirportVO> list = airportService.selectAllAirport();
+    	
+    	model.addAttribute("selectAllAirport",list);
+    	
+    	return "/booking/flight-round-trip";
     }
 
 }

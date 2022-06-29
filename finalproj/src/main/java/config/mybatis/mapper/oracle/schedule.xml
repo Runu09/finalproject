@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.onair.proj.schedule.model.ScheduleDAO">
+	<insert id="insertScheduleApi" parameterType="ScheduleVo">
+		MERGE 
+		INTO schedule
+		USING dual
+		ON (s_name = #{sName})
+		WHEN NOT MATCHED THEN
+      	INSERT (s_name, a_depnm, a_arrnm, al_name, s_starttime, s_arrtime, s_person, s_price)
+      	VALUES (#{sName}, #{aDepnm}, #{aArrnm}, #{alName}, #{sStarttime}, #{sArrtime}, #{sPerson}, #{sPrice})
+      	
+    </insert>
+
+    <select id="selectAllScheduleApi" resultType="ScheduleVO">
+        select * from Schedule
+        where s_price !=' '
+    </select>
+</mapper>

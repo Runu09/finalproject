@@ -37,7 +37,18 @@
                                 <input type="text" class="form-control open-select" value="서울/김포" placeholder="to" id="arrival">
                                 <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload" alt="">
                                 <div class="selector-box" id="arrBox">
-								       <%@ include file="../inc/selectArrival.jsp" %>                                   
+                                	<ul class="arr">
+                                         <c:forEach items="${selectAllAirport}" var="airfort">
+										    <li>
+										        <a href="#">
+										            <h5><c:out value="${airfort.ALoc}"/></h5>
+										            <h6><c:out value="${airfort.ALoc}"/> 국내공항</h6>
+										            <span><c:out value="${airfort.AName.substring(4, 7)}"/></span>
+										        </a>
+										    </li>
+										</c:forEach>
+									</ul>
+							        <%-- <%@ include file="../inc/selectArrival.jsp" %> --%>                                   
                                 </div>
                             </div>
                         </div>
@@ -48,7 +59,18 @@
                                     value="부산/김해" placeholder="from" id="departure">
                                 <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
                                 <div class="selector-box" id="depBox">
-                                        <%@ include file="../inc/selectDeparture.jsp" %>
+                                	<ul class="dep">
+                                         <c:forEach items="${selectAllAirport}" var="airfort">
+										    <li>
+										        <a href="#">
+										            <h5><c:out value="${airfort.ALoc}"/></h5>
+										            <h6><c:out value="${airfort.ALoc}"/> 국내공항</h6>
+										            <span><c:out value="${airfort.AName.substring(4, 7)}"/></span>
+										        </a>
+										    </li>
+										</c:forEach>
+									</ul>
+                                    <%-- <%@ include file="../inc/selectDeparture.jsp" %> --%>
                                 </div>
                         	</div>           
                         </div>
@@ -98,7 +120,7 @@
                         </div>
                         <div class="col-lg-2">
                             <div class="search-btn">
-                                <a href="#" class="btn btn-solid color1">검색</a>
+                                <a href="#" class="btn btn-solid color1" id="reservationsubmit">검색</a>
                             </div>
                         </div>
                         <div class="responsive-close">
