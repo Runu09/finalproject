@@ -15,5 +15,7 @@ public interface AdminService {
 	int adminLogin(String manId, String manPwd);
 	List<MemberVO> selectMemberAll(SearchVO searchVo);
 	int selectMemberTotalRecord(SearchVO searchVo);
-	public List<MemberVO> getExcelDown(MemberVO memberVo, HttpServletResponse response);
+	//public List<MemberVO> getExcelDown(MemberVO memberVo, HttpServletResponse response);
+	List<MemberVO> getExcelDown(MemberVO memberVo);
+	AdminVO selectByManId(String manId);
 }

@@ -33,6 +33,28 @@
     <link rel="stylesheet" type="text/css" href="../admin/css/style.css">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../admin/css/responsive.css">
+ 	<script type="text/javascript"
+	src="<c:url value='/assets/js/jquery-3.6.0.min.js'/>"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#btAdmin').click(
+				function(){
+					if ($.trim($('#manName').val()) == "") {
+						alert("이름을 입력해주세요.");
+						$('#manName').focus();
+						event.preventDefault();
+					}else if ($("#manPwd").val().length < 1) {
+						alert("비밀번호를 입력하세요");
+						$("#manPwd").focus();
+						event.preventDefault();
+					} else if ($("#manPwd").val() != $("#manPwd2").val()) {
+						alert("비밀번호가 일치하지 않습니다.");
+						$("#manPwd2").focus();
+						event.preventDefault();
+					}
+				});
+		});
+	</script>
 </head>
 
 <body>
@@ -64,16 +86,16 @@
                                 </div> -->
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">관리자 이름</label>
-                                    <input class="form-control" type="text" name="manName" required="" placeholder="관리자 이름">
+                                    <input class="form-control" type="text" id="manName" name="manName" required="" placeholder="관리자 이름">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">관리자 아이디</label>
-                                    <input class="form-control" type="text" name="manId" required="" placeholder="관리자 아이디">
+                                    <input class="form-control" type="text" id="manId" name="manId" required="" placeholder="관리자 아이디">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">비밀번호</label>
                                     <div class="form-input position-relative">
-                                        <input class="form-control" type="password" name="manPwd" required=""
+                                        <input class="form-control" type="password" id="manPwd" name="manPwd" required=""
                                             placeholder="*********">
                                         <div class="show-hide"><span class="show"></span></div>
                                     </div>
@@ -81,7 +103,7 @@
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">비밀번호 확인</label>
                                     <div class="form-input position-relative">
-                                        <input class="form-control" type="password" name="manPwd2" required=""
+                                        <input class="form-control" type="password" id="manPwd2" name="manPwd2" required=""
                                             placeholder="*********">
                                         <div class="show-hide"><span class="show"></span></div>
                                     </div>
@@ -92,7 +114,7 @@
                                         <label class="text-muted" for="checkbox1">Agree with<a class="ms-2"
                                                 href="#">Privacy Policy</a></label>
                                     </div> -->
-                                    <button class="btn btn-primary btn-block w-100" type="submit">등록</button>
+                                    <button class="btn btn-primary btn-block w-100" type="submit" id="btAdmin">등록</button>
                                 </div>
                                 <!-- <h6 class="text-muted mt-4 or">Or signup with</h6>
                                 <div class="social mt-4">
@@ -106,6 +128,7 @@
                                                 data-feather="facebook"></i>facebook</a></div>
                                 </div> -->
                                 <p class="mt-4 mb-0">이미 계정이 있습니까?<a class="ms-2" href="<c:url value='/admin/adminLogin'/>">로그인</a></p>
+                            	<input type="hidden" name="chkId" id="chkId">
                             </form>
                         </div>
                     </div>

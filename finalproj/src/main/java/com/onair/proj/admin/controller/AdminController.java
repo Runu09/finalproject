@@ -66,7 +66,15 @@ public class AdminController {
 		
 		int cnt= adminService.adminInsert(vo);
 		logger.info("관리자 등록 결과, 파라미터 cnt=", cnt);
-		return "/admin/adminLogin";
+		
+		String msg="관리자 등록 실패", url="/admin/adminRegister";
+		if(cnt>0) {
+			msg="관리자 등록 완료";
+			url="/admin/adminLogin";
+		}
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		return "/common/message";
 	}
 	
 	@GetMapping("/adminLogin")
@@ -86,6 +94,7 @@ public class AdminController {
 		
 		String msg="관리자 로그인 처리 실패", url="/admin/adminLogin";
 		if(result==MemberService.LOGIN_OK) {
+			AdminVO adminVo= adminService.selectByManId(vo.getManId());
 			HttpSession session = request.getSession();
 			session.setAttribute("manId", vo.getManId());
 			session.setAttribute("manName", vo.getManName());
@@ -99,7 +108,7 @@ public class AdminController {
 				ck.setMaxAge(0);
 				response.addCookie(ck);
 			}
-			msg= "관리자님이 로그인 되었습니다.";
+			msg= adminVo.getManName()+"님 로그인 되었습니다.";
 			url= "/admin/adminMain";
 			
 		}else if(result==MemberService.DISAGREE_PWD) {
