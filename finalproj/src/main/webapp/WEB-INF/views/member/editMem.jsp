@@ -106,7 +106,7 @@
 												<!-- 프로필사진 -->	
 													<div class="profile-image2">
 													<img src="<c:url value='/user_upload/${vo.MPic }'/>"
-														onerror="this.src='../assets/images/avtar/1.jpg';"
+													
 													class="img-fluid blur-up lazyload" alt="프로필사진"/>
 													
 													</div>

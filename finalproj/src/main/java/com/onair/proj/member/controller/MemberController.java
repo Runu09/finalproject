@@ -105,6 +105,8 @@ public class MemberController {
 		return "/member/editMem";
 	}
 	
+	
+	//파일업로드
 	@PostMapping("/editMem.do")
 	public String editMem_post(@ModelAttribute MemberVO vo,
 			@RequestParam String mEmail3, HttpSession session,
@@ -151,7 +153,7 @@ public class MemberController {
 		
 		try {
 			fileList
-			= fileUploadUtil.fileUpload(request, ConstUtil.UPLOAD_IMAGE_FLAG);
+			= fileUploadUtil.fileUpload(request, ConstUtil.UPLOAD_FILE_FLAG);
 			
 			for(Map<String, Object> fileMap : fileList) {
 				fileName=(String)fileMap.get("fileName");
