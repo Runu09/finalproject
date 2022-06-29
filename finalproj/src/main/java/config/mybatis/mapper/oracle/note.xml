@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.onair.proj.note.model.NoteDAO">
+
+
+	<insert id="insertNote" parameterType="noteVo">
+		<selectKey resultType="int" keyProperty="nNo" order="BEFORE">
+			select
+			SEQ_NOTE.nextval from dual
+		</selectKey>
+		insert into note(n_no, man_no, n_title, n_content)
+		values(#{nNo},#{manNo},#{nTitle},#{nContent})
+	</insert>
+
+	<insert id="insertNoteman" parameterType="notemanVo">
+		<!-- <selectKey resultType="int" keyProperty="nNo" order="BEFORE">
+			select
+			SEQ_NOTE.currval from dual
+		</selectKey> -->
+		<selectKey resultType="int" keyProperty="nmNo"
+			order="BEFORE">
+			select SEQ_NOTEMAN.nextval from dual
+		</selectKey>
+		insert into
+		noteman(nm_no, mem_no, n_no)
+		values(#{nmNo},
+		#{memNo},seq_note.currval)
+	</insert>
+
+	<!-- <sql id="searchWhere"> <if test="searchKeyword !=null and searchKeyword 
+		!=''"> where mem_name like '%' || #{searchKeyword} || '%' </if> </sql> <select 
+		id="selectMemberAll" parameterType="SearchVO" resultType="memberVo"> select 
+		* from ( select rownum as RNUM, A.* from ( select * from member <include 
+		refid="searchWhere"></include> order by mem_no desc )A ) where RNUM>#{firstRecordIndex} 
+		<![CDATA[ and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]> </select> -->
+	<select id="selectManNo" parameterType="string" resultType="int">
+		select man_no from manager where man_id=#{manId}
+
+	</select>
+
+
+	<select id="selectMemNo" parameterType="string" resultType="int"> select 
+		mem_no from member where mem_id=#{memId} </select> 
+</mapper>
