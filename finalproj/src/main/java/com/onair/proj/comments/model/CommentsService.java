@@ -9,6 +9,6 @@ public interface CommentsService {
 	int updateComment(CommentsVO vo);
 
 	int deleteReply(int cNo); 
-	int reply(CommentsVO vo);
+	void reply(CommentsVO vo);
 	void deleteComments(Map<String, String> map);
 }

@@ -26,18 +26,19 @@
 		delete comments where c_no=#{cNo}
 	</delete> 
 	
-	<update id="updateSortNo" parameterType="commentsVo">
+	<!-- <update id="updateSortNo" parameterType="commentsVo">
 	
 	update comments set c_sortno = c_sortno + 1  
 		where c_groupno = #{cGroupno} and c_sortno >#{cSortno}+1
 	</update>
-	
+	 -->
 	<insert id="reply" parameterType="commentsVo">
 		<selectKey resultType="int" keyProperty="cNo" order="BEFORE">
 			select seq_comments.nextval from dual
 		</selectKey>
-		insert into comments(c_No, b_No, c_Id, c_Content,c_GroupNo,c_step,c_sortno)
-		values(#{cNo}, #{bNo}, #{cId}, #{cContent},#{cGroupno},#{cStep}+1,#{cSortno}+1)
+		<!-- insert into comments(c_No, b_No, c_Id, c_Content,c_GroupNo,c_step,c_sortno)
+		values(#{cNo}, #{bNo}, #{cId}, #{cContent},#{cGroupno},#{cStep}+1,#{cSortno}+1) -->
+		call commentsReply(#{cNo}, #{bNo}, #{cId}, #{cContent},#{cGroupno},#{cStep},#{cSortno})
 	</insert>
 	
 	<parameterMap type="map" id="commentsDeleteParam">
