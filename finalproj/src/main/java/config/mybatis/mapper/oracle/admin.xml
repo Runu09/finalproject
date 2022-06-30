@@ -63,5 +63,10 @@
 	<select id="selectByManId" parameterType="string" resultType="adminVo">
 		select * from manager where MAN_ID=#{manId}
 	</select>
+	<update id="adminMemberDelete" parameterType="string">
+		update member 
+		set M_OUTDATE=sysdate
+		where MEM_ID=#{memId}
+	</update>
 	
 </mapper>
