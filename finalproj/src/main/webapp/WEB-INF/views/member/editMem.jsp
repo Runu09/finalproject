@@ -127,7 +127,12 @@
 											</div>
 											<div class="right">
 													<input class="form-control" type="file" name="imageUpload" id="imageUpload" 
-													placeholder="사진 등록" style="height: 55px;">
+													placeholder="사진 등록" style="height: 55px;" 
+													<c:if test="${!empty vo.MPic }">
+													value="${vo.MPic } placeholder="${vo.MPic}"
+													</c:if>
+													>
+													<input type="hidden" name="mPic" value="${vo.MPic }"  placeholder="${vo.MPic}">
 												</div>
 										</div>
 										</li>
@@ -297,7 +302,7 @@
 															style="visibility:hidden"
 														</c:if>
 														<c:if test="${etcYn =='Y' }">
-															value="${vo.MEmail2 }"
+															value="${vo.MEmail3 }"
 														</c:if>
 													>
 												</div>
