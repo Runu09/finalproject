@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <script src="../assets/js/selectAirport.js"></script>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <ul class="dep">
-    <li>
+	<li>
         <a href="#">
             <h5>서울/김포</h5>
             <h6>김포 국제공항</h6>

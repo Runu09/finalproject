@@ -15,10 +15,8 @@
 	</insert>
 
 	<insert id="insertNoteman" parameterType="notemanVo">
-		<!-- <selectKey resultType="int" keyProperty="nNo" order="BEFORE">
-			select
-			SEQ_NOTE.currval from dual
-		</selectKey> -->
+		<!-- <selectKey resultType="int" keyProperty="nNo" order="BEFORE"> select 
+			SEQ_NOTE.currval from dual </selectKey> -->
 		<selectKey resultType="int" keyProperty="nmNo"
 			order="BEFORE">
 			select SEQ_NOTEMAN.nextval from dual
@@ -41,6 +39,17 @@
 	</select>
 
 
-	<select id="selectMemNo" parameterType="string" resultType="int"> select 
-		mem_no from member where mem_id=#{memId} </select> 
+	<select id="selectMemNo" parameterType="string" resultType="int">
+		select
+		mem_no from member where mem_id=#{memId}
+	</select>
+
+	<select id="selectNoteView" resultType="noteviewVO">
+		select * from noteView order by nm_no desc
+
+	</select>
+
+		
+	
+	
 </mapper>

@@ -9,13 +9,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:forEach items="${selectAllAirportApi}" var="airfort">
+<c:forEach items="${selectAllAirlineApi}" var="airline">
     <tr>
         <th>
-            <c:out value="${airfort.AName}"/>
+            <c:out value="${airline.alId}"/>
         </th>
         <th>
-            <c:out value="${airfort.ALoc}"/>
+            <c:out value="${airline.alName}"/>
         </th>
     </tr>
     <br><br>

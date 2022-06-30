@@ -1,6 +1,7 @@
 package com.onair.proj.note.model;
 
 import java.util.List;
+import java.util.Map;
 
 import com.onair.proj.common.SearchVO;
 import com.onair.proj.member.model.MemberVO;
@@ -16,5 +17,5 @@ public interface NoteService {
 	
 	 int insertNoteman(NotemanVO vo); 
 	 int selectMemNo(String memId);
-	 
+	 List<NoteviewVO> selectNoteView();
 }

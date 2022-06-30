@@ -12,8 +12,8 @@ public interface CommentsDAO {
 	int updateComment(CommentsVO vo);
 	int deleteReply(int cNo);
 
-	int updateSortNo(CommentsVO vo); 
-	int reply(CommentsVO vo);
+	//int updateSortNo(CommentsVO vo); 
+	void reply(CommentsVO vo);
 	
 	void deleteComments(Map<String, String> map);
 	

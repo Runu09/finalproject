@@ -1,6 +1,7 @@
 package com.onair.proj.note.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -23,6 +24,7 @@ import com.onair.proj.member.model.MemberVO;
 import com.onair.proj.note.model.NoteService;
 import com.onair.proj.note.model.NoteVO;
 import com.onair.proj.note.model.NotemanVO;
+import com.onair.proj.note.model.NoteviewVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -91,4 +93,16 @@ public class NoteController {
 		model.addAttribute("url",url);
 		return "/common/message";
 	}
+	@RequestMapping("/list.do")
+	public String note_list(Model model) {
+		
+		List<NoteviewVO> list=noteService.selectNoteView();
+		
+		logger.info("list.size()={}", list.size());
+		model.addAttribute("noteList",list);
+		return "/note/list";
+		
+
+	}
+
 }

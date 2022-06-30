@@ -1,7 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-<body>
+<script>
+/* 	$(function(){
+		$('#searchBtn').click(function(){
+			var arr = $('#arrival').val();
+			var dep = $('#departure').val();
+			var date = $('#datepicker').val();
+			var upDown1 = $('#numberUpDown1').val();
+			var upDown2 = $('#numberUpDown2').val();
+			location.href="flight-round-trip.do?arrival="+arr+"&departuer="+dep+"&datepicker"+date+"&numberUpDown1"+upDown1+"&numberUpDown2"+upDown2;
+		});
+	}) */
+</script>
 
  <!-- home section start -->
     <section class="cab-section flight-section home-section p-0">
@@ -35,7 +46,18 @@
                                         alt="">
                                     <div class="selector-box" id="arrBox">
                                          <h6 class="title">출발지를 선택하세요</h6>
-                                        <%@ include file="../inc/selectArrival.jsp" %>  
+                                         <ul class="arr">
+	                                         <c:forEach items="${selectAllAirport}" var="airfort">
+											    <li>
+											        <a href="#">
+											            <h5><c:out value="${airfort.ALoc}"/></h5>
+											            <h6><c:out value="${airfort.ALoc}"/> 국내공항</h6>
+											            <span><c:out value="${airfort.AName.substring(4, 7)}"/></span>
+											        </a>
+											    </li>
+											</c:forEach>
+										</ul>
+                                        <%-- <%@ include file="../inc/selectArrival.jsp" %> --%>  
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -43,7 +65,18 @@
                                     <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
                                     <div class="selector-box" id="depBox">
 	                                    <h6 class="title">도착지를 선택하세요</h6>
-	                                    <%@ include file="../inc/selectDeparture.jsp" %> 
+	                                    <ul class="dep">
+	                                         <c:forEach items="${selectAllAirport}" var="airfort">
+											    <li>
+											        <a href="#">
+											            <h5><c:out value="${airfort.ALoc}"/></h5>
+											            <h6><c:out value="${airfort.ALoc}"/> 국내공항</h6>
+											            <span><c:out value="${airfort.AName.substring(4, 7)}"/></span>
+											        </a>
+											    </li>
+											</c:forEach>
+										</ul>
+	                                    <%-- <%@ include file="../inc/selectDeparture.jsp" %> --%> 
                                     </div>
                                 </div>
                                 
@@ -109,7 +142,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <a href="<c:url value='/booking/flight-round-trip.do'/>" class="btn btn-rounded btn-sm color1 float-end" id="reservationsubmit">search
+                            <a href="<c:url value='/booking/flight-round-trip.do'/>" class="btn btn-rounded btn-sm color1 float-end" id="searchBtn">search
                                 now</a>
                         </div>
                     </div>

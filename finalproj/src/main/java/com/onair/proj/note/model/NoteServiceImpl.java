@@ -1,6 +1,7 @@
 package com.onair.proj.note.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -45,7 +46,10 @@ public class NoteServiceImpl implements NoteService{
 		return noteDao.selectMemNo(memId);
 	}
 
-	
+	@Override
+	public List<NoteviewVO> selectNoteView() {
+		return noteDao.selectNoteView();
+	}
 
 	
 	

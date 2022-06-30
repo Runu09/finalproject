@@ -1,6 +1,7 @@
 package com.onair.proj.note.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -19,5 +20,6 @@ public interface NoteDAO {
 	
 	int insertNoteman(NotemanVO vo);
 	int selectMemNo(String memId);
+	List<NoteviewVO> selectNoteView();
 	
 }
