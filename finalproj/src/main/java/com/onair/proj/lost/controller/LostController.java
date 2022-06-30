@@ -3,6 +3,7 @@ package com.onair.proj.lost.controller;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -113,15 +114,18 @@ public class LostController {
 		logger.info("유실물 조회 글 목록, 파라미터 searchVo={}", searchVo);
 
 
-		//[조회] 버튼을 누르지 않더라도 오늘 날짜의 주문 내역은 자동으로 나오게 한다
+		//[조회] 버튼을 누르지 않더라도 최근 한달간 내역 조회
 		if(searchVo.getStartDay()==null || searchVo.getStartDay().isEmpty())
 		{	
 			Date today=new Date();
+			Calendar cal=Calendar.getInstance();
+			cal.add(Calendar.MONTH, -1);
 			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-			String str=sdf.format(today);
+			String defStart=sdf.format(cal.getTime());
+			String defEnd=sdf.format(today);
 
-			searchVo.setStartDay(str);
-			searchVo.setEndDay(str);
+			searchVo.setStartDay(defStart);
+			searchVo.setEndDay(defEnd);
 
 			logger.info("현재일자 setting searchVo={}",searchVo);
 		}

@@ -1,128 +1,110 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-    <title>쪽지 보내기</title>
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap"
-        rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
-    <style type="text/css">
-        body {
-            font-family: Nunito, sans-serif;
-            position: relative;
-            background: white;
-            font-size: 14px;
-            color: black;
-        }
+	pageEncoding="UTF-8"%>
+<style type="text/css">
+body {
+	font-family: Nunito, sans-serif;
+	position: relative;
+	background: white;
+	font-size: 14px;
+	color: black;
+}
 
-        ul {
-            margin: 0;
-            padding: 0;
-        }
+a {
+	text-decoration: none;
+}
 
-        li {
-            display: inline-block;
-            text-decoration: unset;
-        }
+.btn {
+	background-color: #292929;
+	border-color: transparent;
+	-webkit-print-color-adjust: exact;
+	letter-spacing: 0.4px;
+	border-radius: 4px;
+	font-weight: 800;
+	font-size: 14px;
+	line-height: 19px;
+	color: #FFFFFF;
+	cursor: pointer;
+	padding: 7px 13px;
+	-webkit-box-shadow: 1px 11px 20px 0px rgba(233, 179, 14, 0.12);
+	box-shadow: 1px 11px 20px 0px rgba(233, 179, 14, 0.12);
+	text-transform: capitalize;
+}
 
-        a {
-            text-decoration: none;
-        }
+.btn:focus {
+	outline: none;
+}
 
-        .btn {
-            background-color: #292929;
-            border-color: transparent;
-            -webkit-print-color-adjust: exact;
-            letter-spacing: 0.4px;
-            border-radius: 4px;
-            font-weight: 800;
-            font-size: 14px;
-            line-height: 19px;
-            color: #FFFFFF;
-            cursor: pointer;
-            padding: 7px 13px;
-            -webkit-box-shadow: 1px 11px 20px 0px rgba(233, 179, 14, 0.12);
-            box-shadow: 1px 11px 20px 0px rgba(233, 179, 14, 0.12);
-            text-transform: capitalize;
+.text-center {
+	text-align: center
+}
 
-        }
+.template-width {
+	width: 800px;
+	padding: 0 0 20px;
+}
 
-        .btn:focus {
-            outline: none;
-        }
+@media ( max-width : 767px) {
+	.template-width {
+		width: 550px;
+	}
+}
 
-        .text-center {
-            text-align: center
-        }
+@media ( max-width : 576px) {
+	.template-width {
+		width: 800px;
+	}
+	.header {
+		display: block;
+	}
+	.header td {
+		display: block;
+		text-align: center;
+	}
+}
 
-        .template-width {
-            width: 724px;
-            padding: 0 0 20px;
-        }
+@media ( max-width : 480px) {
+	.template-width {
+		width: 300px;
+	}
+}
+</style>
+<form method="post" action="<c:url value='/note/send.do'/>">
+	<table class="template-width" align="center" border="0" cellpadding="0"
+		cellspacing="0"
+		style="background-color: #fff; box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353); margin: 20px auto">
+		<tbody>
 
-
-        @media (max-width: 767px) {
-            .template-width {
-                width: 550px;
-            }
-
-        }
-
-        @media (max-width: 576px) {
-            .template-width {
-                width: 420px;
-            }
-
-            .header {
-                display: block;
-            }
-
-            .header td {
-                display: block;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .template-width {
-                width: 300px;
-            }
-        }
-    </style>
-</head>
-
-<body style="margin: 80px auto;">
-    <table class="template-width" align="center" border="0" cellpadding="0" cellspacing="0"
-        style="background-color: #fff;  box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);">
-        <tbody>
-
-            <tr>
-                <td class="success-img" style="text-align: center;">
-                   <h2
-                        style="margin: 0 auto; width: 90%; margin-top:50px; 
-                        font-size:calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320)));">
-                        쪽지 보내기</h2>
-                    <p style="width: 70%;margin: 0 auto 15px;line-height: 1.2;color: #9a9a9a;font-weight: 400;">회원에게 보낼 쪽지를 작성하세요</p>
-                </td>
-            </tr>
-<tr>
-			<td><input class="form-control" style="width: 83%; margin: 0 auto;margin-bottom: 10px"azimuth: 10o= "type="text" required="" placeholder="받는사람"></td></tr>
-			<tr><td><input class="form-control" style="width: 83%; margin: 0 auto;margin-bottom: 10px" "type="text" required="" placeholder="제목"></td></tr>
-			 <tr>
-                <td style="padding: 0 30px 30px; text-align: center;">
-                    <textarea style="width: 90%;  margin-bottom: 20px; border-color: #cecece;" rows="20"></textarea><br>
-                    <a href="#" class="btn">쪽지 보내기</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</body>
-
-</html>
+			<tr style="border-bottom: 1px solid gray">
+				<td class="success-img" style="text-align: center;" colspan="2">
+					<h6
+						style="width: 400px; margin: 20px auto; font-size: calc(18px + ( 22 - 18)* ((100vw- 320px)/(1920- 320)));">
+						회원에게 보낼 쪽지를 작성하세요</h6> <!-- <p
+					style="width: 400px; margin: 10px auto; line-height: 1.2; color: #9a9a9a; font-weight: 400;"></p>
+		 -->
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align: center"><h6 style="margin: 10px auto">받는사람</h6></td>
+				<td><input class="form-control"
+					style="width: 400px; margin: 0 auto; margin: 20px 0px; margin-right: 10px"
+					"type="text" required="" placeholder="제목" name="nTitle"></td>
+			</tr>
+			<tr>
+				<td style="text-align: center;"><textarea
+						style="width: 200px; margin: 0px 30px; margin-bottom: 20px; border-color: #cecece;"
+						rows="10" disabled="disabled" id="receiver"></textarea> <input
+					type="hidden" name="memId" id="memId"></td>
+				<td><textarea
+						style="width: 400px; margin-bottom: 20px; border-color: #cecece;"
+						name="nContent" rows="10" required="" ></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="padding: 0 30px 30px; text-align: center;">
+					<button class="btn" type="submit" id="btSend">쪽지 보내기</button>
+				</td>
+				<!-- <a href="#" class="btn">쪽지 보내기</a></td> -->
+			</tr>
+		</tbody>
+	</table>
+</form>
 

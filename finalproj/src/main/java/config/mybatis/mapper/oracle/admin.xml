@@ -55,5 +55,13 @@
 		select count(*) from member
 			<include refid="searchWhere"></include>
 	</select>
+	<select id="getExcelDown" parameterType="MemberVo" resultType="memberVo">
+		select * from member
+		order by mem_no desc
+	</select>
+	
+	<select id="selectByManId" parameterType="string" resultType="adminVo">
+		select * from manager where MAN_ID=#{manId}
+	</select>
 	
 </mapper>
