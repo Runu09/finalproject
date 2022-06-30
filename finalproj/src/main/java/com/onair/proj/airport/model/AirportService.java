@@ -8,8 +8,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
 public interface AirportService {
-	void insertAirport(AirportVO vo) throws ParserConfigurationException, SAXException, IOException;
-
+	void insertAirportApi(AirportVO vo) throws ParserConfigurationException, SAXException, IOException;
+    List<AirportVO> selectAllAirportApi();
     List<AirportVO> selectAllAirport();
-
 }
