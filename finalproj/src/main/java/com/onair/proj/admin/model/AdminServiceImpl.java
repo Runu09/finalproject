@@ -18,6 +18,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.onair.proj.admin.controller.ExcelController;
 import com.onair.proj.common.SearchVO;
@@ -30,6 +31,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class AdminServiceImpl implements AdminService{
 	private static final Logger logger
 	=LoggerFactory.getLogger(ExcelController.class);
@@ -76,114 +78,13 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public List<MemberVO> getExcelDown(MemberVO memberVo, HttpServletResponse response) {
-		List<MemberVO> list = adminDao.selectMemberAll(null);
-		try {
-			Workbook workbook = new HSSFWorkbook();
-			
-			Sheet sheet = workbook.createSheet("유저목록");
-			
-			Row row = null;
-			Cell cell= null;
-			int rowNo = 0;
-			
-			CellStyle headStyle = workbook.createCellStyle();
-			
-			headStyle.setBorderTop(BorderStyle.THIN);
-			headStyle.setBorderBottom(BorderStyle.THIN);
-			headStyle.setBorderRight(BorderStyle.THIN);
-			headStyle.setBorderLeft(BorderStyle.THIN);
-			
-			headStyle.setFillForegroundColor(HSSFColorPredefined.YELLOW.getIndex());
-			headStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-			
-			headStyle.setAlignment(HorizontalAlignment.CENTER);
-			
-			CellStyle bodyStyle = workbook.createCellStyle();
-			bodyStyle.setBorderTop(BorderStyle.THIN);
-			bodyStyle.setBorderBottom(BorderStyle.THIN);
-			bodyStyle.setBorderRight(BorderStyle.THIN);
-			bodyStyle.setBorderLeft(BorderStyle.THIN);
+	public List<MemberVO> getExcelDown(MemberVO memberVo) {
+		return adminDao.getExcelDown(memberVo);
+	}
 
-			row = sheet.createRow(rowNo++);
-			
-			cell= row.createCell(0);
-			cell.setCellStyle(headStyle);
-			cell.setCellValue("번호");
-			
-			cell= row.createCell(1);
-			cell.setCellStyle(headStyle);
-			cell.setCellValue("유저아이디");
-			
-			cell= row.createCell(2);
-			cell.setCellStyle(headStyle);
-			cell.setCellValue("이름");
-			
-			cell= row.createCell(3);
-			cell.setCellStyle(headStyle);
-			cell.setCellValue("전화번호");
-			
-			cell= row.createCell(4);
-			cell.setCellStyle(headStyle);
-			cell.setCellValue("생년월일");
-			
-			cell= row.createCell(5);
-			cell.setCellStyle(headStyle);
-			cell.setCellValue("Email");
-			
-			cell= row.createCell(6);
-			cell.setCellStyle(headStyle);
-			cell.setCellValue("주소");
-			
-			cell= row.createCell(7);
-			cell.setCellStyle(headStyle);
-			cell.setCellValue("마일리지");
-			
-			for(MemberVO excelData : list) {
-				row = sheet.createRow(rowNo++);
-				cell = row.createCell(0);
-				cell.setCellStyle(bodyStyle);
-				cell.setCellValue(excelData.getMemNo());
-				
-				cell = row.createCell(1);
-				cell.setCellStyle(bodyStyle);
-				cell.setCellValue(excelData.getMemId());
-				
-				cell = row.createCell(2);
-				cell.setCellStyle(bodyStyle);
-				cell.setCellValue(excelData.getMemName());
-				
-				cell = row.createCell(3);
-				cell.setCellStyle(bodyStyle);
-				cell.setCellValue(excelData.getMTel1()+excelData.getMTel2()+excelData.getMTel3());
-				
-				cell = row.createCell(4);
-				cell.setCellStyle(bodyStyle);
-				cell.setCellValue(excelData.getMBirthday());
-				
-				cell = row.createCell(5);
-				cell.setCellStyle(bodyStyle);
-				cell.setCellValue(excelData.getMEmail1()+"@"+excelData.getMEmail2());
-				
-				cell = row.createCell(6);
-				cell.setCellStyle(bodyStyle);
-				cell.setCellValue(excelData.getMAdd1()+excelData.getMAdd2());
-				
-				cell = row.createCell(7);
-				cell.setCellStyle(bodyStyle);
-				cell.setCellValue(excelData.getMMileage());
-				
-				response.setContentType("ms-vnd/excel");
-				response.setHeader("Content-Disposition", "attachment;filename=test.xls");
-				
-				workbook.write(response.getOutputStream());
-				workbook.close();
-			}
-			
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-		return list;
+	@Override
+	public AdminVO selectByManId(String manId) {
+		return adminDao.selectByManId(manId);
 	}
 
 }

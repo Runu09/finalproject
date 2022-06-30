@@ -31,7 +31,8 @@
 		update member
 		set M_EMAIL1=#{mEmail1}, M_EMAIL2=#{mEmail2},
 		M_TEL1=#{mTel1}, M_TEL2=#{mTel2}, M_TEL3=#{mTel3},
-    	M_ZIPCODE=#{mZipcode}, M_ADD1=#{mAdd1}, M_ADD2=#{mAdd2}
+    	M_ZIPCODE=#{mZipcode}, M_ADD1=#{mAdd1}, M_ADD2=#{mAdd2},
+    	M_PIC=#{mPic}
 		where MEM_ID=#{memId}
 	</update>
 	

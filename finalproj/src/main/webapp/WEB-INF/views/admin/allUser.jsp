@@ -28,7 +28,7 @@ function pageFunc(curPage){
   <!-- tap on tap ends-->
   <!-- page-wrapper Start-->
   <div class="page-wrapper compact-wrapper modern-type" id="pageWrapper">
-	<form method="post" action="<c:url value='/admin/allUser'/>">
+	<%-- <form method="post" action="<c:url value='/admin/allUser'/>"> --%>
     <!-- Page Body Start-->
     <div class="page-body-wrapper">
       
@@ -52,9 +52,9 @@ function pageFunc(curPage){
                   </form> -->
 
                 </div>
-                
 			
                 <div class="card-body">
+                	
                   <div>
                     <div class="table-responsive table-desi">
                       <table class="user-table table table-striped">
@@ -107,8 +107,10 @@ function pageFunc(curPage){
                       </table>
                     </div>
                   </div>
-                  
                 </div>
+		          <form name="excelForm" id="excelForm" method="post" action="<c:url value='/excelDown'/>">
+     						<input class="btn btn-primary me-3" type="submit" id="excelDown" value="유저정보 다운" style="margin-left: 1363px;margin-bottom: -60px; height: 40px;">
+						</form>
                   <form method="post" action="<c:url value='/admin/allUser'/>">
 		          	<div class="form-group">
 						<input placeholder="" value="${SearchVO.searchKeyword }" type="text" name="searchKeyword" 
@@ -157,12 +159,12 @@ function pageFunc(curPage){
 						</a></li>
 					</c:if>
                     </ul>
+				
                   </nav>
 		          
                 </div>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -181,7 +183,7 @@ function pageFunc(curPage){
           </footer> -->
         </div>
       </div>
-      </form>
+      <!-- </form> -->
     </div>
 
 
@@ -206,9 +208,7 @@ function pageFunc(curPage){
     </div>
 
   </div>
-<form name="excelForm" id="excelForm" method="post" action="<c:url value='/excelDown'/>">
-     <input type="submit" id="excelDown" value="EXCEL다운">
-</form>
+
   <!-- latest jquery-->
   <script src="../admin/js/jquery-3.5.1.min.js"></script>
   <!-- Bootstrap js-->
