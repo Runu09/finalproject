@@ -11,43 +11,74 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.xml.sax.SAXException;
 
+import com.onair.proj.airport.model.AirportService;
+import com.onair.proj.airport.model.AirportVO;
+import com.onair.proj.common.ConstUtil;
+import com.onair.proj.common.PaginationInfo;
+import com.onair.proj.common.ScheduleSearchVO;
 import com.onair.proj.schedule.model.ScheduleInfoExplorer;
 import com.onair.proj.schedule.model.ScheduleService;
 import com.onair.proj.schedule.model.ScheduleVO;
 
+import lombok.RequiredArgsConstructor;
+
 @Controller
+@RequiredArgsConstructor
 public class ScheduleController {
 	
 	 private static final Logger logger
 	 =LoggerFactory.getLogger(ScheduleController.class);
 	 
-	 private ScheduleService scheduleService;
+	 private final AirportService airportService;
 	 
-	 @Autowired public ScheduleController(ScheduleService apiService) {
-	 this.scheduleService=apiService; }
+	 private final ScheduleService scheduleService;
+
 
 	//검색시 데이터가 없으면 db에 추가하도록 처리한다.
-    @GetMapping("/apiTest/ScheduleApiData")
-    public void searchInfo(Model model) throws ParserConfigurationException, SAXException, IOException {
+    @RequestMapping("/booking/flight-round-trip.do") 
+    public void searchInfo(Model model, @ModelAttribute ScheduleSearchVO searchVo) throws ParserConfigurationException, SAXException, IOException {
 
     	logger.info("파싱 스타트 체크");
         ScheduleInfoExplorer apiExplorer = new ScheduleInfoExplorer();
 
         //파싱하여 리턴한 데이터 값들을 list에 담아주기 위해 사용
-        List<ScheduleVO> list = apiExplorer.parsingData("NAARKSS", "NAARKPC", "20220627");
+        List<ScheduleVO> list = apiExplorer.parsingData("NAARKSS", "NAARKPC", "20220627"); //뷰페이지에서 입력값 받아와야 함 선택출발공항, 선택도착공항, 선택날짜
 
         //List에 담겨있는 정보들을 db에 넣기 위해서 사용
         for (ScheduleVO vo : list) {
-
         	scheduleService.insertScheduleApi(vo);
-
         }
+        
+    	//페이징에 필요한 변수 셋팅
+        int RECORD_COUNT=10;
+  		PaginationInfo pagingInfo=new PaginationInfo();
+  		pagingInfo.setBlockSize(ConstUtil.BLOCKSIZE);
+  		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
+  		pagingInfo.setRecordCountPerPage(RECORD_COUNT);
 
-        model.addAttribute("selectAllScheduleApi",scheduleService.selectAllScheduleApi());
+  		searchVo.setRecordCountPerPage(RECORD_COUNT);
+  		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+  		
+  		int totalRecord=scheduleService.selectTotalRecord(searchVo);
+		pagingInfo.setTotalRecord(totalRecord);
+		
+        //
+        List<AirportVO> list2 = airportService.selectAllAirport();
+
+        //
+        model.addAttribute("selectAllScheduleApi",scheduleService.selectAllScheduleApi(searchVo));
+        model.addAttribute("selectAllAirport",list2);
+		model.addAttribute("pagingInfo",pagingInfo);
 
         logger.info("파싱 정보 입력끝");
     }
+    
+    
 
 }

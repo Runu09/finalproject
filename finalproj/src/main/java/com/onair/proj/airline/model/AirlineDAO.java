@@ -9,6 +9,5 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface AirlineDAO {
 	void insertAirlineApi(AirlineVO vo);
-
     List<AirlineVO> selectAllAirlineApi();
 }

@@ -51,4 +51,5 @@ public class AirlineController {
 
         logger.info("파싱 정보 입력끝");
     }
+    
 }

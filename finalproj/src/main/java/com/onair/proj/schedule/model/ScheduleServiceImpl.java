@@ -8,6 +8,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
 
+import com.onair.proj.common.ScheduleSearchVO;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -20,9 +22,15 @@ public class ScheduleServiceImpl implements ScheduleService{
 		scheduleDao.insertScheduleApi(vo);
 	}
 
+
 	@Override
-	public List<ScheduleVO> selectAllScheduleApi() {
-		return scheduleDao.selectAllScheduleApi();
+	public List<ScheduleVO> selectAllScheduleApi(ScheduleSearchVO searchVo) {
+		return scheduleDao.selectAllScheduleApi(searchVo);
+	}
+
+	@Override
+	public int selectTotalRecord(ScheduleSearchVO searchVo) {
+		return scheduleDao.selectTotalRecord(searchVo);
 	}
 	
 }

@@ -1,7 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-<body>
+<script>
+/* 	$(function(){
+		$('#searchBtn').click(function(){
+			var arr = $('#arrival').val();
+			var dep = $('#departure').val();
+			var date = $('#datepicker').val();
+			var upDown1 = $('#numberUpDown1').val();
+			var upDown2 = $('#numberUpDown2').val();
+			location.href="flight-round-trip.do?arrival="+arr+"&departuer="+dep+"&datepicker"+date+"&numberUpDown1"+upDown1+"&numberUpDown2"+upDown2;
+		});
+	}) */
+</script>
 
  <!-- home section start -->
     <section class="cab-section flight-section home-section p-0">
@@ -131,7 +142,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <a href="<c:url value='/booking/flight-round-trip.do'/>" class="btn btn-rounded btn-sm color1 float-end" id="reservationsubmit">search
+                            <a href="<c:url value='/booking/flight-round-trip.do'/>" class="btn btn-rounded btn-sm color1 float-end" id="searchBtn">search
                                 now</a>
                         </div>
                     </div>

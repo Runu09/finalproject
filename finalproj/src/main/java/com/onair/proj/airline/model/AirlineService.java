@@ -4,6 +4,5 @@ import java.util.List;
 
 public interface AirlineService {
 	void insertAirlineApi(AirlineVO vo);
-
     List<AirlineVO> selectAllAirlineApi();
 }
