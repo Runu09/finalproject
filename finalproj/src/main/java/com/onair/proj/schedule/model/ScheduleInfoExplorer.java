@@ -38,6 +38,7 @@ public class ScheduleInfoExplorer {
 		String parsingUrl = "";//Parsing할 URL
 		String urlBuilder = "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList" + "?" 
 				+ URLEncoder.encode("serviceKey", "UTF-8") + "=nO3iT4gITCWRXgfAKvwtPnMfFQ7jlwxotDSkHFRXiDZKBEYbBTTQWOKSlsVg8f3GmmvUMnWesRk3vsZiy%2FRfTw%3D%3D"/*Service Key*/
+				+"&numOfRows=500"
 				+"&" + URLEncoder.encode("depAirportId", "UTF-8") + "="+URLEncoder.encode(depAirportId, "UTF-8")/*URL*//*출발지*/
 				+"&" + URLEncoder.encode("arrAirportId", "UTF-8") + "="+URLEncoder.encode(arrAirportId, "UTF-8")/*URL*//*도착지*/
 				+"&" + URLEncoder.encode("depPlandTime", "UTF-8") + "="+URLEncoder.encode(depPlandTime, "UTF-8")/*URL*//*출발일자*/;
