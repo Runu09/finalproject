@@ -153,7 +153,7 @@ public class MemberController {
 		
 		try {
 			fileList
-			= fileUploadUtil.fileUpload(request, ConstUtil.UPLOAD_FILE_FLAG);
+			= fileUploadUtil.fileUpload(request, ConstUtil.UPLOAD_IMAGE_FLAG);
 			
 			for(Map<String, Object> fileMap : fileList) {
 				fileName=(String)fileMap.get("fileName");

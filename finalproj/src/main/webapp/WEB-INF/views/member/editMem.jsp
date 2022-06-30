@@ -78,6 +78,12 @@
 .error{
 	color: red;
 }
+
+.profile {
+    position: relative;
+    left: 67px;
+}
+
 </style>
 
 <body>
@@ -104,12 +110,12 @@
 												
 												</div>
 												<!-- 프로필사진 -->	
-													<div class="profile-image2">
-													<img src="<c:url value='/user_upload/${vo.MPic }'/>"
-													
-													class="img-fluid blur-up lazyload" alt="프로필사진"/>
-													
-													</div>
+												<div class="profile">
+														<img class="img-fluid rounded-circle mx-auto mb-5" 
+														img src="<c:url value='/user_upload/${vo.MPic }'/>"  
+														onerror="this.src='../assets/images/avtar/user.png';" 
+														style="max-width: 150px;">
+												</div>
 												<!-- 프로필사진 -->
 												
 											</div>
