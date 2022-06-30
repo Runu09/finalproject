@@ -11,6 +11,14 @@ function pageFunc(curPage){
 		location.href = "<c:url value='/admin/allUser'/>";
 	});
 }
+
+function getOut(){
+	if(confirm("해당 회원을 삭제시키려면 예를 누르시고 아니면 아니오를 눌러주세요.")){
+		location.href="<c:url value='/admin/delUser?memId=${vo.memId}'/>";
+	}
+}
+
+
 </script>
 <form name="frmPage" method="post">
 	<input type="hidden" name="currentPage">
@@ -67,6 +75,7 @@ function pageFunc(curPage){
                             <th>Email</th>
                             <th>주소</th>
                             <th>보유마일리지</th>
+                            <th>탈퇴일자</th>
                             <th>수정</th>
                             <th>삭제</th>
                           </tr>
@@ -74,7 +83,7 @@ function pageFunc(curPage){
                         <tbody>
                         <c:if test="${empty alist }">
                         	<tr>
-                        		<td colspan="9" style="text-align: center;"><span class=" d-block">가입한 회원이 없습니다.</span></td>
+                        		<td colspan="10" style="text-align: center;"><span class=" d-block">해당 회원이 없습니다.</span></td>
                         	</tr>
                         </c:if>
                         <c:if test="${!empty alist }">
@@ -94,11 +103,15 @@ function pageFunc(curPage){
                               <span>${vo.MMileage}</span>
                             </td>
                             <td>
+                              <span><fmt:formatDate
+										value="${vo.MOutdate}" pattern="yyyy-MM-dd" /></span>
+                            </td>
+                            <td>
                               <a href="<c:url value='/member/editMem.do'/>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 							<!--<a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
                             </td>
                             <td>
-                              <a href="javascript:void(0)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                              <a href="javascript:getOut()"><i class="fa fa-trash-o" aria-hidden="true" value="${vo.memId }"></i></a>
                             </td>
                           </tr>
                           </c:forEach>
@@ -106,18 +119,19 @@ function pageFunc(curPage){
                         </tbody>
                       </table>
                     </div>
+		          
                   </div>
                 </div>
-		          <form name="excelForm" id="excelForm" method="post" action="<c:url value='/excelDown'/>">
-     						<input class="btn btn-primary me-3" type="submit" id="excelDown" value="유저정보 다운" style="margin-left: 1363px;margin-bottom: -60px; height: 40px;">
-						</form>
                   <form method="post" action="<c:url value='/admin/allUser'/>">
 		          	<div class="form-group">
 						<input placeholder="" value="${SearchVO.searchKeyword }" type="text" name="searchKeyword" 
 							class="form-control" style="width: 450px; text-align: right: ; margin-left: 550px" />
-							<button class="btn btn-primary me-3" style="background-color: #4291b8; border-color: #4291b8; width: 84px; height: 40px; font-size: 13px; margin-left: 1000px; margin-top: -60px" id="btSearch">검색</button>
+						<button class="btn btn-primary me-3" style="background-color: #4291b8; border-color: #4291b8; width: 84px; height: 40px; font-size: 13px; margin-left: 1000px; margin-top: -60px" id="btSearch">검색</button>
 					</div>
 		          </form>
+		          <form name="excelForm" id="excelForm" method="post" action="<c:url value='/excelDown'/>">
+     					<input class="btn btn-primary me-3" type="submit" id="excelDown" value="유저정보 다운" style="margin-left: 1363px;margin-bottom: -55px; height: 40px;">
+				  </form>
                 <div class=" pagination-box">
                   <nav class="ms-auto me-auto " aria-label="...">
                   

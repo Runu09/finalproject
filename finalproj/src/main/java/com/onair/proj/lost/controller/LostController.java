@@ -322,8 +322,8 @@ public class LostController {
 		String memId=(String)session.getAttribute("memId");
 		vo.setCId(memId);
 
-		int cnt=commentsService.reply(vo);
-		logger.info("reply 처리결과 cnt={}", cnt);
+		commentsService.reply(vo);
+		logger.info("reply 처리");
 
 		return "redirect:/lost/detail.do?bNo="+vo.getBNo();
 	}

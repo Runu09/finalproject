@@ -43,11 +43,10 @@ public class CommentServiceImpl implements CommentsService{
 	 */
 	
 	@Override
-	@Transactional
-	public int reply(CommentsVO vo) {
-		int cnt=commentsDao.reply(vo);
-		 cnt=commentsDao.updateSortNo(vo);
-		return cnt;
+	public void reply(CommentsVO vo) {
+		//int cnt=commentsDao.updateSortNo(vo);
+		commentsDao.reply(vo);
+		
 	}
 	
 	

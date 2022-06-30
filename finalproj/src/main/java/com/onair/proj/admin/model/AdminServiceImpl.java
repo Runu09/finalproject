@@ -87,4 +87,9 @@ public class AdminServiceImpl implements AdminService{
 		return adminDao.selectByManId(manId);
 	}
 
+	@Override
+	public int adminMemberDelete(String memId) {
+		return adminDao.adminMemberDelete(memId);
+	}
+
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.onair.proj.airline.model.AirlineDAO">
+	<insert id="insertAirlineApi" parameterType="AirlineVo">
+	<selectKey resultType="int" keyProperty="alNo" order="BEFORE">
+		select SEQ_AIRLINE.nextval from dual
+	</selectKey>
+		MERGE 
+		INTO airline
+		USING dual
+		ON (al_name = #{alName})
+		WHEN NOT MATCHED THEN
+      	INSERT (al_no, al_name, al_id)
+      	VALUES (#{alNo}, #{alName}, #{alId})
+    </insert>
+
+    <select id="selectAllAirlineApi" resultType="AirlineVO">
+        select * from airline
+    </select>
+</mapper>

@@ -176,7 +176,7 @@
 															</c:if>
 															<c:if test="${vo.CStep ==0}">
 																<div class="media"
-																	style="border-bottom: 1px solid #dddddd; margin-bottom: 10px">
+																	style="border-bottom: 1px solid #dddddd; margin-bottom: 10px;padding-top:10px">
 															</c:if>
 															<div class="media-body" id="media-body${vo.CNo }">
 																<c:if test="${vo.CDelflag=='Y' }">

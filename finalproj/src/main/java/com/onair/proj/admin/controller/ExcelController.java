@@ -154,14 +154,6 @@ public class ExcelController {
 				
 				workbook.write(response.getOutputStream());
 				workbook.close();
-			//}
-		//}catch(IOException e) {
-			//e.printStackTrace();
-		//}
-	
-		for (MemberVO vo2 : alist) {
-            System.out.println(vo2);
-        }
 		
 	}
 }

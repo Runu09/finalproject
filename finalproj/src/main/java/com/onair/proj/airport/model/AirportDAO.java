@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface AirportDAO {
-	void insertAirport(AirportVO vo);
-
+	void insertAirportApi(AirportVO vo);
+    List<AirportVO> selectAllAirportApi();
     List<AirportVO> selectAllAirport();
 }

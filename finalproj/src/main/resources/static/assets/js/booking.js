@@ -72,19 +72,5 @@ $(document).ready(
 				$('#people').val(adNum + chNum);
 				$('#qtyBox').removeClass('show');
 			});
-			
-			$("#reservationsubmit").click(function() {
-				$('input[name=l_code]').attr('value', $('#Arrive').val());
-						
-				var o_sdate = $('#datepicker').val();
-				var o_sdate1 = o_sdate.substring(0,4) + "-" + o_sdate.substring(4,6) + "-" + o_sdate.substring(6,8);
-				$('input[name=o_sdate]').attr('value', o_sdate1);
-			
-						
-				var people = $('#people').val();
-				var people1 = people.substring(4,5);
-				$('input[name=people]').attr('value', people1);
-				$("#O_frm").submit();
-				
-			});
+
 });
