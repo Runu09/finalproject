@@ -34,7 +34,15 @@
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../admin/css/responsive.css">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-	<script>
+	<script>	
+	
+	
+	function find(){
+		
+		open("<c:url value='/member/find.do'/>", "find", "width=500, height=500, location=yes, resizable=yes, top=100, left=50");
+
+	}
+	
 		function loginFormWithKakao() {
 			Kakao.init('5a6a4897538a80bef374d2b576c690ec');
 			Kakao.Auth.login({
@@ -109,7 +117,7 @@
 										>
                                         <!-- <input id="checkbox1" type="checkbox" name="chkSaveId" > -->
                                         <label class="text-muted" for="saveId">아이디 기억</label>
-                                    </div><a class="link" href="">아이디 찾기</a>
+                                    </div><a class="link" href="javascript:find()">아이디/비밀번호 찾기</a>
                                     <div class="text-end mt-3">
                                         <button class="btn btn-primary btn-block w-100" style="height: 50px" type="submit">로그인</button>
 										<a id="btn-kakao-login" href="javascript:loginFormWithKakao()">

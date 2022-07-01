@@ -335,6 +335,10 @@ public class MemberController {
 		
 		return "/common/message";
 	}
+	@GetMapping("find.do")
+	public void find_get() {
+		logger.info("아이디 찾기 화면");
+	}
 }
 
 
