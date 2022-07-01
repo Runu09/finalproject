@@ -21,8 +21,6 @@
 		$('form[name=frmPage]').submit();
 		
 	}
-	
-	
 </script>
 
 <!-- 페이징 처리를 위한 form 시작-->

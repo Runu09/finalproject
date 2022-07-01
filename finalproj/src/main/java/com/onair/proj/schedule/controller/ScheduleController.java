@@ -3,18 +3,15 @@ package com.onair.proj.schedule.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.xml.sax.SAXException;
 
 import com.onair.proj.airport.model.AirportService;
@@ -42,13 +39,17 @@ public class ScheduleController {
 
 	//검색시 데이터가 없으면 db에 추가하도록 처리한다.
     @RequestMapping("/booking/flight-round-trip.do") 
-    public void searchInfo(Model model, @ModelAttribute ScheduleSearchVO searchVo) throws ParserConfigurationException, SAXException, IOException {
-
+    public void searchInfo(HttpServletRequest req, Model model, @ModelAttribute ScheduleSearchVO searchVo) throws ParserConfigurationException, SAXException, IOException {
+    	String arr=req.getParameter("arrival");
+    	String dep=req.getParameter("departure");
+    	String date=req.getParameter("datepicker");
+    	String upDown1=req.getParameter("numberUpDown1");
+    	String upDown2=req.getParameter("numberUpDown2");
     	logger.info("파싱 스타트 체크");
         ScheduleInfoExplorer apiExplorer = new ScheduleInfoExplorer();
-
+        
         //파싱하여 리턴한 데이터 값들을 list에 담아주기 위해 사용
-        List<ScheduleVO> list = apiExplorer.parsingData("NAARKSS", "NAARKPC", "20220627"); //뷰페이지에서 입력값 받아와야 함 선택출발공항, 선택도착공항, 선택날짜
+        List<ScheduleVO> list = apiExplorer.parsingData(arr, dep, date); //뷰페이지에서 입력값 받아와야 함 선택출발공항, 선택도착공항, 선택날짜
 
         //List에 담겨있는 정보들을 db에 넣기 위해서 사용
         for (ScheduleVO vo : list) {

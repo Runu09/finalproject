@@ -2,16 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
 <script>
-/* 	$(function(){
-		$('#searchBtn').click(function(){
-			var arr = $('#arrival').val();
-			var dep = $('#departure').val();
-			var date = $('#datepicker').val();
-			var upDown1 = $('#numberUpDown1').val();
-			var upDown2 = $('#numberUpDown2').val();
-			location.href="flight-round-trip.do?arrival="+arr+"&departuer="+dep+"&datepicker"+date+"&numberUpDown1"+upDown1+"&numberUpDown2"+upDown2;
-		});
-	}) */
+/* $(function(){
+	$('#searchBtn').click(function(){
+		var arr = $('#arrival').val();
+		var dep = $('#departure').val();
+		var date = $('#datepicker').val();
+		var upDown1 = $('#numberUpDown1').val();
+		var upDown2 = $('#numberUpDown2').val();
+		location.href="flight-round-trip.do?arrival="+arr+"&departuer="+dep+"&datepicker"+date+"&numberUpDown1"+upDown1+"&numberUpDown2"+upDown2;
+	});
+}) */
 </script>
 
  <!-- home section start -->
@@ -39,7 +39,7 @@
                                 <input id="radio-2" type="radio" name="exampleRadios" value="option2">
                                 <label for="radio-2" class="radio-label">one way</label>
                             </form> -->
-                            <form>
+                            <form action="<c:url value='/booking/flight-round-trip.do' />" method="post">
                             	<div class="form-group">
                                     <input type="text" class="form-control open-select" placeholder="출발지" id="arrival">
                                     <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload"
@@ -141,9 +141,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <input type="submit" class="btn btn-rounded btn-sm color1 float-end" id="searchBtn" value="search now">
                             </form>
-                            <a href="<c:url value='/booking/flight-round-trip.do'/>" class="btn btn-rounded btn-sm color1 float-end" id="searchBtn">search
-                                now</a>
+                            <%-- <a href="<c:url value='/booking/flight-round-trip.do'/>" class="btn btn-rounded btn-sm color1 float-end" id="searchBtn">search
+                                now</a> --%>
                         </div>
                     </div>
                 </div>

@@ -41,8 +41,8 @@
                         <a href="javascript:void(0)" class="btn btn-solid color1"> 상세검색</a>
                     </div>
                 </div>
-                <div class="flight-search-detail">
-                    <form class="row m-0">
+                <div class="flight-search-detail" >
+                    <form class="row m-0" name="form" id="form" action="<c:url value='/booking/flight-round-trip.do' />" method="get">
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label>출발지</label>
