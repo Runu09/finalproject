@@ -152,7 +152,7 @@ body {
 										<li class="dropdown"><a href="#"
 											class="nav-link menu-title">고객지원</a>
 											<ul class="nav-submenu menu-content">
-												<li><a href="<c:url value='/customer/notice.do'/>"
+												<li><a href="<c:url value='/notice/notice.do'/>"
 													class="submenu-title">공지사항</a></li>
 												<li><a href="<c:url value='/customer/information.do'/>"
 													class="submenu-title">이용안내</a></li>

@@ -109,6 +109,12 @@ tr:hover{
 
 
 <body>
+<form name="frmPage" method="post">
+	<input type="hidden" name="startDay" value="${dateSearchVO.startDay }"> <input type="hidden" name="endDay"
+		value="${dateSearchVO.endDay }"> <input
+		type="hidden" name="currentPage">
+		<input type="hidden" name="searchKeyword" value="${dateSearchVO.searchKeyword }"> 
+</form>
 
 <!-- breadcrumb start -->
 <section class="breadcrumb-section no-bg pt-0" id="block"
@@ -149,7 +155,7 @@ tr:hover{
 									</tr>									
 								</thead>
 								<tbody>
-									<tr>
+									<%-- <tr>
 										<td colspan="3">해당 글이 존재하지 않습니다.</td>
 									</tr>
 									<tr>
@@ -161,14 +167,14 @@ tr:hover{
 										<td><a href="<c:url value='/customer/noticeDetail.do'/>">수업 끝나고 뭐하지?</a></td>
 										<td>16,359</td>
 										<td>22-06-16</td>
-									</tr>
-									<%-- <c:if test="${empty noticeList }">
+									</tr> --%>
+									<c:if test="${empty noticeList }">
 										<tr>
 											<td colspan="3" class="align_center">해당 글이 존재하지 않습니다.</td>
 										</tr>
 									</c:if>
 									<c:if test="${!empty noticeList }">
-										<%for(int i=0;i<pageSize;i++){ 
+										<%-- <%for(int i=0;i<pageSize;i++){ 
 											if(num-- <1) break;
 											
 											BoardVO vo = list.get(curPos++);
@@ -182,8 +188,48 @@ tr:hover{
 												<td><%=vo.getReadcount() %></td>
 												<td>등록일</td>
 												<td><%=sdf.format(vo.getRegdate()) %></td>
+											</tr> --%>
+											
+											
+										<c:forEach var="vo" items="${noticeList }">
+											<tr>
+												<td>
+													<a href="<c:url value='/notice/noticeDetail.do?bNo=${vo.BNo }'/>"><h5>${vo.BTitle}</h5></a>
+												</td>
+												<td>
+													${vo.BCount}
+												</td>
+												<td>
+													<fmt:formatDate value="${vo.BRegdate}" pattern="yyyy-MM-dd" />
+												</td>
 											</tr>
-									</c:if> --%>
+										</c:forEach>
+											
+											
+										<%-- <c:forEach var="vo" items="${noticeList }">
+											<div class="detail-wrap wow">
+												<div class="row">
+													<div class="col-md-4">
+														<div class="price">
+															<a href="<c:url value='/notice/noticeDetail.do?bNo=${vo.BNo }'/>"><h5>${vo.BTitle}</h5></a>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div class="price">
+															<h5>${vo.BCount}</h5>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div class="price">
+															<h5>
+																<fmt:formatDate value="${vo.BRegdate}" pattern="yyyy-MM-dd" />
+															</h5>
+														</div>
+													</div>
+												</div>
+											</div>
+										</c:forEach> --%>
+									</c:if>
 								</tbody>
 						    </table>
                         </div>
