@@ -14,6 +14,13 @@
 }) */
 </script>
 
+<style>
+	.hidden{
+	  position: absolute;
+	  visibility: hidden;
+	}
+</style>
+
  <!-- home section start -->
     <section class="cab-section flight-section home-section p-0">
         <div class="cloud">
@@ -39,9 +46,10 @@
                                 <input id="radio-2" type="radio" name="exampleRadios" value="option2">
                                 <label for="radio-2" class="radio-label">one way</label>
                             </form> -->
-                            <form action="<c:url value='/booking/flight-round-trip.do' />" method="post">
+                            <form action="<c:url value='/booking/flight-round-trip.do'/>" method="post">
                             	<div class="form-group">
                                     <input type="text" class="form-control open-select" placeholder="출발지" id="arrival">
+                                    <input type="hidden" id="hiddenArr" name="arrival">
                                     <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload"
                                         alt="">
                                     <div class="selector-box" id="arrBox">
@@ -53,6 +61,7 @@
 											            <h5><c:out value="${airfort.ALoc}"/></h5>
 											            <h6><c:out value="${airfort.ALoc}"/> 국내공항</h6>
 											            <span><c:out value="${airfort.AName.substring(4, 7)}"/></span>
+											            <div class="hidden"><c:out value='${airfort.AName}'/></div>
 											        </a>
 											    </li>
 											</c:forEach>
@@ -61,7 +70,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control open-select" placeholder="도착지" id="departure">
+                                    <input type="text" class="form-control open-select" placeholder="도착지" id="departure" >
+                                    <input type="hidden" id="hiddenDep" name="departure">
                                     <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
                                     <div class="selector-box" id="depBox">
 	                                    <h6 class="title">도착지를 선택하세요</h6>
@@ -72,6 +82,7 @@
 											            <h5><c:out value="${airfort.ALoc}"/></h5>
 											            <h6><c:out value="${airfort.ALoc}"/> 국내공항</h6>
 											            <span><c:out value="${airfort.AName.substring(4, 7)}"/></span>
+											            <div class="hidden"><c:out value='${airfort.AName}'/></div>
 											        </a>
 											    </li>
 											</c:forEach>
@@ -100,7 +111,7 @@
                                         <div class="form-group mb-0">
                                     <div class="row">
                                         <div class="col">
-                                            <input placeholder="탑승일" id="datepicker"/>
+                                            <input placeholder="탑승일" id="datepicker" name="datepicker"/>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">

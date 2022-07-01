@@ -43,8 +43,7 @@ public class ScheduleController {
     	String arr=req.getParameter("arrival");
     	String dep=req.getParameter("departure");
     	String date=req.getParameter("datepicker");
-    	String upDown1=req.getParameter("numberUpDown1");
-    	String upDown2=req.getParameter("numberUpDown2");
+    	String upDown1=req.getParameter("people");
     	logger.info("파싱 스타트 체크");
         ScheduleInfoExplorer apiExplorer = new ScheduleInfoExplorer();
         
@@ -78,6 +77,7 @@ public class ScheduleController {
 		model.addAttribute("pagingInfo",pagingInfo);
 
         logger.info("파싱 정보 입력끝");
+        
     }
     
     

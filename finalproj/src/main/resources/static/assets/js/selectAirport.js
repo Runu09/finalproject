@@ -16,14 +16,39 @@ $(document).ready(
 			});
 		});
 		
-			function setArrival(airport){
-				$('#arrival').val(airport);
-				$('#arrBox').removeClass('show');
+		function setArrival(airport){
+			$('#arrival').val(airport);
+			$('#arrBox').removeClass('show');
+			
+		};
+		function setDeparture(airport){
+			$('#departure').val(airport);
+			$('#depBox').removeClass('show');
+			
+		};
+			
+		
+		$(function(){
+			$('.arr li').click(function(){
+				var acity=$(this).find('div').text();
+				setHiddenArr(acity)
+			});
+		});
+			
+		$(function(){
+			$('.dep li').click(function(){
+				var dcity=$(this).find('div').text();
 				
-			};
-			function setDeparture(airport){
-				$('#departure').val(airport);
-				$('#depBox').removeClass('show');
-				
-			};
+				setHiddenDep(dcity)
+			});
+		});
+		
+		function setHiddenArr(airporthd){
+			$('#hiddenArr').val(airporthd);
+			
+		};
+		function setHiddenDep(airporthd){
+			$('#hiddenDep').val(airporthd);
+			
+		};
 });

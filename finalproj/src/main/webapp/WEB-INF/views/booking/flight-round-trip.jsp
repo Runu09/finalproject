@@ -7,6 +7,12 @@
 		$('form[name=frmPage]').submit();
 	}
 </script>
+<style>
+	.hidden{
+	  position: absolute;
+	  visibility: hidden;
+	}
+</style>
 
 <!-- 페이징 처리를 위한 form 시작-->
 <form name="frmPage" method="post">
@@ -47,6 +53,7 @@
                             <div class="form-group">
                                 <label>출발지</label>
                                 <input type="text" class="form-control open-select" value="" placeholder="to" id="arrival">
+                                <input type="hidden" id="hiddenArr" name="arrival">
                                 <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload" alt="">
                                 <div class="selector-box" id="arrBox">
                                 	<ul class="arr">
@@ -56,6 +63,7 @@
 										            <h5><c:out value="${airfort.ALoc}"/></h5>
 										            <h6><c:out value="${airfort.ALoc}"/> 국내공항</h6>
 										            <span><c:out value="${airfort.AName.substring(4, 7)}"/></span>
+										            <div class="hidden"><c:out value='${airfort.AName}'/></div>
 										        </a>
 										    </li>
 										</c:forEach>
@@ -69,6 +77,7 @@
                                 <label>도착지</label>
                                 <input type="text" class="form-control open-select"
                                     value="" placeholder="from" id="departure">
+                                <input type="hidden" id="hiddenDep" name="departure">
                                 <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
                                 <div class="selector-box" id="depBox">
                                 	<ul class="dep">
@@ -78,6 +87,7 @@
 										            <h5><c:out value="${airfort.ALoc}"/></h5>
 										            <h6><c:out value="${airfort.ALoc}"/> 국내공항</h6>
 										            <span><c:out value="${airfort.AName.substring(4, 7)}"/></span>
+										            <div class="hidden"><c:out value='${airfort.AName}'/></div>
 										        </a>
 										    </li>
 										</c:forEach>
@@ -89,14 +99,14 @@
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label>탑승일</label>
-                                <input placeholder="Depart Date" id="datepicker" />
+                                <input placeholder="Depart Date" id="datepicker" name="datepicker" value=""/>
                             </div>
                         </div>
                         
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label>승객 선택</label>
-                                <input type="text" class="form-control open-select" id="people" name="people" placeholder="to">
+                                <input type="text" class="form-control open-select" id="people" name="people" placeholder="to" value="">
                                 <img src="../assets/images/icon/user.png" class="img-fluid blur-up lazyload" alt="">
                                 <div class="selector-box-flight" id="qtyBox">
                                     <div class="room-cls">
@@ -132,7 +142,7 @@
                         </div>
                         <div class="col-lg-2">
                             <div class="search-btn">
-                                <a href="#" class="btn btn-solid color1" id="reservationsubmit">검색</a>
+                            	<input type="submit" class="btn btn-solid color1" id="reservationsubmit" value="검색">
                             </div>
                         </div>
                         <div class="responsive-close">

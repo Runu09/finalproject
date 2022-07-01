@@ -7,6 +7,5 @@ public class ScheduleSearchVO extends SearchVO {
 	private String arrival;
 	private String departure;
 	private String datepicker;
-	private String numberUpDown1;
-	private String numberUpDown2;
+	private String people;
 }
