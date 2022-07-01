@@ -42,17 +42,31 @@
 		    (
 		       	select * from member
 				<include refid="searchWhere"></include>
+				order by mem_no desc
 		    )A
 		)
 		where RNUM>#{firstRecordIndex} 
 		<![CDATA[
 		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
-		order by mem_no desc
+		<!-- order by mem_no desc -->
 	</select>
 	
 	<select id="selectMemberTotalRecord" parameterType="SearchVO" resultType="int">
 		select count(*) from member
 			<include refid="searchWhere"></include>
 	</select>
+	<select id="getExcelDown" parameterType="MemberVo" resultType="memberVo">
+		select * from member
+		order by mem_no desc
+	</select>
+	
+	<select id="selectByManId" parameterType="string" resultType="adminVo">
+		select * from manager where MAN_ID=#{manId}
+	</select>
+	<update id="adminMemberDelete" parameterType="string">
+		update member 
+		set M_OUTDATE=sysdate
+		where MEM_ID=#{memId}
+	</update>
 	
 </mapper>

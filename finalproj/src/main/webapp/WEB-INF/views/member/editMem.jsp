@@ -94,9 +94,37 @@
 								<h4>edit your profile</h4>
 							</div><br>
 						<!-- 회원정보 수정 -->
-							<form name="memEdit" method="post" action="<c:url value='/member/editMem.do'/>">
+							<form name="memEdit" method="post" action="<c:url value='/member/editMem.do'/>"
+							enctype="multipart/form-data">
 								<div class="dashboard-detail">
 									<ul>
+										<li>
+											<div class="details">
+												<div class="left">
+												
+												</div>
+												<!-- 프로필사진 -->	
+													<div class="profile-image2">
+													<img src="<c:url value='/user_upload/${vo.MPic }'/>"
+													
+													class="img-fluid blur-up lazyload" alt="프로필사진"/>
+													
+													</div>
+												<!-- 프로필사진 -->
+												
+											</div>
+										</li>
+										<li>
+										<div class="details">
+											<div class="left">
+												<h6>프로필사진</h6>
+											</div>
+											<div class="right">
+													<input class="form-control" type="file" name="imageUpload" id="imageUpload" 
+													placeholder="사진 등록" style="height: 55px;">
+												</div>
+										</div>
+										</li>
 										<li>
 											<div class="details">
 												<div class="left">

@@ -16,4 +16,8 @@ public interface AdminDAO {
 	String adminSelectPwd(String manId);
 	List<MemberVO> selectMemberAll(SearchVO searchVo);
 	int selectMemberTotalRecord(SearchVO searchVo);
+	public List<MemberVO> getExcelDown(MemberVO memberVo);
+	AdminVO selectByManId(String manId);
+	int adminMemberDelete(String memId);
+	
 }

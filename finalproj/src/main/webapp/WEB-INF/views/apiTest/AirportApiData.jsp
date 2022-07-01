@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:forEach items="${selectAllAirport}" var="airfort">
+<c:forEach items="${selectAllAirportApi}" var="airfort">
     <tr>
         <th>
             <c:out value="${airfort.AName}"/>

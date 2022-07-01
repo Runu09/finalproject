@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 
@@ -284,9 +285,16 @@
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="<c:url value='/admin/allUser'/>"><i data-feather="users"> </i><span>유저</span></a>
                                 </li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
+                                <%-- <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="<c:url value='/admin/adminRegister'/>"><i data-feather="plus-circle"> </i><span>관리자</span></a>
-                                </li>
+                                </li> --%>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i
+                                            data-feather="navigation"></i><span>관리자</span></a>
+                                    <ul class="sidebar-submenu">
+                                        <li><a href="<c:url value='/admin/adminRegister'/>">관리자 등록</a></li>
+                                        <li><a href="<c:url value='/admin/allAdmin'/>">관리자 조회</a></li>
+                                    </ul>
+                                </li> 
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="booking.html"><i data-feather="bookmark"> </i><span>예약</span></a>
                                 </li>

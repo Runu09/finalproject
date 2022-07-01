@@ -1,6 +1,7 @@
 package com.onair.proj.comments.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CommentServiceImpl implements CommentsService{
 	private final CommentsDAO commentsDao;
-	
+
 	@Override
 	public int insertComment(CommentsVO vo) {
 		return commentsDao.insertComment(vo);
@@ -27,18 +28,34 @@ public class CommentServiceImpl implements CommentsService{
 		return commentsDao.updateComment(vo);
 	}
 
-	@Override
-	public int deleteReply(int cNo) {
-		return commentsDao.deleteReply(cNo);
-	}
 
+	@Override public int deleteReply(int cNo) { 
+		return commentsDao.deleteReply(cNo); }
+
+	/*
 	@Override
 	@Transactional
 	public int reply(CommentsVO vo) {
 		int cnt=commentsDao.updateSortNo(vo);
-		cnt=commentsDao.reply(vo);
+		 cnt=commentsDao.reply(vo);
 		return cnt;
 	}
-
+	 */
 	
+	@Override
+	public void reply(CommentsVO vo) {
+		//int cnt=commentsDao.updateSortNo(vo);
+		commentsDao.reply(vo);
+		
+	}
+	
+	
+	@Override
+	public void deleteComments(Map<String, String> map) {
+		commentsDao.deleteComments(map);
+
+	}
+
+
+
 }

@@ -1,10 +1,28 @@
 package com.onair.proj.admin.model;
 
+import java.io.IOException;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.util.HSSFColor.HSSFColorPredefined;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.onair.proj.admin.controller.ExcelController;
 import com.onair.proj.common.SearchVO;
+import com.onair.proj.member.model.MemberDAO;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
 import com.onair.proj.voc.model.VocVO;
@@ -13,8 +31,10 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class AdminServiceImpl implements AdminService{
-	
+	private static final Logger logger
+	=LoggerFactory.getLogger(ExcelController.class);
 	private final AdminDAO adminDao;
 	
 	@Override
@@ -55,6 +75,21 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public int selectMemberTotalRecord(SearchVO searchVo) {
 		return adminDao.selectMemberTotalRecord(searchVo);
+	}
+
+	@Override
+	public List<MemberVO> getExcelDown(MemberVO memberVo) {
+		return adminDao.getExcelDown(memberVo);
+	}
+
+	@Override
+	public AdminVO selectByManId(String manId) {
+		return adminDao.selectByManId(manId);
+	}
+
+	@Override
+	public int adminMemberDelete(String memId) {
+		return adminDao.adminMemberDelete(memId);
 	}
 
 }

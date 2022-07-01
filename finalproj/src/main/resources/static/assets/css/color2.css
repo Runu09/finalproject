@@ -11039,7 +11039,9 @@ section .black-layer {
         margin-top: -4px;
         color: #222222;
         font-size: 16px;
-        font-weight: 600; }
+        font-weight: 600;
+         margin-right: -62%;
+        margin-left: -62%; }
       .flight-detail-sec .detail-bar .detail-wrap .airport-part .airport-name h6 {
         margin-bottom: -5px;
         color: #909090;

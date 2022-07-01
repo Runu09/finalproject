@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
+<script type="text/javascript">
+	function pageFunc(curPage){
+		$('input[name=currentPage]').val(curPage);
+		$('form[name=frmPage]').submit();
+	}
+</script>
+
+<!-- 페이징 처리를 위한 form 시작-->
+<form name="frmPage" method="post">
+	<input type="hidden" name="currentPage"> 
+</form>
+<!-- 페이징 처리 form 끝 -->
 
 <!-- breadcrumb start -->
 <section class="breadcrumb-section small-sec pt-0">
@@ -34,10 +46,21 @@
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label>출발지</label>
-                                <input type="text" class="form-control open-select" value="서울/김포" placeholder="to" id="arrival">
+                                <input type="text" class="form-control open-select" value="" placeholder="to" id="arrival">
                                 <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload" alt="">
                                 <div class="selector-box" id="arrBox">
-								       <%@ include file="../inc/selectArrival.jsp" %>                                   
+                                	<ul class="arr">
+                                         <c:forEach items="${selectAllAirport}" var="airfort">
+										    <li>
+										        <a href="#">
+										            <h5><c:out value="${airfort.ALoc}"/></h5>
+										            <h6><c:out value="${airfort.ALoc}"/> 국내공항</h6>
+										            <span><c:out value="${airfort.AName.substring(4, 7)}"/></span>
+										        </a>
+										    </li>
+										</c:forEach>
+									</ul>
+							        <%-- <%@ include file="../inc/selectArrival.jsp" %> --%>                                   
                                 </div>
                             </div>
                         </div>
@@ -45,10 +68,21 @@
                             <div class="form-group">
                                 <label>도착지</label>
                                 <input type="text" class="form-control open-select"
-                                    value="부산/김해" placeholder="from" id="departure">
+                                    value="" placeholder="from" id="departure">
                                 <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
                                 <div class="selector-box" id="depBox">
-                                        <%@ include file="../inc/selectDeparture.jsp" %>
+                                	<ul class="dep">
+                                         <c:forEach items="${selectAllAirport}" var="airfort">
+										    <li>
+										        <a href="#">
+										            <h5><c:out value="${airfort.ALoc}"/></h5>
+										            <h6><c:out value="${airfort.ALoc}"/> 국내공항</h6>
+										            <span><c:out value="${airfort.AName.substring(4, 7)}"/></span>
+										        </a>
+										    </li>
+										</c:forEach>
+									</ul>
+                                    <%-- <%@ include file="../inc/selectDeparture.jsp" %> --%>
                                 </div>
                         	</div>           
                         </div>
@@ -98,7 +132,7 @@
                         </div>
                         <div class="col-lg-2">
                             <div class="search-btn">
-                                <a href="#" class="btn btn-solid color1">검색</a>
+                                <a href="#" class="btn btn-solid color1" id="reservationsubmit">검색</a>
                             </div>
                         </div>
                         <div class="responsive-close">
@@ -197,55 +231,146 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="detail-bar">
-                            <div class="detail-wrap wow fadeInUp">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="logo-sec">
-                                            <img src="../assets/images/flights/airlines/8.png"
-                                                class="img-fluid blur-up lazyload" alt="">
-                                            <span class="title">대한항공</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="airport-part">
-                                            <div class="airport-name">
-                                                <h4>17.00</h4>
-                                                <h6>GMP</h6>
-                                            </div>
-                                            <div class="airport-progress">
-                                                <i class="fas fa-plane-departure float-start"></i>
-                                                <i class="fas fa-plane-arrival float-end"></i>
-                                                <div class="stop">
-                                                    45분
-                                                </div>
-                                            </div>
-                                            <div class="airport-name arrival">
-                                                <h4>17.45</h4>
-                                                <h6>CJU</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="price">
-                                            <div>
-                                                <h4>120,000원</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="book-flight">
-                                            <a href="<c:url value='/booking/flight-booking.do'/>" class="btn btn-solid color1 ">book now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            
-                            
-                        </div>
+                        <c:if test="${empty selectAllScheduleApi }">
+                        	<section class="bg-inner small-section success-section">
+								<div class="container">
+									<div class="row success-detail mt-0">
+										<div class="col">
+											<img src="../assets/images/flights/plane.png"
+												class="img-fluid blur-up lazyload" alt="">
+											<h2>항공편을 찾을 수 없습니다.</h2>
+											<p>검색결과에 맞는 항공편을 찾을 수 없습니다. 
+												다시 검색해주세요.</p>
+											<button type="submit" class="btn  btn-solid color1">search
+												again</button>
+										</div>
+									</div>
+								</div>
+							</section>
+						</c:if>
+						<c:if test="${!empty selectAllScheduleApi }">
+	                        <c:forEach items="${selectAllScheduleApi}" var="schedule">
+	                        <div class="detail-bar">
+	                            <div class="detail-wrap wow fadeInUp">
+	                                <div class="row">
+	                                    <div class="col-md-2">
+	                                        <div class="logo-sec">
+	                                        	<c:choose>
+	                                        		<c:when test="${schedule.alName eq '아시아나항공'}">
+	                                        			<img src="<c:url value='/assets/images/flights/airlines/아시아나항공.png'/>" 
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        		</c:when>
+	                                        		<c:when test="${schedule.alName eq '에어부산'}">
+	                                        			<img src="<c:url value='/assets/images/flights/airlines/에어부산.png'/>" 
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        		</c:when>
+	                                        		<c:when test="${schedule.alName eq '에어서울'}">
+	                                        			<img src="<c:url value='/assets/images/flights/airlines/에어서울.jpg'/>" 
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        		</c:when>
+	                                        		<c:when test="${schedule.alName eq '이스타항공'}">
+	                                        			<img src="<c:url value='/assets/images/flights/airlines/이스타항공.png'/>" 
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        		</c:when>
+	                                        		<c:when test="${schedule.alName eq '플라이강원'}">
+	                                        			<img src="<c:url value='/assets/images/flights/airlines/플라이강원.png'/>" 
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        		</c:when>
+	                                        		<c:when test="${schedule.alName eq '하이에어'}">
+	                                        			<img src="<c:url value='/assets/images/flights/airlines/하이에어.png'/>" 
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        		</c:when>
+	                                        		<c:when test="${schedule.alName eq '제주항공'}">
+	                                        			<img src="<c:url value='/assets/images/flights/airlines/제주항공.png'/>" 
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        		</c:when>
+	                                        		<c:when test="${schedule.alName eq '진에어'}">
+	                                        			<img src="<c:url value='/assets/images/flights/airlines/진에어.png'/>" 
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        		</c:when>
+	                                        		<c:when test="${schedule.alName eq '대한항공'}">
+	                                        			<img src="<c:url value='/assets/images/flights/airlines/대한항공.png'/>" 
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        		</c:when>
+	                                        		<c:when test="${schedule.alName eq '티웨이항공'}">
+	                                        			<img src="<c:url value='/assets/images/flights/airlines/티웨이항공.png'/>" 
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        		</c:when>
+	                                        	</c:choose>
+	                                        	
+	                                            <span class="title"><c:out value='${schedule.alName}'/></span>
+	                                        </div>
+	                                    </div>
+	                                    <div class="col-md-5">
+	                                        <div class="airport-part">
+	                                            <div class="airport-name">
+	                                                <h4><c:out value='${schedule.SStarttime.substring(8, 10)}'/>: <c:out value='${schedule.SStarttime.substring(10, 12)}'/></h4>
+	                                                <h6><c:out value='${schedule.ADepnm}'/></h6>
+	                                            </div>
+	                                            <div class="airport-progress">
+	                                                <i class="fas fa-plane-departure float-start"></i>
+	                                                <i class="fas fa-plane-arrival float-end"></i>
+	                                                <div class="stop">
+	                                                    <c:out value='${schedule.SArrtime.substring(8, 10)*60+schedule.SArrtime.substring(10, 12)-(schedule.SStarttime.substring(8, 10)*60+schedule.SStarttime.substring(10, 12))}'/>분
+	                                                </div>
+	                                            </div>
+	                                            <div class="airport-name arrival">
+	                                            	<h4><c:out value='${schedule.SArrtime.substring(8, 10)}'/>: <c:out value='${schedule.SArrtime.substring(10, 12)}'/></h4>
+	                                                <h6><c:out value='${schedule.AArrnm}'/></h6>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="col-md-2">
+	                                        <div class="price">
+	                                            <div>
+	                                                <h4><c:out value='${schedule.SPrice}'/>원</h4>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="col-md-3">
+	                                        <div class="book-flight">
+	                                            <a href="<c:url value='/booking/flight-booking.do'/>" class="btn btn-solid color1 ">book now</a>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        </c:forEach>
+                        </c:if>
                     </div>
                     <nav aria-label="Page navigation example" class="pagination-section mt-0">
+						<ul class="pagination">
+							<c:if test="${pagingInfo.firstPage>1 }">
+								<li class="page-item">
+									<a class="page-link" onclick="pageFunc(${pagingInfo.firstPage-1})" href="#" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+										<span class="sr-only">이전</span>
+									</a>
+								</li>
+							</c:if>
+		
+							<c:forEach var="i" begin="${pagingInfo.firstPage }" end="${pagingInfo.lastPage }">
+								<c:if test="${i==pagingInfo.currentPage }">
+									<li class="page-item active"><a class="page-link">${i }</a></li>
+								</c:if>
+		
+								<c:if test="${i!=pagingInfo.currentPage }">
+									<li class="page-item">
+										<a class="page-link" href="#" onclick="pageFunc(${i})">${i }</a>
+									</li>
+								</c:if>
+							</c:forEach>
+		
+							<c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">
+								<li class="page-item">
+									<a class="page-link" href="#" onclick="pageFunc(${pagingInfo.lastPage+1})" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span> <span class="sr-only">다음</span>
+									</a>
+								</li>
+							</c:if>
+						</ul>
+					</nav>
+                    <!-- <nav aria-label="Page navigation example" class="pagination-section mt-0">
                         <ul class="pagination">
                             <li class="page-item">
                                 <a class="page-link" href="javascript:void(0)" aria-label="Previous">
@@ -263,7 +388,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </nav>
+                    </nav> -->
                 </div>
                 <div class="col-lg-3">
                     <div class="left-sidebar">

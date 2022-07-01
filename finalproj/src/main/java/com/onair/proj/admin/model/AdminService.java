@@ -2,6 +2,8 @@ package com.onair.proj.admin.model;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import com.onair.proj.common.SearchVO;
 import com.onair.proj.member.model.MemberVO;
 import com.onair.proj.voc.model.VocVO;
@@ -13,4 +15,8 @@ public interface AdminService {
 	int adminLogin(String manId, String manPwd);
 	List<MemberVO> selectMemberAll(SearchVO searchVo);
 	int selectMemberTotalRecord(SearchVO searchVo);
+	//public List<MemberVO> getExcelDown(MemberVO memberVo, HttpServletResponse response);
+	List<MemberVO> getExcelDown(MemberVO memberVo);
+	AdminVO selectByManId(String manId);
+	int adminMemberDelete(String memId);
 }

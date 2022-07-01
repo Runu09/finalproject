@@ -11,10 +11,10 @@ public class ProjController {
 		return "/about/about";
 	}
 	
-	@RequestMapping("/main/main.do")
-	public String main() {
-		return "/main/main";
-	}
+	/*
+	 * @RequestMapping("/main/main.do") public String main() { return "/main/main";
+	 * }
+	 */
 	
 	/*
 	 * @RequestMapping("/customer/notice.do") public String notice() { return
@@ -61,14 +61,15 @@ public class ProjController {
 		return "/booking/flight-not-found";
 	}
 	
-	@RequestMapping("/booking/flight-round-trip.do")
-	public String bookingRoundTrip() {
-		return "/booking/flight-round-trip";
-	}
+	/*
+	 * @RequestMapping("/booking/flight-round-trip.do") public String
+	 * bookingRoundTrip() { return "/booking/flight-round-trip"; }
+	 */
 
 	@RequestMapping("/customer/faq.do")
 	public String faq() {
 		return "/customer/faq";
 	}
+
 	
 }
