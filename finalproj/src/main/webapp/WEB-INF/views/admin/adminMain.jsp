@@ -4,6 +4,13 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 
 <%@include file="../inc/adminTop.jsp"%>
+<script type="text/javascript">
+function getLoc(){
+	var x = event.offsetX;
+	var y = event.offsetY;
+	alert("현재좌표는 : "+x+" / "+y);
+	}
+</script>
          
             <div class="page-body">
 
@@ -314,7 +321,8 @@
                                     <h5>공항 위치</h5>
                                 </div>
                                 <div class="card-body">
-                                	<img src="<c:url value='/assets/images/flights/지도.png'/>">
+                                	<img onclick="javascript:getLoc()" src="<c:url value='/assets/images/flights/지도.png'/>">
+                                	
                                     <!-- <div class="jvector-map-height" id="world-map"></div> -->
                                 </div>
                             </div>

@@ -158,5 +158,20 @@ public class AdminController {
 		
 		return "/admin/allUser";
 	}
+	@RequestMapping("/delUser")
+	public String delUser(@RequestParam(defaultValue = "0") String memId,
+			Model model) {
+		logger.info("회원탈퇴 처리 memId={}", memId);
+		int cnt = adminService.adminMemberDelete(memId);
+		String msg="회원 탈퇴 처리 실패 하였습니다.", url="/admin/allUser";
+		if(cnt>0) {
+			msg="회원 탈퇴 처리 하였습니다.";
+			url="/admin/allUser";
+			logger.info("회원탈퇴 처리 결과 cnt={}", cnt);
+		}
+		model.addAttribute("msg",msg);
+		model.addAttribute("url",url);
+		return "/common/message";
+	}
 	
 }

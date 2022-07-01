@@ -18,4 +18,5 @@ public interface AdminService {
 	//public List<MemberVO> getExcelDown(MemberVO memberVo, HttpServletResponse response);
 	List<MemberVO> getExcelDown(MemberVO memberVo);
 	AdminVO selectByManId(String manId);
+	int adminMemberDelete(String memId);
 }
