@@ -265,7 +265,9 @@
 																<c:set var="etcYn" value="Y"/>
 														</c:otherwise>
 													</c:choose>
-													<input class="form-control" type="text" name="mEmail1" id="mEmail1" value="${vo.MEmail1 }">
+													
+													<input class="form-control" type="text" 
+													name="mEmail1" id="mEmail1" value="${vo.MEmail1 }">
 														
 													<div class="col-1">@</div>
 													
@@ -302,7 +304,7 @@
 															style="visibility:hidden"
 														</c:if>
 														<c:if test="${etcYn =='Y' }">
-															value="${vo.MEmail3 }"
+															value="${vo.MEmail2 }"
 														</c:if>
 													>
 												</div>
