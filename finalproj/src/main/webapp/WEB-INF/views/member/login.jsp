@@ -37,10 +37,13 @@
 	<script>	
 	
 	
-	function find(){
-		
-		open("<c:url value='/member/find.do'/>", "find", "width=500, height=500, location=yes, resizable=yes, top=100, left=50");
-
+	function find(i){
+		if(i==1){
+		open("<c:url value='/member/findId.do'/>", "find", "width=770, height=400, location=yes, resizable=yes, top=200");
+		}
+		else{
+			open("<c:url value='/member/findPwd.do'/>", "find", "width=550, height=400, location=yes, resizable=yes, top=200");	
+		}
 	}
 	
 		function loginFormWithKakao() {
@@ -117,7 +120,9 @@
 										>
                                         <!-- <input id="checkbox1" type="checkbox" name="chkSaveId" > -->
                                         <label class="text-muted" for="saveId">아이디 기억</label>
-                                    </div><a class="link" href="javascript:find()">아이디/비밀번호 찾기</a>
+                                        <a href="javascript:find(1)" style="margin-left:75px;margin-right: 10px">아이디 찾기</a>
+                                    <a href="javascript:find(2)">비밀번호 찾기</a>
+                                    </div>
                                     <div class="text-end mt-3">
                                         <button class="btn btn-primary btn-block w-100" style="height: 50px" type="submit">로그인</button>
 										<a id="btn-kakao-login" href="javascript:loginFormWithKakao()">

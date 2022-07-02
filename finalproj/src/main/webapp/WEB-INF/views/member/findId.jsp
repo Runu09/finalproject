@@ -43,50 +43,52 @@
     <!-- get in touch section start -->
     <section class="small-section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8">
+           
+                
                     <div class="get-in-touch">
                         <h3>아이디 찾기</h3>
-                        <p style="color: black">본인확인 이메일 주소와 입력한 이메일 주소가 같아야,<br> 인증번호를 받을 수 있습니다.</p>
+                        <p style="color: black">본인확인 이메일 주소와 입력한 이메일 주소가 같아야, 인증번호를 받을 수 있습니다.</p>
                         <form>
-                            <div class="row">
+                            <div class="row" style="margin: 0 auto">
                                 
-                              <div class="form-group col-md-2">
-                                    이름
+                              <div class="form-group col-md-2" style="margin-left: -12px">
+                                     이름
                                 </div>
-                               <div class="form-group col-md-10">
+                               <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="name" placeholder="이름 입력"
                                         required="">
                                 </div>
-                                
-                                <div class="form-group col-md-2">
+                                <div class="col-md-3"></div>
+                                <div class="form-group col-md-2" style="margin-left: -12px">
                                     이메일 주소
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="email" placeholder="이메일 주소 입력"
                                         required="">
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                    <button class="btn btn-solid" type="submit">인증번호 받기</button>
                                 </div>
-                                <div class="form-group col-md-2">
+                                <div class="form-group col-md-2" style="margin-left: -12px">
                                    
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="confirmKey" placeholder="인증번호 6자리 숫자 입력"
                                         required="" disabled="disabled">
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                   
                                 </div>
-                              
+                              <div class="form-group col-md-12" style="text-align: center">
+                                  <button class="btn btn-solid" >다음</button>
+                                </div>
                             </div>
                         </form>
                     </div>
-                </div>
+               
                
             </div>
-        </div>
+        
     </section>
     <!-- get in touch section end -->
 
