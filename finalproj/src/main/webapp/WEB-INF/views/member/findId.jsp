@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
     <meta name="keywords" content="rica">
     <meta name="author" content="rica">
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon" />
-    <title>Rica</title>
+    <title>아이디 찾기</title>
 
     <!--Google font-->
     <link
@@ -33,6 +34,34 @@
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/color1.css">
+    
+    <script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+    	$('#btAuth').click(function(){
+    		var email=$('#email').val();
+    		
+			$.ajax({
+				url:"<c:url value='/email/sendEmail.do'/>",
+				data:$('#frmId').serializeArray(),
+				type:'post',
+				dataType:'json',
+				success:function(res){
+					alert("인증번호가 전송되었습니다");
+					$('#btAuth').attr('disabled',true);
+		    		$('#confirmKey').attr('disabled',false);
+			
+				},
+				error:function(xhr, status, error){
+					alert('error: '+error);
+				}
+			});
+			event.preventDefault();
+    	
+    	});
+    });
+    </script>
+    
 
 </head>
 
@@ -48,9 +77,8 @@
                     <div class="get-in-touch">
                         <h3>아이디 찾기</h3>
                         <p style="color: black">본인확인 이메일 주소와 입력한 이메일 주소가 같아야, 인증번호를 받을 수 있습니다.</p>
-                        <form>
                             <div class="row" style="margin: 0 auto">
-                                
+                             
                               <div class="form-group col-md-2" style="margin-left: -12px">
                                      이름
                                 </div>
@@ -62,13 +90,17 @@
                                 <div class="form-group col-md-2" style="margin-left: -12px">
                                     이메일 주소
                                 </div>
+                                 
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="email" placeholder="이메일 주소 입력"
-                                        required="">
+                                <form method="post" name="frmId" action="<c:url value='/email/sendEmail.do'/>" id="frmId">
+                       
+                                   <input type="text" class="form-control" id="email" placeholder="이메일 주소 입력" name="email"
+                                        required="" style="text-transform: none;">
                                 </div>
                                 <div class="form-group col-md-3">
-                                   <button class="btn btn-solid" type="submit">인증번호 받기</button>
+                                   <button class="btn btn-solid" type="submit" id="btAuth">인증번호 받기</button>
                                 </div>
+                                </form>
                                 <div class="form-group col-md-2" style="margin-left: -12px">
                                    
                                 </div>
@@ -83,7 +115,7 @@
                                   <button class="btn btn-solid" >다음</button>
                                 </div>
                             </div>
-                        </form>
+                        
                     </div>
                
                
@@ -104,10 +136,6 @@
     </div>
     <!-- tap to top end -->
 
-
-  
-    <!-- latest jquery-->
-    <script src="../assets/js/jquery-3.5.1.min.js"></script>
 
     <!-- slick js-->
     <script src="../assets/js/slick.js"></script>
