@@ -52,11 +52,12 @@
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label>출발지</label>
-                                <input type="text" class="form-control open-select" value="" placeholder="to" id="arrival">
-                                <input type="hidden" id="hiddenArr" name="arrival">
-                                <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload" alt="">
-                                <div class="selector-box" id="arrBox">
-                                	<ul class="arr">
+                                <input type="text" class="form-control open-select"
+                                    value="${depLoc }" placeholder="from" id="departure" name="depLoc">
+                                <input type="hidden" id="hiddenDep" name="departure">
+                                <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
+                                <div class="selector-box" id="depBox">
+                                	<ul class="dep">
                                          <c:forEach items="${selectAllAirport}" var="airfort">
 										    <li>
 										        <a href="#">
@@ -74,13 +75,12 @@
                         </div>
                         <div class="col-lg-2">
                             <div class="form-group">
-                                <label>도착지</label>
-                                <input type="text" class="form-control open-select"
-                                    value="" placeholder="from" id="departure">
-                                <input type="hidden" id="hiddenDep" name="departure">
-                                <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
-                                <div class="selector-box" id="depBox">
-                                	<ul class="dep">
+                            	<label>도착지</label>
+                                <input type="text" class="form-control open-select" value="${arrLoc}" placeholder="to" id="arrival" name="arrLoc">
+                                <input type="hidden" id="hiddenArr" name="arrival">
+                                <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload" alt="">
+                                <div class="selector-box" id="arrBox">
+                                	<ul class="arr">
                                          <c:forEach items="${selectAllAirport}" var="airfort">
 										    <li>
 										        <a href="#">
@@ -99,14 +99,16 @@
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label>탑승일</label>
-                                <input placeholder="Depart Date" id="datepicker" name="datepicker" value=""/>
+                                <input placeholder="Depart Date" id="datepicker" name="datepicker" value="${date }"/>
                             </div>
                         </div>
                         
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label>승객 선택</label>
-                                <input type="text" class="form-control open-select" id="people" name="people" placeholder="to" value="">
+                                <input type="text" class="form-control open-select" id="people" name="people" placeholder="to" value="${people }">
+                                <input type="hidden" id="adult" name="adult">
+                                <input type="hidden" id="child" name="child">
                                 <img src="../assets/images/icon/user.png" class="img-fluid blur-up lazyload" alt="">
                                 <div class="selector-box-flight" id="qtyBox">
                                     <div class="room-cls">
@@ -116,7 +118,7 @@
 	                                            <button type="button" class="btn quantity-left-minus" id="decAd" 
 	                                                data-type="minus" data-field=""> - </button>
 	                                            <span name="quantity"  id="numberUpDown1"
-	                                                class="form-control qty-input input-number">0</span>
+	                                                class="form-control qty-input input-number">'${adult }'</span>
 	                                            <button type="button" class="btn quantity-right-plus"
 	                                                data-type="plus" data-field="" id="incAd">+</button>
 	                                        </div>
@@ -127,7 +129,7 @@
 	                                            <button type="button" class="btn quantity-left-minus" id="decCh"
 	                                                data-type="minus" data-field=""> - </button>
 	                                            <span name="quantity"  id="numberUpDown2"
-	                                                class="form-control qty-input input-number">0</span>
+	                                                class="form-control qty-input input-number">'${child }'</span>
 	                                            <button type="button" class="btn quantity-right-plus" id="incCh"
 	                                                data-type="plus" data-field=""> + </button>
 	                                        </div>

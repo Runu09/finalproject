@@ -51,4 +51,29 @@ $(document).ready(
 			$('#hiddenDep').val(airporthd);
 			
 		};
+		
+		//
+		$(function(){
+			$('#inwonOk').click(function(){
+				var acity=$('#numberUpDown1').text();
+				setHiddenAd(acity)
+			});
+		});
+			
+		$(function(){
+			$('#inwonOk').click(function(){
+				var dcity=$('#numberUpDown2').text();
+				
+				setHiddenCh(dcity)
+			});
+		});
+		
+		function setHiddenAd(adInwon){
+			$('#adult').val(adInwon);
+			
+		};
+		function setHiddenCh(chInwon){
+			$('#child').val(chInwon);
+			
+		};
 });

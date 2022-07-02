@@ -48,13 +48,12 @@
                             </form> -->
                             <form action="<c:url value='/booking/flight-round-trip.do'/>" method="post">
                             	<div class="form-group">
-                                    <input type="text" class="form-control open-select" placeholder="출발지" id="arrival">
-                                    <input type="hidden" id="hiddenArr" name="arrival">
-                                    <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload"
-                                        alt="">
-                                    <div class="selector-box" id="arrBox">
+                                    <input type="text" class="form-control open-select" placeholder="출발지" id="departure" name="depLoc">
+                                    <input type="hidden" id="hiddenDep" name="departure">
+                                    <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
+                                    <div class="selector-box" id="depBox">
                                          <h6 class="title">출발지를 선택하세요</h6>
-                                         <ul class="arr">
+                                         <ul class="dep">
 	                                         <c:forEach items="${selectAllAirport}" var="airfort">
 											    <li>
 											        <a href="#">
@@ -70,12 +69,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control open-select" placeholder="도착지" id="departure" >
-                                    <input type="hidden" id="hiddenDep" name="departure">
-                                    <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
-                                    <div class="selector-box" id="depBox">
+                                	<input type="text" class="form-control open-select" placeholder="도착지" id="arrival" name="arrLoc">
+                                    <input type="hidden" id="hiddenArr" name="arrival">
+                                    <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload"
+                                        alt="">
+                                    <div class="selector-box" id="arrBox">
 	                                    <h6 class="title">도착지를 선택하세요</h6>
-	                                    <ul class="dep">
+	                                    <ul class="arr">
 	                                         <c:forEach items="${selectAllAirport}" var="airfort">
 											    <li>
 											        <a href="#">
@@ -117,6 +117,8 @@
                                             <div class="form-group">
                                                 <input type="text" class="form-control open-select" id="people" name="people"
                                                     placeholder="승객" >
+                                                <input type="hidden" id="adult" name="adult">
+                                                <input type="hidden" id="child" name="child">
                                                 <img src="../assets/images/icon/user.png"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <div class="selector-box-flight" id="qtyBox">
