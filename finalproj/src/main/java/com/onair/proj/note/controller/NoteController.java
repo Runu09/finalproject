@@ -1,5 +1,7 @@
 package com.onair.proj.note.controller;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+
 import java.util.List;
 import java.util.Map;
 
@@ -63,8 +65,12 @@ public class NoteController {
 	}
 
 	@PostMapping("/send.do")
-	public String note_send(@ModelAttribute NoteVO noteVo, @RequestParam String memId,HttpSession session, Model model) {
-		logger.info("파라미터 memId={}", memId);
+	public String note_send(@RequestParam String memList, @ModelAttribute NoteVO noteVo, 
+			HttpSession session, Model model) {
+		/* @RequestParam String memId, */
+		
+		String data[]=memList.split(",");
+		
 		logger.info("파라미터 noteVo={}", noteVo);
 		String msg="쪽지 전송 실패", url="/note/write.do";
 
@@ -78,13 +84,15 @@ public class NoteController {
 
 
 
-		NotemanVO notemanVo=new NotemanVO(); int
-		memNo=noteService.selectMemNo(memId); 
+		NotemanVO notemanVo=new NotemanVO(); 
+		
+		for(int i=0;i<data.length;i++) {
+		int memNo=noteService.selectMemNo(data[i]); 
 		notemanVo.setMemNo(memNo);
 		logger.info("세팅 후 파라미터 notemanVo={}", notemanVo);
 		cnt=noteService.insertNoteman(notemanVo);
 
-
+		}
 		if(cnt>0) {
 			msg="쪽지 전송 성공";
 		}
@@ -94,12 +102,33 @@ public class NoteController {
 		return "/common/message";
 	}
 	@RequestMapping("/list.do")
-	public String note_list(Model model) {
+	public String note_list(@ModelAttribute SearchVO searchVo, Model model) {
 		
-		List<NoteviewVO> list=noteService.selectNoteView();
+		logger.info("쪽지 관리 목록, 파라미터 searchVo={}", searchVo);
+		
+		//[1] PaginationInfo 생성
+				PaginationInfo pagingInfo = new PaginationInfo();
+				pagingInfo.setBlockSize(ConstUtil.BLOCKSIZE);
+				pagingInfo.setRecordCountPerPage(ConstUtil.RECORD_COUNT);
+				pagingInfo.setCurrentPage(searchVo.getCurrentPage());
+				
+				//[2] searchVo에 페이징 처리 관련 변수의 값 셋팅
+				searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+				searchVo.setRecordCountPerPage(ConstUtil.RECORD_COUNT);
+				
+		List<NoteviewVO> list=noteService.selectNoteView(searchVo);
 		
 		logger.info("list.size()={}", list.size());
+		
+		//totalRecord개수 구하기
+				int totalRecord=noteService.getTotalRecord(searchVo);
+				logger.info("쪽지 관리 목록 totalRecord={}", totalRecord);
+
+				pagingInfo.setTotalRecord(totalRecord);
+				
+				
 		model.addAttribute("noteList",list);
+		model.addAttribute("pagingInfo", pagingInfo);
 		return "/note/list";
 		
 
