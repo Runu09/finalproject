@@ -83,6 +83,35 @@
 		display: none;
 	}
 }
+
+span#title{
+	font-size: 15px;
+	letter-spacing: -2px;
+	color: #565656;
+	position: relative;
+    top: -39px;
+    margin-left: -1px;
+}
+p#t2-p1{
+margin: 0; color: #00518b; font-size: 14px; font-weight: 1000; margin-left: 10px;
+}
+
+
+p#t2-p2{
+margin: 0;font-size: 10px;font-weight: bold;color: #565656;letter-spacing: -0.5px; margin-left: 10px;
+}
+
+p#t2-p3{
+margin: 0;margin-left: 10px;font-weight: 1000;color: #1f1f1f;font-size: 12px;
+}
+
+p#t3-p1{
+margin: 0; color: #565656; font-size: 10px; margin-left: 10px;
+}
+
+p#t3-p2{
+margin: 0;margin-left: 10px;color: #565656;font-size: 10px;
+}
 </style>
 <meta name="robots" content="noindex,nofollow" />
 <!-- <meta name="viewport" content="width=device-width; initial-scale=1.0;" /> -->
@@ -90,26 +119,16 @@
 
 </head>
 <body style="background-color: silver">
+<div id="pdfDiv">
 
-<div id="pdfDi">
-<!--------------------------- -->
+<!------------------------------------상단부-->
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable">
 	<a id="target" style="display: none"></a>
 		<tr>
-			<td height="20"></td>
-		</tr>
-		<tr>
 			<td>
-				<table width="600" border="0" cellpadding="0" cellspacing="0"
-					align="center" class="fullTable" bgcolor="#ffffff"
-					style="border-radius: 10px 10px 0 0;">
-					<tr class="hiddenMobile">
-						<td height="30"></td>
-					</tr>
-					<tr class="visibleMobile">
-						<td height="20"></td>
-					</tr>
-
+				<table width="600" border="0" cellpadding="0" cellspacing="0" align="center" 
+				class="fullTable" bgcolor="#ffffff" style="border-radius: 10px 10px 0 0;">
+				
 					<tr>
 						<td>
 							<table width="480" border="0" cellpadding="0" cellspacing="0"
@@ -117,27 +136,28 @@
 								<tbody>
 									<tr>
 										<td>
-											<table width="220" border="0" cellpadding="0" cellspacing="0"
-												align="left" class="col">
+											<table width="220" border="0" cellpadding="0" cellspacing="0" align="left" class="col">
 												<tbody>
+													<!-------- 로고 ---------->
 													<tr>
-														<td align="left"><img 
-															src="../resources/newni/logo.png"
-															alt="logo" border="0" style="width: 50%"/><span style="font-size: 15px;letter-spacing: -2px;color: #565656;">e-티켓 확인증</span></td>
+														<td align="left"> 
+															<img =  src="../assets/images/main2.png" alt="looginpage" alt="logo" border="0" style="width: 50%"/>
+															<span id="title">e-티켓 확인증</span>
+														</td>
 													</tr>
-													<tr class="hiddenMobile">
-														<td height="40"></td>
-													</tr>
-													<tr class="visibleMobile">
-													</tr>
+													<!-------- 로고 ---------->
 												</tbody>
 											</table>
 											<table width="220" border="0" cellpadding="0" cellspacing="0"
 												align="right" class="col">
 												<tbody>
+												<!-------- 바코드 ---------->
 													<tr class="visibleMobile">
-														<td height="20"><div id="bcTarget" style="margin-left: 90px;">바코드출력</div></td>
+														<td height="20">
+														<div id="bcTarget" style="margin-left: 90px;">바코드출력</div>
+														</td>
 													</tr>
+													<!-------- 바코드 ---------->
 												</tbody>
 											</table>
 										</td>
@@ -150,8 +170,8 @@
 			</td>
 		</tr>
 	</table>
-	
-	<!-------------------------------------------------------------  -->
+<!-- ---------------------------------------------------------- -->	
+<!-- ---------------------------------------------------------- -->	
 	<table width="100%" border="0" cellpadding="0" cellspacing="0"
 		align="center" class="fullTable">
 		<tbody>
@@ -161,53 +181,43 @@
 						align="center" class="fullTable" bgcolor="#ffffff">
 						<tbody>
 							<tr>
-							<tr class="hiddenMobile">
-							</tr>
-							<tr class="visibleMobile">
-							</tr>
-							<tr>
 								<td>
-									<table width="480" border="0" cellpadding="0" cellspacing="0"
-										align="center" class="fullPadding">
+								<!------------- 첫번째 테이블 승객정보--------------------- -->
+									<table width="480" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
 										<tbody>
-										<tr>
-												<td height="1" colspan="4"
-													style="border-bottom: 1px solid #e4e4e4"></td>
+											<tr>
+												<td height="1" colspan="4" style="border-bottom: 1px solid #e4e4e4"></td>
 											</tr>
 												<tr>
 													<td
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000; line-height: 18px; vertical-align: top; padding: 4px 0; padding-left: 10px; background-color: aliceblue; color: #565656;"
 														class="article"><small>승객성명</small></td>
 													<td colspan="2"
-														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 4px 0; padding-left: 100px; background-color: aliceblue;"><small>항공권번호</small></td>
+														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 4px 0; padding-left: 100px; background-color: aliceblue;">
+														<small>좌석번호</small></td>
 													<td
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33; line-height: 18px; vertical-align: top; padding: 4px 0; padding-right: 10px; background-color: aliceblue;"
-														align="right"><small>예약번호</small></td>
+														align="right"><small>예매번호</small></td>
 												</tr>
-<!-- 											<tr>
-												<td height="1" colspan="4"
-													style="border-bottom: 1px solid #e4e4e4"></td>
-											</tr>
- -->												<tr>
+												<tr>
 													<td
 														style="font-size: 10px; font-family: 'Open Sans', sans-serif; color: #ff0000; line-height: 18px; vertical-align: top; padding: 5px 0; padding-left: 10px; color: #565656;"
-														class="article">${depInfo.name}</td>
+														class="article">name</td>
 													<td colspan="2"
-														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; padding-left: 100px;"><small>${depInfo.flightBNum}<c:if test="${kind eq 1 }">/${arrInfo.flightBNum}</c:if></small></td>
+														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; padding-left: 100px;">
+														<small>좌석번호</small></td>
 													<td
 														style="font-size: 10px; font-family: 'Open Sans', sans-serif; color: #1e2b33; line-height: 18px; vertical-align: top; padding: 5px 0; padding-right: 10px;"
-														align="right">${depInfo.bookingNum}</td>
+														align="right">예매번호</td>
 												</tr>
-													<tr>
-												<td height="1" colspan="4"
-													style="border-bottom: 1px solid #e4e4e4"></td>
-											</tr>
+												<tr>
+												<td height="1" colspan="4" style="border-bottom: 1px solid #e4e4e4"></td>
+												</tr>
 										
 										</tbody>
 									</table>
+									<!-- 첫번째 테이블 승객정보----------------------- -->
 								</td>
-							</tr>
-							<tr>
 							</tr>
 						</tbody>
 					</table>
@@ -215,91 +225,88 @@
 			</tr>
 		</tbody>
 	</table>
+<!-- ---------------------------------------------------------- -->	
 	<!-- /Header -->
 	<!-- Order Details -->
-	<table width="100%" border="0" cellpadding="0" cellspacing="0"
-		align="center" class="fullTable">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable">
 		<tbody>
 			<tr>
 				<td>
-					<table width="600" border="0" cellpadding="0" cellspacing="0"
-						align="center" class="fullTable" bgcolor="#ffffff">
+					<table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff">
 						<tbody>
 							<tr>
-							<tr class="hiddenMobile">
-								<!-- <td height="60"></td> -->
-							</tr>
 							<tr class="visibleMobile">
 								<td height="40"></td>
 							</tr>
 							<tr>
 								<td>
-									<table width="480" border="0" cellpadding="0" cellspacing="0"
-										align="center" class="fullPadding">
+									<table width="480" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
 										<tbody>
-										<tr>
-												<td height="1" colspan="4"
-													style="border-bottom: 1px solid #e4e4e4"></td>
+											<tr>
+												<td height="1" colspan="4" style="border-bottom: 1px solid #e4e4e4"></td>
 											</tr>
+											<!---------- 2번째 테이블 출발/도착------------ -->
 												<tr>
 													<td
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000; line-height: 18px; vertical-align: top; padding: 5px 0; background-color: aliceblue; padding-left: 10px; color:#565656"
 														class="article"><small>출발</small></td>
 													<td colspan="2"
-														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; background-color: aliceblue; padding-left: 10px;"><small>도착</small></td>
+														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; background-color: aliceblue; padding-left: 10px;">
+														<small>도착</small></td>
 													<td
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33; line-height: 18px; vertical-align: top; padding: 5px 0; background-color: aliceblue; padding-right: 10px; padding-right: 65px; width: 85px;"
 														align="right"><small style="margin-right: 30px">편명</small></td>
 												</tr>
 												<tr>
-													<td
-														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000; line-height: 18px; vertical-align: top; padding: 5px 0; width: 200px; padding-top: 10px;"
-														class="article" >
-														<p style="margin: 0; color: #00518b; font-size: 14px; font-weight: 1000; margin-left: 10px;">${depInfo.depCityCode}</p>
-														<p style="margin: 0;font-size: 10px;font-weight: bold;color: #565656;letter-spacing: -0.5px; margin-left: 10px;">${depInfo.depAirportNm} (${depInfo.depCityEng})</p>
-														<p style="margin: 0;margin-left: 10px;font-weight: 1000;color: #1f1f1f;font-size: 12px;">${depInfo.depPlandTime} ${depTime}</p>
+													<td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000; 
+													line-height: 18px; vertical-align: top; padding: 5px 0; width: 200px; padding-top: 10px;" class="article" >
+														<p id="t2-p1">출발1</p>
+														<p id="t2-p2">출발2</p>
+														<p id="t2-p3">출발3</p>
 														</td>
 													<td colspan="2"
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; padding-top: 10px; ">
-														<p style="margin: 0; color: #00518b; font-size: 14px; font-weight: 1000; margin-left: 10px;">${depInfo.arrCityCode}</p>
-														<p style="margin: 0;font-size: 10px;font-weight: bold;color: #565656;letter-spacing: -0.5px; margin-left: 10px;">${depInfo.arrAirportNm} (${depInfo.arrCityEng})</p>
-														<p style="margin: 0;margin-left: 10px;font-weight: 1000;color: #1f1f1f;font-size: 12px;">${depInfo.arrPlandTime} ${arrTime}</p>
+														<p id="t2-p1">도착1</p>
+														<p id="t2-p2">도착2</p>
+														<p id="t2-p3">도착3</p>
 													</td>
 													<td
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33; line-height: 18px; vertical-align: top; padding: 5px 0; padding-right: 50px; padding-top: 10px;"
 														align="right">
-															<p style="margin: 0; color: #00518b; font-size: 14px; font-weight: 1000; margin-right: 13px;">${depInfo.vihicleId}</p>
-															<p style="margin: 0;font-size: 10px;font-weight: bold;color: #565656;letter-spacing: -0.5px;margin-right: -4px;">Operated by EA</p>
-															<p style="margin: 0;margin-left: 10px;font-weight: 1000;color: #1f1f1f;font-size: 12px;"><img alt="" src="" width="80%;" style="margin-left: 25px;" id="depImg"></p>
+															<p id="t2-p1" style="margin-right: 13px;">편명</p>
+															<p id="t2-p2" style="margin-right: -4px;">Operated by EA</p>
+															<p id="t2-p3"><img alt="" src="" width="80%;" style="margin-left: 25px;" id="depImg"></p>
 														</td>
 												</tr>
-													<tr>
-												<td height="1" colspan="4"
-													style="border-bottom: 1px solid #e4e4e4"></td>
-											</tr>
-											<tr>
+												<tr>
+													<td height="1" colspan="4" style="border-bottom: 1px solid #e4e4e4"></td>
+												</tr>
+												<!---------- 2번째 테이블 출발/도착------------ -->
+										
+												<!------- 3번째 테이블 그외 정보들 ---------->
+												<tr>
 													<td
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000; line-height: 18px; vertical-align: top; padding: 5px 0; width: 200px; "
 														class="article" >
-														<p style="margin: 0; color: #565656; font-size: 10px; margin-left: 10px;">예약등급 : 일반석</p>
-														<p style="margin: 0;margin-left: 10px;color: #565656;font-size: 10px;">비행시간 : ${depInfo.flightTime }분</p>
+														<p id="t3-p1">소아 인원수 : 1명</p>
+														<p id="t3-p2">성인 인원수 : 2명</p>
 														</td>
 													<td colspan="2"
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; ">
-														<p style="margin: 0; color: #565656; font-size: 10px; margin-left: 10px;">좌석번호 : ${depInfo.seatName}</p>
-														<p style="margin: 0;margin-left: 10px;color: #565656;font-size: 10px;">항공권 유효기간 : 3개월</p>
+														<p id="t3-p1">예매일자 : 1일</p>
+														<p id="t3-p2">예매금액 : 11원</p>
 													</td>
 												</tr>
-													<tr>
-												<td height="1" colspan="4"
-													style="border-bottom: 1px solid #e4e4e4"></td>
-											</tr>
+												<tr>
+													<td height="1" colspan="4" style="border-bottom: 1px solid #e4e4e4"></td>
+												</tr>
+												<!------- 3번째 테이블 그외 정보들 ---------->
 										</tbody>
 									</table>
 								</td>
 							</tr>
 							<tr>
-								<!-- <td height="20"></td> -->
+								 <td height="20"></td> 
 							</tr>
 						</tbody>
 					</table>
@@ -367,7 +374,7 @@
 													<td
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000; line-height: 18px; vertical-align: top; padding: 5px 0; width: 200px;"
 														class="article" >
-														<p style="margin: 0; color: #565656; font-size: 10px; margin-left: 10px;">예약등급 : 일반석</p>
+														<p style="margin: 0; color: #565656; font-size: 10px; margin-left: 10px;"></p>
 														<p style="margin: 0;margin-left: 10px;color: #565656;font-size: 10px;">비행시간 : ${arrInfo.flightTime}분</p>
 														</td>
 													<td colspan="2"
@@ -470,7 +477,7 @@
 									<tr>
 										<td
 											style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: left;">
-											On Air
+											EVERY AIR
 										</td>
 									</tr>
 								</tbody>
