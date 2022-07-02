@@ -10,7 +10,7 @@
 		insReply += '<input type="hidden" name="cGroupno" value='+groupno+'>';
 		insReply += '<input type="hidden" name="cStep" value='+step+'>';
 		insReply += '<input type="hidden" name="cSortno" value='+sortno+'>';
-		insReply += '<input type="text" name="cContent">';
+		insReply += '<input type="text" name="cContent" id="cContent">';
 		insReply += '<button type="submit">등록</button>';
 		insReply += '<input type="button" value="취소" onclick="javascript:replyCancel('+idx+')">';
 		insReply += '</form>';
@@ -21,7 +21,7 @@
 		$('form[name=vocReplyRe]').submit(function(){
 			if($.trim($('#cContent').val()) == ""){
 				alert("내용을 입력해주세요");
-				$('input[name=cContent]').focus();
+				$('#cContent').focus();
 				event.preventDefault();
 			}
 		});

@@ -56,8 +56,7 @@ function pageFunc(curPage){
 							<%-- <form method="post" action="<c:url value='/note/write.do'/>"> --%>
 							<div class="card-body">
 								<div>
-									<div class="table-responsive table-desi">
-										<table class="user-table table table-striped">
+									<div class="table-responsive table-desi"><table class="user-table table table-striped">
 											<thead>
 												<tr style="text-align: center">
 													<th>번호</th>
@@ -78,12 +77,12 @@ function pageFunc(curPage){
 												<c:if test="${!empty noteList }">
 													<c:forEach var="vo" items="${noteList }">
 														<tr style="text-align: center">
-															<td>${vo.nmNo }</td>
-															<td>${vo.memId }</td>
-															<td>${vo.manId }</td>
+															<td width="10%">${vo.nmNo }</td>
+															<td width="15%">${vo.manId }</td>
+															<td width="15%">${vo.memId }</td>
 															
-															<td>${vo.NContent }</td>
-															<td>${vo.NTime }</td> 
+															<td width="40%">${vo.NContent }</td>
+															<td width="20%">${vo.NTime }</td> 
 														</tr>
 													</c:forEach> 
 												- </c:if>

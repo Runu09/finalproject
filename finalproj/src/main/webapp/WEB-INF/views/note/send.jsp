@@ -127,7 +127,7 @@ function setReceiver(id){
 
 									<div class="row">
 
-										<input placeholder="" value="${SearchVO.searchKeyword }"
+										<input placeholder="이름을 입력하세요" value="${SearchVO.searchKeyword }"
 											type="text" name="searchKeyword" class="form-control"
 											style="width: 350px;" />
 										<button class="btn btn-primary me-3"
