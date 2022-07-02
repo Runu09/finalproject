@@ -4,9 +4,7 @@ import lombok.Data;
 
 @Data
 public class ScheduleSearchVO extends SearchVO {
-	private String arrival;
-	private String departure;
+	private String depLoc;
+	private String arrLoc;
 	private String datepicker;
-	private String numberUpDown1;
-	private String numberUpDown2;
 }

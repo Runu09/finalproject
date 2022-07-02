@@ -26,7 +26,11 @@
 		    select rownum as RNUM, A.*
 		    from
 		    (
-		       	select * from Schedule where s_price !=' '
+		       	select B.* 
+		       	from Schedule B
+		       	where s_price !=' '
+		       	and a_depnm = #{depLoc}
+		       	and a_arrnm = #{arrLoc}
 		    )A
 		)
 		where RNUM>#{firstRecordIndex} 

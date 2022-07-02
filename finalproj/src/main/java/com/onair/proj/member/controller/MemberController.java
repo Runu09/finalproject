@@ -338,9 +338,13 @@ public class MemberController {
 		
 		return "/common/message";
 	}
-	@GetMapping("find.do")
-	public void find_get() {
+	@GetMapping("findId.do")
+	public void findid_get() {
 		logger.info("아이디 찾기 화면");
+	}
+	@GetMapping("findPwd.do")
+	public void findpwd_get() {
+		logger.info("비밀번호 찾기 화면");
 	}
 }
 

@@ -14,8 +14,8 @@ public interface NoteService {
 	 * selectMemberTotalRecord(SearchVO searchVo);
 	 */
 
-	
+	int getTotalRecord(SearchVO searchVo);
 	 int insertNoteman(NotemanVO vo); 
 	 int selectMemNo(String memId);
-	 List<NoteviewVO> selectNoteView();
+	 List<NoteviewVO> selectNoteView(SearchVO searchVo);
 }

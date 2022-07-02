@@ -1,6 +1,7 @@
 package com.onair.proj.note.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import lombok.Data;
 
@@ -11,5 +12,4 @@ public class NoteVO {
 	private String nTitle;/* 쪽지제목 */
 	private String nContent;/* 쪽지내용 */
 	private Timestamp nTime; //최종도착시간
-
 }
