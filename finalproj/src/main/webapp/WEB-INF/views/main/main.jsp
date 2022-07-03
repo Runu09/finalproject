@@ -1,19 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-<script>
-/* $(function(){
-	$('#searchBtn').click(function(){
-		var arr = $('#arrival').val();
-		var dep = $('#departure').val();
-		var date = $('#datepicker').val();
-		var upDown1 = $('#numberUpDown1').val();
-		var upDown2 = $('#numberUpDown2').val();
-		location.href="flight-round-trip.do?arrival="+arr+"&departuer="+dep+"&datepicker"+date+"&numberUpDown1"+upDown1+"&numberUpDown2"+upDown2;
-	});
-}) */
-</script>
-
 <style>
 	.hidden{
 	  position: absolute;
