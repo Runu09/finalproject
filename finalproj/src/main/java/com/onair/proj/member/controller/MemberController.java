@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import javax.naming.spi.DirStateFactory.Result;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -345,6 +344,40 @@ public class MemberController {
 	@GetMapping("findPwd.do")
 	public void findpwd_get() {
 		logger.info("비밀번호 찾기 화면");
+	}
+	
+	@ResponseBody
+	@RequestMapping("infoId.do")
+	public String infoid(@RequestParam String name, @RequestParam String email) {
+		logger.info("아이디 찾기 처리 파라미터 name={}, email={}", name, email);
+		
+		String result=memberService.findId(name,email);
+		logger.info("아이디 찾기, 결과 result={}", result);
+		return result;
+	}
+	@PostMapping("newPwd.do")
+	public void newPwd_post(@RequestParam String pid, Model model) {
+		//파라미터 아이디
+		logger.info("새로운 비밀번호 설정 화면 파라미터 pid={}",pid);
+		model.addAttribute("memId", pid);
+		
+		
+	}
+	@PostMapping("changePwd.do")
+	@ResponseBody
+	public String newPwd_post(@ModelAttribute MemberVO vo) {
+		logger.info("새로운 비밀번호 변경 처리, MemberVo={}", vo);
+		
+		String msg="비밀번호 변경 실패";
+		
+		logger.info("memId={}, memPwd={}", vo.getMemId(), vo.getMemPwd());
+		
+		int cnt=memberService.pwdChange(vo.getMemId(), vo.getMemPwd());
+		logger.info("pwdChange() 결과 cnt={}",cnt);
+		
+		
+		return Integer.toString(cnt);
+	
 	}
 }
 

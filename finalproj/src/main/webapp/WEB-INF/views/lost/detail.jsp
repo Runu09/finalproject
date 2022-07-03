@@ -116,6 +116,8 @@
 									style="width: 400px; height: 400px">
 							</c:if>
 							<c:if test="${!empty vo.FName}">
+							
+   
 								<img src="<c:url value='/img_upload/${vo.FName }'/>"
 									alt="${vo.BTitle}" style="width: 400px; height: 400px">
 							</c:if>

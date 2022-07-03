@@ -11,7 +11,7 @@
 <meta name="keywords" content="rica">
 <meta name="author" content="rica">
 <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon" />
-<title>비밀번호 찾기</title>
+<title>비밀번호 재설정</title>
 
 <!--Google font-->
 <link
@@ -47,35 +47,30 @@
 		$('#btClose').click(function() {
 			self.close();
 		});
-		$('#btAuth').click(function() {
-			var email = $('#email').val();
-
-			$.ajax({
-				url : "<c:url value='/email/sendEmail.do'/>",
-				data : $('#frmPwd').serializeArray(),
-				type : 'post',
-				dataType : 'json',
-				success : function(res) {
-					alert("인증번호가 전송되었습니다");
-					$('#btAuth').attr('disabled', true);
-					$('#confirmKey').attr('disabled', false);
-					$('#chkAuth').val(res);
-
-				},
-				error : function(xhr, status, error) {
-					alert('error: ' + error);
-				}
-			});
-			event.preventDefault();
-
-		});
-
+	
 		$('#btOk').click(function() {
-			if ($('#confirmKey').val() == $('#chkAuth').val()) {
-				$('#pid').val($('#memId').val());
-				/* location.href = "<c:url value='/member/newPwd.do'/>"; */
+			if ($('#pwd1').val() == $('#pwd2').val()) {
+				$.ajax({
+					url : "<c:url value='/member/changePwd.do'/>",
+					data : $('#changePwd').serializeArray(),
+					type : 'post',
+					dataType : 'text',
+					success : function(res) {
+						if(res=="0"){
+							alert('비밀번호 변경 실패');
+						}else{
+							alert('비밀번호 변경 성공');
+							self.close();
+						}
+					},
+					error : function(xhr, status, error) {
+						alert('error: ' + error);
+					}
+				});
+				event.preventDefault();
 			} else {
-				alert('인증번호가 일치하지 않습니다.');
+				alert('비밀번호가 일치하지 않습니다.');
+				$("#pwd2").focus();
 				event.preventDefault();
 				return;
 			}
@@ -93,50 +88,36 @@
 
 
 			<div class="get-in-touch">
-				<h3>비밀번호 찾기</h3>
-				<p style="color: black">본인확인 이메일 주소와 입력한 이메일 주소가 같아야, 인증번호를 받을 수
-					있습니다.</p>
+				<h3>비밀번호 재설정</h3>
+						<form method="post" name="changePwd"
+							action="<c:url value='/member/changePwd.do'/>" id="changePwd">
+				
+				<input type="hidden" name="memId" value=${memId }>
+				<p style="color: black;margin-bottom: 30px">비밀번호를 변경해 주세요.<br>
+다른 아이디나 사이트에서 사용한 적 없는 안전한 비밀번호로 변경해 주세요.</p>
 				<div class="row" style="margin: 0 auto">
 
-					<div class="form-group col-md-2" style="margin-left: -12px">
-						아이디</div>
+					<!-- <div class="form-group col-md-2" style="margin-left: -12px">
+						아이디</div> -->
 					<div class="form-group col-md-6">
-						<input type="text" class="form-control" id="memId"
-							placeholder="아이디 입력" required="">
+						<input type="password" class="form-control" id="pwd1"
+							placeholder="새 비밀번호" required="">
 					</div>
 					<div class="col-md-3"></div>
-					<div class="form-group col-md-2" style="margin-left: -12px">
-						이메일 주소</div>
-
+					
 					<div class="form-group col-md-6">
-						<form method="post" name="frmPwd"
-							action="<c:url value='/member/sendEmail.do'/>" id="frmPwd">
-
-							<input type="text" class="form-control" id="email"
-								placeholder="이메일 주소 입력" name="email" required=""
-								style="text-transform: none;">
+						<input type="password" class="form-control" id="pwd2" name="memPwd"
+							placeholder="새 비밀번호 확인" required="" style="margin-bottom: 20px">
 					</div>
-					<div class="form-group col-md-3">
-						<button class="btn btn-solid" type="submit" id="btAuth">인증번호
-							받기</button>
-					</div>
-					</form>
+					
+					
 					<div class="form-group col-md-2" style="margin-left: -12px">
 
 					</div>
-					<div class="form-group col-md-6">
-						<input type="text" class="form-control" id="confirmKey"
-							placeholder="인증번호 6자리 숫자 입력" required="" disabled="disabled">
-					</div>
-					<div class="form-group col-md-3">
-						<input type="hidden" value="${res}" id="chkAuth">
-					</div>
-					<form method="post" name="frmNew" id="frmNew"
-					action="<c:url value='/member/newPwd.do'/>" 
-					>
-					<input type="hidden" name="pid" id="pid">
+					
+				
 					<div class="form-group col-md-12" style="text-align: center">
-						<button class="btn btn-solid" type="submit" id="btOk">다음</button>
+						<button class="btn btn-solid" id="btOk">확인</button>
 						<button class="btn btn-solid"
 							style="color: red; background-color: white; border-color: red; margin-left: 10px"
 							id="btClose">닫기</button>

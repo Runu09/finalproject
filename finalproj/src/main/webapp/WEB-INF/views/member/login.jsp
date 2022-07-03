@@ -42,7 +42,7 @@
 		open("<c:url value='/member/findId.do'/>", "find", "width=770, height=400, location=yes, resizable=yes, top=200");
 		}
 		else{
-			open("<c:url value='/member/findPwd.do'/>", "find", "width=550, height=400, location=yes, resizable=yes, top=200");	
+			open("<c:url value='/member/findPwd.do'/>", "find", "width=770, height=400, location=yes, resizable=yes, top=200");	
 		}
 	}
 	
