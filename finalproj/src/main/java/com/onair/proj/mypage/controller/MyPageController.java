@@ -43,11 +43,4 @@ public class MyPageController {
 		
 		return "/mypage/mypageMain";
 	}
-	
-
-	@GetMapping("/bookings.do")
-	public void bookings_get() {
-		
-	}
-	
 }

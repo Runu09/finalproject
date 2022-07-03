@@ -27,12 +27,16 @@
 		#{memNo},seq_note.currval)
 	</insert>
 
-	<!-- <sql id="searchWhere"> <if test="searchKeyword !=null and searchKeyword 
-		!=''"> where mem_name like '%' || #{searchKeyword} || '%' </if> </sql> <select 
-		id="selectMemberAll" parameterType="SearchVO" resultType="memberVo"> select 
-		* from ( select rownum as RNUM, A.* from ( select * from member <include 
-		refid="searchWhere"></include> order by mem_no desc )A ) where RNUM>#{firstRecordIndex} 
-		<![CDATA[ and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]> </select> -->
+	<sql id="searchWhere">
+		<if test="searchKeyword !=null and searchKeyword !=''">
+			where ${searchCondition}
+			like '%' || #{searchKeyword} || '%'
+		</if>
+	</sql>
+
+	
+	
+
 	<select id="selectManNo" parameterType="string" resultType="int">
 		select man_no from manager where man_id=#{manId}
 
@@ -44,12 +48,21 @@
 		mem_no from member where mem_id=#{memId}
 	</select>
 
-	<select id="selectNoteView" resultType="noteviewVO">
-		select * from noteView order by nm_no desc
+	<select id="selectNoteView"  parameterType="SearchVO" resultType="noteviewVO">
+		select * from ( select rownum as RNUM, A.* from ( select * from noteView
+		<include refid="searchWhere"></include>
+		order by nm_no desc )A )where RNUM>#{firstRecordIndex} 
+		<![CDATA[ and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
+		
 
 	</select>
+	
+	
+	<select id="getTotalRecord" parameterType="searchVo"
+		resultType="int">
+		select count(*) from noteView
+		<include refid="searchWhere"></include>
+	</select>
 
-		
-	
-	
+
 </mapper>

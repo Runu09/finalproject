@@ -22,5 +22,6 @@
     
     <select id="selectAllAirport" resultType="AirportVO">
     	select * from airport
+    	order by a_Loc
     </select>
 </mapper>

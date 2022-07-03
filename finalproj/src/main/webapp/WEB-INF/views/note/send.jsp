@@ -4,13 +4,38 @@
 <script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function() {
-$('#btSend').click(function() {
-	if($('#receiver').text().length==0){
-		alert('회원을 선택하세요');	
-return;}
-});
-	
+	$('#btMemAdd').click(function(){
+		var memList=[];
+		var cbx=$('tbody input[type=checkbox]:checked');
 
+		for(i=0;i<cbx.length;i++){
+			memList.push(cbx.eq(i).val());
+			$('#receiver').append(cbx.eq(i).val()+'\n');
+			
+		}
+		
+		$('#memList').val(memList);
+	
+		
+	});
+	
+	 $('#btSend').click(function() {
+		if($.trim($('#receiver').text()).length<1){
+			alert('회원을 선택하세요');	
+			//$('#receiver').focus();
+			event.preventDefault();
+		} 
+		else if($.trim($('#nTitle').text()).length<1){
+			alert('제목을 입력하세요');	
+			$('#nTitle').focus();
+			event.preventDefault();
+		} 
+		else if($.trim($('#nContent').text()).length<1){
+			alert('내용을 선택하세요');	
+			//$('#nContent').focus();
+			event.preventDefault();
+		} 
+	}); 
 }); 
 
 function pageFunc(curPage){
@@ -25,15 +50,15 @@ function pageFunc(curPage){
 	
 }
 
-function setReceiver(id){
-	if($('#receiver').text().length>0){
+/* function setReceiver(id){
+	/* if($('#receiver').text().length>0){
 		alert('1명만 선택 가능합니다.');	
 		return;
-	}
-	
+	} */
+	/* 
 	$('#receiver').append(id+'\n');
 	$('#memId').val(id);
-}
+} */ 
 </script>
 <form name="frmPage" method="post">
 	<input type="hidden" name="currentPage"> <input type="hidden"
@@ -80,14 +105,20 @@ function setReceiver(id){
 									<h5>회원조회</h5>
 								</div>
 							</div>
+
 							<%-- <form method="post" action="<c:url value='/note/write.do'/>"> --%>
 							<div class="card-body">
+								<input type="button" class="btn btn-primary me-3"
+									value="선택한 회원 추가" id="btMemAdd"
+									style="width: 200px; margin-bottom: 10px; margin-top: -10px">
+
 								<div>
 									<div class="table-responsive table-desi">
 
 										<table class="user-table table table-striped">
 											<thead>
 												<tr style="text-align: center">
+													<th></th>
 													<th>아이디</th>
 													<th>이름</th>
 													<th>생년월일</th>
@@ -103,11 +134,15 @@ function setReceiver(id){
 													</tr>
 												</c:if>
 												<c:if test="${!empty alist }">
+<c:set var="i" value="0" />
 													<c:forEach var="vo" items="${alist }">
 														<tr style="text-align: center">
-															<td><a href="#"
-																onClick="javascript:setReceiver('${vo.memId }');">${vo.memId }</a></td>
-															<td>${vo.memName }</span>
+															<td><input type="checkbox" name="memList[${i }]" 
+															value="${vo.memId }">
+															<c:set var="i" value="${i+1 }" />
+															</td>
+															<td>${vo.memId }</td>
+															<td>${vo.memName }
 															</td>
 															<td>${vo.MBirthday }</td>
 															<td><span>${vo.MMileage}</span></td>
@@ -122,14 +157,15 @@ function setReceiver(id){
 								</div>
 
 							</div>
+
 							<div class="form-group" style="margin: 0 auto">
 								<form method="post" action="<c:url value='/note/write.do'/>">
 
 									<div class="row">
-
-										<input placeholder="" value="${SearchVO.searchKeyword }"
-											type="text" name="searchKeyword" class="form-control"
-											style="width: 350px;" />
+										<input placeholder="이름을 입력하세요"
+											value="${SearchVO.searchKeyword }" type="text"
+											name="searchKeyword" class="form-control"
+											style="width: 350px" />
 										<button class="btn btn-primary me-3"
 											style="background-color: #4291b8; border-color: #4291b8; width: 84px; height: 40px; margin-left: 10px; font-size: 13px;"
 											id="btSearch">검색</button>

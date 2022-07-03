@@ -78,9 +78,16 @@
 .error{
 	color: red;
 }
+
+.profile {
+    position: relative;
+    left: 67px;
+}
+
 </style>
 
 <body>
+
 <!-- section start-->
 <section class="small-section dashboard-section bg-inner" data-sticky_parent>
 	<div class="container">
@@ -104,12 +111,12 @@
 												
 												</div>
 												<!-- 프로필사진 -->	
-													<div class="profile-image2">
-													<img src="<c:url value='/user_upload/${vo.MPic }'/>"
-													
-													class="img-fluid blur-up lazyload" alt="프로필사진"/>
-													
-													</div>
+												<div class="profile">
+														<img class="img-fluid rounded-circle mx-auto mb-5" 
+														img src="<c:url value='/user_upload/${vo.MPic }'/>"  
+														onerror="this.src='../assets/images/avtar/user.png';" 
+														style="max-width: 150px;">
+												</div>
 												<!-- 프로필사진 -->
 												
 											</div>
@@ -121,7 +128,12 @@
 											</div>
 											<div class="right">
 													<input class="form-control" type="file" name="imageUpload" id="imageUpload" 
-													placeholder="사진 등록" style="height: 55px;">
+													placeholder="사진 등록" style="height: 55px;" 
+													<c:if test="${!empty vo.MPic }">
+													value="${vo.MPic } placeholder="${vo.MPic}"
+													</c:if>
+													>
+													<input type="hidden" name="mPic" value="${vo.MPic }"  placeholder="${vo.MPic}">
 												</div>
 										</div>
 										</li>
@@ -254,7 +266,9 @@
 																<c:set var="etcYn" value="Y"/>
 														</c:otherwise>
 													</c:choose>
-													<input class="form-control" type="text" name="mEmail1" id="mEmail1" value="${vo.MEmail1 }">
+													
+													<input class="form-control" type="text" 
+													name="mEmail1" id="mEmail1" value="${vo.MEmail1 }">
 														
 													<div class="col-1">@</div>
 													
