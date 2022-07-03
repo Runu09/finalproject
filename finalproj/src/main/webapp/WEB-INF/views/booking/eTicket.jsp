@@ -329,13 +329,6 @@
 	</div>
 
 	<script type="text/javascript">
-	
-		var doc = new jsPDF();
-		var pdfHandlers = {
-			'#editor' : function (element, renderer) {
-			return true;
-			}	
-		};
 		$("#imgSave").on('click', function(e) {
 			html2canvas(document.querySelector("#pdfDiv")).then(canvas => {
 			    var el = document.getElementById("target");
@@ -352,6 +345,7 @@
 		//바코드
 		$("#bcTarget").barcode("${memberNum}", "codabar",{barWidth:1, barHeight:30});
 		console.log("${arrInfo}");
+		
 		function getUUID() { // UUID v4 generator in JavaScript (RFC4122 compliant)
 			  return 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
 			    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 3 | 8);
