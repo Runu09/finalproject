@@ -47,4 +47,11 @@
 		set MEM_PWD=#{memPwd}
 		where MEM_ID=#{memId}
 	</update>
+	
+	<select id="findId" parameterType="string" resultType="String">
+		select mem_id from member
+		where mem_name=#{name} and m_email1||'@'||m_email2=#{email}
+	</select>
+	
+	
 </mapper>

@@ -193,8 +193,6 @@
 											</c:if>
 
 
-											<%-- <img src="<c:url value='/img_upload/${vo.FName }'/>"
-												alt="${vo.BTitle}" style="width: 60px; height: 60px"> --%>
 										</div>
 									</div>
 

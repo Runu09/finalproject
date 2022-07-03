@@ -11,6 +11,6 @@ public interface MemberDAO {
 	int memberUpdate(MemberVO vo);
 	int memberDelete(String memId);
 	int pwdChange(String memId, String memPwd);
-
+	String findId(String name, String email);
 	
 }
