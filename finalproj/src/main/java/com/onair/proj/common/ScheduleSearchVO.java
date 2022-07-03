@@ -6,5 +6,5 @@ import lombok.Data;
 public class ScheduleSearchVO extends SearchVO {
 	private String depLoc;
 	private String arrLoc;
-	private String datepicker;
+	private String hdDate;
 }

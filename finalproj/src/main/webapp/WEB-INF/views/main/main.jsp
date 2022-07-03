@@ -33,7 +33,7 @@
                                 <input id="radio-2" type="radio" name="exampleRadios" value="option2">
                                 <label for="radio-2" class="radio-label">one way</label>
                             </form> -->
-                            <form action="<c:url value='/booking/flight-round-trip.do'/>" method="post">
+                            <form action="<c:url value='/booking/flight-round-trip.do'/>" method="get">
                             	<div class="form-group">
                                     <input type="text" class="form-control open-select" placeholder="출발지" id="departure" name="depLoc">
                                     <input type="hidden" id="hiddenDep" name="departure">
@@ -99,6 +99,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <input placeholder="탑승일" id="datepicker" name="datepicker"/>
+                                            <input type="hidden" id="hdDate" name="hdDate">
                                         </div>
                                         <div class="col">
                                             <div class="form-group">

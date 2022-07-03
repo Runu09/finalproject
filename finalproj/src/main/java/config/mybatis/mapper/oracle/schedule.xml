@@ -7,7 +7,7 @@
 		MERGE 
 		INTO schedule
 		USING dual
-		ON (s_name = #{sName})
+		ON (s_name = #{sName} and #{sStarttime}=s_starttime and #{sArrtime}=s_arrtime)
 		WHEN NOT MATCHED THEN
       	INSERT (s_name, a_depnm, a_arrnm, al_name, s_starttime, s_arrtime, s_person, s_price)
       	VALUES (#{sName}, #{aDepnm}, #{aArrnm}, #{alName}, #{sStarttime}, #{sArrtime}, #{sPerson}, #{sPrice})
@@ -31,6 +31,7 @@
 		       	where s_price !=' '
 		       	and a_depnm = #{depLoc}
 		       	and a_arrnm = #{arrLoc}
+		       	and s_starttime like '%' || #{hdDate} || '%'
 		    )A
 		)
 		where RNUM>#{firstRecordIndex} 
@@ -39,6 +40,8 @@
 	</select>
 	
 	<select id="selectTotalRecord" parameterType="ScheduleSearchVO" resultType="int">
-			select count(*) from Schedule where s_price!=' '
+			select count(*) from Schedule 
+			where s_price!=' '
+		    and s_starttime like '%' || #{hdDate} || '%'
 	</select>
 </mapper>
