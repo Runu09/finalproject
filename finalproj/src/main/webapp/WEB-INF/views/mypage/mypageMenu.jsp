@@ -26,7 +26,7 @@ footer {
 								<div class="profile-image">
 
 									<img src="<c:url value='/user_upload/${vo.MPic }'/>" 
-										onerror="this.src='../assets/images/avtar/1.jpg';"
+										onerror="this.src='../assets/images/avtar/user.png';"
 										class="img-fluid blur-up lazyload" alt="프로필사진"/>
 								</div>
 								<div class="profile-detail">

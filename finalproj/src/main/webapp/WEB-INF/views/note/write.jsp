@@ -69,6 +69,7 @@ a {
 }
 </style>
 <form method="post" action="<c:url value='/note/send.do'/>">
+<input type="hidden" id="memList" name="memList"> 
 	<table class="template-width" align="center" border="0" cellpadding="0"
 		cellspacing="0"
 		style="background-color: #fff; box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353); margin: 20px auto">
@@ -87,20 +88,19 @@ a {
 				<td style="text-align: center"><h6 style="margin: 10px auto">받는사람</h6></td>
 				<td><input class="form-control"
 					style="width: 400px; margin: 0 auto; margin: 20px 0px; margin-right: 10px"
-					"type="text" required="" placeholder="제목" name="nTitle"></td>
+					"type="text" placeholder="제목" name="nTitle" id="nTitle"></td>
 			</tr>
 			<tr>
 				<td style="text-align: center;"><textarea
 						style="width: 200px; margin: 0px 30px; margin-bottom: 20px; border-color: #cecece;"
-						rows="10" disabled="disabled" id="receiver"></textarea> <input
-					type="hidden" name="memId" id="memId"></td>
+						rows="10" disabled="disabled" id="receiver"></textarea>
 				<td><textarea
-						style="width: 400px; margin-bottom: 20px; border-color: #cecece;"
-						name="nContent" rows="10" required="" ></textarea></td>
+						style="width: 400px; margin-bottom: 20px; border-color: #cecece;" id="nContent" 
+						name="nContent" rows="10"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2" style="padding: 0 30px 30px; text-align: center;">
-					<button class="btn" type="submit" id="btSend">쪽지 보내기</button>
+					<button class="btn" type="submit" id="btSend" style="background-color: gray;border-color: gray">쪽지 보내기</button>
 				</td>
 				<!-- <a href="#" class="btn">쪽지 보내기</a></td> -->
 			</tr>

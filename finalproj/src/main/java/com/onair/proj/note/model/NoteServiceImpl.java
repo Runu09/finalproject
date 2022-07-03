@@ -46,9 +46,15 @@ public class NoteServiceImpl implements NoteService{
 		return noteDao.selectMemNo(memId);
 	}
 
+
 	@Override
-	public List<NoteviewVO> selectNoteView() {
-		return noteDao.selectNoteView();
+	public List<NoteviewVO> selectNoteView(SearchVO searchVo) {
+		return noteDao.selectNoteView(searchVo);
+	}
+
+	@Override
+	public int getTotalRecord(SearchVO searchVo) {
+		return noteDao.getTotalRecord(searchVo);
 	}
 
 	

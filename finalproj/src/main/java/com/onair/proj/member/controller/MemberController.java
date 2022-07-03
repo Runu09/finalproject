@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import javax.naming.spi.DirStateFactory.Result;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.MultipartRequest;
 
 import com.onair.proj.common.ConstUtil;
 import com.onair.proj.common.FileUploadUtil;
@@ -106,7 +109,7 @@ public class MemberController {
 	}
 	
 	
-	//파일업로드
+
 	@PostMapping("/editMem.do")
 	public String editMem_post(@ModelAttribute MemberVO vo,
 			@RequestParam String mEmail3, HttpSession session,
@@ -187,8 +190,8 @@ public class MemberController {
 		
 		return "/common/message";
 	}
-	
-	/* 파일첨부 X
+
+	/*
 	@PostMapping("/editMem.do")
 	public String editMem_post(@ModelAttribute MemberVO vo,
 			@RequestParam String mEmail3, HttpSession session,

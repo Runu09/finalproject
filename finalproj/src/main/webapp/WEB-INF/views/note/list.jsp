@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../inc/adminTop.jsp"%>
+<!-- Feather icon-->
+
 <script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 
@@ -8,25 +10,15 @@ function pageFunc(curPage){
 	$('input[name=currentPage]').val(curPage);
 	$('form[name=frmPage]').submit();
 	
-	$('#btSearch').click(function() {
-		location.href = "<c:url value='/note/list.do'/>";
-	});
-	
-	
-	
 }
 
 </script>
 <form name="frmPage" method="post">
-	<input type="hidden" name="currentPage"> <input type="hidden"
-		name="searchKeyword" value="${SearchVO.searchKeyword }">
+	<input type="hidden" name="searchCondition"
+		value="${param.searchCondition }"> <input type="hidden"
+		name="currentPage"> <input type="text" name="searchKeyword"
+		value="${SearchVO.searchKeyword }">
 </form>
-
-<!-- pre-loader start -->
-<!-- <div class="loader-wrapper">
-	<img src="../admin/images/loader/loader.gif" alt="loader gif">
-</div>  -->
-<!-- pre-loader End -->
 
 <!-- tap on top starts-->
 <div class="tap-top">
@@ -48,7 +40,6 @@ function pageFunc(curPage){
 						<div class="card">
 							<div class="card-header  card-header--2"
 								style="border-top: 1px solid #ecf3fa">
-
 								<div>
 									<h5>쪽지관리</h5>
 								</div>
@@ -56,7 +47,8 @@ function pageFunc(curPage){
 							<%-- <form method="post" action="<c:url value='/note/write.do'/>"> --%>
 							<div class="card-body">
 								<div>
-									<div class="table-responsive table-desi"><table class="user-table table table-striped">
+									<div class="table-responsive table-desi">
+										<table class="user-table table table-striped">
 											<thead>
 												<tr style="text-align: center">
 													<th>번호</th>
@@ -80,12 +72,12 @@ function pageFunc(curPage){
 															<td width="10%">${vo.nmNo }</td>
 															<td width="15%">${vo.manId }</td>
 															<td width="15%">${vo.memId }</td>
-															
+
 															<td width="40%">${vo.NContent }</td>
-															<td width="20%">${vo.NTime }</td> 
+															<td width="20%">${vo.NTime }</td>
 														</tr>
-													</c:forEach> 
-												- </c:if>
+													</c:forEach>
+												</c:if>
 											</tbody>
 										</table>
 									</div>
@@ -93,16 +85,30 @@ function pageFunc(curPage){
 
 							</div>
 							<div class="form-group" style="margin: 0 auto">
-								<form method="post" action="<c:url value='/note/write.do'/>">
+								<form method="post" action="<c:url value='/note/list.do'/>"
+									name="frmSearch">
 
 									<div class="row">
+										<select name="searchCondition" class="form-control" 
+											style="width: 200px; margin-right: 10px">	
+											<option value="n_content"
+												<c:if test="${param.searchCondition=='n_content' }">
+            		selected="selected"
+            	</c:if>>내용</option>
+											<option value="man_id"
+												<c:if test="${param.searchCondition=='man_id' }">
+            		selected="selected"
+            	</c:if>>보낸사람</option>
+											<option value="mem_id"
+												<c:if test="${param.searchCondition=='mem_id' }">
+            		selected="selected"
+            	</c:if>>받은사람</option>
 
-										<input placeholder="" value="${SearchVO.searchKeyword }"
+										</select> <input placeholder="" value="${param.searchKeyword }"
 											type="text" name="searchKeyword" class="form-control"
 											style="width: 350px;" />
-										<button class="btn btn-primary me-3"
-											style="background-color: #4291b8; border-color: #4291b8; width: 84px; height: 40px; margin-left: 10px; font-size: 13px;"
-											id="btSearch">검색</button>
+										<button class="btn btn-primary me-3" type="submit"
+											style="background-color: #4291b8; border-color: #4291b8; width: 84px; height: 40px; margin-left: 10px; font-size: 13px;">검색</button>
 									</div>
 
 								</form>

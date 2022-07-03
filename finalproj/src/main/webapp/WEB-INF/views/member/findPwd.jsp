@@ -10,7 +10,7 @@
     <meta name="keywords" content="rica">
     <meta name="author" content="rica">
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon" />
-    <title>Rica</title>
+    <title>비밀번호 찾기</title>
 
     <!--Google font-->
     <link
