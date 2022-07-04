@@ -31,7 +31,9 @@
 		data-sticky_parent>
 		<div class="container">
 			<div class="row">
+				<!-- 메뉴 -->
 				<%@include file="../mypage/mypageMenu.jsp"%>
+				<!-- 메뉴 -->
 
 				<div class="col-lg-9">
 					<div class="product_img_scroll" data-sticky_column>

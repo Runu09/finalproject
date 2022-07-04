@@ -81,10 +81,7 @@ public class ProjController {
 		return "/customer/faq";
 	}
 	
-	@RequestMapping("/booking/eTicket.do")
-	public String eTicket() {
-		return "/booking/eTicket";
-	}
+	
 
 	
 }
