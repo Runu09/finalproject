@@ -84,28 +84,31 @@
 	$(function() {
 		$('#btReg').click(
 				function() {
-					
-					if ($('#chkId').val() != 'Y') {
-						alert("아이디 중복확인해야 합니다");
+					if ($("#memId").val().length < 1) {
+						alert("아이디를 입력하세요");
 						$("#memId").focus();
 						event.preventDefault();
-					} else if ($.trim($('#name').val()) == "") {
-						alert("이름을 입력해주세요.");
-						$('#name').focus();
-						event.preventDefault();
-					} else if (!validate_userid($("#memId").val())) {
-						alert("아이디는 영문, 숫자, _(밑줄문자)만 가능합니다");
+					} else if ($('#chkId').val() != 'Y') {
 						$("#memId").focus();
 						event.preventDefault();
 					} else if ($("#pwd").val().length < 1) {
 						alert("비밀번호를 입력하세요");
 						$("#pwd").focus();
 						event.preventDefault();
+					} else if ($('#chkPwd').val() != 'Y') {
+						$('#pwd').focus();
+						event.preventDefault();
 					} else if ($("#pwd").val() != $("#pwd2").val()) {
 						alert("비밀번호가 일치하지 않습니다.");
 						$("#pwd2").focus();
 						event.preventDefault();
-					} else if (!validate_tel($('#hp2').val())
+					} 
+					else if ($.trim($('#name').val()) == "") {
+						alert("이름을 입력해주세요.");
+						$('#name').focus();
+						event.preventDefault();
+					} 
+					else if (!validate_tel($('#hp2').val())
 							|| !validate_tel($('#hp3').val())) {
 						alert("전화번호는 숫자만 가능합니다");
 						$("#hp2").focus();
@@ -115,7 +118,7 @@
 
 		$('#memId').keyup(function() {
 			var data = $(this).val();
-			if (validate_userid(data) && data.length >= 2) {
+			if (validate_userid(data)) {
 				$.ajax({
 					url : "<c:url value='/member/dupId.do'/>",
 					type : 'GET',
@@ -124,13 +127,13 @@
 
 						var output = "";
 						if (res) {
-							output = "사용가능한 아이디";
+							output = "사용가능한 아이디입니다.";
 							$('#chkId').val('Y');
 						} else {
-							output = "이미 등록된 아이디";
+							output = "이미 등록된 아이디입니다.";
 							$('#chkId').val('N');
 						}
-						$('.error').text(output);
+						$('#errorid').text(output);
 					},
 					error : function(xhr, status, error) {
 						alert("error:" + error);
@@ -138,41 +141,55 @@
 
 				});
 			} else {
-				$('.error').text('아이디 규칙에 맞지 않습니다.');
+
+				$('#errorid').text('6~15자의 영문, 숫자만 사용 가능합니다.');
 				$('#chkId').val('N');
 			}
 
 		});
+
+		$('#pwd').keyup(function() {
+			var data = $(this).val();
+			if (validate_pwd(data)) {
+				$('#errorpwd').text('사용 가능한 비밀번호 입니다.');
+				$('#chkPwd').val('Y');
+			} else {
+				$('#errorpwd').text('8~15자의 영문, 숫자, 특수기호만 사용 가능합니다.');
+				$('#chkPwd').val('N');
+			}
+
+		});
+
 	});
 </script>
 <style type="text/css">
 .error {
 	color: red;
-	position: relative;
-	left: 200px;
-	height: 37px;
+	position: inherit;
+	/* left: 200px;
+	height: 37px; */
 	font-size: 14px;
 }
+
 #mTel1 {
-          border: none;
-          -webkit-appearance: none;
-          
-          font-size: 16px;
-          background-color: transparent;
-          background: url(<c:url value='/assets/images/icon/down-black.png'/>) no-repeat 20%;
-          position: relative;
-         
-          }
+	border: none;
+	-webkit-appearance: none;
+	font-size: 16px;
+	background-color: transparent;
+	background: url(< c : url value = '/assets/images/icon/down-black.png'/ >)
+		no-repeat 20%;
+	position: relative;
+}
+
 #mEmail2 {
-          border: none;
-          -webkit-appearance: none;
-          
-          font-size: 16px;
-          background-color: transparent;
-          background: url(<c:url value='/assets/images/icon/down-black.png'/>) no-repeat 80%;
-          position: relative;
-         
-          }
+	border: none;
+	-webkit-appearance: none;
+	font-size: 16px;
+	background-color: transparent;
+	background: url(< c : url value = '/assets/images/icon/down-black.png'/ >)
+		no-repeat 80%;
+	position: relative;
+}
 </style>
 </head>
 
@@ -194,33 +211,39 @@
 								action="<c:url value='/member/register.do'/>">
 								<h4>회원가입</h4>
 								<label class="col-form-label form-label-title">아이디</label>
+
 								<div class="form-group">
-									<input id="memId" class="form-control" type="userId"
-										required="" placeholder="아이디" name="memId"
-										style="width: 50%; position: absolute;"> <span
-										class="error"></span><br>
-									<br>
+									<input id="memId" class="form-control" type="text" required=""
+										placeholder="영문, 숫자 6~15자 이내" name="memId"
+										style="width: 100%; position: absolute;"> <br> <br>
 									<!-- <input id="chkId" class="btn btn-primary btn-block" type="button"
 										value="중복확인" style=" position: relative; left: 200px; height: 37px;">
 									 -->
+								</div>
+								<div style="text-align: left">
+									<span class="error" id="errorid"></span>
 								</div>
 								<div class="form-group">
 									<label class="col-form-label form-label-title ">비밀번호</label>
 									<div class="form-input position-relative">
 										<input id="pwd" class="form-control" type="password"
-											name="memPwd" required="" placeholder="*********">
+											name="memPwd" required=""
+											placeholder="영문, 숫자, 특수문자 8~15자 이내 ">
 										<!-- name="login[password]" -->
 
-										<div class="show-hide">
+										<!-- 	<div class="show-hide">
 											<span class="show"></span>
-										</div>
+										</div> -->
 									</div>
+								</div>
+								<div style="text-align: left">
+									<span class="error" id="errorpwd"></span>
 								</div>
 								<div class="form-group">
 									<label class="col-form-label form-label-title ">비밀번호 확인</label>
 									<div class="form-input position-relative">
 										<input id="pwd2" class="form-control" type="password"
-											name="login[password]" required="" placeholder="*********">
+											name="login[password]" required="" placeholder="">
 									</div>
 								</div>
 								<div class="form-group">
@@ -261,8 +284,8 @@
 									<label class="col-form-label form-label-title  pt-0">핸드폰번호</label>
 									<div class="row g-2">
 										<div class="col-4">
-											<select class="form-control" 
-											style="text-align: center" name="mTel1" id="mTel1">
+											<select class="form-control" style="text-align: center"
+												name="mTel1" id="mTel1">
 												<option value="010">010</option>
 												<option value="070">070</option>
 											</select>
@@ -286,30 +309,33 @@
 										</div>
 										<div class="col-1" style="margin: auto 0">@</div>
 										<div class="col-7">
-											<select class="form-control"required=""
-												name="mEmail2" placeholder="" id="mEmail2">
+											<select class="form-control" required="" name="mEmail2"
+												placeholder="" id="mEmail2">
 												<option value="naver.com">naver.com</option>
 												<option value="hanmail.net">hanmail.net</option>
 												<option value="nate.com">nate.com</option>
 												<option value="gmail.com">gmail.com</option>
-												<option value="etc">직접입력</option></select>
+												<option value="etc">직접입력</option>
+											</select>
 										</div>
 										<div class="col-12">
-											<input class="form-control" style="visibility: hidden" type="text" 
-												name="mEmail3" id="mEmail3" placeholder="">
+											<input class="form-control" style="visibility: hidden"
+												type="text" name="mEmail3" id="mEmail3" placeholder="">
 										</div>
 									</div>
 								</div>
 								<div class="form-group mb-0">
 
-									<button class="btn btn-primary btn-block w-100" type="submit" id="btReg">가입하기</button>
+									<button class="btn btn-primary btn-block w-100" type="submit"
+										id="btReg">가입하기</button>
 								</div>
 
 								<p class="mt-4 mb-0">
 									이미 계정이 있습니까?<a class="ms-2"
-										href="<c:url value='/member/login.do'/>">로그인</a>
+										href="<c:url value='/login/login.do'/>">로그인</a>
 								</p>
-								<input type="hidden" name="chkId" id="chkId">
+								<input type="hidden" name="chkId" id="chkId"> <input
+									type="hidden" name="chkPwd" id="chkPwd">
 							</form>
 						</div>
 					</div>

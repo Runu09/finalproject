@@ -132,7 +132,7 @@
                                 </div>
                                
                                 <p class="mt-4 mb-0 text-center">계정이 없으신가요?<a class="ms-2"
-                                        href="<c:url value='/member/register.do'/>">회원가입</a></p>
+                                        href="<c:url value='/member/agreement.do'/>">회원가입</a></p>
                             </form>
                             <form id="form-kakao-login" method="post" action="<c:url value='/member/kakao'/>">
 				               <input type="hidden" name="email"/>
