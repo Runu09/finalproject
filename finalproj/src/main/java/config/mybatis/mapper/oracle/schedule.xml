@@ -42,6 +42,8 @@
 	<select id="selectTotalRecord" parameterType="ScheduleSearchVO" resultType="int">
 			select count(*) from Schedule 
 			where s_price!=' '
+			and a_depnm = #{depLoc}
+		    and a_arrnm = #{arrLoc}
 		    and s_starttime like '%' || #{hdDate} || '%'
 	</select>
 </mapper>
