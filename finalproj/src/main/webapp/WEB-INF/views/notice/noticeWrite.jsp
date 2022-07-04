@@ -1,61 +1,75 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<link rel="shortcut icon" href="../assets/images/favicon.png"
+	type="image/x-icon">
+<link
+	href="https://fonts.googleapis.com/css2?family=
+	Nunito+Sans:wght@200&family=Nunito:ital,wght@0,200;
+	0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;
+	1,800;1,900&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/font-awesome.css">
+<!-- Themify icon -->
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/vendors/themify.css">
+<!-- Feather icon -->
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/vendors/feather-icon.css">
+<!-- Plugins css start -->
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/vendors/scrollbar.css">
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/vendors/animate.css">
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/vendors/chartist.css">
+<!-- Plugins css Ends -->
+<!-- Bootstrap css -->
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/vendors/bootstrap.css">
+
+<!-- Bootstrap-tag input css
+ -->
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/vendors/bootstrap-tagsinput.css">
+<!-- App css
+ -->
+<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+<!-- Responsive css
+ -->
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/responsive.css">
+
 <%@include file="../inc/top.jsp"%>
+<script type="text/javascript">
+	$(function() {
+		
+		$('#frmWrite').submit(function() {
+			
+			var chk=CKEDITOR.instances['editor1'].getData();
+			
+			if ($.trim($("#bTitle").val()).length == 0) {
+				alert("제목을 입력하세요");
+				$("#bTitle").focus();
+				event.preventDefault();
+				return;
+				
+			}else if (chk==''||chk.length==0){
+				
+				alert("내용을 입력하세요");
+				$("#editor1").focus();
+				event.preventDefault();
+				return;
+			}
+			location.href = "<c:url value='/lost/write.do'/>";
+		});
+		$('#btCancel').click(function() {
+			location.href = "<c:url value='/notice/notice.do'/>";
+		});
 
-<script type="text/javascript" src="../assets/js/ckeditor/ckeditor.js"></script>
-<script src="../assets/js/ckeditor/styles.js"></script>
-<script src="../assets/js/ckeditor/ckeditor.custom.js"></script>
-
-<style>
-.col-lg-10 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 100%;
-    margin-bottom: 2rem;
-}
-
-.noticeSearch {
-    width: 20%;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 0.25rem;
-}
-
-.container {
-	text-align: center;
-}
-
-/* .row justify-content-md-center {
-	text-align:center;
-	/* margin: 0 auto; */
-} */
-
-button.black {
-    border: 1px solid black;
-    background-color: black;
-    /* color: #fff; */
-}
-.btn_M {
-    padding: 11px 30px;
-    font-size: 15px;
-    min-height: 35px;
-    line-height: 14px;
-}
-.btn_L, .btn_M, .btn_S, .btn_XS {
-    border-radius: 3px;
-    text-align: center;
-}
-</style>
+	}); //ready()
+</script>
 
 <body>
 
@@ -73,60 +87,82 @@ button.black {
 <!-- breadcrumb end -->
 
 
-<!-- section start-->
-<section class="small-section bg-inner" data-sticky_parent>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10">
-                <div class="product_img_scroll" data-sticky_column>
-                    <div class="faq-content tab-content" id="top-tabContent">
-                    	<div class="card" style="margin-bottom: 15px;">
-	                        <div class="container">
-		                        <div class="content" style="width: 70%">
-		                        	<div class="card-header">
-										<div class="row justify-content-md-center">
-											<div class="col-sm">
-												<div class="mb-3">
-													<label class="form-label-title" style="font-size: 18px; font-weight: bold;">제목(title)</label> 
-													<input	class="form-control" type="text" placeholder="제목을 입력하세요" name="bTitle">
-												</div>
+
+<div>
+	<div class="lostcenter"
+		style="margin-right: 100px; margin-left: 100px; margin-top: 100px">
+		<div class="tap-top">
+			<i data-feather="chevrons-up"></i>
+		</div>
+		
+		<!-- 공지사항 작성 시작-->
+		<form name="frmWrite" method="post" enctype="multipart/form-data"
+			id="frmWrite" action="<c:url value='/lost/write.do'/>">
+			<div class="page-wrapper compact-wrapper modern-type"
+				id="pageWrapper">
+				<!-- Container-fluid starts-->
+				<div class="container-fluid">
+					<div class="row">
+
+						<div class="col-12">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="card">
+										<div class="card-body">
+											<div class="mb-3">
+												<label class="form-label-title">제목</label> 
+												<input class="form-control" type="text" placeholder="제목을 입력하세요"
+													name="bTitle" id="bTitle">
 											</div>
-										</div>
-									</div><br>
-									<hr size="5px">
-									<div class="card-body">
-										<div class="row justify-content-md-center">
-											<div class="col_c" style="margin-bottom: 30px; border: 1px;">
-												<div><!-- class="input-group" -->
-													<textarea class="form-control" id="p_content"></textarea>
-													<script type="text/javascript">
-														CKEDITOR.replace('p_content', {height: 500});
-													</script>
-												</div>
-											</div>
+											<label class="form-label-title ">내용</label>
+											<textarea id="editor1" cols="30" rows="10" name="bContent"></textarea>
 										</div>
 									</div>
-									<!-- <div class="row justify-content-md-center">
-										<div class="input-group mb-3">             
-											<div class="custom-file">
-												<input type="file" class="form-control-file" id="exampleFormControlFile1">
-											</div>
-										</div>
-									</div> -->
 								</div>
 							</div>
 						</div>
-						<div class="row justify-content-md-center">
-							<button id="btnSearch" type="submit" class="btn_M black" style="margin: 15px;">등록</button>
-							<button id="btnSearch" type="button" class="btn_M black" style="margin: 15px;">글목록</button>
-						</div>  
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- section end-->
+					</div>
+				</div>
+				<!--공지사항 작성 끝-->
+
+
+				<!--첨부파일 위치 시작-->
+				<div class="container-fluid">
+					<div class="col-12">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="card">
+									<div class="card-header">
+										<h5>첨부파일</h5>
+									</div>
+									<div class="card-body">
+										<div class="animate-chk">
+											<div class="mb-3">
+												<input type="file" id="upfile" name="upfile" />
+											</div>
+											<div class="card-footer text-end">
+												<button class="btn btn-primary me-3" type="submit">등록</button>
+												<input type="button" class="btn btn-outline-primary"
+													id="btCancel" value="취소" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--첨부파일 위치 끝-->
+			</div>
+		</form>
+	</div>
+</div>
+
+<!--ckEditor js start-->
+<script src="../assets/js/ckeditor/ckeditor.js"></script>
+<script src="../assets/js/ckeditor/styles.js"></script>
+<script src="../assets/js/ckeditor/ckeditor.custom.js"></script>
+<!--ckEditor js end-->
 
 
 <%@include file="../inc/footer.jsp"%>

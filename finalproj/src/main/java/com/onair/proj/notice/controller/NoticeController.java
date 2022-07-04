@@ -1,6 +1,7 @@
 package com.onair.proj.notice.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -37,28 +38,24 @@ public class NoticeController {
 	
 	//공지사항 리스트
 	@RequestMapping("/notice.do")
-	public String notice(@ModelAttribute DateSearchVO searchVo, HttpSession session, Model model) {
+	public String notice(@ModelAttribute DateSearchVO searchVo, Model model) {
 		logger.info("공지사항 목록 화면, 파라미터 searchVo={}", searchVo);
 		searchVo.setSearchCondition("BTitle");
 		
-		//검색 매퍼위한 userid세팅
-		String userId=(String)session.getAttribute("memId");
-		logger.info("userId={}",userId);
-		searchVo.setBId(userId);
-		
-		//조회하기 버튼 안눌러도 특정 일자 사이 글 목록 보여주기
-		if(searchVo.getStartDay()==null || searchVo.getStartDay().isEmpty()) {
-			Date date = new Date(2022-1900, 0, 1);
-			Date today = new Date();
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			String str = sdf.format(date);
-			String str2 = sdf.format(today);
-			searchVo.setStartDay(str);
-			searchVo.setEndDay(str2);
-			
-			logger.info("현재 셋팅된 searchVo={}", searchVo);
+		if(searchVo.getStartDay()==null || searchVo.getStartDay().isEmpty())
+		{	
+			Date today=new Date();
+			Calendar cal=Calendar.getInstance();
+			cal.add(Calendar.MONTH, -1);
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+			String defStart=sdf.format(cal.getTime());
+			String defEnd=sdf.format(today);
+
+			searchVo.setStartDay(defStart);
+			searchVo.setEndDay(defEnd);
+
+			logger.info("현재일자 setting searchVo={}",searchVo);
 		}
-		logger.info("현재 셋팅된 searchVo={}", searchVo);
 		
 		//페이징 처리 로직 시작
 		PaginationInfo pagingInfo = new PaginationInfo();
@@ -117,12 +114,12 @@ public class NoticeController {
 	
 	//공지사항 등록
 	@GetMapping("/noticeWrite.do")
-	public void lost_get() {
+	public void notice_get() {
 		logger.info("공지사항 등록 화면");
 	}
 	
 	@PostMapping("/noticeWrite.do")
-	public String lost_post(@ModelAttribute NoticeVO vo, HttpSession session, HttpServletRequest request,Model model) 
+	public String notice_post(@ModelAttribute NoticeVO vo, HttpSession session, HttpServletRequest request,Model model) 
 	{	
 		logger.info("공지사항 등록, 파라미터 vo={}", vo);
 		//파일 업로드 처리
@@ -145,9 +142,9 @@ public class NoticeController {
 		}
 		String memId=(String) session.getAttribute("memId");
 		logger.info("memId={}", memId);
-		String memPwd=memberService.selectByMemId(memId).getMemPwd();
-		vo.setBId(memId);
-		vo.setBPwd(memPwd);
+		//String memPwd=memberService.selectByMemId(memId).getMemPwd();
+		//vo.setBId(memId);
+		//vo.setBPwd(memPwd);
 		vo.setFName(fileName);
 		vo.setFOriginName(originFileName);
 		vo.setFFileSize(fileSize);

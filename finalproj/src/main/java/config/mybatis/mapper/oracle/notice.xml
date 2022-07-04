@@ -38,9 +38,9 @@
 			select SEQ_BOARD.nextval from dual
 		</selectKey>
 		
-		insert into board(b_No,b_Id,b_Pwd,b_Title,b_Content,bt_No,b_groupno,
+		insert into board(b_No,b_Id,b_Pwd,b_Title,b_Content,bt_No,
 			f_name,f_originname,f_filesize)
-		values(#{bNo},#{bId},#{bPwd},#{bTitle},#{bContent},#{btNo},#{bNo},
+		values(#{bNo},#{bId},#{bPwd},#{bTitle},#{bContent},#{btNo},
 			#{fName},#{fOriginName},#{fFileSize})
 	</insert>
 	
