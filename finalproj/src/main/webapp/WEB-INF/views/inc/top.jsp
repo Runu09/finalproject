@@ -172,7 +172,7 @@ body {
 									href="<c:url value='/login/login.do'/>" style="color: white">
 										로그인 </a></li>
 								<li class="user user-light"><a
-									href="<c:url value='/member/register.do'/>"
+									href="<c:url value='/member/agreement.do'/>"
 									style="color: white"> 회원가입 </a></li>
 							</c:if>
 
