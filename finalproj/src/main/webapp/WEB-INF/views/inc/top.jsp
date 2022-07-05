@@ -90,7 +90,14 @@ body {
 
 <!-- latest jquery-->
 <script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
+<script>
+function noteList(){
+	
+	open("<c:url value='/note/noteList.do'/>", "쪽지함", "width=770, height=400, location=yes, resizable=yes, top=200, left=1000");
 
+}
+
+</script>
 
 </head>
 
@@ -193,7 +200,9 @@ body {
 												d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                             	</svg> 마이페이지
 								</a></li>
-								<li class="user user-light"><a href="#"> <svg
+								<li class="user user-light"><a href="#" onClick="javascript:noteList();">
+								<span style="color:red;font-size:1.2em;font-weight: bold">${count}</span>
+								<svg
 											xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 											fill="currentColor" class="bi bi-chat-left-dots-fill"
 											viewBox="0 0 16 16" color="white">
@@ -201,6 +210,7 @@ body {
 												d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
 									</svg>
 								</a></li>
+								
 							</c:if>
 							<!--  <li class="setting">
                                 <a href="#">

@@ -27,7 +27,7 @@
 		#{memNo},seq_note.currval)
 	</insert>
 
-	<sql id="searchWhere">
+	<sql id="searchWhereNote">
 		<if test="searchKeyword !=null and searchKeyword !=''">
 			where ${searchCondition}
 			like '%' || #{searchKeyword} || '%'
@@ -50,7 +50,7 @@
 
 	<select id="selectNoteView"  parameterType="SearchVO" resultType="noteviewVO">
 		select * from ( select rownum as RNUM, A.* from ( select * from noteView
-		<include refid="searchWhere"></include>
+		<include refid="searchWhereNote"></include>
 		order by nm_no desc )A )where RNUM>#{firstRecordIndex} 
 		<![CDATA[ and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
 		
@@ -61,8 +61,58 @@
 	<select id="getTotalRecord" parameterType="searchVo"
 		resultType="int">
 		select count(*) from noteView
-		<include refid="searchWhere"></include>
+		<include refid="searchWhereNote"></include>
 	</select>
 
-
+	<select id="noteList" parameterType="string"  resultType="noteviewVO">
+	select * from noteView where mem_id=#{memId} order by n_time desc
+	</select>
+	
+	<select id="newNoteCount" parameterType="string" resultType="int">
+	select count(*) from noteView where mem_id=#{memId} and nm_checkread is null
+	</select>
+	
+	
+	<update id="read" parameterType="int">
+	update noteman
+		set nm_checkread='Y', nm_readdate=sysdate
+		where nm_no=#{nmNo}
+	</update>
+	
+	
+	<!-- 멤버목록 -->
+	<sql id="searchWhereIn">
+	<where>
+		m_outdate is null
+		<if test="searchKeyword !=null and searchKeyword !=''">
+        	and mem_name 
+        		like '%' || #{searchKeyword} || '%'
+        </if>
+        </where>
+	</sql>
+	
+	<select id="selectMemberIn" parameterType="SearchVO" resultType="memberVo">
+	select *
+		from
+		(
+		    select rownum as RNUM, A.*
+		    from
+		    (
+		       	select * from member
+				<include refid="searchWhereIn"></include>
+				order by mem_no desc
+		    )A
+		)
+		where RNUM>#{firstRecordIndex} 
+		<![CDATA[
+		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
+		<!-- order by mem_no desc -->
+	</select>
+	
+	<select id="selectMemberInTotalRecord" parameterType="SearchVO" resultType="int">
+		select count(*) from member
+			<include refid="searchWhereIn"></include>
+	</select>
+	
+	
 </mapper>
