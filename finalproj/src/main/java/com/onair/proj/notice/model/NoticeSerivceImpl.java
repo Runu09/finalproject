@@ -36,5 +36,10 @@ public class NoticeSerivceImpl implements NoticeService {
 	public int updateCount(int bNo) {
 		return noticeDao.updateCount(bNo);
 	}
+
+	@Override
+	public List<NoticeVO> selectAll(SearchVO searchVo) {
+		return noticeDao.selectAll(searchVo);
+	}
 	
 }

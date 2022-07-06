@@ -9,42 +9,20 @@
 	0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;
 	1,800;1,900&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="../assets/css/font-awesome.css">
-<!-- Themify icon -->
-<link rel="stylesheet" type="text/css"
-	href="../assets/css/vendors/themify.css">
-<!-- Feather icon -->
-<link rel="stylesheet" type="text/css"
-	href="../assets/css/vendors/feather-icon.css">
-<!-- Plugins css start -->
-<link rel="stylesheet" type="text/css"
-	href="../assets/css/vendors/scrollbar.css">
-<link rel="stylesheet" type="text/css"
-	href="../assets/css/vendors/animate.css">
-<link rel="stylesheet" type="text/css"
-	href="../assets/css/vendors/chartist.css">
-<!-- Plugins css Ends -->
-<!-- Bootstrap css -->
-<link rel="stylesheet" type="text/css"
-	href="../assets/css/vendors/bootstrap.css">
-
-<!-- Bootstrap-tag input css
- -->
-<link rel="stylesheet" type="text/css"
-	href="../assets/css/vendors/bootstrap-tagsinput.css">
-<!-- App css
- -->
+<link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/vendors/chartist.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap-tagsinput.css">
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-<!-- Responsive css
- -->
-<link rel="stylesheet" type="text/css"
-	href="../assets/css/responsive.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
 
 <%@include file="../inc/top.jsp"%>
 <script type="text/javascript">
 	$(function() {
-		
 		$('#frmWrite').submit(function() {
 			
 			var chk=CKEDITOR.instances['editor1'].getData();
@@ -62,13 +40,14 @@
 				event.preventDefault();
 				return;
 			}
-			location.href = "<c:url value='/lost/write.do'/>";
+			location.href = "<c:url value='/notice/noticeWrite.do'/>";
 		});
+		
 		$('#btCancel').click(function() {
 			location.href = "<c:url value='/notice/notice.do'/>";
 		});
 
-	}); //ready()
+	});
 </script>
 
 <body>
@@ -89,7 +68,7 @@
 
 
 <div>
-	<div class="lostcenter"
+	<div class="noticecenter"
 		style="margin-right: 100px; margin-left: 100px; margin-top: 100px">
 		<div class="tap-top">
 			<i data-feather="chevrons-up"></i>
@@ -97,13 +76,11 @@
 		
 		<!-- 공지사항 작성 시작-->
 		<form name="frmWrite" method="post" enctype="multipart/form-data"
-			id="frmWrite" action="<c:url value='/lost/write.do'/>">
+			id="frmWrite" action="<c:url value='/notice/noticeWrite.do'/>">
 			<div class="page-wrapper compact-wrapper modern-type"
 				id="pageWrapper">
-				<!-- Container-fluid starts-->
 				<div class="container-fluid">
 					<div class="row">
-
 						<div class="col-12">
 							<div class="row">
 								<div class="col-sm-12">

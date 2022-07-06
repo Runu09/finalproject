@@ -66,7 +66,7 @@ public class NoticeController {
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
 		searchVo.setRecordCountPerPage(ConstUtil.RECORD_COUNT);
 		
-		List<NoticeVO> noticeList=noticeService.selectNoticeAll();
+		List<NoticeVO> noticeList=noticeService.selectAll(searchVo);
 		logger.info("공지사항 목록 조회결과 noticeList.size={}", noticeList.size());
 		
 		int totalRecord=noticeService.getTotalRecord(searchVo);
@@ -140,8 +140,8 @@ public class NoticeController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		String memId=(String) session.getAttribute("memId");
-		logger.info("memId={}", memId);
+		//String memId=(String) session.getAttribute("memId");
+		//logger.info("memId={}", memId);
 		//String memPwd=memberService.selectByMemId(memId).getMemPwd();
 		//vo.setBId(memId);
 		//vo.setBPwd(memPwd);

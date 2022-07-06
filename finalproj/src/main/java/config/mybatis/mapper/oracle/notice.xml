@@ -14,6 +14,10 @@
 		</where>
 	</sql>
 	
+	<select id="selectAll" resultType="noticeVo">
+		select * from board where bt_no=1 order by b_no desc
+	</select>
+	
 	<select id="selectNoticeAll" parameterType="DateSearchVo" resultType="noticeVo">
 		select * from
 		(
