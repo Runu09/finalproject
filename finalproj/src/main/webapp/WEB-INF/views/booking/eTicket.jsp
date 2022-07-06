@@ -13,7 +13,8 @@
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 
-<script type="text/javascript" src="../resources/newni/jquery-barcode.js"></script>  
+<script type="text/javascript" src="../assets/js/jquery-barcode.js"></script>  
+<script type="text/javascript" src="../assets/js/jquery-barcode.min.js"></script>  
 
 <!-- Bootstrap css -->
 <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
@@ -119,13 +120,13 @@
 												<tr>
 													<td
 														style="font-size: 10px; font-family: 'Open Sans', sans-serif; color: #ff0000; line-height: 18px; vertical-align: top; padding: 5px 0; padding-left: 10px; color: #565656;"
-														class="article">name</td>
+														class="article">${map["PNAME"]}</td>
 													<td colspan="2"
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; padding-left: 100px;">
-														<small>좌석번호</small></td>
+														<small>${map["PSEAT"]}</small></td>
 													<td
 														style="font-size: 10px; font-family: 'Open Sans', sans-serif; color: #1e2b33; line-height: 18px; vertical-align: top; padding: 5px 0; padding-right: 10px;"
-														align="right">예매번호</td>
+														align="right">${map["RNO"]}</td>
 												</tr>
 												<tr>
 												<td height="1" colspan="4" style="border-bottom: 1px solid #e4e4e4"></td>
@@ -179,20 +180,20 @@
 												<tr>
 													<td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000; 
 													line-height: 18px; vertical-align: top; padding: 5px 0; width: 200px; padding-top: 10px;" class="article" >
-														<p id="t2-p1">출발1</p>
-														<p id="t2-p2">출발2</p>
+														<p id="t2-p1">${map["SSTARTTIME"]}</p>
+														<p id="t2-p2">${map["ADEPNM"]}</p>
 														<p id="t2-p3">출발3</p>
 														</td>
 													<td colspan="2"
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; padding-top: 10px; ">
-														<p id="t2-p1">도착1</p>
-														<p id="t2-p2">도착2</p>
+														<p id="t2-p1">${map["SARRTIME"]}</p>
+														<p id="t2-p2">${map["AARRNM"]}</p>
 														<p id="t2-p3">도착3</p>
 													</td>
 													<td
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33; line-height: 18px; vertical-align: top; padding: 5px 0; padding-right: 50px; padding-top: 10px;"
 														align="right">
-															<p id="t2-p1" style="margin-right: 13px;">편명</p>
+															<p id="t2-p1" style="margin-right: 13px;">${map["SNAME"]}</p>
 															<p id="t2-p2" style="margin-right: -4px;">Operated by EA</p>
 															<p id="t2-p3"><img alt="" src="" width="80%;" style="margin-left: 25px;" id="depImg"></p>
 														</td>
@@ -207,13 +208,13 @@
 													<td
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000; line-height: 18px; vertical-align: top; padding: 5px 0; width: 200px; "
 														class="article" >
-														<p id="t3-p1">소아 인원수 : 1명</p>
-														<p id="t3-p2">성인 인원수 : 2명</p>
+														<p id="t3-p1">성인 인원수 : ${map["RADULT"]}명</p>
+														<p id="t3-p2">소아 인원수 : ${map["RCHILD"]}명</p>
 														</td>
 													<td colspan="2"
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; ">
-														<p id="t3-p1">예매일자 : 1일</p>
-														<p id="t3-p2">예매금액 : 11원</p>
+														<p id="t3-p1">예매일자 : ${map["RDATE"]}</p>
+														<p id="t3-p2">예매금액 : ${map["RPAY"]}원</p>
 													</td>
 												</tr>
 												<tr>
@@ -329,13 +330,6 @@
 	</div>
 
 	<script type="text/javascript">
-	
-		var doc = new jsPDF();
-		var pdfHandlers = {
-			'#editor' : function (element, renderer) {
-			return true;
-			}	
-		};
 		$("#imgSave").on('click', function(e) {
 			html2canvas(document.querySelector("#pdfDiv")).then(canvas => {
 			    var el = document.getElementById("target");
@@ -352,6 +346,7 @@
 		//바코드
 		$("#bcTarget").barcode("${memberNum}", "codabar",{barWidth:1, barHeight:30});
 		console.log("${arrInfo}");
+		
 		function getUUID() { // UUID v4 generator in JavaScript (RFC4122 compliant)
 			  return 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
 			    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 3 | 8);

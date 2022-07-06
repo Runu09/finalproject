@@ -57,6 +57,31 @@ public class NoteServiceImpl implements NoteService{
 		return noteDao.getTotalRecord(searchVo);
 	}
 
+	@Override
+	public List<NoteviewVO> noteList(String memId) {
+		return noteDao.noteList(memId);
+	}
+
+	@Override
+	public int read(int nmNo) {
+		return noteDao.read(nmNo);
+	}
+
+	@Override
+	public int newNoteCount(String memId) {
+		return noteDao.newNoteCount(memId);
+	}
+
+	@Override
+	public List<MemberVO> selectMemberIn(SearchVO searchVo) {
+		return noteDao.selectMemberIn(searchVo);
+	}
+
+	@Override
+	public int selectMemberInTotalRecord(SearchVO searchVo) {
+		return noteDao.selectMemberInTotalRecord(searchVo);
+	}
+
 	
 	
 }

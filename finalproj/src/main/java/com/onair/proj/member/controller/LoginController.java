@@ -59,6 +59,8 @@ public class LoginController {
 			session.setAttribute("memId", vo.getMemId());
 			session.setAttribute("memName", memVo.getMemName());
 			
+			session.setAttribute("type", "login");
+			
 			//[2] 쿠키에 저장 
 			Cookie ck=new Cookie("ckMemId", memVo.getMemId());
 			ck.setPath("/");

@@ -321,28 +321,41 @@
 								<%-- <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="<c:url value='/admin/adminRegister'/>"><i data-feather="plus-circle"> </i><span>관리자</span></a>
                                 </li> --%>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i
-                                            data-feather="navigation"></i><span>관리자</span></a>
-                                    <ul class="sidebar-submenu">
-                                        <li><a href="<c:url value='/admin/adminRegister'/>">관리자 등록</a></li>
-                                        <li><a href="<c:url value='/admin/allAdmin'/>">관리자 조회</a></li>
-                                    </ul>
-                                </li> 
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="booking.html"><i data-feather="bookmark"> </i><span>예약</span></a>
-                                </li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="reviews.html"><i data-feather="message-square">
-                                        </i><span>쪽지함</span></a></li>
-                                        
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i
-                                            data-feather="navigation"></i><span>공지사항</span></a>
-                                    <ul class="sidebar-submenu">
-                                        <li><a href="<c:url value='/notice/notice.do'/>">공지사항 목록</a></li>
-                                        <li><a href="<c:url value='/notice/noticeWrite.do'/>">공지사항 등록</a></li>
-                                        <!-- <li><a href="add-new-cars.html">공지사항 수정</a></li> -->
-                                    </ul>
-                                </li>
+								<li class="sidebar-list"><a
+									class="sidebar-link sidebar-title" href="#"><i
+										data-feather="navigation"></i><span>관리자</span></a>
+									<ul class="sidebar-submenu">
+										<li><a href="<c:url value='/admin/adminRegister'/>">관리자
+												등록</a></li>
+										<li><a href="<c:url value='/admin/adminAllUser'/>">관리자 조회</a></li>
+									</ul></li>
+								<li class="sidebar-list"><a
+									class="sidebar-link sidebar-title link-nav" href="booking.html"><i
+										data-feather="bookmark"> </i><span>예약</span></a></li>
+								<!-- <li class="sidebar-list"><a
+									class="sidebar-link sidebar-title link-nav" href="reviews.html"><i
+										data-feather="message-square"> </i><span>쪽지함</span></a></li>-->
+
+								<li class="sidebar-list"><a
+									class="sidebar-link sidebar-title" href="#"><i
+										data-feather="navigation"></i><span>쪽지</span></a>
+									<ul class="sidebar-submenu">
+										<li><a href="<c:url value='/note/write.do'/>">쪽지 발송</a></li>
+										<li><a href="<c:url value='/note/list.do'/>">쪽지 관리</a></li>
+									</ul>
+								</li>
+
+								<li class="sidebar-list"><a
+									class="sidebar-link sidebar-title" href="#"><i
+										data-feather="navigation"></i><span>공지사항</span></a>
+									<ul class="sidebar-submenu">
+										<li><a href="all-cars.html">공지사항 목록</a></li>
+										<li><a href="cars-detail.html">공지사항 등록</a></li>
+										<li><a href="add-new-cars.html">공지사항 수정</a></li>
+									</ul></li>
+								<!-- <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
+                                        href="setting.html"><i data-feather="settings"> </i><span>Setting</span></a>
+                                </li> -->
 
 								<li class="sidebar-list"><a
 									class="sidebar-link sidebar-title link-nav"

@@ -90,7 +90,14 @@ body {
 
 <!-- latest jquery-->
 <script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
+<script>
+function noteList(){
+	
+	open("<c:url value='/note/noteList.do'/>", "쪽지함", "width=770, height=400, location=yes, resizable=yes, top=200, left=1000");
 
+}
+
+</script>
 
 </head>
 
@@ -172,15 +179,40 @@ body {
 									href="<c:url value='/login/login.do'/>" style="color: white">
 										로그인 </a></li>
 								<li class="user user-light"><a
-									href="<c:url value='/member/register.do'/>"
+									href="<c:url value='/member/agreement.do'/>"
 									style="color: white"> 회원가입 </a></li>
 							</c:if>
 
 							<!-- 로그인 된 경우 -->
 							<c:if test="${!empty sessionScope.memId }">
-								<li class="user user-light"><a
+								<%-- <li class="user user-light"style="margin-right: 15px"><a
 									href="<c:url value='/login/logout.do'/>" style="color: white">
-										로그아웃 </a></li>
+										로그아웃 </a></li> --%>
+								<button class="user user-light" onclick="logOut()" style="color: white; border: white; margin-right: 15px">로그아웃</button>
+								<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+								<script type="text/javascript">
+									function logOut() {
+										var type="${sessionScope.type}";
+										
+										if(type=="login"){
+											location.href="<c:url value='/login/logout.do'/>";
+										}
+										
+										Kakao.init('5a6a4897538a80bef374d2b576c690ec');
+										Kakao.API.request({
+											url : '/v1/user/unlink',
+											success : function(res) {
+												/* alert ('success: '+ JSON.stringify(res)); */
+												location.href = "<c:url value='/login/logout.do'/>";
+											},
+											fail : function(err) {
+												/* alert('error: '+ JSON.stringify(err)); */
+											},
+										})
+									}
+								</script>
+								<input type="hidden" name="sessionDel" id="sessionDel"
+									value="${sessionScope.memId }" />
 								<li class="user user-light"><a
 									href="<c:url value='/mypage/mypageMain.do'/>"
 									style="color: white"> <svg
@@ -193,7 +225,9 @@ body {
 												d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                             	</svg> 마이페이지
 								</a></li>
-								<li class="user user-light"><a href="#"> <svg
+								<li class="user user-light"><a href="#" onClick="javascript:noteList();">
+								<span style="color:red;font-size:1.2em;font-weight: bold">${count}</span>
+								<svg
 											xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 											fill="currentColor" class="bi bi-chat-left-dots-fill"
 											viewBox="0 0 16 16" color="white">
@@ -201,6 +235,7 @@ body {
 												d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
 									</svg>
 								</a></li>
+								
 							</c:if>
 							<!--  <li class="setting">
                                 <a href="#">

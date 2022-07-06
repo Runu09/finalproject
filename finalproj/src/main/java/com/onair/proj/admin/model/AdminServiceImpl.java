@@ -92,4 +92,19 @@ public class AdminServiceImpl implements AdminService{
 		return adminDao.adminMemberDelete(memId);
 	}
 
+	@Override
+	public List<AdminVO> selectAllAdmin(SearchVO searchVo) {
+		return adminDao.selectAllAdmin(searchVo);
+	}
+
+	@Override
+	public int selectAdminTotalRecord(SearchVO searchVo) {
+		return adminDao.selectAdminTotalRecord(searchVo);
+	}
+
+	@Override
+	public int deleteAdmin(String manId) {
+		return adminDao.deleteAdmin(manId);
+	}
+
 }
