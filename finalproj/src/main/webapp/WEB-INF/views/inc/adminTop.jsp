@@ -327,7 +327,7 @@
 									<ul class="sidebar-submenu">
 										<li><a href="<c:url value='/admin/adminRegister'/>">관리자
 												등록</a></li>
-										<li><a href="<c:url value='/admin/allAdmin'/>">관리자 조회</a></li>
+										<li><a href="<c:url value='/admin/adminAllUser'/>">관리자 조회</a></li>
 									</ul></li>
 								<li class="sidebar-list"><a
 									class="sidebar-link sidebar-title link-nav" href="booking.html"><i

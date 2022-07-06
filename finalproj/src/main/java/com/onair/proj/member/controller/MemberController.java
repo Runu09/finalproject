@@ -39,6 +39,12 @@ public class MemberController {
 	private final MemberService memberService;
 	private final FileUploadUtil fileUploadUtil;
 	
+	@GetMapping("/agreement.do")
+	public void agreement_get() {
+		logger.info("회원 약관 화면");
+	
+	}
+	
 	@GetMapping("/register.do")
 	public String register_get() {
 		logger.info("회원가입 화면");
