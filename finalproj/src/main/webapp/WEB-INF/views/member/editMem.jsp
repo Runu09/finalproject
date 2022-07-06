@@ -33,6 +33,7 @@
 		}).open();
 	}
 
+	
 	$(function() {
 		$('form[name=memEdit]').submit(function() {
 					if ($("#memPwd").val().length < 1) {

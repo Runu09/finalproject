@@ -12,7 +12,7 @@ public interface ConstUtil {
 	
 	//자료실 - 파일 저장 경로
 	String FILE_UPLOAD_PATH="user_upload";
-	String FILE_UPLOAD_PATH_TEST="D:\\lecture\\GIT\\repo\\finalproject\\finalproj\\src\\main\\resources\\static\\user_upload";
+	String FILE_UPLOAD_PATH_TEST="C:\\lecture\\GIT\\repo\\finalproject\\finalproj\\src\\main\\resources\\static\\user_upload";
 	
 	//관리자 페이지 - 관리자 관련 업로드 경로설정 --> 사진 저장 경로
 	String IMAGE_FILE_UPLOAD_PATH="img_upload";

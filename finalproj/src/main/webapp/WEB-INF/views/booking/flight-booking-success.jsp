@@ -1,6 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../inc/top.jsp"%>    
+<%@include file="../inc/top.jsp"%> 
+<script type="text/javascript">
+
+	function getTicket(){
+		//예매번호 생성 예정		
+		var rNo=$('#rNo').val();
+		
+		window.open("${pageContext.request.contextPath}/booking/eTicket.do?rNo="+rNo,"eTicket",
+		"left=0, top=0, width=700, height=600, scrollbars=no, resizable=yes");
+		}
+
+</script>   
 
 <!-- section start -->
     <section class="bg-inner section-b-space success-section">
@@ -67,6 +78,8 @@
                     <p>이용해주셔서 감사합니다. </p>
                     <p>이메일로 결제 내역이 발송될 예정입니다.</p>
                     <button type="submit" class="btn btn-solid color1">청구서 받기</button>
+                    <button type="button" class="btn btn-solid color1" id="btnTicket"
+                    onclick="getTicket()" title="새창열림">티켓 발권 받기</button>
                 </div>
             </div>
         </div>

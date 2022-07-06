@@ -55,3 +55,18 @@ div#div-bt {
     position: relative;
     left: 110px;
 }
+
+table.col {
+    position: relative;
+    /* top: 21px; */
+}
+
+tr.visibleMobile {
+    position: relative;
+    top: 19px;
+}
+
+span#title {
+    position: relative;
+    top: 7px;
+}

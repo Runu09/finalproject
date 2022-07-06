@@ -95,19 +95,32 @@
 											</div>
 										</div>
 									</div>
+							<!--하단부 -------------------------------- -->
 									<div class="dashboard-info">
 										<div class="row">
+									<!-- ----------------------------- -->
 											<div class="col-md-6">
-												<div id="chart">
-													<div class="detail-left">
-														<ul>
-															<li><span class="completed"></span> Completed</li>
-															<li><span class="upcoming"></span> Upcoming</li>
-															<li><span class="cancelled"></span> Cancelled</li>
-														</ul>
-													</div>
+												<div class="activity-box">
+													<h6>recent activity</h6>
+													<ul>
+														<li>
+														<i class="fa fa-user">
+														</i> Paris to Dubai <span>3
+																days ago</span></li>
+														<li><i class="fas fa-plane"></i> Paris to Dubai <span>23
+																june</span></li>
+														<li class="blue-line"><i class="fas fa-hotel"></i>
+															hotel sea view <span>20 april</span></li>
+														<li class="yellow-line"><i class="fas fa-taxi"></i>
+															Paris To Toulouse <span>12 feb</span></li>
+														<li><i class="fas fa-plane"></i> Paris to Dubai <span>14
+																jan</span></li>
+														<li class="blue-line"><i class="fas fa-hotel"></i>
+															hotel sea view <span>12 jan</span></li>
+													</ul>
 												</div>
 											</div>
+									<!-- ----------------------------- -->
 											<div class="col-md-6">
 												<div class="activity-box">
 													<h6>recent activity</h6>
@@ -127,8 +140,10 @@
 													</ul>
 												</div>
 											</div>
+									<!-- ----------------------------- -->
 										</div>
 									</div>
+								<!-- ----------------------------- -->
 								</div>
 							</div>
 							

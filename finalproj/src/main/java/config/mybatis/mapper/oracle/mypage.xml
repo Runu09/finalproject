@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.onair.proj.mypage.controller.MypageDAO">
+	<select id="selectById" parameterType="String" resultType="boardVo">
+	select rownum, A.* 
+	from
+	(
+	select * from board
+	where b_id=#{b_id} 
+	order by b_no desc
+	)A
+	<![CDATA[
+	where rownum < 7
+	]]>
+	</select>
+	
+	<select id="selectBookings" parameterType="string" resultType="ticketviewVo">
+	select * from ticketview
+	where mem_id=#{mem_id}
+	</select>
+	
+</mapper>
