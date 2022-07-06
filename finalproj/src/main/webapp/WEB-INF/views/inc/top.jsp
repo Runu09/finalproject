@@ -178,9 +178,34 @@ body {
 
 							<!-- 로그인 된 경우 -->
 							<c:if test="${!empty sessionScope.memId }">
-								<li class="user user-light"><a
+								<%-- <li class="user user-light"style="margin-right: 15px"><a
 									href="<c:url value='/login/logout.do'/>" style="color: white">
-										로그아웃 </a></li>
+										로그아웃 </a></li> --%>
+								<button class="user user-light" onclick="logOut()" style="color: white; border: white; margin-right: 15px">로그아웃</button>
+								<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+								<script type="text/javascript">
+									function logOut() {
+										var type="${sessionScope.type}";
+										
+										if(type=="login"){
+											location.href="<c:url value='/login/logout.do'/>";
+										}
+										
+										Kakao.init('5a6a4897538a80bef374d2b576c690ec');
+										Kakao.API.request({
+											url : '/v1/user/unlink',
+											success : function(res) {
+												/* alert ('success: '+ JSON.stringify(res)); */
+												location.href = "<c:url value='/login/logout.do'/>";
+											},
+											fail : function(err) {
+												/* alert('error: '+ JSON.stringify(err)); */
+											},
+										})
+									}
+								</script>
+								<input type="hidden" name="sessionDel" id="sessionDel"
+									value="${sessionScope.memId }" />
 								<li class="user user-light"><a
 									href="<c:url value='/mypage/mypageMain.do'/>"
 									style="color: white"> <svg

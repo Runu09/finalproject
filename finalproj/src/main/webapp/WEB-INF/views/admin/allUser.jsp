@@ -12,11 +12,21 @@ function pageFunc(curPage){
 	});
 }
 
-function getOut(){
-	if(confirm("해당 회원을 삭제시키려면 예를 누르시고 아니면 아니오를 눌러주세요.")){
-		location.href="<c:url value='/admin/delUser?memId=${vo.memId}'/>";
+function delUser(memId){
+	var answer=confirm("해당 회원을 삭제하시겠습니까?");
+	if(answer){
+		location.href="<c:url value="/admin/delUser?memId="/>"+memId.value();
 	}
 }
+
+$(function(){
+	$('.Outdae').click(function(){
+		if(confirm('삭제하시겠습니까?')){
+		}
+	})
+});
+
+
 
 
 </script>
@@ -87,9 +97,11 @@ function getOut(){
                         	</tr>
                         </c:if>
                         <c:if test="${!empty alist }">
-                        <c:forEach var="vo" items="${alist }">
+                        <c:forEach var="vo" items="${alist }" varStatus="status">
                           <tr>
-                            <td><span class=" d-block">${vo.memId }</span>
+                          <%-- <input type="text" value="${vo.memNo }"/> --%>
+                            <td><span class=" d-block" >${vo.memId }</span>
+                            	
                             </td>
                             <td><a href="#"><span class="d-block ">${vo.memName }</span><span></span></a>
                             </td>
@@ -102,16 +114,19 @@ function getOut(){
                             <td>
                               <span>${vo.MMileage}</span>
                             </td>
-                            <td>
+                            <td >
                               <span><fmt:formatDate
 										value="${vo.MOutdate}" pattern="yyyy-MM-dd" /></span>
                             </td>
                             <td>
-                              <a href="<c:url value='/member/editMem.do'/>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                              <a href="<c:url value='/member/editMem.do'/>" class="Outdate"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 							<!--<a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
                             </td>
                             <td>
-                              <a href="javascript:getOut()"><i class="fa fa-trash-o" aria-hidden="true" value="${vo.memId }"></i></a>
+                            <input type="hidden" id="memId" name="memId" value="${vo.memId }">
+                             <a href="<c:url value='/admin/delUser?memId=${vo.memId }'/>" class="Outdate"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+							 <%--<a href="javascript:delUser()" onclick="delUser(currentId${status.index})"><i class="fa fa-trash-o" aria-hidden="true"></i></a> --%>
+                             <%-- <input type="button" value="clear" onclick="delUser(currentId${status.index})"/> --%>
                             </td>
                           </tr>
                           </c:forEach>
@@ -126,11 +141,11 @@ function getOut(){
 		          	<div class="form-group">
 						<input placeholder="" value="${SearchVO.searchKeyword }" type="text" name="searchKeyword" 
 							class="form-control" style="width: 450px; text-align: right: ; margin-left: 550px" />
-						<button class="btn btn-primary me-3" style="background-color: #4291b8; border-color: #4291b8; width: 84px; height: 40px; font-size: 13px; margin-left: 1000px; margin-top: -60px" id="btSearch">검색</button>
+						<button class="btn btn-primary me-3" style="background-color: #4291b8; border-color: #4291b8; width: 85px; height: 40px; font-size: 13px; margin-left: 1000px; margin-top: -60px" id="btSearch">검색</button>
 					</div>
 		          </form>
 		          <form name="excelForm" id="excelForm" method="post" action="<c:url value='/excelDown'/>">
-     					<input class="btn btn-primary me-3" type="submit" id="excelDown" value="유저정보 다운" style="margin-left: 1363px;margin-bottom: -55px; height: 40px;">
+     					<input class="btn btn-primary me-3" type="submit" id="excelDown" value="유저정보 다운" style="margin-left: 1363px;margin-bottom: -12px; height: 40px;">
 				  </form>
                 <div class=" pagination-box">
                   <nav class="ms-auto me-auto " aria-label="...">
