@@ -72,5 +72,4 @@ $(document).ready(
 				$('#people').val(adNum + chNum);
 				$('#qtyBox').removeClass('show');
 			});
-
 });

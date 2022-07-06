@@ -21,5 +21,12 @@ public interface NoteDAO {
 	int insertNoteman(NotemanVO vo);
 	int selectMemNo(String memId);
 	List<NoteviewVO> selectNoteView(SearchVO searchVo);
+	List<NoteviewVO> noteList(String memId);
+	
+	int read(int nmNo);
+	int newNoteCount(String memId);
+	
+	List<MemberVO> selectMemberIn(SearchVO searchVo);
+	int selectMemberInTotalRecord(SearchVO searchVo);
 	
 }

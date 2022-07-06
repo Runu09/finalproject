@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../inc/adminTop.jsp"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!-- Feather icon-->
 
 <script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
@@ -11,7 +12,10 @@ function pageFunc(curPage){
 	$('form[name=frmPage]').submit();
 	
 }
-
+function showDetail(str){
+	open("<c:url value='/note/showDetail.do?str="+str+"'/>", "상세보기", "width=500, height=400, location=yes, resizable=yes, top=200, left: 500");
+	
+}
 </script>
 <form name="frmPage" method="post">
 	<input type="hidden" name="searchCondition"
@@ -56,6 +60,7 @@ function pageFunc(curPage){
 													<th>받은사람</th>
 													<th>쪽지내용</th>
 													<th>발송일</th>
+													<th>읽은날짜</th>
 
 												</tr>
 											</thead>
@@ -70,11 +75,17 @@ function pageFunc(curPage){
 													<c:forEach var="vo" items="${noteList }">
 														<tr style="text-align: center">
 															<td width="10%">${vo.nmNo }</td>
-															<td width="15%">${vo.manId }</td>
-															<td width="15%">${vo.memId }</td>
-
-															<td width="40%">${vo.NContent }</td>
+															<td width="10%">${vo.manId }</td>
+															<td width="10%">${vo.memId }</td>
+															<td width="30%"><a href="#" onClick="javascript:showDetail('${vo.NContent}');"> <c:if
+																		test="${fn:length(vo.NContent)>30}">
+							${fn:substring(vo.NContent,0,30)}...
+						</c:if> <c:if test="${fn:length(vo.NContent)<=30}">
+							${vo.NContent}
+						</c:if>
+															</a></td>
 															<td width="20%">${vo.NTime }</td>
+															<td width="20%">${vo.nmReaddate }</td>
 														</tr>
 													</c:forEach>
 												</c:if>
@@ -89,8 +100,8 @@ function pageFunc(curPage){
 									name="frmSearch">
 
 									<div class="row">
-										<select name="searchCondition" class="form-control" 
-											style="width: 200px; margin-right: 10px">	
+										<select name="searchCondition" class="form-control"
+											style="width: 200px; margin-right: 10px">
 											<option value="n_content"
 												<c:if test="${param.searchCondition=='n_content' }">
             		selected="selected"

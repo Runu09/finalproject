@@ -45,23 +45,28 @@ public class ScheduleController {
     	String arr=req.getParameter("arrival"); //aName, api 요청변수
     	String arrLoc=req.getParameter("arrLoc"); //aLoc
     	
-    	String date=req.getParameter("datepicker"); //api 요청변수
+    	String date=req.getParameter("datepicker");
+    	String hdDate=req.getParameter("hdDate"); //api 요청변수
     	
     	String people=req.getParameter("people");
     	String adult=req.getParameter("adult"); //성인 인원수
     	String child=req.getParameter("child"); //아동 인원수
+    	
+
     	
     	logger.info("파싱 스타트 체크");
     	
         ScheduleInfoExplorer apiExplorer = new ScheduleInfoExplorer();
         
         //파싱하여 리턴한 데이터 값들을 list에 담아주기 위해 사용
-        List<ScheduleVO> list = apiExplorer.parsingData(dep, arr, date); //뷰페이지에서 입력값 받아와야 함 선택출발공항, 선택도착공항, 선택날짜
+        List<ScheduleVO> list = apiExplorer.parsingData(dep, arr, hdDate); //뷰페이지에서 입력값 받아와야 함 선택출발공항, 선택도착공항, 선택날짜
 
         //List에 담겨있는 정보들을 db에 넣기 위해서 사용
         for (ScheduleVO vo : list) {
         	scheduleService.insertScheduleApi(vo);
         }
+        
+        
         
     	//페이징에 필요한 변수 셋팅
         int RECORD_COUNT=10;
@@ -76,17 +81,17 @@ public class ScheduleController {
   		int totalRecord=scheduleService.selectTotalRecord(searchVo);
 		pagingInfo.setTotalRecord(totalRecord);
 		
-		searchVo.setDepLoc(depLoc);
+    	searchVo.setDepLoc(depLoc);
 		searchVo.setArrLoc(arrLoc);
-		searchVo.setDatepicker(date);
+		searchVo.setHdDate(hdDate);
 		
         //
         List<AirportVO> list2 = airportService.selectAllAirport();
-
         //
 		model.addAttribute("dep",dep);
 		model.addAttribute("arr",arr);
 		model.addAttribute("date",date);
+		model.addAttribute("hdDate",hdDate);
 		model.addAttribute("people",people);
 		model.addAttribute("depLoc",depLoc);
 		model.addAttribute("arrLoc",arrLoc);

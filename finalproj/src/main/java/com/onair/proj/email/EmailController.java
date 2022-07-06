@@ -30,7 +30,8 @@ public class EmailController {
 	public String sendEmail(@RequestParam String email, Model model) {
 		logger.info("이메일 발송 처리 페이지, 파라미터 email={}",email);
 		Random rd=new Random();
-		int auth=rd.nextInt(1000000)+100000;
+		int auth=rd.nextInt(900000)+100000;
+		
 		logger.info("난수============{}",auth);
 		String receiver="kcat2201@naver.com";	
 		String subject="요청하신 인증번호를 알려드립니다.";

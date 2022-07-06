@@ -19,4 +19,6 @@ public interface MemberService {
 	int memberDelete(String memId);
 	int pwdChange(String memId, String memPwd);
 
+	//아이디 찾기, 비밀번호 찾기
+	String findId(String name, String email);
 }

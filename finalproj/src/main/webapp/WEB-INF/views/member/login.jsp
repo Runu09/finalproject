@@ -42,7 +42,7 @@
 		open("<c:url value='/member/findId.do'/>", "find", "width=770, height=400, location=yes, resizable=yes, top=200");
 		}
 		else{
-			open("<c:url value='/member/findPwd.do'/>", "find", "width=550, height=400, location=yes, resizable=yes, top=200");	
+			open("<c:url value='/member/findPwd.do'/>", "find", "width=770, height=400, location=yes, resizable=yes, top=200");	
 		}
 	}
 	
@@ -132,7 +132,7 @@
                                 </div>
                                
                                 <p class="mt-4 mb-0 text-center">계정이 없으신가요?<a class="ms-2"
-                                        href="<c:url value='/member/register.do'/>">회원가입</a></p>
+                                        href="<c:url value='/member/agreement.do'/>">회원가입</a></p>
                             </form>
                             <form id="form-kakao-login" method="post" action="<c:url value='/member/kakao'/>">
 				               <input type="hidden" name="email"/>

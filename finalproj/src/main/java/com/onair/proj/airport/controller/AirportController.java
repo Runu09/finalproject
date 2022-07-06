@@ -3,6 +3,7 @@ package com.onair.proj.airport.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.slf4j.Logger;
@@ -18,6 +19,8 @@ import org.xml.sax.SAXException;
 import com.onair.proj.airport.model.AirportInfoExplorer;
 import com.onair.proj.airport.model.AirportService;
 import com.onair.proj.airport.model.AirportVO;
+import com.onair.proj.note.model.NoteService;
+import com.onair.proj.note.model.NoteviewVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,7 +31,7 @@ public class AirportController {
 	=LoggerFactory.getLogger(AirportController.class);
 
 	private final AirportService airportService;
-
+	private final NoteService noteService;
 
 	//검색시 데이터가 없으면 db에 추가하도록 처리한다.
 	@GetMapping("/apiTest/AirportApiData")
@@ -54,9 +57,15 @@ public class AirportController {
 	}
 
 	@RequestMapping("/main/main.do")
-	public void AirportMainGet(Model model) {
+	public void AirportMainGet(HttpSession session, Model model) {
 		List<AirportVO> list = airportService.selectAllAirport();
 
+		String memId=(String)session.getAttribute("memId");
+		if(memId!=null&&!memId.isEmpty()) {
+			
+			int count=noteService.newNoteCount(memId);
+			model.addAttribute("count",count);
+		}
 		model.addAttribute("selectAllAirport",list);
 
 	}

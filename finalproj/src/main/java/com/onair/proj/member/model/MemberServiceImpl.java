@@ -67,6 +67,11 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.pwdChange(memId,memPwd);
 	}
 
+	@Override
+	public String findId(String name, String email) {
+		return memberDao.findId(name,email);
+	}
+
 
 	
 }
