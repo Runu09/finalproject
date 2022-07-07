@@ -3,9 +3,17 @@
 <%@include file="../inc/top.jsp"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- breadcrumb start -->
+<style>
+	.zoom {
+			display:inline-block;
+			position: relative;
+		}
+		
+	</style>
+<script src="<c:url value='/assets/js/jquery.zoom.min.js'/>"></script>
 <script type="text/javascript">
 	$(function() {
-		
+		$('#zoomIn').zoom();
 		$('#btList').click(function() {
 			location.href = "<c:url value='/lost/list.do'/>";
 		});
@@ -111,15 +119,17 @@
 
 
 						<div class="col-md-4">
+						
 							<c:if test="${empty vo.FName}">
 								<img src="<c:url value='/images/no_image.png'/>" alt="이미지없음"
 									style="width: 400px; height: 400px">
 							</c:if>
 							<c:if test="${!empty vo.FName}">
 							
-   
+   <span class='zoom' id='zoomIn'>
 								<img src="<c:url value='/img_upload/${vo.FName }'/>"
 									alt="${vo.BTitle}" style="width: 400px; height: 400px">
+							</span>
 							</c:if>
 						</div>
 					</div>

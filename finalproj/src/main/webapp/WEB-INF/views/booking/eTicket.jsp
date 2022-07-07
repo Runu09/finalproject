@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +23,10 @@
 <link rel="stylesheet" type="text/css" href="../assets/css/color2.css">
 <link href="../assets/css/eTicket.css" rel="stylesheet" type="text/css">
 
+<script type="text/javascript">
 
+
+</script>
 
 <title>eTicket</title>
 
@@ -120,13 +123,13 @@
 												<tr>
 													<td
 														style="font-size: 10px; font-family: 'Open Sans', sans-serif; color: #ff0000; line-height: 18px; vertical-align: top; padding: 5px 0; padding-left: 10px; color: #565656;"
-														class="article">${map["PNAME"]}</td>
+														class="article">${vo.PName}</td>
 													<td colspan="2"
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; padding-left: 100px;">
-														<small>${map["PSEAT"]}</small></td>
+														<small>${vo.PSeat}</small></td>
 													<td
 														style="font-size: 10px; font-family: 'Open Sans', sans-serif; color: #1e2b33; line-height: 18px; vertical-align: top; padding: 5px 0; padding-right: 10px;"
-														align="right">${map["RNO"]}</td>
+														align="right">${vo.RNo}</td>
 												</tr>
 												<tr>
 												<td height="1" colspan="4" style="border-bottom: 1px solid #e4e4e4"></td>
@@ -180,22 +183,24 @@
 												<tr>
 													<td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000; 
 													line-height: 18px; vertical-align: top; padding: 5px 0; width: 200px; padding-top: 10px;" class="article" >
-														<p id="t2-p1">${map["SSTARTTIME"]}</p>
-														<p id="t2-p2">${map["ADEPNM"]}</p>
-														<p id="t2-p3">출발3</p>
+														<c:set var="startTime" value="${vo.SStarttime }"/>
+														<c:set var="arrTime" value="${vo.SArrtime}"/>
+														<p id="t2-p1">${vo.ADepnm}</p>
+														<p id="t2-p3"><fmt:formatDate value="${vo.SStarttime }" pattern="yyyy년 MM월 dd일" /></p>
+														<p id="t2-p3">${fn:substring(startTime, 11, 16) }</p>
 														</td>
 													<td colspan="2"
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; padding-top: 10px; ">
-														<p id="t2-p1">${map["SARRTIME"]}</p>
-														<p id="t2-p2">${map["AARRNM"]}</p>
-														<p id="t2-p3">도착3</p>
+														<p id="t2-p1">${vo.AArrnm}</p>
+														<p id="t2-p3"><fmt:formatDate value="${vo.SArrtime}" pattern="yyyy년 MM월 dd일"  /></p>
+														<p id="t2-p3">${fn:substring(arrTime, 11, 16) }</p>
 													</td>
 													<td
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33; line-height: 18px; vertical-align: top; padding: 5px 0; padding-right: 50px; padding-top: 10px;"
 														align="right">
-															<p id="t2-p1" style="margin-right: 13px;">${map["SNAME"]}</p>
-															<p id="t2-p2" style="margin-right: -4px;">Operated by EA</p>
-															<p id="t2-p3"><img alt="" src="" width="80%;" style="margin-left: 25px;" id="depImg"></p>
+															<p id="t2-p1" style="margin-right: 13px;">${vo.SName}</p>
+															<p id="t2-p2" style="margin-right: -4px;">Operated by</p>
+															<p id="t2-p3">${vo.alName}</p>
 														</td>
 												</tr>
 												<tr>
@@ -208,13 +213,13 @@
 													<td
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000; line-height: 18px; vertical-align: top; padding: 5px 0; width: 200px; "
 														class="article" >
-														<p id="t3-p1">성인 인원수 : ${map["RADULT"]}명</p>
-														<p id="t3-p2">소아 인원수 : ${map["RCHILD"]}명</p>
+														<p id="t3-p1">성인 인원수 : ${vo.RAdult}명</p>
+														<p id="t3-p2">소아 인원수 : ${vo.RChild}명</p>
 														</td>
 													<td colspan="2"
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; ">
-														<p id="t3-p1">예매일자 : ${map["RDATE"]}</p>
-														<p id="t3-p2">예매금액 : ${map["RPAY"]}원</p>
+														<p id="t3-p1">예매일자 : <fmt:formatDate value="${vo.RDate}" pattern="yyyy-MM-dd" /></p>
+														<p id="t3-p2">예매금액 : <fmt:formatNumber value="${vo.RPay}" pattern="#,###"/>원</p>
 													</td>
 												</tr>
 												<tr>
@@ -330,6 +335,7 @@
 	</div>
 
 	<script type="text/javascript">
+		//이미지저장
 		$("#imgSave").on('click', function(e) {
 			html2canvas(document.querySelector("#pdfDiv")).then(canvas => {
 			    var el = document.getElementById("target");
@@ -339,13 +345,14 @@
 			});
 		});
 	
+		//인쇄
 		$("#print").click(function(){
              window.print();     
 		});
 		
 		//바코드
-		$("#bcTarget").barcode("${memberNum}", "codabar",{barWidth:1, barHeight:30});
-		console.log("${arrInfo}");
+		$("#bcTarget").barcode("${vo.SName}"+"${vo.PNo}"+"${vo.RNo}", "code128",{barWidth:1, barHeight:40,showHRI: true});
+		
 		
 		function getUUID() { // UUID v4 generator in JavaScript (RFC4122 compliant)
 			  return 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
