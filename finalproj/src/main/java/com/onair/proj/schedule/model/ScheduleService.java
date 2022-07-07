@@ -15,4 +15,6 @@ public interface ScheduleService {
 	List<ScheduleVO> selectAllScheduleApi(ScheduleSearchVO searchVo);
     
     int selectTotalRecord(ScheduleSearchVO searchVo);
+    
+    ScheduleVO selectBySName(int sNo);
 }

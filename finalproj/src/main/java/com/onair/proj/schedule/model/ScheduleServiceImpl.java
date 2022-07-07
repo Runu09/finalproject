@@ -32,5 +32,11 @@ public class ScheduleServiceImpl implements ScheduleService{
 	public int selectTotalRecord(ScheduleSearchVO searchVo) {
 		return scheduleDao.selectTotalRecord(searchVo);
 	}
+
+
+	@Override
+	public ScheduleVO selectBySName(int sNo) {
+		return scheduleDao.selectBySName(sNo);
+	}
 	
 }

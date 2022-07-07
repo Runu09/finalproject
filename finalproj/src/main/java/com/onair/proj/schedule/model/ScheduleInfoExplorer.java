@@ -115,7 +115,7 @@ public class ScheduleInfoExplorer {
 					System.out.println(getTagValue("depPlandTime", eElement));
 					System.out.println(getTagValue("arrPlandTime", eElement));
 					System.out.println("60");
-					System.out.println(" ");
+					System.out.println("71800");
 
 					vo.setSName((getTagValue("vihicleId", eElement)));
 					vo.setADepnm((getTagValue("depAirportNm", eElement)));
@@ -124,7 +124,7 @@ public class ScheduleInfoExplorer {
 					vo.setSStarttime((getTagValue("depPlandTime", eElement)));
 					vo.setSArrtime((getTagValue("arrPlandTime", eElement)));
 					vo.setSPerson("60");
-					vo.setSPrice(" ");
+					vo.setSPrice("71900");
 				}
 				
 

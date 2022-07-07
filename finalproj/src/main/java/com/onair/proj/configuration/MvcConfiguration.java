@@ -16,7 +16,7 @@ public class MvcConfiguration implements WebMvcConfigurer{
 		registry.addInterceptor(new LoginInterceptor())
 		.addPathPatterns("/lost/write.do", "/lost/cmtWrite.do", "/lost/replyWrite.do",
 				"/member/editMem.do","/member/editPwd.do","/member/outMem.do",
-				"/mypage/**");
+				"/mypage/**", "/booking/flight-booking.do");
 
 		/*
 		 * registry.addInterceptor(new AdminLoginInterceptor())

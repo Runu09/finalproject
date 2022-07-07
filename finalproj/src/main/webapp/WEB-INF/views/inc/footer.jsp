@@ -147,9 +147,9 @@
         });
         $('#datepicker1').datepicker({
             uiLibrary: 'bootstrap4'
+            	
         });
         new WOW().init();
-        
     </script>
     
     <script src="../assets/js/booking.js"></script>
