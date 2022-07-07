@@ -41,10 +41,10 @@ public class ProjController {
 		return "/customer/information";
 	}
 	
-	@RequestMapping("/booking/flight-booking.do")
-	public String booking() {
-		return "/booking/flight-booking";
-	}
+	/*
+	 * @RequestMapping("/booking/flight-booking.do") public String booking() {
+	 * return "/booking/flight-booking"; }
+	 */
 	
 	@RequestMapping("/booking/flight-booking-addons.do")
 	public String bookingAddons() {

@@ -6,6 +6,7 @@
 		$('input[name=currentPage]').val(curPage);
 		$('form[name=frmPage]').submit();
 	}
+	
 </script>
 <style>
 	.hidden{
@@ -108,8 +109,19 @@
                             <div class="form-group">
                                 <label>승객 선택</label>
                                 <input type="text" class="form-control open-select" id="people" name="people" placeholder="to" value="${people }">
-                                <input type="hidden" id="adult" name="adult" value="${adult }">
-                                <input type="hidden" id="child" name="child" value="${child }">
+                                <c:if test='${adult=="" || empty adult}'>
+                            		<input type="hidden" value=0 id="adult" name="adult">
+                            	</c:if>
+                                <c:if test='${adult!="" || not empty adult}'>
+                            		<input type="hidden" value="${adult}" placeholder="to" id="adult" name="adult">
+                            	</c:if>
+                            	
+                            	<c:if test='${child=="" || empty child}'>
+                            		<input type="hidden" value=0 id="child" name="child">
+                            	</c:if>
+                                <c:if test='${child!="" || not empty child}'>
+                            		<input type="hidden" value="${child}" id="child" name="child">
+                            	</c:if>
                                 <img src="../assets/images/icon/user.png" class="img-fluid blur-up lazyload" alt="">
                                 <div class="selector-box-flight" id="qtyBox">
                                     <div class="room-cls">
@@ -118,8 +130,13 @@
 	                                        <div class="input-group">
 	                                            <button type="button" class="btn quantity-left-minus" id="decAd" 
 	                                                data-type="minus" data-field=""> - </button>
-	                                            <span name="quantity"  id="numberUpDown1"
-	                                                class="form-control qty-input input-number">${adult }</span>
+	                                            <c:if test='${adult=="" || empty adult}'>
+				                            		<span name="quantity"  id="numberUpDown1" class="form-control qty-input input-number">0</span>
+				                            	</c:if>
+				                                <c:if test='${adult!="" || not empty adult}'>
+				                            		<span name="quantity"  id="numberUpDown1" class="form-control qty-input input-number">${adult }</span>
+				                            	</c:if>
+	                                            
 	                                            <button type="button" class="btn quantity-right-plus"
 	                                                data-type="plus" data-field="" id="incAd">+</button>
 	                                        </div>
@@ -129,8 +146,12 @@
 	                                        <div class="input-group" >
 	                                            <button type="button" class="btn quantity-left-minus" id="decCh"
 	                                                data-type="minus" data-field=""> - </button>
-	                                            <span name="quantity"  id="numberUpDown2"
-	                                                class="form-control qty-input input-number">${child }</span>
+	                                            <c:if test='${child=="" || empty child}'>
+				                            		<span name="quantity"  id="numberUpDown2" class="form-control qty-input input-number">0</span>
+				                            	</c:if>
+				                                <c:if test='${child!="" || not empty child}'>
+				                            		<span name="quantity"  id="numberUpDown2"class="form-control qty-input input-number">${child }</span>
+				                            	</c:if>
 	                                            <button type="button" class="btn quantity-right-plus" id="incCh"
 	                                                data-type="plus" data-field=""> + </button>
 	                                        </div>
@@ -254,8 +275,7 @@
 											<h2>항공편을 찾을 수 없습니다.</h2>
 											<p>검색결과에 맞는 항공편을 찾을 수 없습니다. 
 												다시 검색해주세요.</p>
-											<button type="submit" class="btn  btn-solid color1">search
-												again</button>
+				                            <input type="submit" class="btn btn-solid color1" id="reservationsubmit" value="검색">
 										</div>
 									</div>
 								</div>
@@ -342,7 +362,8 @@
 	                                    </div>
 	                                    <div class="col-md-3">
 	                                        <div class="book-flight">
-	                                            <a href="<c:url value='/booking/flight-booking.do'/>" class="btn btn-solid color1 ">book now</a>
+	                                        	<!-- <button type="submit" class="btn btn-solid color1 " id="btBook">book now</button> -->
+	                                            <a href="<c:url value='/booking/flight-booking.do?sNo=${schedule.SNo }&adult=${adult }&child=${child }'/>" class="btn btn-solid color1 ">book now</a>
 	                                        </div>
 	                                    </div>
 	                                </div>
