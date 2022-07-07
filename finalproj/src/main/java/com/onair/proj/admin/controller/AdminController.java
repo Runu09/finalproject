@@ -159,7 +159,7 @@ public class AdminController {
 		return "/admin/allUser";
 	}
 	@RequestMapping("/delUser")
-	public String delUser(@RequestParam(defaultValue = "0") String memId,
+	public String delUser(@RequestParam String memId,
 			Model model) {
 		logger.info("회원탈퇴 처리 memId={}", memId);
 		int cnt = adminService.adminMemberDelete(memId);
@@ -168,6 +168,46 @@ public class AdminController {
 			msg="회원 탈퇴 처리 하였습니다.";
 			url="/admin/allUser";
 			logger.info("회원탈퇴 처리 결과 cnt={}", cnt);
+		}
+		model.addAttribute("msg",msg);
+		model.addAttribute("url",url);
+		return "/common/message";
+	}
+	
+	@RequestMapping("/adminAllUser")
+	public String adminAllUser(@ModelAttribute SearchVO searchVo, Model model) {
+		logger.info("관리자 조회 파라미터 searchVo", searchVo);
+		
+		PaginationInfo pagingInfo=new PaginationInfo();
+		pagingInfo.setBlockSize(ConstUtil.BLOCKSIZE);
+		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
+		pagingInfo.setRecordCountPerPage(ConstUtil.RECORD_COUNT1);
+		
+		searchVo.setRecordCountPerPage(ConstUtil.RECORD_COUNT1);
+		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+		
+		List<AdminVO> alist= adminService.selectAllAdmin(searchVo);
+		logger.info("관리자 정보 조회 결과 alist={}",alist);
+		
+		int totalRecord = adminService.selectAdminTotalRecord(searchVo);
+		logger.info("회원 정보 조회 결과 totalRecord={}",totalRecord);
+		pagingInfo.setTotalRecord(totalRecord);
+		
+		model.addAttribute("alist", alist);
+		model.addAttribute("pagingInfo", pagingInfo);
+		
+		return "/admin/adminAllUser";
+		
+	}
+	@RequestMapping("/delAdmin")
+	public String delAdmin(@RequestParam String manId, Model model) {
+		logger.info("관리자 탈퇴 처리 파라미터 manId={}",manId);
+		int cnt = adminService.deleteAdmin(manId);
+		String msg="관리자 탈퇴 처리 실패 하였습니다.", url="/admin/adminAllUser";
+		if(cnt>0) {
+			msg="관리자 탈퇴 처리 하였습니다.";
+			url="/admin/adminAllUser";
+			logger.info("관리자 탈퇴 처리 결과 cnt={}", cnt);
 		}
 		model.addAttribute("msg",msg);
 		model.addAttribute("url",url);

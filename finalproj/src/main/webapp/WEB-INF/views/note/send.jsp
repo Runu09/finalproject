@@ -4,12 +4,35 @@
 <script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function() {
+	
+	var memList=[];
+	
+	$('input[name=chkAll]').click(function(){
+		
+		$('tbody input[type=checkbox]').prop("checked",this.checked);
+	});
+	
+	
+	
 	$('#btMemAdd').click(function(){
-		var memList=[];
+		
 		var cbx=$('tbody input[type=checkbox]:checked');
 
+		if(memList.length>=10){
+			alert('최대 10명만 가능합니다.');
+			return;
+		} 
+		
+		
 		for(i=0;i<cbx.length;i++){
-			memList.push(cbx.eq(i).val());
+			var val=cbx.eq(i).val();
+				for(j=0;j<memList.length;j++){
+					if(memList[j]===val){
+						alert('회원당 1번만 선택가능합니다.');
+						return;
+					}
+				} 
+			memList.push(val);
 			$('#receiver').append(cbx.eq(i).val()+'\n');
 			
 		}
@@ -20,18 +43,19 @@ $(function() {
 	});
 	
 	 $('#btSend').click(function() {
-		if($.trim($('#receiver').text()).length<1){
+			if($.trim($('#receiver').val()).length<1){
 			alert('회원을 선택하세요');	
 			//$('#receiver').focus();
 			event.preventDefault();
 		} 
-		else if($.trim($('#nTitle').text()).length<1){
+		else if($.trim($('#nTitle').val()).length<1){
 			alert('제목을 입력하세요');	
 			$('#nTitle').focus();
 			event.preventDefault();
 		} 
-		else if($.trim($('#nContent').text()).length<1){
-			alert('내용을 선택하세요');	
+		else if($.trim($('#nContent').val()).length<1){
+			
+			alert('내용을 입력하세요');	
 			//$('#nContent').focus();
 			event.preventDefault();
 		} 
@@ -118,7 +142,7 @@ function pageFunc(curPage){
 										<table class="user-table table table-striped">
 											<thead>
 												<tr style="text-align: center">
-													<th></th>
+													<th><input type="checkbox" name="chkAll"></th>
 													<th>아이디</th>
 													<th>이름</th>
 													<th>생년월일</th>

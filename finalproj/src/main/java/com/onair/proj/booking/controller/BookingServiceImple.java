@@ -10,10 +10,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BookingServiceImple implements BookingService {
 	private final BookingDAO bookingDao;
-	
+
 	@Override
-	public Map<String, Object> ticketDetail(int rNo) {
-	return bookingDao.ticketDetail(rNo);
+	public TicketViewVO ticketDetail(int rNo) {
+		return bookingDao.ticketDetail(rNo);
 	}
 
 }

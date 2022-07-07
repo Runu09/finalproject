@@ -1,5 +1,7 @@
 package com.onair.proj.mypage.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -8,7 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.onair.proj.board.model.BoardVO;
+import com.onair.proj.booking.controller.TicketViewVO;
 import com.onair.proj.member.controller.MemberController;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
@@ -23,6 +28,7 @@ public class MyPageController {
 	=LoggerFactory.getLogger(MemberController.class);
 	
 	private final MemberService memberService;
+	private final MypageService mypageService;
 
 	@GetMapping("/mypageMain.do")
 	public String mypagemene_get(HttpSession session, Model model) {
@@ -51,15 +57,26 @@ public class MyPageController {
 		String memId = (String)session.getAttribute("memId");
 		logger.info("이용내역 화면, 파라미터 memId={}", memId);
 		
-		MemberVO vo = memberService.selectByMemId(memId);
-		logger.info("회원 정보 조회 결과 vo={}", vo);
+		List<TicketViewVO> list= mypageService.selectBookings(memId);
+		logger.info("회원 정보 조회 결과 vo={}", list);
 		
-		model.addAttribute("vo" , vo);
+		model.addAttribute("list" , list);
 		
 		return "/mypage/bookings";
 	}
 	
-	
+	@RequestMapping("/mypageMain2.do")
+	public String selectById(HttpSession session, Model model) {
+		String bId = (String)session.getAttribute("memId");
+		logger.info("이용내역 화면, 파라미터 memId={}", bId);
+		
+		List<BoardVO> list= mypageService.selectById(bId);
+		logger.info("내가 쓴글 조회 결과 vo={}", list);
+		
+		model.addAttribute("list" , list);
+		
+		return "/mypage/mypageMain";
+	}
 	/*
 	@PostMapping("/editMem.do")
 	public String editMem_post(@ModelAttribute MemberVO vo,
@@ -123,4 +140,6 @@ public class MyPageController {
 		return "/common/message";
 	}
 */
+	
+	
 }
