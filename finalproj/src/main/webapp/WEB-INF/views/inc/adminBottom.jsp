@@ -47,7 +47,6 @@
     <!-- Sidebar jquery-->
     <script src="../admin/js/config.js"></script>
 
-
     <!-- tooltip init js  start-->
     <script src="../admin/js/tooltip-init.js"></script>
     <!-- tooltip init js  end-->

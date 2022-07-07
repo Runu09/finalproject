@@ -158,6 +158,7 @@ public class AdminController {
 		
 		return "/admin/allUser";
 	}
+	
 	@RequestMapping("/delUser")
 	public String delUser(@RequestParam String memId,
 			Model model) {
@@ -173,7 +174,7 @@ public class AdminController {
 		model.addAttribute("url",url);
 		return "/common/message";
 	}
-	
+
 	@RequestMapping("/adminAllUser")
 	public String adminAllUser(@ModelAttribute SearchVO searchVo, Model model) {
 		logger.info("관리자 조회 파라미터 searchVo", searchVo);
@@ -212,6 +213,11 @@ public class AdminController {
 		model.addAttribute("msg",msg);
 		model.addAttribute("url",url);
 		return "/common/message";
+	}
+	@RequestMapping("/adminMypage")
+	public String myPage() {
+		logger.info("관리자 마이페이지");
+		return "/admin/adminMypage";
 	}
 	
 }

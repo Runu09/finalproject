@@ -63,9 +63,9 @@
 							$('#form-kakao-login input[name=nick]').val(
 									account.profile.nickname);
 							$('#form-kakao-login input[name=img]').val(
-									account.profile.img);
+									account.profile.image);
 							scope: 'account_email';
-							alert('로그인성공');
+							alert('카카오톡 로그인성공!');
 							document.querySelector('#form-kakao-login')
 									.submit();
 						}
