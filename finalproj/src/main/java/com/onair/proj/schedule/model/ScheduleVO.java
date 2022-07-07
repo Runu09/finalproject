@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class ScheduleVO {
+	private int sNo; //항공편번호
 	private String sName; //항공편명
 	private String aDepnm; //출발공항
 	private String aArrnm; //도착공항
