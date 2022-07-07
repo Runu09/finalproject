@@ -9,11 +9,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.onair.proj.board.model.BoardVO;
 import com.onair.proj.booking.controller.TicketViewVO;
+import com.onair.proj.common.ConstUtil;
+import com.onair.proj.common.PaginationInfo;
+import com.onair.proj.common.SearchVO;
 import com.onair.proj.member.controller.MemberController;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
@@ -51,19 +54,6 @@ public class MyPageController {
 	}
 
 	
-	//이용내역조회
-	@GetMapping("/bookings.do")
-	public String bookings_get(HttpSession session, Model model) {
-		String memId = (String)session.getAttribute("memId");
-		logger.info("이용내역 화면, 파라미터 memId={}", memId);
-		
-		List<TicketViewVO> list= mypageService.selectBookings(memId);
-		logger.info("회원 정보 조회 결과 vo={}", list);
-		
-		model.addAttribute("list" , list);
-		
-		return "/mypage/bookings";
-	}
 	
 	@RequestMapping("/mypageMain2.do")
 	public String selectById(HttpSession session, Model model) {
@@ -77,6 +67,19 @@ public class MyPageController {
 		
 		return "/mypage/mypageMain";
 	}
+	
+	@GetMapping("/bookings.do")
+	public String bookings_get(HttpSession session, Model model) {
+		String memId = (String)session.getAttribute("memId");
+		
+		logger.info("항공권 이용 내역 , 파라미터 memId={}", memId);
+		
+		List<TicketViewVO> list = mypageService.selectAll(memId);
+		model.addAttribute("list" , list);
+		
+		return "/mypage/bookings";
+	}
+	
 	/*
 	@PostMapping("/editMem.do")
 	public String editMem_post(@ModelAttribute MemberVO vo,
