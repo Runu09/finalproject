@@ -214,9 +214,45 @@ public class AdminController {
 		model.addAttribute("url",url);
 		return "/common/message";
 	}
-	@RequestMapping("/adminMypage")
-	public String myPage() {
-		logger.info("관리자 마이페이지");
+	
+	/*
+	 * @GetMapping("/adminMypage") public String myPage() {
+	 * logger.info("관리자 마이페이지"); return "/admin/adminMypage"; }
+	 */
+	
+	@GetMapping("/adminMypage")
+	public String myPage_post(HttpSession session,
+			Model model) {
+		String manId=(String) session.getAttribute("manId");
+		String manName=(String) session.getAttribute("manName");
+		logger.info("관리자 마이페이지 조회 manId={}, manName={}", manId,manName);
+		
+		AdminVO vo= adminService.selectByManId(manId);
+		logger.info("관리자 마이페이지 vo={}", vo);
+		
+		model.addAttribute("vo", vo);
+		
+		return "/admin/adminMypage";
+		
+	}
+	
+	@RequestMapping("/chkPwd")
+	public String chkPwd(@ModelAttribute AdminVO vo) {
+		int cnt = adminService.chkPwd(vo.getManId());
+		logger.info("비밀번호 체크 파라미터 vo={}", vo);
+		
+		return "redirect:/admin/adminMypage";
+	}
+	
+	@PostMapping("/adminMypage")
+	public String editPwd(@ModelAttribute AdminVO vo,
+			HttpSession session, @RequestParam String nPwd,
+			Model model) {
+		String manId=(String) session.getAttribute("manId");
+		vo.setManId(manId);
+		logger.info("관리자 마이페이지 비밀번호 변경 manId={}", manId);
+		adminService.editPwd(manId, nPwd);
+		
 		return "/admin/adminMypage";
 	}
 	
