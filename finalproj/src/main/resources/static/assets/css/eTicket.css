@@ -70,3 +70,10 @@ span#title {
     position: relative;
     top: 7px;
 }
+
+tr#tr1{
+	font-family: 'Open Sans', sans-serif;
+	line-height: 18px; 
+	vertical-align: top; padding: 5px 0;
+}
+

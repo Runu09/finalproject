@@ -8,16 +8,33 @@
 	(
 	select * from board
 	where b_id=#{b_id} 
-	order by b_no desc
+	order by b_no DESC
 	)A
 	<![CDATA[
 	where rownum < 7
 	]]>
 	</select>
 	
-	<select id="selectBookings" parameterType="string" resultType="ticketviewVo">
-	select * from ticketview
+	<select id="past" parameterType="string" resultType="ticketviewVo">
+	select * from ticketView
 	where mem_id=#{mem_id}
+	and r_checkpay='Y'
+	<![CDATA[
+	and s_startTime < SYSDATE
+	]]>
 	</select>
 	
+	<select id="upcoming" parameterType="string" resultType="ticketviewVo">
+	select * from ticketView
+	where mem_id=#{mem_id}
+	and r_checkpay='Y'
+	and s_startTime >= SYSDATE
+	</select>
+	
+	<select id="selectAll" parameterType="string" resultType="ticketviewVo">
+	select * from ticketView
+	where mem_id=#{mem_id}
+	and r_checkpay='Y'
+	</select>
+
 </mapper>

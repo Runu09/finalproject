@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.onair.proj.board.model.BoardVO;
 import com.onair.proj.booking.controller.TicketViewVO;
-
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -18,10 +17,19 @@ public class MypageServiceImpl implements MypageService{
 	public List<BoardVO> selectById(String bId) {
 		return mypageDao.selectById(bId);
 	}
+	
 
 	@Override
-	public List<TicketViewVO> selectBookings(String memId) {
-		return mypageDao.selectBookings(memId);
+	public List<TicketViewVO> past(String memId) {
+		return mypageDao.past(memId);
 	}
-	
+
+
+	@Override
+	public List<TicketViewVO> selectAll(String memId) {
+		return mypageDao.selectAll(memId);
+	}
+
+
+
 }

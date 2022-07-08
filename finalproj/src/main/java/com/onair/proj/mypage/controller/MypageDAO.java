@@ -10,5 +10,6 @@ import com.onair.proj.booking.controller.TicketViewVO;
 @Mapper
 public interface MypageDAO {
 	List<BoardVO> selectById (String bId);
-	List<TicketViewVO> selectBookings(String memId);
+	List<TicketViewVO> past(String memId);
+	List<TicketViewVO> selectAll(String memId);
 }

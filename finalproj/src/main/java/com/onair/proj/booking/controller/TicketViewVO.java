@@ -24,6 +24,7 @@ public class TicketViewVO {
 	private int rNo; //예매번호
 	private Timestamp rDate; //예매일자
 	private int rPay; //예매금액
+	private String rCheckpay; //결제플래그
 	private int rAdult; //성인인원수
 	private int rChild; //소아인원수
 	
