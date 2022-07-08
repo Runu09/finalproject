@@ -120,16 +120,13 @@
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33; line-height: 18px; vertical-align: top; padding: 4px 0; padding-right: 10px; background-color: aliceblue;"
 														align="right"><small>예매번호</small></td>
 												</tr>
-												<tr>
-													<td
-														style="font-size: 10px; font-family: 'Open Sans', sans-serif; color: #ff0000; line-height: 18px; vertical-align: top; padding: 5px 0; padding-left: 10px; color: #565656;"
-														class="article">${vo.PName}</td>
-													<td colspan="2"
-														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; padding-left: 100px;">
-														<small>${vo.PSeat}</small></td>
-													<td
-														style="font-size: 10px; font-family: 'Open Sans', sans-serif; color: #1e2b33; line-height: 18px; vertical-align: top; padding: 5px 0; padding-right: 10px;"
-														align="right">${vo.RNo}</td>
+												<tr id="tr1">
+													<td style="font-size: 10px; color: #ff0000; padding-left: 10px; color: #565656;" class="article">
+														${vo.PName}</td>
+													<td colspan="2" style="font-size: 12px; color: #646a6e; padding-left: 100px;">
+														${vo.PSeat}</td>
+													<td style="font-size: 10px; color: #1e2b33;padding-right: 10px;" align="right">
+														${vo.RNo}</td>
 												</tr>
 												<tr>
 												<td height="1" colspan="4" style="border-bottom: 1px solid #e4e4e4"></td>
