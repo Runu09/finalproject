@@ -80,7 +80,7 @@ function pageFunc(curPage){
                             </td>
                             <td>
                             <input type="hidden" value="${vo.manId }">
-                             <a href="<c:url value='/admin/delAdmin?manId=${vo.manId }'/>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                             <a href="<c:url value='/admin/delAdmin?manId=${vo.manId }'/>" onclick="return confirm('해당관리자를 탈퇴처리 하시겠습니까 ?');"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                             </td>
                           </tr>
                           </c:forEach>
@@ -167,62 +167,6 @@ function pageFunc(curPage){
     </div>
 
 
-     <!-- Modal -->
-    <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog  modal-dialog-centered">
-        <div class="modal-content">
-
-          <div class="modal-body">
-            <h5 class="modal-title" id="staticBackdropLabel">Logging Out</h5>
-            <p>Are you sure you want to log out?</p>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-            <div class="button-box">
-              <button type="button" class="btn btn--no " data-bs-dismiss="modal">No</button>
-              <button type="button" class="btn  btn--yes btn-primary">Yes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- latest jquery-->
-  <script src="../admin/js/jquery-3.5.1.min.js"></script>
-  <!-- Bootstrap js-->
-  <script src="../admin/js/bootstrap/bootstrap.bundle.min.js"></script>
-  <!-- feather icon js-->
-  <script src="../admin/js/icons/feather-icon/feather.min.js"></script>
-  <script src="../admin/js/icons/feather-icon/feather-icon.js"></script>
-  <!-- scrollbar js-->
-  <script src="../admin/js/scrollbar/simplebar.js"></script>
-  <script src="../admin/js/scrollbar/custom.js"></script>
-
-  <!-- customizer js start  -->
-  <script src="../admin/js/customizer.js"></script>
-  <!-- customizer js start  -->
-  <!-- Sidebar jquery-->
-  <script src="../admin/js/config.js"></script>
-  <!-- Plugins JS start-->
-  <script src="../admin/js/sidebar-menu.js"></script>
-  <script src="../admin/js/notify/bootstrap-notify.min.js"></script>
-
-
-  <script src="../admin/js/notify/index.js"></script>
-  <script src="../admin/js/typeahead/handlebars.js"></script>
-  <script src="../admin/js/typeahead/typeahead.bundle.js"></script>
-  <script src="../admin/js/typeahead/typeahead.custom.js"></script>
-  <script src="../admin/js/typeahead-search/handlebars.js"></script>
-  <script src="../admin/js/typeahead-search/typeahead-custom.js"></script>
-
-  <!-- Plugins JS Ends-->
-  <!-- Theme js-->
-  <script src="../admin/js/script.js"></script>
-
-  <!-- login js-->
-  <!-- Plugin used-->
 
 
 <%@include file="../inc/adminBottom.jsp"%>

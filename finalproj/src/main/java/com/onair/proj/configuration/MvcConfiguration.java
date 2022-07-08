@@ -6,6 +6,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import com.onair.proj.admin.controller.AdminLoginInterceptor;
 import com.onair.proj.controller.LoginInterceptor;
 
 @Configuration
@@ -18,11 +19,12 @@ public class MvcConfiguration implements WebMvcConfigurer{
 				"/member/editMem.do","/member/editPwd.do","/member/outMem.do",
 				"/mypage/**", "/booking/flight-booking.do");
 
-		/*
-		 * registry.addInterceptor(new AdminLoginInterceptor())
-		 * .excludePathPatterns("/admin/login/adminLogin")
-		 * .addPathPatterns("/admin/**");
-		 */
+		
+		 registry.addInterceptor(new AdminLoginInterceptor())
+		 //.excludePathPatterns("/admin/adminLogin")
+		 .addPathPatterns("/admin/adminMain", "/admin/adminAllUser","/admin/adminRegister",
+				 "/admin/adminMypage");
+		 
 		
 		
 	}

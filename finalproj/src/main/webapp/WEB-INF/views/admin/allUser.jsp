@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@include file="../inc/adminTop.jsp"%>
 <script type="text/javascript">
+window.onload = function() {
+	
+}
 
 function pageFunc(curPage){
 	$('input[name=currentPage]').val(curPage);
@@ -11,24 +14,18 @@ function pageFunc(curPage){
 		location.href = "<c:url value='/admin/allUser'/>";
 	});
 }
-
-function delUser(memId){
-	var answer=confirm("해당 회원을 삭제하시겠습니까?");
-	if(answer){
-		location.href="<c:url value="/admin/delUser?memId="/>"+memId.value();
-	}
-}
-
-$(function(){
-	$('.Outdae').click(function(){
-		if(confirm('삭제하시겠습니까?')){
-		}
-	})
-});
-
-
-
-
+/* function delchk(){
+    if(confirm("해당 회원을 탈퇴처리 하시겠습니까?")){
+    	if(){
+	    	location.href = "<c:url value='/admin/delUser?memId=${vo.memId }'/>" ;
+    	}else{
+    		alert("이미 탈퇴한 회원입니다.");
+    	}
+        return true;
+    } else {
+        return false;
+    }
+} */
 </script>
 <form name="frmPage" method="post">
 	<input type="hidden" name="currentPage">
@@ -85,21 +82,18 @@ $(function(){
                             <th>Email</th>
                             <th>주소</th>
                             <th>보유마일리지</th>
-                            <th>탈퇴일자</th>
-                            <th>수정</th>
-                            <th>삭제</th>
+                            <th>탈퇴일자&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp삭제</th>
                           </tr>
                         </thead>
                         <tbody>
                         <c:if test="${empty alist }">
                         	<tr>
-                        		<td colspan="10" style="text-align: center;"><span class=" d-block">해당 회원이 없습니다.</span></td>
+                        		<td colspan="9" style="text-align: center;"><span class=" d-block">해당 회원이 없습니다.</span></td>
                         	</tr>
                         </c:if>
                         <c:if test="${!empty alist }">
                         <c:forEach var="vo" items="${alist }" varStatus="status">
                           <tr>
-                          <%-- <input type="text" value="${vo.memNo }"/> --%>
                             <td><span class=" d-block" >${vo.memId }</span>
                             	
                             </td>
@@ -115,19 +109,29 @@ $(function(){
                               <span>${vo.MMileage}</span>
                             </td>
                             <td >
-                              <span><fmt:formatDate
+								<c:choose>
+									<c:when test="${vo.MOutdate ne null}">
+										<span><fmt:formatDate
 										value="${vo.MOutdate}" pattern="yyyy-MM-dd" /></span>
+										<a href="#" onclick="return alert('이미 탈퇴한 회원입니다.');">&nbsp&nbsp&nbsp
+										<i class="fa fa-trash-o" aria-hidden="true"></i></a>
+									</c:when>
+									<c:otherwise>
+										<a href="<c:url value='/admin/delUser?memId=${vo.memId }'/>" onclick="return confirm('해당회원을 탈퇴처리 하시겠습니까 ?');">
+										&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	                            		<i class="fa fa-trash-o" aria-hidden="true"></i></a>
+									</c:otherwise>
+								</c:choose>
                             </td>
-                            <td>
-                              <a href="<c:url value='/member/editMem.do'/>" class="Outdate"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            <%-- <td>
+                              <a href="<c:url value='/member/editMem.do'/>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 							<!--<a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
                             </td>
                             <td>
                             <input type="hidden" id="memId" name="memId" value="${vo.memId }">
-                             <a href="<c:url value='/admin/delUser?memId=${vo.memId }'/>" class="Outdate"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-							 <%--<a href="javascript:delUser()" onclick="delUser(currentId${status.index})"><i class="fa fa-trash-o" aria-hidden="true"></i></a> --%>
-                             <%-- <input type="button" value="clear" onclick="delUser(currentId${status.index})"/> --%>
-                            </td>
+                            <a href="<c:url value='/admin/delUser?memId=${vo.memId }'/>" onclick="delchk();">
+                             
+                            </td> --%>
                           </tr>
                           </c:forEach>
                           </c:if>
@@ -237,41 +241,5 @@ $(function(){
     </div>
 
   </div>
-
-  <!-- latest jquery-->
-  <script src="../admin/js/jquery-3.5.1.min.js"></script>
-  <!-- Bootstrap js-->
-  <script src="../admin/js/bootstrap/bootstrap.bundle.min.js"></script>
-  <!-- feather icon js-->
-  <script src="../admin/js/icons/feather-icon/feather.min.js"></script>
-  <script src="../admin/js/icons/feather-icon/feather-icon.js"></script>
-  <!-- scrollbar js-->
-  <script src="../admin/js/scrollbar/simplebar.js"></script>
-  <script src="../admin/js/scrollbar/custom.js"></script>
-
-  <!-- customizer js start  -->
-  <script src="../admin/js/customizer.js"></script>
-  <!-- customizer js start  -->
-  <!-- Sidebar jquery-->
-  <script src="../admin/js/config.js"></script>
-  <!-- Plugins JS start-->
-  <script src="../admin/js/sidebar-menu.js"></script>
-  <script src="../admin/js/notify/bootstrap-notify.min.js"></script>
-
-
-  <script src="../admin/js/notify/index.js"></script>
-  <script src="../admin/js/typeahead/handlebars.js"></script>
-  <script src="../admin/js/typeahead/typeahead.bundle.js"></script>
-  <script src="../admin/js/typeahead/typeahead.custom.js"></script>
-  <script src="../admin/js/typeahead-search/handlebars.js"></script>
-  <script src="../admin/js/typeahead-search/typeahead-custom.js"></script>
-
-  <!-- Plugins JS Ends-->
-  <!-- Theme js-->
-  <script src="../admin/js/script.js"></script>
-
-  <!-- login js-->
-  <!-- Plugin used-->
-
 
 <%@include file="../inc/adminBottom.jsp"%>
