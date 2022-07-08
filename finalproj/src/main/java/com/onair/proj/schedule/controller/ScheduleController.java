@@ -1,6 +1,7 @@
 package com.onair.proj.schedule.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +24,8 @@ import com.onair.proj.common.PaginationInfo;
 import com.onair.proj.common.ScheduleSearchVO;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
+import com.onair.proj.passenger.model.PassengerService;
+import com.onair.proj.passenger.model.PassengerVO;
 import com.onair.proj.schedule.model.ScheduleInfoExplorer;
 import com.onair.proj.schedule.model.ScheduleService;
 import com.onair.proj.schedule.model.ScheduleVO;
@@ -41,6 +44,8 @@ public class ScheduleController {
 	 private final ScheduleService scheduleService;
 	 
 	 private final MemberService memberService;
+	 
+	 private final PassengerService passengerService;
 
 	//검색시 데이터가 없으면 db에 추가하도록 처리한다.
     @RequestMapping("/booking/flight-round-trip.do") 
@@ -117,13 +122,16 @@ public class ScheduleController {
     	String memId=(String) session.getAttribute("memId");
     	MemberVO memVo=memberService.selectByMemId(memId);
     	
+    	
     	ScheduleVO vo=scheduleService.selectBySName(sNo);
+    	
+    	List<PassengerVO> pList=new ArrayList<PassengerVO>();
     	
     	String adult=req.getParameter("adult"); //성인 인원수
     	String child=req.getParameter("child"); //아동 인원수
     	
     	
-    	
+    	model.addAttribute("data", pList);
     	model.addAttribute("memVo",memVo);
     	model.addAttribute("schedule", vo);
     	model.addAttribute("adult",adult);

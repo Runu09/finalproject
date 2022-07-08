@@ -56,10 +56,7 @@ public class ProjController {
 		return "/booking/flight-booking-failed";
 	}
 	
-	@RequestMapping("/booking/flight-booking-payment.do")
-	public String bookingPayment() {
-		return "/booking/flight-booking-payment";
-	}
+
 	
 	@RequestMapping("/booking/flight-booking-success.do")
 	public String bookingSuccess() {
