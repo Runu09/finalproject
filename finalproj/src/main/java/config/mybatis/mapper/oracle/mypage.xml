@@ -87,17 +87,15 @@
 		    		select * from ticketView
 					<include refid="searchWhere"></include>
 					and r_checkpay='Y'
-					and tickeTtype='upcoming'
+					and tickeTtype='UPCOMING'
 				</if>
-		
 				<if test="ticketType!=null and ticketType!=''">
 					select * from ticketView
 					<include refid="searchWhere"></include>
 					and r_checkpay='Y'
 					and ticketType=#{ticketType}
-					and ticketType=#{ticketType}
-					
 				</if>
+			
 					order by s_starttime
 				)A
 			)

@@ -14,6 +14,20 @@
 	width: 300px;
 }
 
+span#Btype {
+position: relative;
+right: 17px;
+font-size: 13px;
+color: #8080809e;
+padding: 1px;
+}
+
+span#sName {
+    font-size: 13px;
+    color: #8080809e;
+    position: relative;
+    left: -13px;
+}
 </style>
 
 <body>
@@ -116,8 +130,11 @@
 														
 														<li <c:if test="${day ==0 }">class="blue-line"</c:if>>
 														<i class="fas fa-plane">
-														</i> ${vo2.ADepnm } to ${vo2.AArrnm }<span>
-															${vo2.DDay }일 후  </span></li>
+														</i> ${vo2.ADepnm } to ${vo2.AArrnm }
+														<span> ${vo2.DDay }일 후  </span>
+														<span id="sName">${vo2.SName } / ${vo2.alName }</span>
+														
+														</li>
 													</c:forEach>
 													</c:if>
 													</ul>
@@ -137,13 +154,16 @@
 														<li <c:if test="${vo3.btNo == 2}">class="yellow-line"</c:if>>
 														<i class="fas fa-user">
 														</i> ${vo3.BTitle } 
+														<span><fmt:formatDate value="${vo3.BRegdate }" pattern="yyyy-MM-dd"/> </span>
+														<span id="Btype">
 														<c:if test="${vo3.btNo == 2}">
 															유실물 찾기
 														</c:if>
 														<c:if test="${vo3.btNo == 3}">
 															고객의 소리
 														</c:if>
-														<span><fmt:formatDate value="${vo3.BRegdate }" pattern="yyyy-MM-dd"/> </span>
+														</span>
+														
 													</c:forEach>
 													</c:if>
 														

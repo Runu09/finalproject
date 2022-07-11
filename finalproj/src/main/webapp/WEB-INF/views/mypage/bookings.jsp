@@ -12,6 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<link href="../assets/css/bookings.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	//페이지 번호 클릭시 실행할 함수
 	function pageProc(curPage){
@@ -21,60 +22,6 @@
 
 
 </script>
-<style>
-button#btnTicket {
-	border: none;
-	background-color: #f9f9f9;
-}
-
-span.badge.bg-success {
-	width: 135px;
-	height: 46px;
-	margin: auto 0;
-	padding-top: 16px;
-	background-color:#4291b8;
-}
-
-.ticket {
-	position: relative;
-	right: 107px;
-	top: -14px;
-	height: 20px;
-}
-
-span.badge.bg-info, span.badge.bg-secondary {
-	position: relative;
-	left: 56px;
-	bottom: -20px;
-}
-
-i.fas.fa-window-close {
-	position: relative;
-	left: 150px;
-	bottom: 55px;
-}
-
-span.date {
-	margin: 0 auto;
-	font-size: 23px;
-	color: #4f6473;
-}
-
-img#plane2 {
-	position: relative;
-	left: 108px;
-}
-
-ul.pagination.pagination-primary {
-    position: relative;
-    left: 447px;
-    margin-top: 23px;
-}
-
-.booking-box {
-    margin: 0 0 25px 0;
-}
-</style>
 <body>
 
 	<!-- section start-->
@@ -98,27 +45,33 @@ ul.pagination.pagination-primary {
 									<input type="hidden" name="currentPage">
 									<input type="hidden" name="ticketType" value="${param.ticketType }">
 								</form>
+								
+								
+								<div class="form-group" style="margin: 0 auto">
 								<form action="<c:url value='/mypage/bookings.do'/>"
-									method="post" name="frmlist">
-								<div class="divRight">
-									이벤트 상품 조회 <select name="ticketType">
-										<option value=""></option>
-										<option value="upcoming"
-											<c:if test="${param.ticketType == 'upcoming'}">
+									method="post" name="frmSelect">
+
+									<div class="row">
+										<select name="ticketType" class="form-control"
+											style="width: 200px; margin-right: 10px">
+											<option value=""></option>
+											<option value="UPCOMING"
+											<c:if test="${param.ticketType == 'UPCOMING'}">
 									            selected
-									         </c:if>>upcoming</option>
-										<option value="past"
-											<c:if test="${param.ticketType == 'past'}">
+									         </c:if>>UPCOMING</option>
+											<option value="PAST"
+											<c:if test="${param.ticketType == 'PAST'}">
 									            selected
-									         </c:if>>past</option>
-									    <option value="all"
-											<c:if test="${param.ticketType == 'all'}">
-									            selected
-									         </c:if>>all</option>
+									         </c:if>>PAST</option>
+										</select> 
 										
-									</select> <input type="submit" value="조회">
-								</div>
+										<button class="btn btn-primary me-3" type="submit">조회</button>
+									</div>
+
 								</form>
+							</div>
+	
+						
 								<!-- 페이징 처리를 위한 form -->
 
 
