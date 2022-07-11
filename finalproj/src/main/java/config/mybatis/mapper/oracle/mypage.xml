@@ -2,39 +2,123 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.onair.proj.mypage.controller.MypageDAO">
-	<select id="selectById" parameterType="String" resultType="boardVo">
-	select rownum, A.* 
+	<sql id="searchWhere">
+		<if test="memId !=null and memId !=''">
+			where mem_id = #{memId}
+		</if>
+	</sql>
+	
+	<select id="selectByIdBoard" parameterType="String" resultType="boardVo">
+	select ROWNUM, A.* 
 	from
 	(
 	select * from board
 	where b_id=#{b_id} 
-	order by b_no DESC
+	order by b_regdate DESC
 	)A
 	<![CDATA[
 	where rownum < 7
 	]]>
 	</select>
 	
-	<select id="past" parameterType="string" resultType="ticketviewVo">
-	select * from ticketView
-	where mem_id=#{mem_id}
-	and r_checkpay='Y'
+	<select id="mainUpcoming" parameterType="String" resultType="ticketviewVo">
+	select ROWNUM, A.* 
+	from
+	(
+		select * from ticketView
+		where mem_id=#{mem_id}
+		and r_checkpay='Y'
+		and s_startTime >= SYSDATE
+		order by s_starttime
+	)A
 	<![CDATA[
-	and s_startTime < SYSDATE
+	where rownum < 7
 	]]>
 	</select>
 	
-	<select id="upcoming" parameterType="string" resultType="ticketviewVo">
-	select * from ticketView
-	where mem_id=#{mem_id}
-	and r_checkpay='Y'
-	and s_startTime >= SYSDATE
+	<select id="past" parameterType="bookingsearchVo" resultType="ticketviewVo">
+	select * 
+			from
+			(
+				select ROWNUM as RNUM, A.*
+				from
+				(
+					select * from ticketView
+					<include refid="searchWhere"></include>
+					and r_checkpay='Y'
+					<![CDATA[ and s_startTime < SYSDATE ]]>
+					order by s_starttime
+				)A
+			)
+			where  RNUM>#{firstRecordIndex}
+			<![CDATA[
+			and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
+		
+		</select>
+	
+	<select id="upcoming" parameterType="bookingsearchVo" resultType="ticketviewVo">
+	select * 
+			from
+			(
+				select ROWNUM as RNUM, A.*
+				from
+				(
+					select * from ticketView
+					<include refid="searchWhere"></include>
+					and r_checkpay='Y'
+					and s_startTime >= SYSDATE
+					order by s_starttime
+				)A
+			)
+			where  RNUM>#{firstRecordIndex}
+			<![CDATA[
+			and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
+	
 	</select>
 	
-	<select id="selectAll" parameterType="string" resultType="ticketviewVo">
-	select * from ticketView
-	where mem_id=#{mem_id}
-	and r_checkpay='Y'
+	<select id="selectAll" parameterType="bookingsearchVo" resultType="ticketviewVo">
+		select * 
+			from
+			(
+				select ROWNUM as RNUM, A.*
+				from
+				(
+				<if test="ticketType==null or ticketType==''">
+		    		select * from ticketView
+					<include refid="searchWhere"></include>
+					and r_checkpay='Y'
+					and tickeTtype='upcoming'
+				</if>
+		
+				<if test="ticketType!=null and ticketType!=''">
+					select * from ticketView
+					<include refid="searchWhere"></include>
+					and r_checkpay='Y'
+					and ticketType=#{ticketType}
+					and ticketType=#{ticketType}
+					
+				</if>
+					order by s_starttime
+				)A
+			)
+			where  RNUM>#{firstRecordIndex}
+			<![CDATA[
+			and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
 	</select>
+	
+	<select id="getTotalRecord" parameterType="bookingsearchVo" resultType="int">
+			select count(*) from ticketView 
+			<include refid="searchWhere"></include>
+			and r_checkpay='Y'
+			and s_startTime >= SYSDATE
+	</select>
+	
+	<select id="getTotalRecord2" parameterType="bookingsearchVo" resultType="int">
+			select count(*) from ticketView 
+			<include refid="searchWhere"></include>
+			and r_checkpay='Y'
+			<![CDATA[ and s_startTime < SYSDATE ]]>
+	</select>
+	
 
 </mapper>

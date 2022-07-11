@@ -14,6 +14,8 @@ public class TicketViewVO {
 	private String aArrnm; //도착공항
 	private Timestamp sStarttime; //최초출발시간
 	private Timestamp sArrtime; //최종도착시간
+	private int dDay; //출발일로부터 남은일수
+	private String ticketType; //티켓구분
 
 	/*PASSENGER*/
 	private int pNo; //승객번호
