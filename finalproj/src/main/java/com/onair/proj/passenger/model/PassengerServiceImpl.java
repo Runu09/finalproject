@@ -6,6 +6,6 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class PassengerServiceImpl {
+public class PassengerServiceImpl implements PassengerService{
 	private final PassengerDAO passengerDao;
 }

@@ -33,7 +33,7 @@ public class EmailController {
 		int auth=rd.nextInt(900000)+100000;
 		
 		logger.info("난수============{}",auth);
-		String receiver="kcat2201@naver.com";	
+		String receiver=email;	
 		String subject="요청하신 인증번호를 알려드립니다.";
 		String content="인증번호 : "+auth;
 		String sender="ezonair04@naver.com";//보내는 사람의 이메일 주소

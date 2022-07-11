@@ -92,7 +92,7 @@
 					tagInfo+="<input type='text' class='form-control' id='pBirthday' value='"+$("#gogekBirth").val()+"' readonly='readonly'>";
 					tagInfo+="<label for='pCon'>국적</label>";
 					tagInfo+="<input type='text' class='form-control' id='pCon' value='"+$("#gogekCon").val()+"' readonly='readonly'>";
-					tagInfo+="<br>"
+					tagInfo+="<hr>"
 					tagInfo+="</label>";
 					jQuery("#info").append(tagInfo);
 					
