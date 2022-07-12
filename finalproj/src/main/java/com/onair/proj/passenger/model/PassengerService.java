@@ -1,5 +1,9 @@
 package com.onair.proj.passenger.model;
 
-public interface PassengerService {
+import java.util.List;
 
+public interface PassengerService {
+	int insertPassenger(PassengerVO vo);
+
+    List<PassengerVO> selectPassenger(PassengerVO vo);
 }

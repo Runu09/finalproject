@@ -1,5 +1,9 @@
 package com.onair.proj.pay.model;
 
-public interface PayService {
+import java.util.List;
 
+public interface PayService {
+	int insertPay(PayVO vo);
+
+    List<PayVO> selectPay(PayVO vo);
 }

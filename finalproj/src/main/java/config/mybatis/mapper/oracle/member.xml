@@ -53,5 +53,16 @@
 		where mem_name=#{name} and m_email1||'@'||m_email2=#{email}
 	</select>
 	
+	<update id="updateMileageM" parameterType="int">
+		update member
+		set m_mileage=m_mileage-#{mMileage}
+		where MEM_ID=#{memId}
+	</update>
+	
+	<update id="updateMileageP" parameterType="int">
+		update member
+		set m_mileage=m_mileage+#{total}*0.01
+		where MEM_ID=#{memId}
+	</update>
 	
 </mapper>

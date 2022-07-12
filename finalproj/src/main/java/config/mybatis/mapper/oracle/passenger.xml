@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.onair.proj.passenger.model.PassengerDAO">
+	<insert id="insertPassenger" parameterType="PassengerVO">
+	<selectKey resultType="int" keyProperty="pNo" order="BEFORE">
+		select SEQ_PASSENGER.nextval from dual
+	</selectKey>
+      	insert into passenger (p_no, r_no, p_seat, p_name, p_birthday, p_con)
+      	values (#{pNo}, #{rNo}, #{pSeat}, #{pName}, #{pBirthday}, #{pCon})
+    </insert>
+
+    <select id="selectPassenger" resultType="PassengerVO">
+        select * from passenger
+    </select>
+</mapper>

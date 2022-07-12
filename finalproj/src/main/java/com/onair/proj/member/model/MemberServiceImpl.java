@@ -72,6 +72,16 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.findId(name,email);
 	}
 
+	@Override
+	public int updateMileageM(int mMileage, String memId) {
+		return memberDao.updateMileageM(mMileage, memId);
+	}
+
+	@Override
+	public int updateMileageP(int total, String memId) {
+		return memberDao.updateMileageP(total, memId);
+	}
+
 
 	
 }

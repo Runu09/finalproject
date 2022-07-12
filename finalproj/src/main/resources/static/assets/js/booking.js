@@ -101,7 +101,7 @@ $(document).ready(
 				            $('.grand_total span').text(aaa+"원");
 				            
 				            var total="";
-				            total+="<input type='hidden' name= 'useMile' value='"+mile+"'>";//사용한 마일리지
+				            total+="<input type='hidden' name= 'mMileage' value='"+parseInt(mile)+"'>";//사용한 마일리지
 				            total+="<input type='hidden' name= 'mileTotal' value='"+numRst+"'>";//사용한 마일리지 차감된 총 금액
 							jQuery(".hiddenArea").append(total);
 						}

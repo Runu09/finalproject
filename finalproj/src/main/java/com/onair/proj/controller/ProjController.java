@@ -58,10 +58,10 @@ public class ProjController {
 	
 
 	
-	@RequestMapping("/booking/flight-booking-success.do")
-	public String bookingSuccess() {
-		return "/booking/flight-booking-success";
-	}
+	/*
+	 * @RequestMapping("/booking/flight-booking-success.do") public String
+	 * bookingSuccess() { return "/booking/flight-booking-success"; }
+	 */
 	
 	@RequestMapping("/booking/flight-not-found.do")
 	public String bookingNotFound() {
