@@ -99,10 +99,10 @@
                             	<!-- 삭제할 글번호 hidden으로 보내줘야함 -->
                                 <form name="frmWrite" method="post" enctype="multipart/form-data"
 									action="<c:url value='/voc/voc_delete'/>" >
-									<input type="text" name="BNo" value=${param.bNo } />
-									<input type="text" name="BGroupno" value=${param.BGroupNo } />
-									<input type="text" name="BStep" value=${param.BStep } />
-									<input type="text" name="FName" value=${param.FName } />
+									<input type="hidden" name="BNo" value=${param.bNo } />
+									<input type="hidden" name="BGroupno" value=${param.BGroupNo } />
+									<input type="hidden" name="BStep" value=${param.BStep } />
+									<input type="hidden" name="FName" value=${param.FName } />
 									<p style="color: red">${param.bNo }번 글을 삭제하시겠습니까?</p>
                                     <div class="form-group">
                                         <div class="row">

@@ -57,10 +57,11 @@ function pageFunc(curPage){
                 	
                   <div>
                     <div class="table-responsive table-desi">
-                      <table class="user-table table table-striped">
+                      <table class="user-table table table-striped" style="width: 60%; margin-left: 325px;" >
+                      <!-- <table class="user-table table table-striped" > -->
                         <thead>
                           <tr>
-                            <th align="center">유저아이디</th>
+                            <th align="center" >유저아이디</th>
                             <th align="center">이름</th>
                             <th align="center">삭제</th>
                           </tr>
@@ -74,11 +75,11 @@ function pageFunc(curPage){
                         <c:if test="${!empty alist }">
                         <c:forEach var="vo" items="${alist }" varStatus="status">
                           <tr>
-                            <td><span class=" d-block" >${vo.manId }</span>
+                            <td style="width: 200px"><span class=" d-block" >${vo.manId }</span>
                             </td>
-                            <td><a href="#"><span class="d-block ">${vo.manName }</span><span></span></a>
+                            <td style="width: 200px"><a href="#"><span class="d-block ">${vo.manName }</span><span></span></a>
                             </td>
-                            <td>
+                            <td style="width: 70px">
                             <input type="hidden" value="${vo.manId }">
                              <a href="<c:url value='/admin/delAdmin?manId=${vo.manId }'/>" onclick="return confirm('해당관리자를 탈퇴처리 하시겠습니까 ?');"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                             </td>

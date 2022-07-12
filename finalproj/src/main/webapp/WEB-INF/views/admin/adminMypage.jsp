@@ -4,14 +4,31 @@
 <<script type="text/javascript">
 	$(function(){
 		$('#nPwd2').blur(function(){
-			if($('#nPwd1').val() != $('#nPwd2').val()){
+			if($('#nPwd').val() != $('#nPwd2').val()){
 				if($('#nPwd2').val()!=''){
-					alert("비밀번호가 일치하지 않습니다.");
+					alert("새로 입력한 비밀번호가 서로 일치하지 않습니다.");
 					$('#nPwd2').val('');
 					$('#nPwd2').focus();
 				}
 			}
 		})
+		
+		$('#btEdit').click(
+			function() {
+				if ($("#manPwd").val().length < 1) {
+					alert("기존 비밀번호를 입력하세요.");
+					$("#manPwd").focus();
+					event.preventDefault();
+				}else if($('#nPwd').val().length<1){
+					alert("새로운 비밀번호를 입력하세요.");
+					$("#nPwd").focus();
+					event.preventDefault();
+				}else if($('#nPwd2').val().length<1){
+					alert("새로운 비밀번호를 입력하세요.");
+					$("#nPwd2").focus();
+					event.preventDefault();
+				}
+			});
 	})
 </script>
       <div class="page-body">
@@ -65,7 +82,7 @@
                       <input class="form-control" type="password" placeholder="새로운 비밀번호 확인" id="nPwd2" name="nPwd2" style="width: 300px">
                     </div>
 
-                    <button class="btn btn-primary"> 비밀번호 변경</button>
+                    <button class="btn btn-primary" id="btEdit"> 비밀번호 변경</button>
                   </form>
                 </div>
               </div>

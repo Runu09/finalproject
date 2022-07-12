@@ -9,10 +9,8 @@
 </head>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript"
-	src="<c:url value='/assets/js/jquery-3.6.0.min.js'/>"></script>
-<script type="text/javascript"
-	src='<c:url value="/assets/js/member.js"/>'></script>
+<script type="text/javascript"src="<c:url value='/assets/js/jquery-3.6.0.min.js'/>"></script>
+<script type="text/javascript" src='<c:url value="/assets/js/member.js"/>'></script>
 <script type="text/javascript">
 	function execDaumPostcode() {
 		new daum.Postcode({
@@ -262,7 +260,7 @@
 																	|| vo.MEmail2 =='hanmail.net'
 																	|| vo.MEmail2 =='nate.com'
 																	|| vo.MEmail2 =='gmail.com'
-																	|| empty voMEmail2 }">
+																	|| !empty voMEmail2 }">
 															<c:set var="etcYn" value="N"/>
 														</c:when>
 														<c:otherwise>
@@ -297,7 +295,7 @@
 															</c:if>
 															>gmail.com</option>
 														<option value="etc"
-															<c:if test="${etcYn=='Y' }">
+															<c:if test="${etcYn =='Y' }">
 																selected="selected"
 															</c:if>
 														>직접입력</option>

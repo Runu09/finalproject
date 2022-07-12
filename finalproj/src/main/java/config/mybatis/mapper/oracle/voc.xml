@@ -92,6 +92,10 @@
 		call vocDelete(?,?,?)
 	</delete>
 	
+	<!-- <delete id="deleteVoc" parameterType="int">
+		delete board where b_no=#{bNo}
+	</delete> -->
+	 
 	<delete id="deleteReply" parameterType="int">
 		delete comments where c_no=#{cNo}
 	</delete>

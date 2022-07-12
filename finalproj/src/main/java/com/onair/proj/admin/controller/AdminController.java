@@ -244,16 +244,34 @@ public class AdminController {
 		return "redirect:/admin/adminMypage";
 	}
 	
-	@PostMapping("/adminMypage")
+	@PostMapping("/editPwd")
 	public String editPwd(@ModelAttribute AdminVO vo,
 			HttpSession session, @RequestParam String nPwd,
 			Model model) {
 		String manId=(String) session.getAttribute("manId");
 		vo.setManId(manId);
-		logger.info("관리자 마이페이지 비밀번호 변경 manId={}", manId);
-		adminService.editPwd(manId, nPwd);
 		
-		return "/admin/adminMypage";
+		logger.info("관리자 마이페이지 기존 비밀번호 확인 vo={}", vo.getManPwd());
+		int result = adminService.adminLogin(vo.getManId(), vo.getManPwd());
+		
+		logger.info("관리자 마이페이지 기존 비밀번호 체크 결과 result={}", result);
+		String msg= "비밀번호 체크 실패", url="/admin/adminMypage";
+		
+		if(result==MemberService.LOGIN_OK) {
+			int cnt= adminService.editPwd(vo.getManId(), nPwd);
+			
+			if(cnt>0) {
+				msg="비밀번호 변경 완료";
+			}
+		}else if(result== MemberService.DISAGREE_PWD) {
+			msg="입력하신 비밀번호가 일치하지 않습니다.";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "/common/message";
+		
 	}
 	
 }
