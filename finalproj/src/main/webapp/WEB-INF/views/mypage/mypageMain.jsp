@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@include file="../inc/top.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,22 @@
 	width: 300px;
 }
 
+span#Btype {
+position: relative;
+right: 17px;
+font-size: 13px;
+color: #8080809e;
+padding: 1px;
+}
+
+span#sName {
+    font-size: 13px;
+    color: #8080809e;
+    position: relative;
+    left: -13px;
+}
 </style>
+
 <body>
 	<!-- section start-->
 	<section class="small-section dashboard-section bg-inner"
@@ -95,40 +111,69 @@
 											</div>
 										</div>
 									</div>
+							<!--하단부 -------------------------------- -->
 									<div class="dashboard-info">
 										<div class="row">
-											<div class="col-md-6">
-												<div id="chart">
-													<div class="detail-left">
-														<ul>
-															<li><span class="completed"></span> Completed</li>
-															<li><span class="upcoming"></span> Upcoming</li>
-															<li><span class="cancelled"></span> Cancelled</li>
-														</ul>
-													</div>
-												</div>
-											</div>
+									<!-- ----------------------------- -->
 											<div class="col-md-6">
 												<div class="activity-box">
-													<h6>recent activity</h6>
+													<h6>나의 비행 일정&nbsp;
+													<span class="badge bg-info">upcoming</span></h6>
 													<ul>
-														<li><i class="fas fa-plane"></i> Paris to Dubai <span>3
-																days ago</span></li>
-														<li><i class="fas fa-plane"></i> Paris to Dubai <span>23
-																june</span></li>
-														<li class="blue-line"><i class="fas fa-hotel"></i>
-															hotel sea view <span>20 april</span></li>
-														<li class="yellow-line"><i class="fas fa-taxi"></i>
-															Paris To Toulouse <span>12 feb</span></li>
-														<li><i class="fas fa-plane"></i> Paris to Dubai <span>14
-																jan</span></li>
-														<li class="blue-line"><i class="fas fa-hotel"></i>
-															hotel sea view <span>12 jan</span></li>
+													<c:if test="${!empty list }">
+														현재 비행 일정이 존재하지 않습니다.
+													</c:if>
+													
+													<c:if test="${empty list }">
+														<c:forEach var="vo2" items="${Rlist }" >
+														<c:set var="day" value="${vo2.DDay%2 }"></c:set>
+														
+														<li <c:if test="${day ==0 }">class="blue-line"</c:if>>
+														<i class="fas fa-plane">
+														</i> ${vo2.ADepnm } to ${vo2.AArrnm }
+														<span> ${vo2.DDay }일 후  </span>
+														<span id="sName">${vo2.SName } / ${vo2.alName }</span>
+														
+														</li>
+													</c:forEach>
+													</c:if>
 													</ul>
 												</div>
 											</div>
+									<!-- ----------------------------- -->
+											<div class="col-md-6">
+												<div class="activity-box">
+													<h6>최근 활동 내역
+													<span class="badge bg-danger">Active</span></h6>
+													<ul>
+													<c:if test="${empty Blist }">
+														최근 활동 내역이 존재하지 않습니다.
+													</c:if>
+													<c:if test="${!empty Blist }">
+													<c:forEach var="vo3" items="${Blist }">
+														<li <c:if test="${vo3.btNo == 2}">class="yellow-line"</c:if>>
+														<i class="fas fa-user">
+														</i> ${vo3.BTitle } 
+														<span><fmt:formatDate value="${vo3.BRegdate }" pattern="yyyy-MM-dd"/> </span>
+														<span id="Btype">
+														<c:if test="${vo3.btNo == 2}">
+															유실물 찾기
+														</c:if>
+														<c:if test="${vo3.btNo == 3}">
+															고객의 소리
+														</c:if>
+														</span>
+														
+													</c:forEach>
+													</c:if>
+														
+													</ul>
+												</div>
+											</div>
+									<!-- ----------------------------- -->
 										</div>
 									</div>
+								<!-- ----------------------------- -->
 								</div>
 							</div>
 							

@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+button#btnTicket {
+	border: none;
+	background-color: #f9f9f9;
+}
+
+span.badge.bg-success {
+	width: 135px;
+	height: 46px;
+	margin: auto 0;
+	padding-top: 16px;
+	background-color: #4291b8;
+}
+
+.ticket {
+	position: relative;
+	right: 107px;
+	top: -14px;
+	height: 20px;
+}
+
+span.badge.bg-info, span.badge.bg-secondary {
+	position: relative;
+	left: 56px;
+	bottom: -20px;
+}
+
+i.fas.fa-window-close {
+	position: relative;
+	left: 150px;
+	bottom: 55px;
+}
+
+span.date {
+	margin: 0 auto;
+	font-size: 23px;
+	color: #4f6473;
+}
+
+img#plane2 {
+	position: relative;
+	left: 108px;
+}
+
+ul.pagination.pagination-primary {
+	position: relative;
+	left: 447px;
+	margin-top: 23px;
+}
+
+.booking-box {
+	margin: 0 0 25px 0;
+}
+
+button.btn.btn-primary.me-3 {
+	position: relative;
+	left: 692px;
+	margin-top: -1px;
+	border-radius: 4px;
+	background-color: #4291b8;
+	border-color: #4291b8;
+	width: 84px;
+	height: 40px;
+	margin-left: 10px;
+	font-size: 14px;
+}
+
+select.form-control {
+	position: relative;
+	left: 700px;
+	margin-bottom: 15px;
+}

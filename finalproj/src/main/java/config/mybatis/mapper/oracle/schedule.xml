@@ -4,13 +4,16 @@
 
 <mapper namespace="com.onair.proj.schedule.model.ScheduleDAO">
 	<insert id="insertScheduleApi" parameterType="ScheduleVo">
+	<selectKey resultType="int" keyProperty="sNo" order="BEFORE">
+		select SEQ_SCHEDULE.nextval from dual
+	</selectKey>
 		MERGE 
 		INTO schedule
 		USING dual
 		ON (s_name = #{sName} and #{sStarttime}=s_starttime and #{sArrtime}=s_arrtime)
 		WHEN NOT MATCHED THEN
-      	INSERT (s_name, a_depnm, a_arrnm, al_name, s_starttime, s_arrtime, s_person, s_price)
-      	VALUES (#{sName}, #{aDepnm}, #{aArrnm}, #{alName}, #{sStarttime}, #{sArrtime}, #{sPerson}, #{sPrice})
+      	INSERT (s_no, s_name, a_depnm, a_arrnm, al_name, s_starttime, s_arrtime, s_person, s_price)
+      	VALUES (#{sNo}, #{sName}, #{aDepnm}, #{aArrnm}, #{alName}, #{sStarttime}, #{sArrtime}, #{sPerson}, #{sPrice})
     </insert>
 
     <!-- <select id="selectAllScheduleApi" resultType="ScheduleVO">
@@ -28,8 +31,7 @@
 		    (
 		       	select B.* 
 		       	from Schedule B
-		       	where s_price !=' '
-		       	and a_depnm = #{depLoc}
+		       	where a_depnm = #{depLoc}
 		       	and a_arrnm = #{arrLoc}
 		       	and s_starttime like '%' || #{hdDate} || '%'
 		    )A
@@ -37,13 +39,18 @@
 		where RNUM>#{firstRecordIndex} 
 		<![CDATA[
 		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
+		order by s_starttime
 	</select>
 	
 	<select id="selectTotalRecord" parameterType="ScheduleSearchVO" resultType="int">
 			select count(*) from Schedule 
-			where s_price!=' '
-			and a_depnm = #{depLoc}
+			where a_depnm = #{depLoc}
 		    and a_arrnm = #{arrLoc}
 		    and s_starttime like '%' || #{hdDate} || '%'
+	</select>
+	
+	<select id="selectBySName" parameterType="int" resultType="ScheduleVO">
+		select * from Schedule 
+		where s_no=#{sNo}
 	</select>
 </mapper>

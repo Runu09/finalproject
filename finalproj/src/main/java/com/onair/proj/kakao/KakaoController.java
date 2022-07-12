@@ -26,10 +26,11 @@ public class KakaoController {
 	@RequestMapping("/kakao")
 	public String kakaoLogin(@RequestParam(required = false) String nick,
 			@RequestParam(required = false) String email, 
+			@RequestParam(required = false) String img, 
 			HttpServletResponse response,
 			HttpServletRequest request,
 			Model model) {
-		logger.info("카카오 로그인 처리, 파라미터 nick={},email={}",nick,email);
+		logger.info("카카오 로그인 처리, 파라미터 nick={},email={}, img={}",nick,email, img);
 		
 		MemberVO vo = new MemberVO();
 		
@@ -63,7 +64,7 @@ public class KakaoController {
 			
 			if(cnt>0) {
 				HttpSession session = request.getSession();
-				session.setAttribute("memId",email );
+				session.setAttribute("memId",userId );
 				session.setAttribute("memName",nick );
 				
 				session.setAttribute("type", "kakao");
@@ -79,7 +80,7 @@ public class KakaoController {
 		
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("memId",nick );
+		session.setAttribute("memId",userId );
 		session.setAttribute("memName",nick );
 		
 		session.setAttribute("type", "kakao");

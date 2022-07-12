@@ -18,6 +18,7 @@
 <link rel="shortcut icon" href="../admin/images/favicon.png"
 	type="image/x-icon">
 <title>OnAir</title>
+<script src="../admin/js/jquery-3.6.0.min.js"></script>
 <!-- Google font-->
 <link
 	href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
@@ -180,7 +181,7 @@
 										<p class="f-12 font-success">1시간 전</p>
 									</div>
 								</li>
-								<li class="text-center"><a class="btn btn-primary" href="#">전체
+								<li class="text-center"><a href="<c:url value='/note/list.do'/>" class="btn btn-primary" href="#">전체
 										조회 </a></li>
 							</ul></li>
 						<!-- <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
@@ -197,11 +198,11 @@
 								</div>
 							</div>
 							<ul class="profile-dropdown onhover-show-div">
-								<li><a href="#"><i data-feather="user"></i><span>계정</span></a></li>
+								<li><a href="<c:url value='/admin/adminMypage'/>"><i data-feather="user"></i><span>계정</span></a></li>
 								<!-- <li><a href="#"><i data-feather="mail"></i><span>쪽지함</span></a></li> -->
 								<!-- <li><a href="#"><i data-feather="file-text"></i><span>공지사항</span></a></li> -->
 								<!-- <li><a href="#"><i data-feather="settings"></i><span>Settings</span></a></li> -->
-								<li><a href="<c:url value='/admin/adminLogout'/>"><i
+								<li><a href="<c:url value='/admin/adminLogout'/>" onclick="return confirm('로그아웃 하시겠습니까 ?');"><i
 										data-feather="log-out"> </i> <span>로그아웃</span></a></li>
 
 							</ul>
@@ -359,7 +360,7 @@
 
 								<li class="sidebar-list"><a
 									class="sidebar-link sidebar-title link-nav"
-									href="<c:url value='/admin/adminLogout'/>"><i
+									href="<c:url value='/admin/adminLogout'/>" onclick="return confirm('로그아웃 하시겠습니까?');"><i
 										data-feather="log-out"> </i><span>로그아웃</span></a></li>
 
 

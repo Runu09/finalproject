@@ -3,9 +3,8 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.onair.proj.booking.controller.BookingDAO">
-	<select id="ticketDetail" parameterType="int" resultType="map">
-	select * from TicketView
-	where r_no=#{R_NO}
+	<select id="ticketDetail" parameterType="int" resultType="ticketviewVo">
+	select * from ticketView
+	where r_no=#{r_no}
 	</select>
-	
 </mapper>

@@ -113,4 +113,14 @@ public class AdminServiceImpl implements AdminService{
 		return adminDao.deleteAdmin(manId);
 	}
 
+	@Override
+	public int editPwd(String manId, String manPwd) {
+		return adminDao.editPwd(manId, manPwd);
+	}
+
+	@Override
+	public int chkPwd(String manId) {
+		return adminDao.chkPwd(manId);
+	}
+
 }

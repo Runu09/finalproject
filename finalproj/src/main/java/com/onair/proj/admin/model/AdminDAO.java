@@ -24,4 +24,6 @@ public interface AdminDAO {
 	List<AdminVO> selectAllAdmin(SearchVO searchVo);
 	int selectAdminTotalRecord(SearchVO searchVo);
 	int deleteAdmin(String manId);
+	int editPwd(String manId, String manPwd);
+	int chkPwd(String manId);
 }

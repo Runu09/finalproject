@@ -1,9 +1,11 @@
 package com.onair.proj.schedule.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.slf4j.Logger;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.xml.sax.SAXException;
 
 import com.onair.proj.airport.model.AirportService;
@@ -19,6 +22,10 @@ import com.onair.proj.airport.model.AirportVO;
 import com.onair.proj.common.ConstUtil;
 import com.onair.proj.common.PaginationInfo;
 import com.onair.proj.common.ScheduleSearchVO;
+import com.onair.proj.member.model.MemberService;
+import com.onair.proj.member.model.MemberVO;
+import com.onair.proj.passenger.model.PassengerService;
+import com.onair.proj.passenger.model.PassengerVO;
 import com.onair.proj.schedule.model.ScheduleInfoExplorer;
 import com.onair.proj.schedule.model.ScheduleService;
 import com.onair.proj.schedule.model.ScheduleVO;
@@ -35,11 +42,15 @@ public class ScheduleController {
 	 private final AirportService airportService;
 	 
 	 private final ScheduleService scheduleService;
-
+	 
+	 private final MemberService memberService;
+	 
+	 private final PassengerService passengerService;
 
 	//검색시 데이터가 없으면 db에 추가하도록 처리한다.
     @RequestMapping("/booking/flight-round-trip.do") 
     public void searchInfo(HttpServletRequest req, Model model, @ModelAttribute ScheduleSearchVO searchVo) throws ParserConfigurationException, SAXException, IOException {
+    	
     	String dep=req.getParameter("departure"); //aName, api 요청변수
     	String depLoc=req.getParameter("depLoc"); //aLoc
     	String arr=req.getParameter("arrival"); //aName, api 요청변수
@@ -106,6 +117,28 @@ public class ScheduleController {
         
     }
     
+    @RequestMapping("/booking/flight-booking.do")
+	public String booking(HttpServletRequest req, @RequestParam int sNo, Model model, HttpSession session) {
+    	String memId=(String) session.getAttribute("memId");
+    	MemberVO memVo=memberService.selectByMemId(memId);
+    	
+    	
+    	ScheduleVO vo=scheduleService.selectBySName(sNo);
+    	
+    	List<PassengerVO> pList=new ArrayList<PassengerVO>();
+    	
+    	String adult=req.getParameter("adult"); //성인 인원수
+    	String child=req.getParameter("child"); //아동 인원수
+    	
+    	
+    	model.addAttribute("data", pList);
+    	model.addAttribute("memVo",memVo);
+    	model.addAttribute("schedule", vo);
+    	model.addAttribute("adult",adult);
+		model.addAttribute("child",child);
+    	
+		return "/booking/flight-booking";
+	}
     
 
 }

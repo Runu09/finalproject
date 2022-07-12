@@ -25,6 +25,7 @@
     <!-- breadcrumb end -->
 
 
+
     <!-- booking section start -->
     <section class="small-section">
         <div class="container">
@@ -95,8 +96,8 @@
                                                                             <label for="1C">1C</label>
                                                                         </li>
                                                                         <li class="seat">
-                                                                            <input type="checkbox" disabled id="1D" />
-                                                                            <label for="1D">Occupied</label>
+                                                                            <input type="checkbox" id="1D" />
+                                                                            <label for="1D">1D</label>
                                                                         </li>
                                                                         <li class="seat">
                                                                             <input type="checkbox" id="1E" />
@@ -368,78 +369,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                           
-                                            <div class="card">
-                                                <div class="card-header" id="headingThree">
-                                                    <h2 class="mb-0">
-                                                        <button class="btn btn-link collapsed" type="button"
-                                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                                            aria-expanded="false" aria-controls="collapseThree">
-                                                            <img src="../assets/images/icon/suitcase.png" alt=""
-                                                                class="img-fluid blur-up lazyload"> 추가 수하물
-                                                        </button>
-                                                    </h2>
-                                                </div>
-                                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                                    data-bs-parent="#accordionExample">
-                                                    <div class="card-body order-menu-section">
-                                                        <div class="order-section">
-                                                            <div class="order-items">
-                                                                <div class="items">
-                                                                    <h6>5 KG</h6>
-                                                                    <h5>$10.00</h5>
-                                                                    <div class="addtocart_btn">
-                                                                        <button class="add-button add_cart"
-                                                                            title="Add to cart" tabindex="0">
-                                                                            add
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="items">
-                                                                    <h6>7 KG</h6>
-                                                                    <h5>$15.00</h5>
-                                                                    <div class="addtocart_btn">
-                                                                        <button class="add-button add_cart"
-                                                                            title="Add to cart" tabindex="0">
-                                                                            add
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="items">
-                                                                    <h6>10 KG</h6>
-                                                                    <h5>$20.00</h5>
-                                                                    <div class="addtocart_btn">
-                                                                        <button class="add-button add_cart"
-                                                                            title="Add to cart" tabindex="0">
-                                                                            add
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="items">
-                                                                    <h6>15 KG</h6>
-                                                                    <h5>$25.00</h5>
-                                                                    <div class="addtocart_btn">
-                                                                        <button class="add-button add_cart"
-                                                                            title="Add to cart" tabindex="0">
-                                                                            add
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="items">
-                                                                    <h6>20 KG</h6>
-                                                                    <h5>$30.00</h5>
-                                                                    <div class="addtocart_btn">
-                                                                        <button class="add-button add_cart"
-                                                                            title="Add to cart" tabindex="0">
-                                                                            add
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -481,24 +410,6 @@
                                         <div class="grand_total">
                                             <h5>예상 결제 금액: <span>$2750</span></h5>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-section">
-                            <div class="single-sidebar p-0">
-                                <div class="newsletter-sec">
-                                    <div>
-                                        <h4 class="title">always first</h4>
-                                        <p>Be the first to find out latest tours and exclusive offers and get 15% off
-                                            your first booking.</p>
-                                        <form>
-                                            <input type="email" id="email1" class="form-control"
-                                                placeholder="Enter your email">
-                                            <div class="button">
-                                                <a href="#" class="btn btn-solid ">be the first</a>
-                                            </div>
-                                        </form>
                                     </div>
                                 </div>
                             </div>

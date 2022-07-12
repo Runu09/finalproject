@@ -72,4 +72,40 @@ $(document).ready(
 				$('#people').val(adNum + chNum);
 				$('#qtyBox').removeClass('show');
 			});
+			
+			$(function(){
+				$('#btApply').click(function() {
+					var mile=document.getElementById('mileage').value;
+					var myMile=$('#myMileage').text();
+					
+					if(mile<=0){
+						alert("사용하실 마일리지를 입력하세요.");
+					}else if(mile>myMile){
+						alert("마일리지가 부족합니다.");
+					}else if(mile<=myMile){
+						var res=myMile-mile;
+						if(res>=0){
+							$('#myMileage').text(res);
+							var a= "<tr>"
+							a+="<td>마일리지</td>"
+							a+="<td>"+"-"+mile.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")+"원</td>"
+				            a+="</tr>"
+				            $('#table').append(a);
+				            
+				            var st=$('.grand_total').text();
+				            var regex = /[^0-9]/g;
+				            var result = st.replace(regex, "");
+				            var numRst=parseInt(result)-parseInt(mile);
+				            var aaa=numRst.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+				            
+				            $('.grand_total span').text(aaa+"원");
+				            
+				            var total="";
+				            total+="<input type='hidden' name= 'useMile' value='"+mile+"'>";//사용한 마일리지
+				            total+="<input type='hidden' name= 'mileTotal' value='"+numRst+"'>";//사용한 마일리지 차감된 총 금액
+							jQuery(".hiddenArea").append(total);
+						}
+					}
+				});
+			});
 });

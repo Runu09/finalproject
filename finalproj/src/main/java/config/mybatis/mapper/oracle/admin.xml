@@ -67,6 +67,8 @@
 		select count(*) from member
 			<include refid="searchWhere"></include>
 	</select>
+	
+	<!--관리자 일반유저 리스트 엑셀다운 -->
 	<select id="getExcelDown" parameterType="MemberVo" resultType="memberVo">
 		select * from member
 		order by mem_no desc
@@ -76,12 +78,14 @@
 		select * from manager where MAN_ID=#{manId}
 	</select>
 	
+	<!-- 관리자 일반유저 탈퇴처리 -->
 	<update id="adminMemberDelete" parameterType="string">
 		update member
 		set M_OUTDATE=sysdate
 		where MEM_ID=#{memId}
 	</update>
 	
+	<!-- 관리자 리스트  -->
 	<select id="selectAllAdmin" parameterType="SearchVO" resultType="adminVo">
 		select *
 		from
@@ -100,14 +104,26 @@
 		<!-- order by mem_no desc -->
 	</select>
 	
+	<!-- 관리자 리스트 총갯수 -->
 	<select id="selectAdminTotalRecord" parameterType="SearchVO" resultType="int">
 		select count(*) from manager
 			<include refid="searchWhere2"></include>
 	</select>
 	
+	
+	<!-- 관리자페이지 관리자 계정 삭제 -->
 	<delete id="deleteAdmin" parameterType="string">
 		delete from manager
 		where man_id=#{manId}
 	</delete>
 	
+	<select id="chkPwd" resultType="string">
+		select man_pwd from manager where man_id=#{manId}
+	</select>
+	
+	<update id="editPwd" parameterType="string">
+		update manager
+		set MAN_PWD=#{manPwd}
+		where MAN_ID=#{manId}
+	</update>
 </mapper>

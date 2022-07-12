@@ -13,5 +13,5 @@ public class ReservationVO {
 	private int rChild; //소아인원수
 	private String rCheckPay; //결제확인유무(Y/N)
 	private int memNo; //회원코드
-	private String sName; //항공편명
+	private int sNo; //항공편명
 }

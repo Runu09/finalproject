@@ -169,15 +169,18 @@ function content(i,no, read){
 					</c:if>
 
 					<c:if test="${!empty list }">
-						<c:forEach var="vo" items="${list }">
 							<c:set var="i" value="1" />
+						<c:forEach var="vo" items="${list }">
 							<div class="detail-wrap wow">
 								<div class="row">
 									<div class="col-md-2">
 										<div class="price">
-											<h5>${i }</h5>
+											<h5>${i}</h5>
+											
 										</div>
+									
 									</div>
+									
 									<div class="col-md-6">
 										<div class="logo-sec">
 											<a href="#"
