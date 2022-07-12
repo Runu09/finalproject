@@ -377,8 +377,7 @@ public class VoCController {
 	}
 	
 	@GetMapping("/voc_delete")
-	public String delete_get(@RequestParam(defaultValue = "0") int bNo, 
-			@ModelAttribute VocVO vo, Model model) {
+	public String delete_get(@RequestParam(defaultValue = "0") int bNo,	@RequestParam String FName,@ModelAttribute VocVO vo, Model model) {
 		logger.info("voc 글삭제 화면보기, 파라미터 bNo={}, vo={}", bNo, vo);
 		
 		if(bNo==0) {
@@ -395,7 +394,7 @@ public class VoCController {
 		logger.info("voc 글삭제 처리, 파라미터 vo={}", vo);
 		
 		String msg="비밀번호 체크 실패",url="/voc/voc_delete?bNo="+vo.getBNo()
-		+"&BGroupno="+vo.getBGroupno()+"&BStep="+vo.getBStep()+"&FName="+vo.getFName();
+		+"&BGroupNo="+vo.getBGroupno()+"&BStep="+vo.getBStep()+"&FName="+vo.getFName();
 		if(vocService.checkPwd(vo.getBNo(), vo.getBPwd())) {
 			Map<String, String> map = new HashMap<>();
 			map.put("BNo", vo.getBNo()+"");

@@ -237,7 +237,12 @@
 				                           </c:if>
 				                           <!-- 페이지 번호추가 -->
 				                           <c:forEach var="i" begin="${pagingInfo.firstPage}" end="${pagingInfo.lastPage }">
+				                           		<c:if test="${i==pagingInfo.currentPage }">
 					                           <li class="page-item active"><a class="page-link" href="#" onclick="pageProc(${i})">${i}</a></li>
+				                           		</c:if>
+				                           		<c:if test="${i!=pagingInfo.currentPage }">
+					                           <li class="page-item"><a class="page-link" href="#" onclick="pageProc(${i})">${i}</a></li>
+				                           		</c:if>
 				                           </c:forEach>
 				                           <!-- 번호처리 끝 -->
 				                           
@@ -296,34 +301,6 @@
 							</div>
 							<div class="sidebar-content">
 								<c:import url="/voc/bestList"></c:import>
-								<!-- <ul class="blog-post">
-									<c:if test="${empty blist }">
-										<li>
-										<div class="media">
-											<div class="media-body align-self-center">
-												<div>
-													<h6>해당 글이 존재하지 않습니다</h6>
-												</div>
-											</div>
-										</div>
-									</li>
-									</c:if>
-									<c:if test="${!empty blist }">
-									<c:forEach var="bvo" items="${blist}">
-									<li>
-										<div class="media">
-											<div class="media-body align-self-center">
-												<div>
-													<h6><fmt:formatDate value="${bvo.BRegdate}" pattern="yyyy-MM-dd"/></h6>
-													<p>${bvo.BTitle}</p>
-													<p>${bvo.BCount} hits</p>
-												</div>
-											</div>
-										</div>
-									</li><br>
-									</c:forEach>
-									</c:if>
-								</ul> -->
 							</div>
 						</div>
 					</div>

@@ -1,5 +1,8 @@
 package com.onair.proj.voccomments.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -68,13 +71,28 @@ public class VocCommentsController {
 	
 	//댓글삭제
 	@RequestMapping("/reply_delete")
-	public String replyDelete(@RequestParam(defaultValue = "0") int cNo,@RequestParam(defaultValue = "0") int bNo) {
+	public String replyDelete(@RequestParam(defaultValue = "0") int cNo,
+			@RequestParam(defaultValue = "0") int bNo, Model model) {
 		logger.info("댓글 삭제처리, 파라미터 cNo={},bNo={}",cNo,bNo);
-		int cnt=voccommentsService.deleteReply(cNo);
 		
+		VocCommentsVO vo=voccommentsService.selectByCNo(cNo);
+		logger.info("삭제할 댓글 정보, vo={}", vo);
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("CNo", cNo+"");
+		map.put("groupno", vo.getCGroupno()+"");
+		map.put("step", vo.getCStep()+"");
+		
+		int cnt=voccommentsService.deleteReply(map);
 		logger.info("댓글 삭제처리 결과, cnt={}", cnt);
 		
-		return "redirect:/voc/voc_detail?bNo="+bNo;
+		String msg="댓글이 삭제되었습니다";
+		String url="/voc/voc_detail?bNo="+bNo;
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "/common/message";
 	}
 	
 	//댓글등록처리

@@ -1,37 +1,67 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
-$(function(){
-	$("a[name='replyEdit']").toggle(function() {
-		$(this).closest("tr").next().show();
-	}, function() {
-		$(this).closest("tr").next().hide();
-	});
 	
-	$('#replyDel').click(function(){
-		if(confirm('삭제하시겠습니까?')){
-		}else{
-			event.preventDefault();
-		}
-	});
-	
-	$('.replyForm').submit(function(){
-		if($.trim($('#nickName').val()).length<1){
-			alert("닉네임을 입력하세요");
-			$('#nickName').focus();
-			event.preventDefault();
-		}else if($.trim($('#content').val()).length<1){
-			alert("내용을 입력하세요");
-			$('#content').focus();
-			event.preventDefault();
-		}
-	});
+	//대댓글작성
+	function reply(idx, bNo,groupno,step,sortno){
+		var insReply = '';
+		insReply += '<form name="vocReplyRe" method="post" action="<c:url value='/voc/comments_reply'/>">';
+		insReply += '<input type="hidden" name="bNo" value='+bNo+'>';
+		insReply += '<input type="hidden" name="cGroupno" value='+groupno+'>';
+		insReply += '<input type="hidden" name="cStep" value='+step+'>';
+		insReply += '<input type="hidden" name="cSortno" value='+sortno+'>';
+		insReply += '<input type="text" name="cContent" id="cContent">';
+		insReply += '<button type="submit">등록</button>';
+		insReply += '<input type="button" value="취소" onclick="javascript:replyCancel('+idx+')">';
+		insReply += '</form>';
 
-});
+		$("#replyBox"+idx).slideDown(500);
+		$("#replyBox"+idx).html(insReply);
+		
+		$('form[name=vocReplyRe]').submit(function(){
+			if($.trim($('#cContent').val()) == ""){
+				alert("내용을 입력해주세요");
+				$('#cContent').focus();
+				event.preventDefault();
+			}
+		});
+	}
+	
+	function replyCancel(idx){
+		$("#replyBox"+idx).slideUp(500);
+	}
+	
+	//댓글수정
+	function replyEdit(idx,cNo, bNo){
+		var insReply = '';
+		var cContent=$('.comment-detail').eq(idx).find('p').text();
+		insReply += '<form name="vocReplyEdit" method="post" action="<c:url value='/voc/vocReplyEdit'/>">';
+		insReply += '<input type="hidden" name="cNo" value='+cNo+'>';
+		insReply += '<input type="hidden" name="bNo" value='+bNo+'>';
+		insReply += '<input type="text" name="cContent" id="editContent" value='+cContent+'>';
+		insReply += '<button type="submit">수정</button>';
+		insReply += '<input type="button" value="취소" onclick="javascript:replyEditCancel('+idx+')">';
+		insReply += '</form>';
+
+		$("#replyEditBox"+idx).slideDown(500);
+		$("#replyEditBox"+idx).html(insReply);
+		
+		$('form[name=vocReplyEdit]').submit(function(){
+			if($.trim($('#editContent').val()) == ""){
+				alert("내용을 입력해주세요");
+				$('#editContent').focus();
+				event.preventDefault();
+			}
+		});
+	}
+	
+	function replyEditCancel(idx){
+		$("#replyEditBox"+idx).slideUp(500);
+	}
+	
 </script>
-    <!-- breadcrumb start -->
+<!-- breadcrumb start -->
     <section class="breadcrumb-section pt-0">
         <div class="breadcrumb-content pt-0">
             <div>
@@ -58,7 +88,7 @@ $(function(){
                         <div class="top-image">
                             <div class="slide-1 arrow-dark">
                                 <div>
-                                    <img src="../assets/images/portfolio/13.jpg" alt=""
+                                    <img src="../assets/images/portfolio/vocBanner.jpg" alt=""
                                         class="img-fluid blur-up lazyload">
                                 </div>
                                 <div>
@@ -74,9 +104,11 @@ $(function(){
                                 <li><i class="fa fa-heart"></i> ${vo.BCount }</li>
                                 <li><i class="fa fa-comments"></i> Comment num</li>
                             </ul>
-                            <h3>${vo.BTitle }</h3>
+                            <hr>
+                            <h2>${vo.BTitle }</h2>
                         </div>
                         <div class="detail-part">
+                        	<hr>
                         	<p>첨부파일 : 
                         	<c:if test="${!empty vo.FName }">
                         	<span><a href="<c:url value='/voc/download?bNo=${param.bNo }&fName=${vo.FName }'/>">
@@ -84,7 +116,7 @@ $(function(){
                         	<span>다운로드수 : ${vo.FCount }</span>
                         	</c:if>
                         	</p>
-                            <p>${vo.BContent }</p>
+                            <h4>${vo.BContent }</h4>
                             <c:if test="${vo.BId==memVo.memId }">
                             <span class="submit-btn">
                                 <button class="btn btn-solid" id="btEdit" 
@@ -99,56 +131,77 @@ $(function(){
                         <br><br>
                         <div class="comment-section">
                             <h4 class="comment">comments:</h4>
-                            <div class="comment-wrapper">
-                                <div class="comment-box">
-                                    <!-- 댓글리스트 반복 시작 -->
-                                    <c:forEach var="vo" items="${list }">
-                                    <div class="media">
-                                        <img src="../assets/images/avtar/1.jpg" class="img-fluid blur-up lazyload"
-                                            alt="">
-                                        <div class="media-body">
-                                            <div class="title">
-                                                <div class="comment-user">
-                                                    <i class="fa fa-user"></i>
-                                                    <h6>${vo.CId }</h6>
-                                                </div>
-                                                <div class="comment-date">
-                                                    <i class="fas fa-clock"></i>
-                                                    <h6> ${vo.CRegdate } </h6>
-                                                </div>
-                                            </div>
-                                            <div class="comment-detail">
-                                                <p>${vo.CContent }</p>
-                                            </div>
-                                            <!-- 대댓글 form -->
-                                            <div class="reply-btn">
-                                                <a href="#" name="trigger"><i class="fa fa-reply pe-2"></i> reply</a>
-                                            </div>
-                                            <form method="post" action="<c:url value='/comments_write'/>" class="hide">
-                                            <input type="hidden" name="bNo" value="${vo.BNo }">
-				                                <div class="row">
-				                                	<div class="form-group col-md-6">
-				                                        <input name="cId" class="form-control" type="hidden" value="${memVo.memId }">
-				                                    </div>
-				                                	<span>
-				                                        <input name="cContent" class="form-control" type="text">
-				                                    </span>
-				                                    <span class="reply-btn">
-						                                <a href="#" name="trigger"><i class="fa fa-reply pe-2"></i> RE-Reply</a>
-				                            		</span>
-				                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    </c:forEach>
-                                    
-                                </div>
-                            </div>
-                        </div>
+						<div class="comment-wrapper">
+							<div class="comment-box">
+								<!-- 댓글리스트 반복 시작 -->
+								<c:set var="z" value="0" />
+								<c:forEach var="vo" items="${list }">
+								<c:choose>
+									<c:when test="${vo.CDelflag == 'Y' }">
+										<div class="comment-detail">
+										<p>삭제된 댓글입니다</p>
+										</div>
+									</c:when>
+									<c:otherwise>
+									<div class="media">
+									<c:if test="${vo.CStep>0 }">
+										<c:forEach var="i" begin="1" end="${vo.CStep }">
+										<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+										</c:forEach>
+									</c:if>
+										<c:if test="${vo.CStep>0 }">
+										<img src="../assets/images/avtar/reply.png"
+											class="img-fluid blur-up lazyload" alt="">
+										</c:if>
+										<div class="media-body">
+											<div class="title">
+												<div class="comment-user">
+													<i class="fa fa-user"></i>
+													<h6>${vo.CId }</h6>
+												</div>
+												<div class="comment-date">
+													<i class="fas fa-clock"></i>
+													<h6>${vo.CRegdate }&nbsp;</h6>
+												</div>
+												<c:if test="${vo.CId==memVo.memId }">
+						                            <div class="reply-btn">
+														<a href="javascript:replyEdit(${z},${vo.CNo },${vo.BNo })" name="replyEdit">
+														<i class="fa fa-reply pe-2"></i>수정&nbsp;</a>
+													</div>
+						                            <div class="reply-btn">
+														<a href="<c:url value='/voc/reply_delete?cNo=${vo.CNo }&bNo=${vo.BNo }'/>">
+														<i class="fa fa-reply pe-2"></i>삭제</a>
+													</div>
+                            					</c:if>
+											</div>
+												<div class="comment-detail">
+													<p>${vo.CContent }</p>
+												</div>
+											<div class="reply-btn">
+												<a href="javascript:reply(${vo.CNo },${vo.BNo },${vo.CGroupno },${vo.CStep },${vo.CSortno });"><i class="fa fa-reply pe-2"></i>
+													reply</a>
+											</div>
+											<!-- 대댓글 form -->
+											<div id="replyBox${vo.CNo }">
+											</div>
+											<!-- 대댓글 form 끝-->
+											<!-- 댓글수정 form -->
+											<div id="replyEditBox${z }">
+											</div>
+											<!-- 댓글수정 form 끝-->
+										</div>
+									</div>
+									</c:otherwise>
+									</c:choose>
+									<c:set var="z" value="${z+1 }" />
+								</c:forEach>
+
+							</div>
+						</div>
+					</div>
                         <div class="leave-comment">
-                            <h4 class="comment">Content Textarea</h4>
-                            <form method="post" action="<c:url value='/comments_write'/>">
-                            	<input type="text" name="bNo" value="${vo.BNo }">
+                            <form method="post" action="<c:url value='/voc/comments_write'/>">
+                            	<input type="hidden" name="bNo" value="${vo.BNo }">
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <span>Posted by : </span>
@@ -197,7 +250,7 @@ $(function(){
                                             </a>
                                         </li>
                                         <li class="">
-                                            <a href="<c:url value='/voc/voc_list'/>">
+                                            <a href="#">
                                                 <i aria-hidden="true" class="fa fa-angle-right"></i>내가쓴 글
                                             </a>
                                         </li>
@@ -209,61 +262,9 @@ $(function(){
                                     <h5>popular post</h5>
                                 </div>
                                 <div class="sidebar-content">
-                                    <ul class="blog-post">
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-fluid blur-up lazyload"
-                                                    src="../assets/images/portfolio/6.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body align-self-center">
-                                                    <div>
-                                                        <h6>25 Dec 2018</h6>
-                                                        <p>100 hits</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-fluid blur-up lazyload"
-                                                    src="../assets/images/portfolio/7.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body align-self-center">
-                                                    <div>
-                                                        <h6>25 Dec 2018</h6>
-                                                        <p>540 hits</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-fluid blur-up lazyload"
-                                                    src="../assets/images/portfolio/8.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body align-self-center">
-                                                    <div>
-                                                        <h6>25 Dec 2018</h6>
-                                                        <p>250 hits</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-fluid blur-up lazyload"
-                                                    src="../assets/images/portfolio/2.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body align-self-center">
-                                                    <div>
-                                                        <h6>25 Dec 2018</h6>
-                                                        <p>30 hits</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+								<c:import url="/voc/bestList"></c:import>
+							</div>
+                            </div>
                             </div>
                         </div>
                     </div>
