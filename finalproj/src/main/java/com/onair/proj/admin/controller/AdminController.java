@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.onair.proj.admin.model.AdminService;
 import com.onair.proj.admin.model.AdminVO;
+import com.onair.proj.board.model.BoardVO;
 import com.onair.proj.common.ConstUtil;
 import com.onair.proj.common.PaginationInfo;
 import com.onair.proj.common.SearchVO;
@@ -38,7 +39,7 @@ public class AdminController {
 	private final AdminService adminService;
 	
 	@RequestMapping("/adminMain")
-	public String adminMain(@ModelAttribute MemberVO membervo , @ModelAttribute VocVO vocvo, Model model) {
+	public String adminMain(@ModelAttribute MemberVO membervo , @ModelAttribute VocVO vocvo, @ModelAttribute BoardVO boardvo, Model model) {
 		logger.info("관리자 메인화면");
 		
 		int cnt1=adminService.totalMember(membervo);
@@ -47,8 +48,12 @@ public class AdminController {
 		int cnt2=adminService.totalboard3(vocvo);
 		logger.info("고객의 소리 총 글갯수={}", cnt2);
 		
+		int cnt3=adminService.totalboard2(boardvo);
+		logger.info("유실물 관리 총 글갯수={}", cnt3);
+		
 		model.addAttribute("cnt1", cnt1);
 		model.addAttribute("cnt2", cnt2);
+		model.addAttribute("cnt3", cnt3);
 		
 		return "/admin/adminMain";
 	}

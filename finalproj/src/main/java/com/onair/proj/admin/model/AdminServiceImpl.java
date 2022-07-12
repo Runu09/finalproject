@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.onair.proj.admin.controller.ExcelController;
+import com.onair.proj.board.model.BoardVO;
 import com.onair.proj.common.SearchVO;
 import com.onair.proj.member.model.MemberDAO;
 import com.onair.proj.member.model.MemberService;
@@ -47,6 +48,11 @@ public class AdminServiceImpl implements AdminService{
 		return adminDao.totalMember(vo);
 	}
 
+	@Override
+	public int totalboard2(BoardVO vo) {
+		return adminDao.totalboard2(vo);
+	}
+	
 	@Override
 	public int totalboard3(VocVO vo) {
 		return adminDao.totalboard3(vo);
