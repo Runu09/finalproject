@@ -41,24 +41,41 @@
 <link rel="stylesheet" type="text/css" href="../assets/css/color1.css">
 
 <script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript"
+	src='<c:url value="/assets/js/member.js"/>'></script>
 <script type="text/javascript">
 	$(function() {
+
+		$('#pwd1').keyup(function() {
+			var data = $(this).val();
+			if (validate_pwd(data)) {
+				$('#errorpwd').text('사용 가능한 비밀번호 입니다.');
+				$('#chkPwd').val('Y');
+			} else {
+				$('#errorpwd').text('8~15자의 영문, 숫자, 특수기호만 사용 가능합니다.');
+				$('#chkPwd').val('N');
+			}
+
+		});
 
 		$('#btClose').click(function() {
 			self.close();
 		});
-	
+
 		$('#btOk').click(function() {
-			if ($('#pwd1').val() == $('#pwd2').val()) {
+			if ($('#chkPwd').val() != 'Y') {
+				$("#pwd1").focus();
+				event.preventDefault();
+			} else if ($('#pwd1').val() == $('#pwd2').val()) {
 				$.ajax({
 					url : "<c:url value='/member/changePwd.do'/>",
 					data : $('#changePwd').serializeArray(),
 					type : 'post',
 					dataType : 'text',
 					success : function(res) {
-						if(res=="0"){
+						if (res == "0") {
 							alert('비밀번호 변경 실패');
-						}else{
+						} else {
 							alert('비밀번호 변경 성공');
 							self.close();
 						}
@@ -77,8 +94,6 @@
 		});
 	});
 </script>
-
-
 </head>
 
 <body>
@@ -89,43 +104,47 @@
 
 			<div class="get-in-touch">
 				<h3>비밀번호 재설정</h3>
-						<form method="post" name="changePwd"
-							action="<c:url value='/member/changePwd.do'/>" id="changePwd">
-				
-				<input type="hidden" name="memId" value=${memId }>
-				<p style="color: black;margin-bottom: 30px">비밀번호를 변경해 주세요.<br>
-다른 아이디나 사이트에서 사용한 적 없는 안전한 비밀번호로 변경해 주세요.</p>
-				<div class="row" style="margin: 0 auto">
+				<form method="post" name="changePwd"
+					action="<c:url value='/member/changePwd.do'/>" id="changePwd">
 
-					<!-- <div class="form-group col-md-2" style="margin-left: -12px">
+					<input type="hidden" name="memId" value=${memId }>
+					<p style="color: black; margin-bottom: 30px">
+						비밀번호를 변경해 주세요.<br> 다른 아이디나 사이트에서 사용한 적 없는 안전한 비밀번호로 변경해 주세요.
+					</p>
+					<div class="row" style="margin: 0 auto">
+
+						<!-- <div class="form-group col-md-2" style="margin-left: -12px">
 						아이디</div> -->
-					<div class="form-group col-md-6">
-						<input type="password" class="form-control" id="pwd1"
-							placeholder="새 비밀번호" required="">
-					</div>
-					<div class="col-md-3"></div>
-					
-					<div class="form-group col-md-6">
-						<input type="password" class="form-control" id="pwd2" name="memPwd"
-							placeholder="새 비밀번호 확인" required="" style="margin-bottom: 20px">
-					</div>
-					
-					
-					<div class="form-group col-md-2" style="margin-left: -12px">
+						<div class="form-group col-md-6">
+							<input type="password" class="form-control" id="pwd1"
+								placeholder="새 비밀번호" required="">
+						</div>
+						<div class="col-md-6" style="color: red" id="errorpwd"></div>
 
-					</div>
-					
-				
-					<div class="form-group col-md-12" style="text-align: center">
-						<button class="btn btn-solid" id="btOk">확인</button>
-						<button class="btn btn-solid"
-							style="color: red; background-color: white; border-color: red; margin-left: 10px"
-							id="btClose">닫기</button>
-					</div>
-					</form>
-				</div>
+						<div class="form-group col-md-6">
+							<input type="password" class="form-control" id="pwd2"
+								name="memPwd" placeholder="새 비밀번호 확인" required=""
+								style="margin-bottom: 20px">
+						</div>
 
+
+						<div class="form-group col-md-2" style="margin-left: -12px">
+
+						</div>
+
+
+						<div class="form-group col-md-12" style="text-align: center">
+							<button class="btn btn-solid" id="btOk">확인</button>
+
+							<button class="btn btn-solid"
+								style="color: red; background-color: white; border-color: red; margin-left: 10px"
+								id="btClose">닫기</button>
+						</div>
+				</form>
+				<input type="hidden" name="chkPwd" id="chkPwd">
 			</div>
+
+		</div>
 		</div>
 	</section>
 	<!-- get in touch section end -->

@@ -52,11 +52,12 @@
 
 			$.ajax({
 				url : "<c:url value='/email/sendEmail.do'/>",
-				data : $('#frmPwd').serializeArray(),
+				data : {memId : $('#memId').val(),
+				email : $('#email').val()},
 				type : 'post',
 				dataType : 'json',
 				success : function(res) {
-					alert("인증번호가 전송되었습니다");
+					alert("인증번호를 발송했습니다.\n인증번호가 오지 않으면 입력하신 정보와 회원정보가 일치하는지 확인해 주세요.");
 					$('#btAuth').attr('disabled', true);
 					$('#confirmKey').attr('disabled', false);
 					$('#chkAuth').val(res);
@@ -101,16 +102,18 @@
 					<div class="form-group col-md-2" style="margin-left: -12px">
 						아이디</div>
 					<div class="form-group col-md-6">
+					<form method="post" name="frmPwd"
+							action="<c:url value='/member/sendEmail.do'/>" id="frmPwd">
 						<input type="text" class="form-control" id="memId"
-							placeholder="아이디 입력" required="">
+							placeholder="아이디 입력" required="" style="text-transform: none;">
 					</div>
 					<div class="col-md-3"></div>
 					<div class="form-group col-md-2" style="margin-left: -12px">
 						이메일 주소</div>
 
 					<div class="form-group col-md-6">
-						<form method="post" name="frmPwd"
-							action="<c:url value='/member/sendEmail.do'/>" id="frmPwd">
+						<%-- <form method="post" name="frmPwd"
+							action="<c:url value='/member/sendEmail.do'/>" id="frmPwd"> --%>
 
 							<input type="text" class="form-control" id="email"
 								placeholder="이메일 주소 입력" name="email" required=""

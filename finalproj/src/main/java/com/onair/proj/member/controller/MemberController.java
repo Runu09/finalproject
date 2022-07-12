@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,6 +63,11 @@ public class MemberController {
 		if(vo.getMEmail2().equals("etc")) {
 			vo.setMEmail2(mEmail3);
 		}
+		BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
+		String securePwd=encoder.encode(vo.getMemPwd());
+		
+		logger.info("비밀번호 암호화 처리 pwd={}, securePwd={}", vo.getMemPwd(),securePwd);
+		vo.setMemPwd(securePwd);
 		
 		int cnt=memberService.memberInsert(vo);
 		
@@ -279,7 +285,10 @@ public class MemberController {
 		//비밀번호 체크
 		String msg="비밀번호 체크 실패", url="/member/editPwd.do";
 		if(result==memberService.LOGIN_OK) {
-			int cnt=memberService.pwdChange(vo.getMemId(), newPwd);
+			
+			BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
+			String securePwd=encoder.encode(newPwd);
+			int cnt=memberService.pwdChange(vo.getMemId(), securePwd);
 			
 			if(cnt>0) {
 				msg="비밀번호를 변경하였습니다.";
@@ -330,13 +339,18 @@ public class MemberController {
 		
 		logger.info("memId={}, memPwd={}", vo.getMemId(), vo.getMemPwd());
 		
-		int cnt=memberService.pwdChange(vo.getMemId(), vo.getMemPwd());
+
+		BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
+		String securePwd=encoder.encode(vo.getMemPwd());
+		int cnt=memberService.pwdChange(vo.getMemId(), securePwd);
+		
 		logger.info("pwdChange() 결과 cnt={}",cnt);
 		
 		
 		return Integer.toString(cnt);
 	
 	}
+	
 }
 
 

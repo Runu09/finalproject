@@ -1,5 +1,6 @@
 package com.onair.proj.member.model;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -31,11 +32,15 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int checkLogin(String memId, String memPwd) {
+		
+		
+		BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
 		String dbPwd = memberDao.selectPwd(memId);
+		System.out.println("dbPwd=========="+dbPwd);
 		
 		int result=0;
 		if(dbPwd !=null && !dbPwd.isEmpty()) {
-			if(dbPwd.equals(memPwd)) {
+			if(encoder.matches(memPwd, dbPwd)) {
 				result=MemberService.LOGIN_OK;
 			}else {
 				result=MemberService.DISAGREE_PWD;				
