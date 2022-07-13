@@ -20,7 +20,7 @@ span.badge.bg-success {
 	height: 20px;
 }
 
-span.badge.bg-info, span.badge.bg-secondary {
+span.badge.bg-info, span.badge.bg-secondary, span.badge.bg-danger {
 	position: relative;
 	left: 56px;
 	bottom: -20px;

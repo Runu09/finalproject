@@ -27,8 +27,7 @@
 	(
 		select * from ticketView
 		where mem_id=#{mem_id}
-		and r_checkpay='Y'
-		and s_startTime >= SYSDATE
+		and ticketType='UPCOMING'
 		order by s_starttime
 	)A
 	<![CDATA[
@@ -86,17 +85,18 @@
 				<if test="ticketType==null or ticketType==''">
 		    		select * from ticketView
 					<include refid="searchWhere"></include>
-					and r_checkpay='Y'
-					and tickeTtype='UPCOMING'
+					order by ticketType DESC
+					
 				</if>
 				<if test="ticketType!=null and ticketType!=''">
 					select * from ticketView
 					<include refid="searchWhere"></include>
 					and r_checkpay='Y'
 					and ticketType=#{ticketType}
+					order by s_starttime
 				</if>
 			
-					order by s_starttime
+					
 				)A
 			)
 			where  RNUM>#{firstRecordIndex}
@@ -108,15 +108,8 @@
 			select count(*) from ticketView 
 			<include refid="searchWhere"></include>
 			and r_checkpay='Y'
-			and s_startTime >= SYSDATE
 	</select>
-	
-	<select id="getTotalRecord2" parameterType="bookingsearchVo" resultType="int">
-			select count(*) from ticketView 
-			<include refid="searchWhere"></include>
-			and r_checkpay='Y'
-			<![CDATA[ and s_startTime < SYSDATE ]]>
-	</select>
+
 	
 
 </mapper>

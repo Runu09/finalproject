@@ -28,6 +28,10 @@ span#sName {
     position: relative;
     left: -13px;
 }
+
+a#Btitle {
+    color: black;
+}
 </style>
 
 <body>
@@ -153,7 +157,15 @@ span#sName {
 													<c:forEach var="vo3" items="${Blist }">
 														<li <c:if test="${vo3.btNo == 2}">class="yellow-line"</c:if>>
 														<i class="fas fa-user">
-														</i> ${vo3.BTitle } 
+														</i> 
+														<c:if test="${vo3.btNo == 2}">
+															<a href="<c:url value='/lost/detail.do?bNo=${vo3.BNo }'/>" id="Btitle">${vo3.BTitle }</a>
+														</c:if>
+														<c:if test="${vo3.btNo == 3}">
+															<a href="<c:url value='/voc/updateCount?bNo=${vo3.BNo }'/>" id="Btitle">${vo3.BTitle }</a>
+														</c:if>
+														
+														
 														<span><fmt:formatDate value="${vo3.BRegdate }" pattern="yyyy-MM-dd"/> </span>
 														<span id="Btype">
 														<c:if test="${vo3.btNo == 2}">
