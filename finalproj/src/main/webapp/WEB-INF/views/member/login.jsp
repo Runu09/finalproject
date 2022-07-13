@@ -39,7 +39,7 @@
 	
 	function find(i){
 		if(i==1){
-		open("<c:url value='/member/findId.do'/>", "find", "width=770, height=400, location=yes, resizable=yes, top=200");
+		open("<c:url value='/member/findId.do'/>", "find", "width=500, height=350, location=yes, resizable=yes, top=200");
 		}
 		else{
 			open("<c:url value='/member/findPwd.do'/>", "find", "width=770, height=400, location=yes, resizable=yes, top=200");	

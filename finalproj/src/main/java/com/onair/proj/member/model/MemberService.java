@@ -21,4 +21,10 @@ public interface MemberService {
 
 	//아이디 찾기, 비밀번호 찾기
 	String findId(String name, String email);
+	
+	//마일리지 차감
+	int updateMileageM(int mMileage, String memId);
+	
+	//마일리지 적립
+	int updateMileageP(int total, String memId);
 }

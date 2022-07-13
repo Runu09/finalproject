@@ -3,6 +3,7 @@
 <%@include file="../inc/top.jsp"%>
 <script type="text/javascript">
 	
+	//대댓글작성
 	function reply(idx, bNo,groupno,step,sortno){
 		var insReply = '';
 		insReply += '<form name="vocReplyRe" method="post" action="<c:url value='/voc/comments_reply'/>">';
@@ -31,7 +32,33 @@
 		$("#replyBox"+idx).slideUp(500);
 	}
 	
+	//댓글수정
+	function replyEdit(idx,cNo, bNo){
+		var insReply = '';
+		var cContent=$('.comment-detail').eq(idx).find('p').text();
+		insReply += '<form name="vocReplyEdit" method="post" action="<c:url value='/voc/vocReplyEdit'/>">';
+		insReply += '<input type="hidden" name="cNo" value='+cNo+'>';
+		insReply += '<input type="hidden" name="bNo" value='+bNo+'>';
+		insReply += '<input type="text" name="cContent" id="editContent" value='+cContent+'>';
+		insReply += '<button type="submit">수정</button>';
+		insReply += '<input type="button" value="취소" onclick="javascript:replyEditCancel('+idx+')">';
+		insReply += '</form>';
+
+		$("#replyEditBox"+idx).slideDown(500);
+		$("#replyEditBox"+idx).html(insReply);
+		
+		$('form[name=vocReplyEdit]').submit(function(){
+			if($.trim($('#editContent').val()) == ""){
+				alert("내용을 입력해주세요");
+				$('#editContent').focus();
+				event.preventDefault();
+			}
+		});
+	}
 	
+	function replyEditCancel(idx){
+		$("#replyEditBox"+idx).slideUp(500);
+	}
 	
 </script>
 <!-- breadcrumb start -->
@@ -107,7 +134,15 @@
 						<div class="comment-wrapper">
 							<div class="comment-box">
 								<!-- 댓글리스트 반복 시작 -->
+								<c:set var="z" value="0" />
 								<c:forEach var="vo" items="${list }">
+								<c:choose>
+									<c:when test="${vo.CDelflag == 'Y' }">
+										<div class="comment-detail">
+										<p>삭제된 댓글입니다</p>
+										</div>
+									</c:when>
+									<c:otherwise>
 									<div class="media">
 									<c:if test="${vo.CStep>0 }">
 										<c:forEach var="i" begin="1" end="${vo.CStep }">
@@ -130,7 +165,7 @@
 												</div>
 												<c:if test="${vo.CId==memVo.memId }">
 						                            <div class="reply-btn">
-														<a href="<c:url value='/voc/updateReply?cNo=${vo.CNo }'/>" name="replyEdit">
+														<a href="javascript:replyEdit(${z},${vo.CNo },${vo.BNo })" name="replyEdit">
 														<i class="fa fa-reply pe-2"></i>수정&nbsp;</a>
 													</div>
 						                            <div class="reply-btn">
@@ -139,22 +174,9 @@
 													</div>
                             					</c:if>
 											</div>
-											<c:choose>
-												<c:when test="${vo.CDelflag == 'N' }">
-													<div class="comment-detail">
-														<p>${vo.CContent }</p>
-													</div>
-												</c:when>
-												<c:otherwise>
-													<form action="<c:url value='/voc/vocReplyEdit'/>" method="post">
-														<input type="hidden" name="bNo" value="${vo.BNo }">
-														<input type="hidden" name="cNo" value="${vo.CNo }">
-														<input type="hidden" name="cDelflag" value="${vo.CDelflag }">
-														<input type="text" name="cContent" value="${vo.CContent }" />
-														<button type="submit">등록</button>&nbsp;<button type="submit">취소</button>
-													</form>
-												</c:otherwise>
-											</c:choose>
+												<div class="comment-detail">
+													<p>${vo.CContent }</p>
+												</div>
 											<div class="reply-btn">
 												<a href="javascript:reply(${vo.CNo },${vo.BNo },${vo.CGroupno },${vo.CStep },${vo.CSortno });"><i class="fa fa-reply pe-2"></i>
 													reply</a>
@@ -163,8 +185,15 @@
 											<div id="replyBox${vo.CNo }">
 											</div>
 											<!-- 대댓글 form 끝-->
+											<!-- 댓글수정 form -->
+											<div id="replyEditBox${z }">
+											</div>
+											<!-- 댓글수정 form 끝-->
 										</div>
 									</div>
+									</c:otherwise>
+									</c:choose>
+									<c:set var="z" value="${z+1 }" />
 								</c:forEach>
 
 							</div>

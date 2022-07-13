@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.onair.proj.reservation.model.ReservationDAO">
+	<insert id="insertReservation" parameterType="ReservationVO">
+	<selectKey resultType="int" keyProperty="rNo" order="BEFORE">
+		select SEQ_RESERVATION.nextval from dual
+	</selectKey>
+      	insert into passenger (r_no, r_pay, r_adult, r_child, r_checkpay, mem_no, s_no)
+      	values (#{rNO}, #{rPay}, #{rAdult}, #{rChild}, #{rCheckPay}, #{memNo}, #{sNo})
+    </insert>
+
+    <select id="selectReservation" resultType="ReservationVO">
+        select * from reservation
+    </select>
+</mapper>

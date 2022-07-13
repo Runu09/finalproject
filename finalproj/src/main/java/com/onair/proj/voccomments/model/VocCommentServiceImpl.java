@@ -1,6 +1,7 @@
 package com.onair.proj.voccomments.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -27,8 +28,8 @@ public class VocCommentServiceImpl implements VocCommentsService{
 	}
 
 	@Override
-	public int deleteReply(int cNo) {
-		return vocCommentsDao.deleteReply(cNo);
+	public int deleteReply(Map<String, String> map) {
+		return vocCommentsDao.deleteReply(map);
 	}
 
 	@Override
