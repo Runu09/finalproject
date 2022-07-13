@@ -99,7 +99,7 @@
                                <!--  <p>아이디와 비밀번호를 입력 후 로그인하세요!</p> -->
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">아이디</label>
-                                    <input class="form-control" type="userid" required="" placeholder="아이디를 입력하세요" name="memId" value="${cookie.ckMemId.value}">
+                                    <input class="form-control" type="text" required="" placeholder="아이디를 입력하세요" id="userid" name="memId" value="${cookie.ckMemId.value}">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">비밀번호</label>
