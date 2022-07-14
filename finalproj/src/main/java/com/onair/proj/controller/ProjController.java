@@ -79,6 +79,9 @@ public class ProjController {
 	}
 	
 	
-
+	@RequestMapping("/customer/airport.do")
+	public String airport() {
+		return "/customer/airport";
+	}
 	
 }
