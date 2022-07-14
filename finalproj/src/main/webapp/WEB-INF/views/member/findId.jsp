@@ -43,36 +43,12 @@
 <script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		
 		$('#btClose').click(function(){
 			self.close();
 		});
-		$('#btAuth').click(function() {
-			var email = $('#email').val();
-
-			$.ajax({
-				url : "<c:url value='/email/sendEmail.do'/>",
-				data : $('#frmId').serializeArray(),
-				type : 'post',
-				dataType : 'json',
-				success : function(res) {
-					alert("인증번호가 전송되었습니다");
-					$('#btAuth').attr('disabled', true);
-					$('#confirmKey').attr('disabled', false);
-					$('#chkAuth').val(res);
-
-				},
-				error : function(xhr, status, error) {
-					alert('error: ' + error);
-				}
-			});
-			event.preventDefault();
-
-		});
-
+		
 		$('#btOk').click(function() {
-			if ($('#confirmKey').val() == $('#chkAuth').val()) {
-
+		
 				$.ajax({
 					url : "<c:url value='/member/infoId.do'/>",
 					data : {
@@ -84,8 +60,10 @@
 					success : function(res) {
 						if (res.length > 0) {
 							$('#showid').text(res);
+							$('#noId').attr('hidden','hidden');
 							$('#show').removeAttr('hidden');
 						} else {
+							$('#show').attr('hidden','hidden');
 							$('#noId').removeAttr('hidden');
 						}
 					},
@@ -93,12 +71,8 @@
 						alert('error: ' + error);
 					}
 				});
-				/* event.preventDefault(); */
+				event.preventDefault(); 
 
-			} else {
-				alert('인증번호가 일치하지 않습니다.');
-				return;
-			}
 		});
 	});
 </script>
@@ -116,9 +90,7 @@
 
 
 			<div class="get-in-touch">
-				<h3>아이디 찾기</h3>
-				<p style="color: black">본인확인 이메일 주소와 입력한 이메일 주소가 같아야, 인증번호를 받을 수
-					있습니다.</p>
+				<h3 style="margin-bottom: 20px">아이디 찾기</h3>
 				<div class="row" style="margin: 0 auto">
 
 					<div class="form-group col-md-2" style="margin-left: -12px">
@@ -132,29 +104,19 @@
 						이메일 주소</div>
 
 					<div class="form-group col-md-6">
-						<form method="post" name="frmId"
+						<%-- <form method="post" name="frmId"
 							action="<c:url value='/email/sendEmail.do'/>" id="frmId">
-
+ --%>
 							<input type="text" class="form-control" id="email"
 								placeholder="이메일 주소 입력" name="email" required=""
 								style="text-transform: none;">
 								
 					</div>
-					<div class="form-group col-md-3">
-						<button class="btn btn-solid" type="submit" id="btAuth">인증번호
-							받기</button>
-					</div>
-					</form>
+				
 					<div class="form-group col-md-2" style="margin-left: -12px">
 
 					</div>
-					<div class="form-group col-md-6">
-						<input type="text" class="form-control" id="confirmKey"
-							placeholder="인증번호 6자리 숫자 입력" required="" disabled="disabled">
-					</div>
-					<div class="form-group col-md-3">
-						<input type="hidden" value="${res}" id="chkAuth">
-					</div>
+					
 					<div class="form-group col-md-12" style="text-align: center">
 						<button class="btn btn-solid" id="btOk">확인</button>
 						<button class="btn btn-solid" 

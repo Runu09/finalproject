@@ -157,9 +157,11 @@ function noteList(){
 										<li class="dropdown"><a href="#"
 											class="nav-link menu-title">예매</a>
 											<ul class="nav-submenu menu-content">
-												<li><a
-													href="<c:url value='/booking/flight-round-trip.do'/>"
-													class="submenu-title">항공권 예매</a></li>
+												<li>
+												<a type="submit" href="<c:url value='/booking/flight-round-trip.do?depLoc=&departure=&arrLoc=&arrival=&datepicker=&hdDate=&people=&adult=&child='/>"
+													class="submenu-title">항공권 예매</a> 
+												</li>
+												
 												<li><a href="#" class="submenu-title">예약 조회</a></li>
 												<li><a href="#" class="submenu-title">항공편 현황</a></li>
 											</ul></li>

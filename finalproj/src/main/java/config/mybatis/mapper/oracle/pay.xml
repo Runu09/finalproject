@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.onair.proj.pay.model.PayDAO">
+	<insert id="insertPay" parameterType="PayVO">
+	<selectKey resultType="int" keyProperty="pNo" order="BEFORE">
+		select SEQ_PAY.nextval from dual
+	</selectKey>
+      	insert into passenger (p_no, mem_no, p_pay, p_mileage, p_imp_uid)
+      	values (#{pNo}, #{memNo}, #{pPay}, #{pMileage}, #{pImpUid})
+    </insert>
+
+    <select id="selectPay" resultType="PayVO">
+        select * from pay
+    </select>
+</mapper>

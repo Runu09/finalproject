@@ -35,14 +35,14 @@
             <div class="flight-search">
                 <div class="responsive-detail">
                     <div class="destination">
-                        <span>서울/김포</span>
+                        <span>${depLoc }</span>
                         <span><i class="fas fa-long-arrow-alt-right"></i></span>
-                        <span>제주</span>
+                        <span>${arrLoc }</span>
                     </div>
                     <div class="details">
-                        <span>tue, 19-Aug-2019</span>
+                        <span>${date }</span>
                         <span class="divider">|</span>
-                        <span>2 Adults</span>
+                        <span>${people }</span>
                     </div>
                     <div class="modify-search">
                         <a href="javascript:void(0)" class="btn btn-solid color1"> 상세검색</a>
@@ -275,7 +275,6 @@
 											<h2>항공편을 찾을 수 없습니다.</h2>
 											<p>검색결과에 맞는 항공편을 찾을 수 없습니다. 
 												다시 검색해주세요.</p>
-				                            <input type="submit" class="btn btn-solid color1" id="reservationsubmit" value="검색">
 										</div>
 									</div>
 								</div>
@@ -291,43 +290,43 @@
 	                                        	<c:choose>
 	                                        		<c:when test="${schedule.alName eq '아시아나항공'}">
 	                                        			<img src="<c:url value='/assets/images/flights/airlines/아시아나항공.png'/>" 
-	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 60px; height: 60px">
 	                                        		</c:when>
 	                                        		<c:when test="${schedule.alName eq '에어부산'}">
 	                                        			<img src="<c:url value='/assets/images/flights/airlines/에어부산.png'/>" 
-	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 60px; height: 60px">
 	                                        		</c:when>
 	                                        		<c:when test="${schedule.alName eq '에어서울'}">
 	                                        			<img src="<c:url value='/assets/images/flights/airlines/에어서울.jpg'/>" 
-	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 60px; height: 60px">
 	                                        		</c:when>
 	                                        		<c:when test="${schedule.alName eq '이스타항공'}">
 	                                        			<img src="<c:url value='/assets/images/flights/airlines/이스타항공.png'/>" 
-	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 60px; height: 60px">
 	                                        		</c:when>
 	                                        		<c:when test="${schedule.alName eq '플라이강원'}">
 	                                        			<img src="<c:url value='/assets/images/flights/airlines/플라이강원.png'/>" 
-	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 60px; height: 60px">
 	                                        		</c:when>
 	                                        		<c:when test="${schedule.alName eq '하이에어'}">
 	                                        			<img src="<c:url value='/assets/images/flights/airlines/하이에어.png'/>" 
-	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 60px; height: 60px">
 	                                        		</c:when>
 	                                        		<c:when test="${schedule.alName eq '제주항공'}">
 	                                        			<img src="<c:url value='/assets/images/flights/airlines/제주항공.png'/>" 
-	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 60px; height: 60px">
 	                                        		</c:when>
 	                                        		<c:when test="${schedule.alName eq '진에어'}">
 	                                        			<img src="<c:url value='/assets/images/flights/airlines/진에어.png'/>" 
-	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 60px; height: 60px">
 	                                        		</c:when>
 	                                        		<c:when test="${schedule.alName eq '대한항공'}">
 	                                        			<img src="<c:url value='/assets/images/flights/airlines/대한항공.png'/>" 
-	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 60px; height: 60px">
 	                                        		</c:when>
 	                                        		<c:when test="${schedule.alName eq '티웨이항공'}">
 	                                        			<img src="<c:url value='/assets/images/flights/airlines/티웨이항공.png'/>" 
-	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 45px; height: 45px">
+	                                        				class="img-fluid blur-up lazyload" alt="" style="width: 60px; height: 60px">
 	                                        		</c:when>
 	                                        	</c:choose>
 	                                        	
@@ -374,58 +373,35 @@
                     </div>
                     <nav aria-label="Page navigation example" class="pagination-section mt-0">
 						<ul class="pagination">
-
-					<c:if test="${pagingInfo.firstPage>1 }">
-						<li class="page-item"><a class="page-link"
-							onclick="pageFunc(${pagingInfo.firstPage-1})" href="#"
-							aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-								<span class="sr-only">이전</span>
-						</a></li>
-					</c:if>
-
-					<c:forEach var="i" begin="${pagingInfo.firstPage }"
-						end="${pagingInfo.lastPage }">
-						<c:if test="${i==pagingInfo.currentPage }">
-
-							<li class="page-item active"><a class="page-link">${i }</a></li>
-						</c:if>
-
-						<c:if test="${i!=pagingInfo.currentPage }">
-							<li class="page-item"><a class="page-link" href="#"
-								onclick="pageFunc(${i})">${i }</a></li>
-						</c:if>
-					</c:forEach>
-
-					<c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">
-						<li class="page-item"><a class="page-link" href="#"
-							onclick="pageFunc(${pagingInfo.lastPage+1})" aria-label="Next">
-								<span aria-hidden="true">&raquo;</span> <span class="sr-only">다음</span>
-						</a></li>
-					</c:if>
-
-
-
-				</ul>
+							<c:if test="${pagingInfo.firstPage>1 }">
+								<li class="page-item"><a class="page-link"
+									onclick="pageFunc(${pagingInfo.firstPage-1})" href="#"
+									aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+										<span class="sr-only">이전</span>
+								</a></li>
+							</c:if>
+		
+							<c:forEach var="i" begin="${pagingInfo.firstPage }"
+								end="${pagingInfo.lastPage }">
+								<c:if test="${i==pagingInfo.currentPage }">
+		
+									<li class="page-item active"><a class="page-link">${i }</a></li>
+								</c:if>
+		
+								<c:if test="${i!=pagingInfo.currentPage }">
+									<li class="page-item"><a class="page-link" href="#"
+										onclick="pageFunc(${i})">${i }</a></li>
+								</c:if>
+							</c:forEach>
+		
+							<c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">
+								<li class="page-item"><a class="page-link" href="#"
+									onclick="pageFunc(${pagingInfo.lastPage+1})" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span> <span class="sr-only">다음</span>
+								</a></li>
+							</c:if>
+						</ul>
 					</nav>
-                    <!-- <nav aria-label="Page navigation example" class="pagination-section mt-0">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="javascript:void(0)" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav> -->
                 </div>
                 <div class="col-lg-3">
                     <div class="left-sidebar">
@@ -442,18 +418,6 @@
                                 <img src="../assets/images/icon/adjust.png" class="img-fluid blur-up lazyload" alt="">
                             </a>
                             <div class="collection-collapse-block-content ">
-                                <div class="filter-block">
-                                    <div class="collection-collapse-block open">
-                                        <h6 class="collapse-block-title">가격</h6>
-                                        <div class="collection-collapse-block-content">
-                                            <div class="wrapper">
-                                                <div class="range-slider">
-                                                    <input type="text" class="js-range-slider" value="" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="filter-block">
                                     <div class="collection-collapse-block open">
                                         <h6 class="collapse-block-title">항공사</h6>
@@ -563,7 +527,7 @@
                         </div>
                         <div class="bottom-info">
                             <h5><span>i</span> need help</h5>
-                            <h4>856 - 215 - 211</h4>
+                            <h4>010 - 1234 - 5678</h4>
                             <h6>Monday to Friday 9.00am - 7.30pm</h6>
                         </div>
                     </div>

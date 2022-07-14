@@ -60,7 +60,6 @@
     <script src="../admin/js/notify/bootstrap-notify.min.js"></script>
 
 
-    <script src="../admin/js/notify/index.js"></script>
     <script src="../admin/js/typeahead/handlebars.js"></script>
     <script src="../admin/js/typeahead/typeahead.bundle.js"></script>
     <script src="../admin/js/typeahead/typeahead.custom.js"></script>

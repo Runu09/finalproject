@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@include file="../inc/top.jsp"%>
+<script type="text/javascript" src='<c:url value="/assets/js/member.js"/>'></script>
 <script type="text/javascript">
 	var confirmValue=false;
 	var inwon=${adult+child};
@@ -45,7 +46,7 @@
 						$("label[for=gogekName]").fadeOut();
 					}, 500);
 					
-				} else if($("#gogekBirth").val()===""){
+				} else if($("#gogekBirth").val()==="" || $("#gogekBirth").val().length!=8){
 					$("label[for=gogekBirth]").empty();
 					$("label[for=gogekBirth]").append("탑승자 생년월일 8자를 기입해주세요.");
 					$("label[for=gogekBirth]").fadeIn('fast');
@@ -634,7 +635,7 @@
                                         <div class="form-group mb-0" style="width: 70%;">
                                             <label>마일리지를 사용하시겠습니까?</label>
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="mileage" id="mileage" onkeyup="printMile()" value="0">
+                                                <input type="text" class="form-control" name="mileage" id="mileage" onkeyup="printMile()" value=0>
                                                 <div class="input-group-prepend">
                                                     <button class="input-group-text" id="btApply" name="btApply">apply</button>
                                                 </div>
@@ -713,15 +714,17 @@
 			</div>
 			
 			<!-- 최종전송 폼 -->
-			<form action="<c:url value='/booking/flight-booking-payment.do' />" method="POST" name="frm">
+			<form action="<c:url value='/booking/flight-booking-payment.do' />" method="get" name="frm">
 				<c:if test="${child==0 }">
-					<input type='hidden' name='total' value='<fmt:formatNumber value="${schedule.SPrice*adult+25000}" pattern="#,###" />'>
+					<input type='hidden' name='total' value="${schedule.SPrice*adult+25000}">
                	</c:if>
                	<c:if test="${child!=0 }">
-               		<input type='hidden' name='total' value='<fmt:formatNumber value="${schedule.SPrice*adult+schedule.SPrice*child-schedule.SPrice*0.1+25000}" pattern="#,###" />'>
+               		<input type='hidden' name='total' value="${schedule.SPrice*adult+schedule.SPrice*child-schedule.SPrice*0.1+25000}">
                	</c:if>
 				<!-- 마일리지 사용전 총금액 -->
-				
+				<input type="hidden" name="sNo" value="${schedule.SNo}">
+				<input type="hidden" name="adult" value="${adult}">
+				<input type="hidden" name="child" value="${child}">
 				<div class="hiddenArea"></div>
 				<div class="continue-btn">
 				<input type="button" value="결제하기" class="btn btn-solid" onclick="confirmCheck();">
@@ -739,7 +742,7 @@
     <!-- book now section start -->
     <div class="book-panel">
         <h6 class="mb-0 text">결제금액 : <span>$2500</span></h6>
-        <button type="button" onclick="window.location.href='<c:url value="/booking/flight-booking-payment.do"/>'"
+        <button type="button" onclick="window.location.href='<c:url value="/booking/flight-booking-payment.do?sNo=${schedule.SNo }"/>'"
             class="btn bottom-btn theme-color">continue</button>
     </div>
     <!-- book now section end -->

@@ -106,18 +106,27 @@
 			<artifactId>json-simple</artifactId>
 			<version>1.1.1</version>
 		</dependency>
- 		
- 		<dependency>
-	    <groupId>org.jdom</groupId>
-		    <artifactId>jdom2</artifactId>
-		    <version>2.0.6</version>
-		</dependency>
-		
+
 		<dependency>
-	      <groupId>com.squareup.okhttp3</groupId>
-	      <artifactId>okhttp</artifactId>
-	      <version>3.11.0</version>
-	    </dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom2</artifactId>
+			<version>2.0.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>3.11.0</version>
+		</dependency>
+
+		<!-- Spring-security 모듈 -->
+		<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-web</artifactId>
+		<!-- <version>${org.springframework-version}</version> -->
+		</dependency>
+
+
 	</dependencies>
 	
 	<build>

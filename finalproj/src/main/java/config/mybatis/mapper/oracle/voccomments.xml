@@ -32,18 +32,25 @@
 	</select>
 	
 	<update id="updateComment" parameterType="voccommentsVo">
-		<if test='CDelflag=="Y"'>
 			update comments 
-			set c_content=#{cContent}, c_delflag='N' where c_no=#{cNo}
-		</if>
-		<if test='CDelflag=="N"'>
+			set c_content=#{cContent} where c_no=#{cNo}
+		<!-- <if test='CDelflag=="N"'>
 			update comments 
 			set c_content=#{cContent}, c_delflag='Y' where c_no=#{cNo}
-		</if>
+		</if> -->
 	</update>
-	
-	<delete id="deleteReply" parameterType="int">
-		delete comments where c_no=#{cNo}
+
+	<parameterMap type="map" id="replyDeleteParam">
+		<parameter property="groupno" javaType="string"
+			jdbcType="VARCHAR" mode="IN" />
+		<parameter property="step" javaType="string"
+			jdbcType="VARCHAR" mode="IN" />
+		<parameter property="CNo" javaType="string"
+			jdbcType="VARCHAR" mode="IN" />
+	</parameterMap>
+
+	<delete id="deleteReply" parameterMap="replyDeleteParam">
+		call vocCommentsDelete(?,?,?)
 	</delete>
 	
 	<select id="selectByCNo" parameterType="int" resultType="voccommentsVo">

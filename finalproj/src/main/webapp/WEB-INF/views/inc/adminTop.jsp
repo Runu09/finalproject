@@ -335,8 +335,7 @@
 										data-feather="bookmark"> </i><span>예약</span></a></li>
 								<!-- <li class="sidebar-list"><a
 									class="sidebar-link sidebar-title link-nav" href="reviews.html"><i
-										data-feather="message-square"> </i><span>쪽지함</span></a></li>-->
-
+										data-feather="message-square"> </i><span>쪽지함</span></a></li> -->
 								<li class="sidebar-list"><a
 									class="sidebar-link sidebar-title" href="#"><i
 										data-feather="navigation"></i><span>쪽지</span></a>
@@ -358,12 +357,20 @@
                                         href="setting.html"><i data-feather="settings"> </i><span>Setting</span></a>
                                 </li> -->
 
-								<li class="sidebar-list"><a
-									class="sidebar-link sidebar-title link-nav"
-									href="<c:url value='/admin/adminLogout'/>" onclick="return confirm('로그아웃 하시겠습니까?');"><i
-										data-feather="log-out"> </i><span>로그아웃</span></a></li>
-
-
+								<c:if test="${empty sessionScope.manId}">
+									<li class="sidebar-list"><a
+										class="sidebar-link sidebar-title link-nav"
+										href="<c:url value='/admin/adminLogin'/>">
+										<i data-feather="log-out"> </i><span>로그인</span></a>
+									</li>
+								</c:if>
+								<c:if test="${!empty sessionScope.manId}">
+									<li class="sidebar-list"><a
+										class="sidebar-link sidebar-title link-nav"
+										href="<c:url value='/admin/adminLogout'/>" onclick="return confirm('로그아웃 하시겠습니까?');">
+										<i data-feather="log-out"> </i><span>로그아웃</span></a>
+									</li>
+								</c:if>
 							</ul>
 						</div>
 						<div class="right-arrow" id="right-arrow">
