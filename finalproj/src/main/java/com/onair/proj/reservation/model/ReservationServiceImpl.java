@@ -20,6 +20,4 @@ public class ReservationServiceImpl implements ReservationService{
 	public List<ReservationVO> selectReservation(ReservationVO vo) {
 		return reservationDao.selectReservation(vo);
 	}
-	
-	
 }

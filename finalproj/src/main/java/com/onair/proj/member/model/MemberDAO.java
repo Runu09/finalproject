@@ -12,7 +12,7 @@ public interface MemberDAO {
 	int memberDelete(String memId);
 	int pwdChange(String memId, String memPwd);
 	String findId(String name, String email);
-	int updateMileageM(int mMileage, String memId);
-	int updateMileageP(int total, String memId);
+	int updateMileageM(String mMileage, String memId);
+	int updateMileageP(String total, String memId);
 	
 }

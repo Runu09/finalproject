@@ -8,14 +8,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.onair.proj.member.controller.MemberController;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
 import com.onair.proj.note.controller.NoteController;
 import com.onair.proj.passenger.model.PassengerService;
 import com.onair.proj.passenger.model.PassengerVO;
+import com.onair.proj.pay.model.PayService;
+import com.onair.proj.pay.model.PayVO;
 import com.onair.proj.reservation.model.ReservationService;
 import com.onair.proj.reservation.model.ReservationVO;
 import com.onair.proj.schedule.model.ScheduleService;
@@ -26,10 +30,14 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 public class PayController {
+	private static final Logger logger
+	=LoggerFactory.getLogger(MemberController.class);
+	
 	private final MemberService memberService;
 	private final ScheduleService scheduleService;
 	private final ReservationService reservationService;
 	private final PassengerService passengerService;
+	private final PayService payService;
 	
 	@RequestMapping("/booking/flight-booking-payment.do")
 	public void bookingPayment(HttpServletRequest req, Model model, HttpSession session) {
@@ -62,16 +70,38 @@ public class PayController {
 	
 	@RequestMapping("/booking/flight-booking-success.do")
 	public void success(HttpServletRequest req, Model model, HttpSession session, @ModelAttribute ReservationVO rVo, 
-				@ModelAttribute PassengerVO pVo) {
+				@ModelAttribute PassengerVO pVo, @ModelAttribute PayVO payVo) {
 		String memId=(String) session.getAttribute("memId");
     	MemberVO memVo=memberService.selectByMemId(memId);
     	String mMileage=req.getParameter("mMileage");
     	String total=req.getParameter("total");
     	
-    	int rCnt=reservationService.insertReservation(rVo);
+      	int rCnt=reservationService.insertReservation(rVo);
+    	logger.info("rcnt={}", rCnt);
+    	
     	int pCnt=passengerService.insertPassenger(pVo);
-    	int mCnt1=memberService.updateMileageM(Integer.parseInt(mMileage), memId);
-    	int mCnt2=memberService.updateMileageP(Integer.parseInt(total), memId);
+    	logger.info("pcnt={}", pCnt);
+    	
+    	int payCnt=payService.insertPay(payVo);
+    	logger.info("paycnt={}", payCnt);
+    	
+    	int mCnt1=memberService.updateMileageM(mMileage, memId);
+    	logger.info("mcnt1={}", mCnt1);
+    	
+    	int mCnt2=memberService.updateMileageP(total, memId);
+    	logger.info("mcnt1={}", mCnt2);
+    	
+
+		/*
+		 * String msg="결제에 실패하였습니다.", url="/booking/flight-booking-failed.do";
+		 * 
+		 * if(rCnt>0 && pCnt>0) { msg="결제가 완료되었습니다..";
+		 * url="/booking/flight-booking-success.do"; }
+		 * 
+		 * model.addAttribute("msg", msg); model.addAttribute("url", url);
+		 * 
+		 * return "/common/message";
+		 */
     	
 	}
 }
