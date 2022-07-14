@@ -34,6 +34,7 @@ public class TicketViewVO {
 	private String  pPay; //결제금액
 	private int pCancle; //취소금액
 	private String  pMileage; //사용마일리지
+	private Timestamp pPaytime; //결제시간
 	
 	/*MEMBER*/
 	private int memNo; //회원코드

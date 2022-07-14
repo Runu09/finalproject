@@ -50,18 +50,18 @@ public class MypageServiceImpl implements MypageService{
 		return mypageDao.countBoard(bId);
 	}
 
-	/*
+	
 	@Override
-	public int sumPay(String memId) {
+	public String sumPay(String memId) {
 		return mypageDao.sumPay(memId);
 	}
 
 
 	@Override
-	public int sumMileage(String memId) {
+	public String sumMileage(String memId) {
 		return mypageDao.sumMileage(memId);
 	}
-*/
+
 
 	
 

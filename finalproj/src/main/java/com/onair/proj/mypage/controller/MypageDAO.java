@@ -16,6 +16,6 @@ public interface MypageDAO {
 	List<TicketViewVO> mainUpcoming (String memId);
 	int countReservation(String memId);
 	int countBoard(String bId);
-	//int sumPay(String memId);
-	//int sumMileage(String memId);
+	String sumPay(String memId);
+	String sumMileage(String memId);
 }

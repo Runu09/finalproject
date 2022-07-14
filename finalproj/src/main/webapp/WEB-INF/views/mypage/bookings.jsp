@@ -133,6 +133,7 @@
 													<!-- 아이콘 표시 -->
 													
 													<!-- 발권  -->
+													<div id="btnTicket">
 													<div class="ticket">
 														<a href="<c:url value='/booking/eTicket.do?rNo=${vo.RNo }'/>"
 															onclick="window.open(this.href, '_blank', 'width=700, height=600'); return false;">
@@ -140,10 +141,14 @@
 														</a>
 													</div>
 													<!-- 발권 끝-->
-													
-													<a href="#"><i class="fas fa-window-close"
-														data-bs-toggle="tooltip" data-placement="top"
-														title="cancle booking"></i> </a>
+													<!-- 취소 -->
+													<div class="cancle">
+														<a href="#">
+															<span class="badge bg-cancle">예매 취소</span>
+														</a>
+													</div>
+													<!-- 취소 끝 -->
+													</div>
 												</div>
 											</div>
 										</c:forEach>

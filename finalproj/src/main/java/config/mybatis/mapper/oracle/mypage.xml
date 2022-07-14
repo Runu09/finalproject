@@ -65,9 +65,18 @@
 	</select>
 	
 	<select id="getTotalRecord" parameterType="bookingsearchVo" resultType="int">
-			select count(*) from ticketView 
-			<include refid="searchWhere"></include>
-			and r_checkpay='Y'
+			<if test="ticketType==null or ticketType==''">
+    			select count(*) from ticketView  
+    			<include refid="searchWhere"></include>
+				and r_checkpay='Y'
+			</if>
+    		<if test="ticketType!=null and ticketType!=''">
+				select count(*) from ticketView 
+				<include refid="searchWhere"></include>
+				and ticketType=#{ticketType}
+				and r_checkpay='Y'
+			</if>
+		
 	</select>
 
 	<select id="countReservation" parameterType="String" resultType="int">
@@ -83,14 +92,14 @@
 		and to_char(b_regdate, 'MM') = to_char(SYSDATE, 'MM')
 	</select>
 	
-	<select id="sumPay" parameterType="String" resultType="int" >
+	<select id="sumPay" parameterType="String" resultType="String" >
 		select sum(p_pay) from ticketView
 		where mem_id=#{mem_id}
 		and to_char(p_paytime, 'MM') = to_char(SYSDATE, 'MM')
 		and ticketType !='CANCLE'
 	</select>
 	
-	<select id="sumMileage" parameterType="string" resultType="int">
+	<select id="sumMileage" parameterType="string" resultType="String">
 		select sum(p_mileage) from ticketView
 		where mem_id=#{mem_id}
 		and to_char(p_paytime, 'MM') = to_char(SYSDATE, 'MM')

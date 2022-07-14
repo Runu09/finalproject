@@ -48,8 +48,8 @@ public class MyPageController {
 		List<BoardVO> Blist= mypageService.selectByIdBoard(memId);
 		int countR=mypageService.countReservation(memId);
 		int countB=mypageService.countBoard(memId);
-		//int sumPay=mypageService.sumPay(memId);
-		//int sumMileage=mypageService.sumMileage(memId);
+		String sumPay=mypageService.sumPay(memId);
+		String sumMileage=mypageService.sumMileage(memId);
 		
 		logger.info("마이페이지 , 파라미터 vo={}, Rlist={}, Blist={}", vo, Rlist,Blist);
 		
@@ -58,8 +58,8 @@ public class MyPageController {
 		model.addAttribute("Blist" , Blist); // 최근 활동내역 6개
 		model.addAttribute("countR" , countR); // 한달간 예매건수
 		model.addAttribute("countB" , countB); // 한달간 내가쓴글 개수
-		//model.addAttribute("sumPay" , sumPay); // 한달간 총 결제금액
-		//model.addAttribute("sumMileage" , sumMileage); // 한달간 총 사용마일리지
+		model.addAttribute("sumPay" , sumPay); // 한달간 총 결제금액
+		model.addAttribute("sumMileage" , sumMileage); // 한달간 총 사용마일리지
 		
 		return "/mypage/mypageMain";
 	}

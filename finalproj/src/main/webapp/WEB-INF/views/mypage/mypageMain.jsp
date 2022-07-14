@@ -105,6 +105,9 @@ h6>span.badge.bg-info {
 												<div class="counter-box">
 													<img src="../assets/images/icon/hotel.png"
 														class="img-fluid blur-up lazyload" alt="">
+														<c:if test="${empty sumMileage }">
+														<h3>0</h3>
+														</c:if>
 													<h3><fmt:formatNumber value="${sumPay}" pattern="#,###"/></h3>
 													<h5><b>총 결제금액</b></h5>
 												</div>
@@ -113,6 +116,9 @@ h6>span.badge.bg-info {
 												<div class="counter-box">
 												<img src="../assets/images/icon/taxi.png"
 														class="img-fluid blur-up lazyload" alt="">
+													<c:if test="${empty sumMileage }">
+													<h3>0</h3>
+													</c:if>
 													<h3><fmt:formatNumber value="${sumMileage }" pattern="#,###"/></h3>
 													<h5><b>총 사용 마일리지</b></h5>	
 												</div>
@@ -144,11 +150,11 @@ h6>span.badge.bg-info {
 													<h6>나의 비행 일정&nbsp;
 													<span class="badge bg-info">upcoming</span></h6>
 													<ul>
-													<c:if test="${!empty list }">
+													<c:if test="${empty Rlist }">
 														현재 비행 일정이 존재하지 않습니다.
 													</c:if>
 													
-													<c:if test="${empty list }">
+													<c:if test="${!empty Rlist }">
 														<c:forEach var="vo2" items="${Rlist }" >
 														<c:set var="day" value="${vo2.DDay%2 }"></c:set>
 														
