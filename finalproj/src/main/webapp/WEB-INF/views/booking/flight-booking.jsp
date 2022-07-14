@@ -7,9 +7,6 @@
 	var confirmValue=false;
 	var inwon=${adult+child};
 	$(document).ready(function(){
-		<c:forEach var="s" items="${data}">	
-		    $("#${s.PSeat}").attr("disabled",true)
-		</c:forEach>
 		 // 체크박스 클릭 시 
 		$("input[type=checkbox]").change(function(){
 			var seatNo=$(this).attr('id');
@@ -112,6 +109,7 @@
 				$("#gogekBirth").val("");
 				$("#gogekCon").val("");
 				$("label[for="+$("#gogekSeat").val()+"]").removeClass("active");
+				$('#modal_seatCheck').modal('hide')
 			});
 			
 			$("#btnGoNext").click(function(){
