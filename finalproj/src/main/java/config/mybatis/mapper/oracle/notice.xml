@@ -25,7 +25,7 @@
 			from
 			(
 				select B.*, (sysdate-b_regdate)*24 as dateTerm
-				from board B
+				from mboard B
 				<include refid="searchNoticeWhere"></include>
 				order by b_groupno desc, b_sortno
 			)A
@@ -38,37 +38,31 @@
 	</select>
 	
 	<insert id="insertNotice" parameterType="noticeVo">
-		<selectKey resultType="int" keyProperty="bNo" order="BEFORE">
-			select SEQ_BOARD.nextval from dual
+		<selectKey resultType="int" keyProperty="mbNo" order="BEFORE">
+			select SEQ_MBOARD.nextval from dual
 		</selectKey>
-		
-		insert into board(b_No,b_Id,b_Pwd,b_Title,b_Content,bt_No,
-			f_name,f_originname,f_filesize)
-		values(#{bNo},#{bId},#{bPwd},#{bTitle},#{bContent},#{btNo},
-			#{fName},#{fOriginName},#{fFileSize})
+		insert into mboard(mb_No,mb_Title,mb_Content,bt_No<!-- ,f_name,f_originname,f_filesize -->)
+		values(#{mbNo},#{mbTitle},#{mbContent},#{btNo}<!-- ,#{fName},#{fOriginName},#{fFileSize} -->)
 	</insert>
 	
 	<update id="updateCount" parameterType="int">
-		update board
+		update mboard
 		set b_count=b_count+1
-		where b_No=#{bNo}
+		where b_No=#{mbNo}
 	</update>
 	
 	<select id="selectByNo" parameterType="int" resultType="boardVo">
-		select * from board where b_No=#{bNo}
+		select * from board where mb_No=#{mbNo}
 	</select>
 	
 	<delete id="deleteNotice" parameterType="int">
-		call lostDelete(#{bNo})
+		call lostDelete(#{mbNo})
 	</delete>
 	
 	<sql id="searchWhere">
 		<where>
 			<if test="searchKeyword !=null and searchKeyword !=''">
 				b_title like '%' || #{searchKeyword} || '%'
-			</if>
-			<if test="bId !=null and bId !=''">
-			and b_Id = #{bId}
 			</if>
 			and b_regdate >= #{startDay}
 			<![CDATA[
@@ -83,6 +77,7 @@
 	
 	
 	
+	
 	<!-- <insert id="insertVoc" parameterType="VocVo">
 		<selectKey resultType="int" keyProperty="bNo" order="BEFORE">
 			select SEQ_BOARD.nextval from dual
@@ -94,33 +89,10 @@
 			#{fName},#{fOriginName},#{fFileSize})
 	</insert>
 	
-	<sql id="lostListWhere">
-			<if test="searchKeyword !=null and searchKeyword !=''">
-			and b_title like '%' || #{searchKeyword} || '%'
-			</if>
-			and b_regdate>=#{startDay}
-			<![CDATA[
-			and b_regdate<to_date(#{endDay})+1]]>
-	</sql>
 	
 	
-	<select id="selectLostAll" parameterType="DateSearchVO" resultType="boardVo">
 	
-	select *
-		from
-		(
-		    select rownum as RNUM, A.*
-		    from
-		    (
-		       	select * from board where bt_no=2 
-				<include refid="lostListWhere"></include>
-		    )A
-		)
-		where RNUM>#{firstRecordIndex} 
-		<![CDATA[
-		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
-		order by b_no desc
-	</select>
+	
 
 	<select id="selectLostTotalRecord" parameterType="DateSearchVO" resultType="int">
 			select count(*) from board where bt_no=2 

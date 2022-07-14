@@ -5,21 +5,13 @@ import lombok.Data;
 
 @Data
 public class NoticeVO {
-	private int bNo;
-	private String bId;
-	private String bPwd;
-	private String bTitle;
-	private String bContent;
-	private Timestamp bRegdate;
-	private int bCount;
-	private int bLike;
+	private int mbNo;
+	private String mbTitle;
+	private String mbContent;
+	private Timestamp mbRegdate;
+	private int mbCount;
+	private int mbLike;
 	private int btNo;
-	
-	//답변형 추가
-	private int bGroupno;
-	private int bStep;
-	private int bSortno;
-	private String bDelflag;
 	
 	//파일업로드 추가
 	private String fName;

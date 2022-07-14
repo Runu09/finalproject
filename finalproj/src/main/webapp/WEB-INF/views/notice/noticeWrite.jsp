@@ -27,9 +27,9 @@
 			
 			var chk=CKEDITOR.instances['editor1'].getData();
 			
-			if ($.trim($("#bTitle").val()).length == 0) {
+			if ($.trim($("#mbTitle").val()).length == 0) {
 				alert("제목을 입력하세요");
-				$("#bTitle").focus();
+				$("#mbTitle").focus();
 				event.preventDefault();
 				return;
 				
@@ -89,10 +89,10 @@
 											<div class="mb-3">
 												<label class="form-label-title">제목</label> 
 												<input class="form-control" type="text" placeholder="제목을 입력하세요"
-													name="bTitle" id="bTitle">
+													name="mbTitle" id="mbTitle">
 											</div>
 											<label class="form-label-title ">내용</label>
-											<textarea id="editor1" cols="30" rows="10" name="bContent"></textarea>
+											<textarea id="editor1" cols="30" rows="10" name="mbContent"></textarea>
 										</div>
 									</div>
 								</div>

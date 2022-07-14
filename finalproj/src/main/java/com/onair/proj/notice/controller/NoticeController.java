@@ -119,7 +119,8 @@ public class NoticeController {
 	}
 	
 	@PostMapping("/noticeWrite.do")
-	public String notice_post(@ModelAttribute NoticeVO vo, HttpSession session, HttpServletRequest request,Model model) 
+	public String notice_post(@ModelAttribute NoticeVO vo,
+			/* HttpSession session, */ HttpServletRequest request,Model model) 
 	{	
 		logger.info("공지사항 등록, 파라미터 vo={}", vo);
 		//파일 업로드 처리
