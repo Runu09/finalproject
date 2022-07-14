@@ -111,26 +111,8 @@
 				$("label[for="+$("#gogekSeat").val()+"]").removeClass("active");
 				$('#modal_seatCheck').modal('hide')
 			});
-			
-			$("#btnGoNext").click(function(){
-				$("#modal_confirm").modal('toggle');
-				$("form[name=frm]").submit();
-			});
-			
-			$("#btnBack").click(function(){
-				// alert("go back");
-				$("#modal_confirm").modal('toggle');
-			});
-			
 	    });
 	});
-	function confirmCheck(){
-		if(inwon==0){
-			$("#modal_confirm").modal('toggle');
-		}else{
-			alert("예약한 인원만큼 좌석을 체크인 해주세요.");				
-		}
-	}
 
 </script>
 <!-- breadcrumb start -->
@@ -692,7 +674,7 @@
 			  </div>
 			</div>
 	
-			<!-- Modal : 체크인 내역 최종확인 -->
+<!-- 		
 			<div class="modal fade" id="modal_confirm" tabindex="-1" role="dialog" 
 				aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 			  <div class="modal-dialog">
@@ -709,8 +691,8 @@
 			      </div>
 			    </div>
 			  </div>
-			</div>
-			
+			</div>-->
+			 
 			<!-- 최종전송 폼 -->
 			<form action="<c:url value='/booking/flight-booking-payment.do' />" method="get" name="frm">
 				<c:if test="${child==0 }">
@@ -725,7 +707,7 @@
 				<input type="hidden" name="child" value="${child}">
 				<div class="hiddenArea"></div>
 				<div class="continue-btn">
-				<input type="button" value="결제하기" class="btn btn-solid" onclick="confirmCheck();">
+				<input type="submit" value="예매하기" class="btn btn-solid">
 				</div>
 			</form>
             <%-- <div class="continue-btn">
