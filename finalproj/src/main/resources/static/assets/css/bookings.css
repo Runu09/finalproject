@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-button#btnTicket {
-	border: none;
-	background-color: #f9f9f9;
-}
 
 span.badge.bg-success {
 	width: 135px;
@@ -43,7 +39,7 @@ div#btnTicket {
 span.badge.bg-info, span.badge.bg-secondary, span.badge.bg-danger {
 	position: relative;
 	left: 56px;
-	bottom: -20px;
+	bottom: -26px;
 }
 
 i.fas.fa-window-close {
