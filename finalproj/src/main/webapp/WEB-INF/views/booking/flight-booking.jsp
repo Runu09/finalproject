@@ -716,10 +716,10 @@
 			<!-- 최종전송 폼 -->
 			<form action="<c:url value='/booking/flight-booking-payment.do' />" method="get" name="frm">
 				<c:if test="${child==0 }">
-					<input type='hidden' name='total' value='<fmt:formatNumber value="${schedule.SPrice*adult+25000}" pattern="#,###" />'>
+					<input type='hidden' name='total' value="${schedule.SPrice*adult+25000}">
                	</c:if>
                	<c:if test="${child!=0 }">
-               		<input type='hidden' name='total' value='<fmt:formatNumber value="${schedule.SPrice*adult+schedule.SPrice*child-schedule.SPrice*0.1+25000}" pattern="#,###" />'>
+               		<input type='hidden' name='total' value="${schedule.SPrice*adult+schedule.SPrice*child-schedule.SPrice*0.1+25000}">
                	</c:if>
 				<!-- 마일리지 사용전 총금액 -->
 				<input type="hidden" name="sNo" value="${schedule.SNo}">

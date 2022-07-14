@@ -23,8 +23,8 @@ public interface MemberService {
 	String findId(String name, String email);
 	
 	//마일리지 차감
-	int updateMileageM(int mMileage, String memId);
+	int updateMileageM(String mMileage, String memId);
 	
 	//마일리지 적립
-	int updateMileageP(int total, String memId);
+	int updateMileageP(String total, String memId);
 }
