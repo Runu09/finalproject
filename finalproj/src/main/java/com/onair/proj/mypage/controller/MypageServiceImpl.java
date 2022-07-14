@@ -19,12 +19,6 @@ public class MypageServiceImpl implements MypageService{
 	public List<BoardVO> selectByIdBoard(String bId) {
 		return mypageDao.selectByIdBoard(bId);
 	}
-	
-
-	@Override
-	public List<TicketViewVO> past(BookingSearchVO searchVo) {
-		return mypageDao.past(searchVo);
-	}
 
 
 	@Override
@@ -46,16 +40,28 @@ public class MypageServiceImpl implements MypageService{
 
 
 	@Override
-	public List<TicketViewVO> upcoming(BookingSearchVO searchVo) {
-		return mypageDao.upcoming(searchVo);
+	public int countReservation(String memId) {
+		return mypageDao.countReservation(memId);
 	}
 
 
 	@Override
-	public int getTotalRecord2(BookingSearchVO searchVo) {
-		return mypageDao.getTotalRecord2(searchVo);
+	public int countBoard(String bId) {
+		return mypageDao.countBoard(bId);
 	}
 
+	/*
+	@Override
+	public int sumPay(String memId) {
+		return mypageDao.sumPay(memId);
+	}
+
+
+	@Override
+	public int sumMileage(String memId) {
+		return mypageDao.sumMileage(memId);
+	}
+*/
 
 	
 

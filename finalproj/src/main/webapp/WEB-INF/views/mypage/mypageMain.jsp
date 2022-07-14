@@ -1,6 +1,8 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@include file="../inc/top.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +16,7 @@
 	width: 300px;
 }
 
-span#Btype {
+a#Btype {
 position: relative;
 right: 17px;
 font-size: 13px;
@@ -32,6 +34,22 @@ span#sName {
 a#Btitle {
     color: black;
 }
+
+p#p1 {
+    font-size: 18px;
+}
+h6>span.badge.bg-danger{
+    position: relative;
+    bottom: 2px;   
+}
+h6>span.badge.bg-info {
+    position: relative;
+    bottom: 2px;
+    margin-left: -5px;
+}
+
+
+
 </style>
 
 <body>
@@ -55,7 +73,9 @@ a#Btitle {
 											welcome! <span>${vo.memName}님</span>
 										</h5>
 										</form>
-										<p>${vo.memName}님의 현재 OnAir 이용 현황을 확인해 보세요!</p>
+										<c:set var="now" value="<%= new java.util.Date() %>" />
+										<p id="p1"><b>${vo.memName}님의 <fmt:formatDate value="${now}" pattern="M" />월
+										한 달간 OnAir 이용 현황을 확인해 보세요 !</b></p>
 										<div class="complete-profile">
 											<div class="row">
 												<div class="col-xl-4">
@@ -85,32 +105,32 @@ a#Btitle {
 												<div class="counter-box">
 													<img src="../assets/images/icon/hotel.png"
 														class="img-fluid blur-up lazyload" alt="">
-													<h3>25</h3>
-													<h5>hotel booked</h5>
+													<h3><fmt:formatNumber value="${sumPay}" pattern="#,###"/></h3>
+													<h5><b>총 결제금액</b></h5>
+												</div>
+											</div>
+											<div class="col-xl-3 col-sm-6">
+												<div class="counter-box">
+												<img src="../assets/images/icon/taxi.png"
+														class="img-fluid blur-up lazyload" alt="">
+													<h3><fmt:formatNumber value="${sumMileage }" pattern="#,###"/></h3>
+													<h5><b>총 사용 마일리지</b></h5>	
 												</div>
 											</div>
 											<div class="col-xl-3 col-sm-6">
 												<div class="counter-box">
 													<img src="../assets/images/icon/flight.png"
 														class="img-fluid blur-up lazyload" alt="">
-													<h3>12</h3>
-													<h5>flight booked</h5>
-												</div>
-											</div>
-											<div class="col-xl-3 col-sm-6">
-												<div class="counter-box">
-													<img src="../assets/images/icon/taxi.png"
-														class="img-fluid blur-up lazyload" alt="">
-													<h3>50</h3>
-													<h5>cab booked</h5>
+													<h3>${countR}</h3>
+													<h5><b>항공권 예매</b></h5>
 												</div>
 											</div>
 											<div class="col-xl-3 col-sm-6">
 												<div class="counter-box">
 													<img src="../assets/images/icon/food.png"
 														class="img-fluid blur-up lazyload" alt="">
-													<h3>40</h3>
-													<h5>food ordered</h5>
+													<h3>${countB }</h3>
+													<h5><b>내가 쓴 글</b></h5>
 												</div>
 											</div>
 										</div>
@@ -135,7 +155,20 @@ a#Btitle {
 														<li <c:if test="${day ==0 }">class="blue-line"</c:if>>
 														<i class="fas fa-plane">
 														</i> ${vo2.ADepnm } to ${vo2.AArrnm }
-														<span> ${vo2.DDay }일 후  </span>
+														
+														<fmt:formatDate var="today" value="${now}" pattern="dd" />
+														<fmt:formatDate var="start" value="${vo2.SStarttime}" pattern="dd" />
+														<fmt:formatDate var="startTime" value="${vo2.SStarttime}" pattern="HH:mm" />
+														
+														<c:if test="${vo2.DDay == 0 && start == today}">
+														<span><b>오늘 ${startTime }</b></span>
+														</c:if>
+														<c:if test="${vo2.DDay == 0 && start > today}">
+														<span> 1일 후  </span>
+														</c:if>
+														<c:if test="${vo2.DDay > 0}">
+														<span> ${vo2.DDay}일 후  </span>
+														</c:if>
 														<span id="sName">${vo2.SName } / ${vo2.alName }</span>
 														
 														</li>
@@ -167,12 +200,12 @@ a#Btitle {
 														
 														
 														<span><fmt:formatDate value="${vo3.BRegdate }" pattern="yyyy-MM-dd"/> </span>
-														<span id="Btype">
+														<span>
 														<c:if test="${vo3.btNo == 2}">
-															유실물 찾기
+															<a href="<c:url value='/lost/list.do'/>" id="Btype">유실물 찾기</a>
 														</c:if>
 														<c:if test="${vo3.btNo == 3}">
-															고객의 소리
+															<a href="<c:url value='/voc/voc_list'/>" id="Btype">고객의 소리</a>
 														</c:if>
 														</span>
 														

@@ -35,46 +35,6 @@
 	]]>
 	</select>
 	
-	<select id="past" parameterType="bookingsearchVo" resultType="ticketviewVo">
-	select * 
-			from
-			(
-				select ROWNUM as RNUM, A.*
-				from
-				(
-					select * from ticketView
-					<include refid="searchWhere"></include>
-					and r_checkpay='Y'
-					<![CDATA[ and s_startTime < SYSDATE ]]>
-					order by s_starttime
-				)A
-			)
-			where  RNUM>#{firstRecordIndex}
-			<![CDATA[
-			and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
-		
-		</select>
-	
-	<select id="upcoming" parameterType="bookingsearchVo" resultType="ticketviewVo">
-	select * 
-			from
-			(
-				select ROWNUM as RNUM, A.*
-				from
-				(
-					select * from ticketView
-					<include refid="searchWhere"></include>
-					and r_checkpay='Y'
-					and s_startTime >= SYSDATE
-					order by s_starttime
-				)A
-			)
-			where  RNUM>#{firstRecordIndex}
-			<![CDATA[
-			and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
-	
-	</select>
-	
 	<select id="selectAll" parameterType="bookingsearchVo" resultType="ticketviewVo">
 		select * 
 			from
@@ -85,7 +45,7 @@
 				<if test="ticketType==null or ticketType==''">
 		    		select * from ticketView
 					<include refid="searchWhere"></include>
-					order by ticketType DESC
+					order by ticketType DESC,s_starttime
 					
 				</if>
 				<if test="ticketType!=null and ticketType!=''">
@@ -110,6 +70,30 @@
 			and r_checkpay='Y'
 	</select>
 
+	<select id="countReservation" parameterType="String" resultType="int">
+		select count(*) from ticketView
+		where mem_id=#{mem_id}
+		and to_char(r_date, 'MM') = to_char(SYSDATE, 'MM')
+		and ticketType !='CANCLE'
+	</select>
 	
-
+	<select id="countBoard" parameterType="String" resultType="int">
+		select count(*) from board
+		where b_id=#{b_id}
+		and to_char(b_regdate, 'MM') = to_char(SYSDATE, 'MM')
+	</select>
+	
+	<select id="sumPay" parameterType="String" resultType="int" >
+		select sum(p_pay) from ticketView
+		where mem_id=#{mem_id}
+		and to_char(p_paytime, 'MM') = to_char(SYSDATE, 'MM')
+		and ticketType !='CANCLE'
+	</select>
+	
+	<select id="sumMileage" parameterType="string" resultType="int">
+		select sum(p_mileage) from ticketView
+		where mem_id=#{mem_id}
+		and to_char(p_paytime, 'MM') = to_char(SYSDATE, 'MM')
+		and ticketType !='CANCLE'
+	</select>
 </mapper>
