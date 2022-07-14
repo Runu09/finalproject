@@ -7,8 +7,8 @@
 	<selectKey resultType="int" keyProperty="pNo" order="BEFORE">
 		select SEQ_PAY.nextval from dual
 	</selectKey>
-      	insert into passenger (p_no, mem_no, p_pay, p_cancle, p_mileage, p_impuid)
-      	values (#{pNo}, #{memNo}, #{pPay}, #{pCancle}, #{pMileage}, #{pImpUid})
+      	insert into passenger (p_no, mem_no, p_pay, p_mileage, p_imp_uid)
+      	values (#{pNo}, #{memNo}, #{pPay}, #{pMileage}, #{pImpUid})
     </insert>
 
     <select id="selectPay" resultType="PayVO">

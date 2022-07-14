@@ -21,7 +21,7 @@ public class MemberVO {
 	private String mZipcode;
 	private String mAdd1;
 	private String mAdd2;
-	private int mMileage;
+	private String mMileage;
 	private Timestamp mOutdate;
 	private String mPic;
 }

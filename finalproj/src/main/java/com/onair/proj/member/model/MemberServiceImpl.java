@@ -78,12 +78,12 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int updateMileageM(int mMileage, String memId) {
+	public int updateMileageM(String mMileage, String memId) {
 		return memberDao.updateMileageM(mMileage, memId);
 	}
 
 	@Override
-	public int updateMileageP(int total, String memId) {
+	public int updateMileageP(String total, String memId) {
 		return memberDao.updateMileageP(total, memId);
 	}
 
