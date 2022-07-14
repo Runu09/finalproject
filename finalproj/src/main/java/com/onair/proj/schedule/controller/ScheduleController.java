@@ -124,8 +124,9 @@ public class ScheduleController {
     	
     	
     	ScheduleVO vo=scheduleService.selectBySName(sNo);
+    	PassengerVO pVo=new PassengerVO();
     	
-    	List<PassengerVO> pList=new ArrayList<PassengerVO>();
+    	List<PassengerVO> pList=passengerService.selectPassenger(pVo);
     	
     	String adult=req.getParameter("adult"); //성인 인원수
     	String child=req.getParameter("child"); //아동 인원수

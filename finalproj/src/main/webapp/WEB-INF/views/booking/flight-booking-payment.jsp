@@ -23,7 +23,7 @@ $(function(){
 		}, function(rsp) { // callback
 			console.log(rsp);
 			if (rsp.success) {
-				$("input[name=ImpUid]").val(rsp.imp_uid);
+				$("input[name=pImpUid]").val(rsp.imp_uid);
 				console.log('빌링키 발급 성공',rsp);
 				var msg = '결제가 완료되었습니다.';
 				alert(msg);
@@ -186,27 +186,23 @@ $(function(){
 			                            <form action="<c:url value='/booking/flight-booking-success.do' />" method="post" name="payment">
 											<input type="text" name="rAdult" value="${adult}">
 											<input type="text" name="rChild" value="${child}">
-											
-											<c:if test="${!empty mMileage}">
-												<input type="text" name="mMileage" value="${mMileage}">
-												<input type="text" name="pMileage" value="${mMileage}">
-											</c:if>
-											<c:if test="${empty mMileage}">
-												<input type="text" name="mMileage" value="0">
-												<input type="text" name="pMileage" value="0">
-											</c:if>
+										
 											<input type="text" name="memNo" value="${memVo.memNo}">
 											<input type="text" name="sNo" value="${schedule.SNo}">
 											
 											<c:if test="${empty mMileage}">
-                                       			<input type="text" name="total" value='<fmt:formatNumber value="${total}" pattern="#,###" />'>
-                                       			<input type="text" name="pPay" value='<fmt:formatNumber value="${total}" pattern="#,###" />'>
-                                       			<input type="text" name="rPay" value='<fmt:formatNumber value="${total}" pattern="#,###" />'>
+												<input type="text" name="mMileage" value="0">
+												<input type="text" name="pMileage" value="0">
+                                       			<input type="text" name="total" value="${total}">
+                                       			<input type="text" name="pPay" value="${total}">
+                                       			<input type="text" name="rPay" value="${total}">
                                             </c:if>
                                            	<c:if test="${!empty mMileage}">
-                                            	<input type="text" name="total" value='<fmt:formatNumber value="${mileTotal}" pattern="#,###" />'>
-                                            	<input type="text" name="pPay" value='<fmt:formatNumber value="${mileTotal}" pattern="#,###" />'>
-                                            	<input type="text" name="rPay" value='<fmt:formatNumber value="${mileTotal}" pattern="#,###" />'>
+                                           		<input type="text" name="mMileage" value="${mMileage}">
+												<input type="text" name="pMileage" value="${mMileage}">
+                                            	<input type="text" name="total" value="${mileTotal}">
+                                            	<input type="text" name="pPay" value="${mileTotal}">
+                                            	<input type="text" name="rPay" value="${mileTotal}">
                                            	</c:if>
 			                            	<c:forEach var="p1" items="${pSeat}" varStatus="status">
 												<input type="text" name="pSeat" value="${p1}">
