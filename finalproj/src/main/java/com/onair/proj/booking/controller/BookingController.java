@@ -26,26 +26,18 @@ public class BookingController {
 
 	private final BookingService bookingService;
 	
-	/*
-	@GetMapping("/eTicket.do")
-	public String eTicket() {
-		return "/booking/eTicket";
-	}
-	*/
-	
-	
 	@RequestMapping("/eTicket.do")
 	public String cartList(@RequestParam int rNo, Model model) {
 		
 		logger.info("eTickt, 파라미터 rNo={}", rNo);
 		
-		/*
+		
 		if(rNo==0) {
 			model.addAttribute("msg", "잘못된 url!");
 			model.addAttribute("url", "/main/main.do");
 			return "/common/message";
 		}
-		*/
+		
 		TicketViewVO vo=bookingService.ticketDetail(rNo);
 		logger.info("eTickt 조회 결과, vo={}", vo);
 		
