@@ -39,7 +39,7 @@
 		insReply += '<form name="vocReplyEdit" method="post" action="<c:url value='/voc/vocReplyEdit'/>">';
 		insReply += '<input type="hidden" name="cNo" value='+cNo+'>';
 		insReply += '<input type="hidden" name="bNo" value='+bNo+'>';
-		insReply += '<input type="text" name="cContent" id="editContent" value='+cContent+'>';
+		insReply += '<textarea name="cContent" id="editContent">'+cContent+'</textarea>';
 		insReply += '<button type="submit">수정</button>';
 		insReply += '<input type="button" value="취소" onclick="javascript:replyEditCancel('+idx+')">';
 		insReply += '</form>';

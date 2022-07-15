@@ -4,6 +4,10 @@ $(document).ready(
 		$(function(){
 			$('.arr li').click(function(){
 				var acity=$(this).find('h5').text();
+				if(acity==$('#departure').val()){
+					alert("출발지와 도착지를 다르게 선택하세요.");
+					acity.val().remove;
+				}
 				setArrival(acity)
 			});
 		});
@@ -11,7 +15,10 @@ $(document).ready(
 		$(function(){
 			$('.dep li').click(function(){
 				var dcity=$(this).find('h5').text();
-				
+				if(dcity==$('#arrival').val()){
+					alert("출발지와 도착지를 다르게 선택하세요.");
+					dcity.val().remove;
+				}
 				setDeparture(dcity)
 			});
 		});
@@ -23,9 +30,11 @@ $(document).ready(
 		};
 		function setDeparture(airport){
 			$('#departure').val(airport);
+			
 			$('#depBox').removeClass('show');
 			
 		};
+
 			
 		
 		$(function(){
@@ -78,7 +87,7 @@ $(document).ready(
 		};
 		
 		$(function(){
-			$('#datepicker').on("change",function(){
+			$('#datepicker2').on("change",function(){
 				var hdDate=$(this).val();
 				var hdDate1 = hdDate.substring(0,4)+""+hdDate.substring(5,7)+""+hdDate.substring(8,10);
 				$('#hdDate').val(hdDate1);

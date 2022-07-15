@@ -7,11 +7,16 @@
 	<selectKey resultType="int" keyProperty="pNo" order="BEFORE">
 		select SEQ_PASSENGER.nextval from dual
 	</selectKey>
-      	insert into passenger (p_no, r_no, p_seat, p_name, p_birthday, p_con)
-      	values (#{pNo}, SEQ_RESERVATION.currval, #{pSeat}, #{pName}, #{pBirthday}, #{pCon})
+      	insert into passenger (p_no, r_no, p_seat, p_name, p_birthday, p_con, s_no)
+      	values (#{pNo}, SEQ_RESERVATION.currval, #{pSeat}, #{pName}, #{pBirthday}, #{pCon}, #{sNo})
     </insert>
 
     <select id="selectPassenger" resultType="PassengerVO">
         select * from passenger
     </select>
+    
+    <select id="selectBySNo" parameterType="int" resultType="PassengerVO">
+		select * from passenger 
+		where s_no=#{sNo}
+	</select>
 </mapper>

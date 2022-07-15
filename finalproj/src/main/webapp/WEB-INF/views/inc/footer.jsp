@@ -19,6 +19,7 @@
 								<li><i class="fas fa-map-marker-alt"></i> 서울특별시 서대문구 104-48 </li>
 								<li><i class="fas fa-phone-alt"></i> 010 - 1234 - 5678</li>
 								<li style="text-transform:none;"><i class="fas fa-envelope"></i> onair4@naver.com</li>
+								<li>방문자 수 : <%= application.getAttribute("count") %></li>
 							</ul>
 						</div>
 					</div>
@@ -142,13 +143,21 @@
     <script src="../assets/js/script.js"></script>
 
     <script>
+	    var today;
+	    today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+	   
         $('#datepicker').datepicker({
             uiLibrary: 'bootstrap4'
         });
         $('#datepicker1').datepicker({
             uiLibrary: 'bootstrap4'
-            	
         });
+        
+        $('#datepicker2').datepicker({
+        	minDate: today,
+            uiLibrary: 'bootstrap4'
+        });
+        
         new WOW().init();
     </script>
     

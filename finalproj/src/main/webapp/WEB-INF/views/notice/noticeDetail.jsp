@@ -16,6 +16,12 @@
 .returnList {
 	text-align: right;
 }
+
+#title {
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
 </style>
 
 
@@ -38,20 +44,25 @@
 <section class="small-section bg-inner" data-sticky_parent>
     <div class="container">
         <div class="row">
-        	<div>
-        	<h1 style="text-align: center;">title</h1>
-        	</div>
+        	<div class="title-part">
+                <ul class="post-detail">
+                    <li>${vo.mbRegdate }</li>
+                    <li> | </li>
+                    <li>조회수 : ${vo.mbCount }</li>
+                </ul>
+                <hr>
+                <div id="title">
+                	<h2>${vo.mbTitle }</h2>
+                </div>
+            </div>
         	<hr size="5"><br><br>
             <div class="col-lg-10">
                 <div class="product_img_scroll" data-sticky_column>
                     <div class="faq-content tab-content" id="top-tabContent">
-                        
-                        
-                        <h4 style="text-align: center;">내용</h4>
-                        
-                        
+                        <h2 style="text-align: center;">${vo.mbContent }</h2>
+                        <hr size="3">
                         <div class="returnList">
-                        	<button><a href="<c:url value='/customer/notice.do'/>">목록 보기</a></button>
+                        	<button><a href="<c:url value='/notice/notice.do'/>">목록</a></button>
                         </div>
                         
                     </div>

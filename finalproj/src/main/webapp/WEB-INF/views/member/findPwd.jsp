@@ -47,31 +47,61 @@
 		$('#btClose').click(function() {
 			self.close();
 		});
-		$('#btAuth').click(function() {
-			var email = $('#email').val();
+		$('#btAuth')
+				.click(
+						function() {
+							var email = $('#email').val();
+							if ($.trim($('#memId').val()) == "") {
+								alert("아이디를 입력하세요");
+								$("#memId").focus();
+								event.preventDefault();
+								return;
+							} else if ($.trim($('#email').val()) == "") {
+								alert("이메일을 입력하세요");
+								$("#email").focus();
+								event.preventDefault();
+								return;
+							}
+							$
+									.ajax({
+										url : "<c:url value='/email/sendEmail.do'/>",
+										data : {
+											memId : $('#memId').val(),
+											email : $('#email').val()
+										},
+										type : 'post',
+										dataType : 'json',
+										success : function(res) {
+											alert("인증번호를 발송했습니다.\n인증번호가 오지 않으면 입력하신 정보와 회원정보가 일치하는지 확인해 주세요.");
+											$('#btAuth').attr('disabled', true);
+											$('#confirmKey').attr('disabled',
+													false);
+											$('#chkAuth').val(res);
 
-			$.ajax({
-				url : "<c:url value='/email/sendEmail.do'/>",
-				data : {memId : $('#memId').val(),
-				email : $('#email').val()},
-				type : 'post',
-				dataType : 'json',
-				success : function(res) {
-					alert("인증번호를 발송했습니다.\n인증번호가 오지 않으면 입력하신 정보와 회원정보가 일치하는지 확인해 주세요.");
-					$('#btAuth').attr('disabled', true);
-					$('#confirmKey').attr('disabled', false);
-					$('#chkAuth').val(res);
+										},
+										error : function(xhr, status, error) {
+											alert('아이디를 확인해주세요');
+										}
+									});
+							event.preventDefault();
 
-				},
-				error : function(xhr, status, error) {
-					alert('error: ' + error);
-				}
-			});
-			event.preventDefault();
-
-		});
+						});
 
 		$('#btOk').click(function() {
+			if ($.trim($('#memId').val()) == "") {
+				alert("아이디를 입력하세요");
+				$("#memId").focus();
+				event.preventDefault();
+			} else if ($.trim($('#email').val()) == "") {
+				alert("이메일을 입력하세요");
+				$("#email").focus();
+				event.preventDefault();
+			} else if ($.trim($('#confirmKey').val()) == "") {
+				alert("인증번호를 입력하세요")
+				$("#confirmKey").focus();
+				event.preventDefault();
+			}
+
 			if ($('#confirmKey').val() == $('#chkAuth').val()) {
 				$('#pid').val($('#memId').val());
 				/* location.href = "<c:url value='/member/newPwd.do'/>"; */
@@ -102,10 +132,10 @@
 					<div class="form-group col-md-2" style="margin-left: -12px">
 						아이디</div>
 					<div class="form-group col-md-6">
-					<form method="post" name="frmPwd"
+						<form method="post" name="frmPwd"
 							action="<c:url value='/member/sendEmail.do'/>" id="frmPwd">
-						<input type="text" class="form-control" id="memId"
-							placeholder="아이디 입력" required="" style="text-transform: none;">
+							<input type="text" class="form-control" id="memId"
+								placeholder="아이디 입력" required="" style="text-transform: none;">
 					</div>
 					<div class="col-md-3"></div>
 					<div class="form-group col-md-2" style="margin-left: -12px">
@@ -115,9 +145,9 @@
 						<%-- <form method="post" name="frmPwd"
 							action="<c:url value='/member/sendEmail.do'/>" id="frmPwd"> --%>
 
-							<input type="text" class="form-control" id="email"
-								placeholder="이메일 주소 입력" name="email" required=""
-								style="text-transform: none;">
+						<input type="text" class="form-control" id="email"
+							placeholder="이메일 주소 입력" name="email" required=""
+							style="text-transform: none;">
 					</div>
 					<div class="form-group col-md-3">
 						<button class="btn btn-solid" type="submit" id="btAuth">인증번호
@@ -135,15 +165,14 @@
 						<input type="hidden" value="${res}" id="chkAuth">
 					</div>
 					<form method="post" name="frmNew" id="frmNew"
-					action="<c:url value='/member/newPwd.do'/>" 
-					>
-					<input type="hidden" name="pid" id="pid">
-					<div class="form-group col-md-12" style="text-align: center">
-						<button class="btn btn-solid" type="submit" id="btOk">다음</button>
-						<button class="btn btn-solid"
-							style="color: red; background-color: white; border-color: red; margin-left: 10px"
-							id="btClose">닫기</button>
-					</div>
+						action="<c:url value='/member/newPwd.do'/>">
+						<input type="hidden" name="pid" id="pid">
+						<div class="form-group col-md-12" style="text-align: center">
+							<button class="btn btn-solid" type="submit" id="btOk">다음</button>
+							<button class="btn btn-solid"
+								style="color: red; background-color: white; border-color: red; margin-left: 10px"
+								id="btClose">닫기</button>
+						</div>
 					</form>
 				</div>
 

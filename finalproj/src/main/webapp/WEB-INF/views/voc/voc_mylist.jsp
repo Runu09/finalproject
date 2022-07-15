@@ -36,18 +36,27 @@
 	<input type="hidden" name="searchKeyword" value="${param.searchKeyword }">
 	<input type="hidden" name="searchCondition" value="b_title">
 	<input type="hidden" name="currentPage">
-	<input type="text" class="startDay" name="startDay" value="${dateSearchVO.startDay }">
-	<input type="text" class="endDay" name="endDay" value="${dateSearchVO.endDay }">
+	<input type="hidden" class="startDay" name="startDay" value="${dateSearchVO.startDay }">
+	<input type="hidden" class="endDay" name="endDay" value="${dateSearchVO.endDay }">
 </form>
 <!-- breadcrumb start -->
-<section class="breadcrumb-section pt-0 bg-size"  style="height: 350px">
-	<!-- <img src="../assets/images/flights/flight-breadcrumb2.jpg" class="bg-img img-fluid blur-up" alt="">
-         -->
+<!-- <section class="breadcrumb-section pt-0 bg-size"  style="height: 350px">
+	<img src="../assets/images/flights/flight-breadcrumb2.jpg" class="bg-img img-fluid blur-up" alt="">
+        
 	<div class="breadcrumb-content dark-content" style="height: 350px">
 		<div>
 			<h2>고객의 소리</h2>
 		</div>
 	</div>
+</section> -->
+<section class="breadcrumb-section no-bg pt-0" id="block"
+	style="width: 100%; background-images: http://www.astronomer.rocks/news/photo/202103/89853_24782_324.jpeg;">
+	<div class="breadcrumb-content overlay-black">
+		<div>
+			<h2>고객의 소리</h2>
+		</div>
+	</div>
+	<div class="title-breadcrumb">OnAir</div>
 </section>
 <!-- breadcrumb end -->
 

@@ -259,62 +259,6 @@
 									class="sidebar-link sidebar-title link-nav"
 									href="<c:url value='/admin/adminMain'/>"><i
 										data-feather="home"> </i><span>홈</span></a></li>
-								<%-- <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title" href="#"><i
-                                            data-feather="users"></i><span>유저 </span></a>
-                                    <ul class="sidebar-submenu">
-                                        <li><a href="<c:url value='/admin/allUser'/>">유저 조회</a></li>
-                                        <li><a href="<c:url value='/admin/allUser'/>">관리자 추가</a></li>
-                                    </ul>
-                                </li> --%>
-
-								<!-- <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i
-                                            data-feather="map"></i><span>Tour Packages</span></a>
-                                    <ul class="sidebar-submenu">
-                                        <li><a href="all-packages.html">All Packages</a></li>
-                                        <li><a href="package-detail.html">Package's Detail</a></li>
-                                        <li><a href="add-new-package.html">Add New Package</a></li>
-                                        <li><a href="all-package-categories.html">All Package Categories</a></li>
-                                        <li><a href="add-package-category.html">Add Package Category</a></li>
-                                    </ul>
-                                </li> -->
-
-								<!--  <li class="sidebar-list">
-                                    <a class="linear-icon-link sidebar-link sidebar-title" href="#"><i
-                                            data-feather="briefcase"></i><span>hotel
-                                        </span></a>
-                                    <ul class="sidebar-submenu">
-                                        <li><a href="all-hotel.html">All Hotels</a></li>
-
-                                        <li><a href="hotel-details.html">Hotel's Detail</a></li>
-                                        <li><a href="add-new-hotel.html">Add New Hotel</a></li>
-
-                                    </ul>
-                                </li>
-
-                                <li class="sidebar-list"><a class="linear-icon-link sidebar-link sidebar-title"
-                                        href="#"><i data-feather="coffee"></i><span>Restaurant </span></a>
-                                    <ul class="sidebar-submenu">
-                                        <li><a href="all-restaurant.html">All Restaurant</a></li>
-
-                                        <li><a href="restaurant-details.html">Restaurant's Details</a></li>
-                                        <li><a href="add-new-restaurant.html">Add New Restaurant </a></li>
-                                        <li><a href="restaurant-menu.html">Menu Items</a></li>
-                                        <li><a href="restaurant-menu-add.html">Add Menu item </a></li>
-                                    </ul>
-                                </li>
-
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i
-                                            data-feather="navigation"></i><span>Cab</span></a>
-                                    <ul class="sidebar-submenu">
-                                        <li><a href="all-cars.html">All Cars</a></li>
-                                        <li><a href="cars-detail.html">Cars's Details </a></li>
-
-                                        <li><a href="add-new-cars.html">Add New Cars</a></li>
-                                        <li><a href="all-drivers.html">All Drivers</a></li>
-                                        <li><a href="add-driver.html">Add Drivers</a></li>
-                                    </ul>
-                                </li> -->
 								<li class="sidebar-list"><a
 									class="sidebar-link sidebar-title link-nav"
 									href="<c:url value='/admin/allUser'/>"><i
@@ -324,7 +268,7 @@
                                 </li> --%>
 								<li class="sidebar-list"><a
 									class="sidebar-link sidebar-title" href="#"><i
-										data-feather="navigation"></i><span>관리자</span></a>
+										data-feather="plus-circle"></i><span>관리자</span></a>
 									<ul class="sidebar-submenu">
 										<li><a href="<c:url value='/admin/adminRegister'/>">관리자
 												등록</a></li>
@@ -338,7 +282,7 @@
 										data-feather="message-square"> </i><span>쪽지함</span></a></li> -->
 								<li class="sidebar-list"><a
 									class="sidebar-link sidebar-title" href="#"><i
-										data-feather="navigation"></i><span>쪽지</span></a>
+										data-feather="message-square"></i><span>쪽지</span></a>
 									<ul class="sidebar-submenu">
 										<li><a href="<c:url value='/note/write.do'/>">쪽지 발송</a></li>
 										<li><a href="<c:url value='/note/list.do'/>">쪽지 관리</a></li>
@@ -349,9 +293,9 @@
 									class="sidebar-link sidebar-title" href="#"><i
 										data-feather="navigation"></i><span>공지사항</span></a>
 									<ul class="sidebar-submenu">
-										<li><a href="all-cars.html">공지사항 목록</a></li>
-										<li><a href="cars-detail.html">공지사항 등록</a></li>
-										<li><a href="add-new-cars.html">공지사항 수정</a></li>
+										<li><a href="<c:url value='/notice/notice.do'/>">공지사항 목록</a></li>
+										<li><a href="<c:url value='/notice/noticeWrite.do'/>">공지사항 등록</a></li>
+										<li><a href="<c:url value='/notice/noticeDelList.do'/>">공지사항 삭제</a></li>
 									</ul></li>
 								<!-- <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="setting.html"><i data-feather="settings"> </i><span>Setting</span></a>

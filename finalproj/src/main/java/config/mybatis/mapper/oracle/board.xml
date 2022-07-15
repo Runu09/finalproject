@@ -58,21 +58,16 @@
 		    select rownum as RNUM, A.*
 		    from
 		    (
-		       	select * from board where bt_no=2 
+		       	select * from board where bt_no=2
 				<include refid="lostListWhere"></include>
+				order by b_no desc
 		    )A
 		)
 		where RNUM>#{firstRecordIndex} 
 		<![CDATA[
 		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
-		order by b_no desc
+		<!-- order by b_no desc -->
 	</select>
-	
-	<!-- <select id="">
-		select * from board
-		where b_title like '%' || #{searchKeyword} || '%'
-		and bt_no=1
-	</select> -->
 	
 	<select id="selectNoticeAll" resultType="boardVo">
 		select * from board

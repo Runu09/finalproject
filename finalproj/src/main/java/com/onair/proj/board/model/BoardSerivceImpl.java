@@ -37,11 +37,6 @@ public class BoardSerivceImpl implements BoardService{
 	public List<BoardVO> selectLostAll(DateSearchVO searchVo) {
 		return boardDao.selectLostAll(searchVo);
 	}
-
-	@Override
-	public List<BoardVO> selectNoticeAll() {
-		return boardDao.selectNoticeAll();
-	}
 	
 	public int selectLostTotalRecord(DateSearchVO searchVo) {
 		return boardDao.selectLostTotalRecord(searchVo);

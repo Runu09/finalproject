@@ -1,6 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<% 
+ Integer count = (Integer)application.getAttribute("count");
+ Integer newCount = null;
+ 
+ if(count == null) {
+  application.setAttribute("count", 1);
+  
+ } else {
+  
+  if(session.isNew()) {
+   newCount = count + 1;
+   application.setAttribute("count", newCount);
+  } 
+ }
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -161,7 +178,7 @@ function noteList(){
 										<li class="dropdown"><a href="#"
 											class="nav-link menu-title">고객지원</a>
 											<ul class="nav-submenu menu-content">
-												<li><a href="<c:url value='/customer/notice.do'/>"
+												<li><a href="<c:url value='/notice/notice.do'/>"
 													class="submenu-title">공지사항</a></li>
 												<li><a href="<c:url value='/customer/information.do'/>"
 													class="submenu-title">이용안내</a></li>
