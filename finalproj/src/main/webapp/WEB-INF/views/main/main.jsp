@@ -98,7 +98,7 @@
                                         <div class="form-group mb-0">
                                     <div class="row">
                                         <div class="col">
-                                            <input placeholder="탑승일" id="datepicker" name="datepicker"/>
+                                            <input placeholder="탑승일" id="datepicker2" name="datepicker"/>
                                             <input type="hidden" id="hdDate" name="hdDate">
                                         </div>
                                         <div class="col">
