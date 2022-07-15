@@ -7,7 +7,7 @@ function pageFunc(curPage){
 	$('form[name=frmPage]').submit();
 	
 	$('#btSearch').click(function() {
-		location.href = "<c:url value='/admin/allUser'/>";
+		location.href = "<c:url value='/notice/noticeDelete.do'/>";
 	});
 }
 </script>
@@ -41,46 +41,49 @@ function pageFunc(curPage){
                 <div class="card-header  card-header--2">
 
                   <div>
-                    <h5>관리자 조회</h5>
+                    <h5>공지사항 삭제</h5>
                   </div>
-
                   <!-- <form class="d-inline-flex">
                     <a href="" class="align-items-center btn btn-theme"> <i
                         data-feather="plus-square"></i>Add New
                     </a>
                   </form> -->
-
                 </div>
 			
                 <div class="card-body">
-                	
                   <div>
                     <div class="table-responsive table-desi">
-                      <table class="user-table table table-striped" style="width: 60%; margin-left: 325px;" >
+                      <table class="user-table table table-striped" >
                       <!-- <table class="user-table table table-striped" > -->
                         <thead>
                           <tr>
-                            <th align="center" >유저아이디</th>
-                            <th align="center">이름</th>
+                            <th align="center">번호</th>
+                            <th align="center">제목</th>
+                            <th align="center">등록일</th>
+                            <th align="center">조회수</th>
                             <th align="center">삭제</th>
                           </tr>
                         </thead>
                         <tbody>
-                        <c:if test="${empty alist }">
+                        <c:if test="${empty noticeList }">
                         	<tr>
-                        		<td colspan="3" style="text-align: center;"><span class=" d-block">해당 회원이 없습니다.</span></td>
+                        		<td colspan="5" style="text-align: center;"><span class=" d-block">해당 공지가 없습니다.</span></td>
                         	</tr>
                         </c:if>
-                        <c:if test="${!empty alist }">
-                        <c:forEach var="vo" items="${alist }" varStatus="status">
+                        <c:if test="${!empty noticeList }">
+                        <c:forEach var="vo" items="${noticeList }" varStatus="status">
                           <tr>
-                            <td style="width: 200px"><span class=" d-block" >${vo.manId }</span>
+                            <td style="width: 200px"><span class=" d-block" >${vo.mbNo }</span>
                             </td>
-                            <td style="width: 200px"><a href="#"><span class="d-block ">${vo.manName }</span><span></span></a>
+                            <td style="width: 200px"><a href="#"><span class="d-block ">${vo.mbTitle }</span><span></span></a>
+                            </td>
+                            <td style="width: 200px"><span class=" d-block" >${vo.mbRegdate }</span>
+                            </td>
+                            <td style="width: 200px"><span class=" d-block" >${vo.mbCount }</span>
                             </td>
                             <td style="width: 70px">
-                            <input type="hidden" value="${vo.manId }">
-                             <a href="<c:url value='/admin/delAdmin?manId=${vo.manId }'/>" onclick="return confirm('해당관리자를 탈퇴처리 하시겠습니까 ?');"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                            <input type="hidden" value="${vo.mbNo }">
+                             <a href="<c:url value='/notice/noticeDelete.do?mbNo=${vo.mbNo }'/>" onclick="return confirm('해당 게시글을 삭제하시겠습니까 ?');"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                             </td>
                           </tr>
                           </c:forEach>

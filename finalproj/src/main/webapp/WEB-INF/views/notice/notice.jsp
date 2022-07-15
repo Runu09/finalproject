@@ -55,7 +55,7 @@
 						</div>
 					</div>
 					<div class="col-lg-2" style="text-align: center">
-						<span style="font-size: 1.3em">제목(title)</span>
+						<span style="font-size: 1.3em">제목</span>
 					</div>
 					<div class="col-lg-2">
 						<div class="form-group">

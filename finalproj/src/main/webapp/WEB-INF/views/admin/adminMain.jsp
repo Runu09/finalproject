@@ -451,9 +451,31 @@ $(function() {
                 <div class="card-header-title card-header">
                     <h5>공항 위치</h5>
                 </div>
-                <div class="card-body">
-                	<img onclick="javascript:getLoc()" src="<c:url value='/assets/images/flights/지도.png'/>">
+                <div class="card-body" id="staticMap" style="width:500px;height:600px;">
+                	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=00724106dd7f78df2178c577988b8039"></script>
+                	<script>
+	                	var markers = [
+	                	    {
+	                	        position: new kakao.maps.LatLng(37.5588966804188, 126.80281133197248),
+	                	    	text: '김포공항'
+	                	    },
+	                	    {
+	                	        position: new kakao.maps.LatLng(37.449446593373146, 126.45040864741331), 
+	                	        text: '인천공항' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다     
+	                	    }
+	                	];	
                 	
+	                	var staticMapContainer = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
+	                    staticMapOption = { 
+	                        center: new kakao.maps.LatLng(36.14222142233532, 127.9285385200003 ), // 이미지 지도의 중심좌표
+	                        level: 13, // 이미지 지도의 확대 레벨
+	                        marker: markers // 이미지 지도에 표시할 마커 
+	                    };    
+
+		                // 이미지 지도를 생성합니다
+		                var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
+					</script>
+                	<%-- <img onclick="javascript:getLoc()" src="<c:url value='/assets/images/flights/지도.png'/>"> --%>
                     <!-- <div class="jvector-map-height" id="world-map"></div> -->
                 </div>
             </div>
