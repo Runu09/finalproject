@@ -13,7 +13,7 @@ $(function(){
 			pg : 'inicis',//KG이니시스
 			pay_method : 'card', //결제방식
 			merchant_uid : 'merchant_' + new Date().getTime(),
-			name : '결제테스트', //상품이름
+			name : '${schedule.ADepnm}-${schedule.AArrnm}', //상품이름
 			amount : 100, //판매가격
 			buyer_email : '${memVo.MEmail1}@${memVo.MEmail2}',
 			buyer_name : '${memVo.memName}',
@@ -23,7 +23,7 @@ $(function(){
 		}, function(rsp) { // callback
 			console.log(rsp);
 			if (rsp.success) {
-				$("input[name=ImpUid]").val(rsp.imp_uid);
+				$("input[name=pImpUid]").val(rsp.imp_uid);
 				console.log('빌링키 발급 성공',rsp);
 				var msg = '결제가 완료되었습니다.';
 				alert(msg);
@@ -184,43 +184,39 @@ $(function(){
 			                                </div>
 			                            </div>
 			                            <form action="<c:url value='/booking/flight-booking-success.do' />" method="post" name="payment">
-											<input type="text" name="rAdult" value="${adult}">
-											<input type="text" name="rChild" value="${child}">
-											
-											<c:if test="${!empty mMileage}">
-												<input type="text" name="mMileage" value="${mMileage}">
-												<input type="text" name="pMileage" value="${mMileage}">
-											</c:if>
-											<c:if test="${empty mMileage}">
-												<input type="text" name="mMileage" value="0">
-												<input type="text" name="pMileage" value="0">
-											</c:if>
-											<input type="text" name="memNo" value="${memVo.memNo}">
-											<input type="text" name="sNo" value="${schedule.SNo}">
+											<input type="hidden" name="rAdult" value="${adult}">
+											<input type="hidden" name="rChild" value="${child}">
+										
+											<input type="hidden" name="memNo" value="${memVo.memNo}">
+											<input type="hidden" name="sNo" value="${schedule.SNo}">
 											
 											<c:if test="${empty mMileage}">
-                                       			<input type="text" name="total" value='<fmt:formatNumber value="${total}" pattern="#,###" />'>
-                                       			<input type="text" name="pPay" value='<fmt:formatNumber value="${total}" pattern="#,###" />'>
-                                       			<input type="text" name="rPay" value='<fmt:formatNumber value="${total}" pattern="#,###" />'>
+												<input type="hidden" name="mMileage" value="0">
+												<input type="hidden" name="pMileage" value="0">
+                                       			<input type="hidden" name="total" value="${total}">
+                                       			<input type="hidden" name="pPay" value="${total}">
+                                       			<input type="hidden" name="rPay" value="${total}">
                                             </c:if>
                                            	<c:if test="${!empty mMileage}">
-                                            	<input type="text" name="total" value='<fmt:formatNumber value="${mileTotal}" pattern="#,###" />'>
-                                            	<input type="text" name="pPay" value='<fmt:formatNumber value="${mileTotal}" pattern="#,###" />'>
-                                            	<input type="text" name="rPay" value='<fmt:formatNumber value="${mileTotal}" pattern="#,###" />'>
+                                           		<input type="hidden" name="mMileage" value="${mMileage}">
+												<input type="hidden" name="pMileage" value="${mMileage}">
+                                            	<input type="hidden" name="total" value="${mileTotal}">
+                                            	<input type="hidden" name="pPay" value="${mileTotal}">
+                                            	<input type="hidden" name="rPay" value="${mileTotal}">
                                            	</c:if>
 			                            	<c:forEach var="p1" items="${pSeat}" varStatus="status">
-												<input type="text" name="pSeat" value="${p1}">
+												<input type="hidden" name="pSeat" value="${p1}">
 	                                        </c:forEach>
 	                                        <c:forEach var="p2" items="${pName}" varStatus="status">
-												<input type="text" name="pName" value="${p2}">
+												<input type="hidden" name="pName" value="${p2}">
 	                                        </c:forEach>
 	                                        <c:forEach var="p3" items="${pBirth}" varStatus="status">
-												<input type="text" name="pBirthday" value="${p3}">
+												<input type="hidden" name="pBirthday" value="${p3}">
 	                                        </c:forEach>
 	                                        <c:forEach var="p4" items="${pCon}" varStatus="status">
-												<input type="text" name="pCon" value="${p4}">
+												<input type="hidden" name="pCon" value="${p4}">
 	                                        </c:forEach>
-	                                        <input type="text" name="pImpUid">
+	                                        <input type="hidden" name="pImpUid">
 	                                        
 											<div class="continue-btn">
 												<input type="button" value="결제하기" class="btn btn-solid" id="btPayment">

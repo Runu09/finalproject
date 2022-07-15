@@ -15,7 +15,7 @@
 <link href="../assets/css/bookings.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	//페이지 번호 클릭시 실행할 함수
-	function pageProc(curPage){
+	function pageFunc(curPage){
 		$('input[name=currentPage]').val(curPage);
 		$('form[name=frmPage]').submit();
 	}
@@ -39,7 +39,7 @@
 								<div class="dashboard-title">
 									<h4>전체 예매 내역</h4>
 								</div>
-								<!-- 페이징 처리를 위한 form -->
+								<!-- 페이징 처리 form -->
 								<form action="<c:url value='/mypage/bookings.do'/>"
 									method="post" name="frmPage">
 									<input type="hidden" name="currentPage">
@@ -63,16 +63,17 @@
 											<c:if test="${param.ticketType == 'PAST'}">
 									            selected
 									         </c:if>>PAST</option>
+									         <option value="CANCLE"
+									         <c:if test="${param.ticketType == 'CANCLE'}">
+									            selected
+									         </c:if>>CANCLE</option>
 										</select> 
 										
 										<button class="btn btn-primary me-3" type="submit">조회</button>
 									</div>
-
 								</form>
 							</div>
-	
-						
-								<!-- 페이징 처리를 위한 form -->
+								<!-- 페이징 처리 form -->
 
 
 								<div class="dashboard-detail">
@@ -116,48 +117,55 @@
 													</div>
 												</div>
 												<div class="detail-last">
+													<!-- 아이콘 표시 -->
 													<c:set var="now" value="<%=new java.util.Date()%>" />
 													<c:choose>
-														<c:when test="${vo.SStarttime ge now }">
-															<!-- 출발일>=현재 -->
+														<c:when test="${vo.ticketType == 'UPCOMING'}">
 															<span class="badge bg-info">upcoming</span>
 														</c:when>
-														<c:when test="${vo.SStarttime lt now }">
-															<!-- 출발일<현재 -->
+														<c:when test="${vo.ticketType == 'PAST'}">
 															<span class="badge bg-secondary">past</span>
 														</c:when>
+														<c:otherwise>
+															<span class="badge bg-danger">cancle</span>
+														</c:otherwise>
 													</c:choose>
-													<!-- 발권  -->
+													<!-- 아이콘 표시 -->
 													
+													<!-- 발권  -->
+													<div id="btnTicket">
 													<div class="ticket">
 														<a href="<c:url value='/booking/eTicket.do?rNo=${vo.RNo }'/>"
 															onclick="window.open(this.href, '_blank', 'width=700, height=600'); return false;">
 															<span class="badge bg-success">e-Ticket 발권</span>
 														</a>
-													
 													</div>
-												
 													<!-- 발권 끝-->
-													<a href="#"><i class="fas fa-window-close"
-														data-bs-toggle="tooltip" data-placement="top"
-														title="cancle booking"></i> </a>
+													<!-- 취소 -->
+													<div class="cancle">
+														<a href="#">
+															<span class="badge bg-cancle">예매 취소</span>
+														</a>
+													</div>
+													<!-- 취소 끝 -->
+													</div>
 												</div>
 											</div>
 										</c:forEach>
 									</c:if>
 
-									<!-- 페이징관련 -->
+									<!-- 페이징 -->
 									<div class="divPage">
 										<nav class="ms-auto me-auto " aria-label="...">
 
 											<ul class="pagination pagination-primary">
-												<!-- 이전블럭으로 이동 -->
+												<!-- 이전블럭 -->
 												<c:if test="${pagingInfo.firstPage>1 }">
 													<li class="page-item"><a class="page-link" href="#"
-														onclick="pageProc(${pagingInfo.firstPage-1})"
+														onclick="pageFunc(${pagingInfo.firstPage-1})"
 														tabindex="-1"> Previous</a>
 												</c:if>
-												<!-- 페이지 번호 추가 -->
+												<!-- 페이지 번호  -->
 												<c:forEach var="i" begin="${pagingInfo.firstPage }"
 													end="${pagingInfo.lastPage }">
 													<c:if test="${i==pagingInfo.currentPage }">
@@ -166,24 +174,22 @@
 
 													<c:if test="${i!=pagingInfo.currentPage }">
 														<li class="page-item"><a class="page-link" href="#"
-															onclick="pageProc(${i})"> ${i} </a></li>
+															onclick="pageFunc(${i})"> ${i} </a></li>
 													</c:if>
 												</c:forEach>
 												<!--  페이지 번호 끝 -->
 
-												<!-- 다음 블럭으로 이동 -->
+												<!-- 다음블럭  -->
 												<c:if test="${pagingInfo.lastPage < pagingInfo.totalPage }">
 													<li class="page-item"><a class="page-link" href="#"
-														onclick="pageProc(${pagingInfo.lastPage+1})"> Next </a></li>
+														onclick="pageFunc(${pagingInfo.lastPage+1})"> Next </a></li>
 												</c:if>
 											</ul>
 										</nav>
 									</div>
-									<!-- 페이징 관련 끝 -->
+									<!-- 페이징 끝 -->
 								</div>
 							</div>
-
-
 							<!-- 항공권 이용내역 조회 끝-->
 						</div>
 					</div>

@@ -28,7 +28,6 @@
 		$('form[name=frmPage]').submit();
 	}
 	
-	
 </script>
 
 <!-- 페이징 처리위한 form -->
@@ -176,7 +175,7 @@
 									<c:if test="${!empty list }">
 									<!--고객의소리 리스트 반복문 시작  -->
 									<c:forEach var="vo" items="${list }">
-									<div class="detail-bar">
+									<div class="detail-bar" id="hoverSpan">
 										<div class="detail-wrap wow">
 											<div class="row">
 												<div class="col-md-2">

@@ -70,26 +70,29 @@ public class PayController {
 	
 	@RequestMapping("/booking/flight-booking-success.do")
 	public void success(HttpServletRequest req, Model model, HttpSession session, @ModelAttribute ReservationVO rVo, 
-				@ModelAttribute PassengerVO pVo, @ModelAttribute PayVO payVo) {
-		String memId=(String) session.getAttribute("memId");
-    	MemberVO memVo=memberService.selectByMemId(memId);
-    	String mMileage=req.getParameter("mMileage");
-    	String total=req.getParameter("total");
-    	
-      	int rCnt=reservationService.insertReservation(rVo);
-    	logger.info("rcnt={}", rCnt);
-    	
-    	int pCnt=passengerService.insertPassenger(pVo);
-    	logger.info("pcnt={}", pCnt);
-    	
-    	int payCnt=payService.insertPay(payVo);
-    	logger.info("paycnt={}", payCnt);
-    	
-    	int mCnt1=memberService.updateMileageM(mMileage, memId);
-    	logger.info("mcnt1={}", mCnt1);
-    	
-    	int mCnt2=memberService.updateMileageP(total, memId);
-    	logger.info("mcnt1={}", mCnt2);
+				@ModelAttribute PassengerVO pVo, @ModelAttribute PayVO payVo, @RequestParam String total, @RequestParam(defaultValue = "0") String mMileage) {
+		
+		try {
+			String memId=(String) session.getAttribute("memId");
+			MemberVO memVo=memberService.selectByMemId(memId);
+			
+			int rCnt=reservationService.insertReservation(rVo);
+			logger.info("rcnt={}", rCnt);
+			
+			int pCnt=passengerService.insertPassenger(pVo);
+			logger.info("pcnt={}", pCnt);
+			
+			int payCnt=payService.insertPay(payVo);
+			logger.info("paycnt={}", payCnt);
+			
+			int mCnt1=memberService.updateMileageM(mMileage, memId);
+			logger.info("mcnt1={}", mCnt1);
+			
+			int mCnt2=memberService.updateMileageP(total, memId);
+			logger.info("mcnt2={}", mCnt2);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     	
 
 		/*

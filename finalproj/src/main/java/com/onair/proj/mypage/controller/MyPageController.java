@@ -46,12 +46,20 @@ public class MyPageController {
 		MemberVO vo = memberService.selectByMemId(memId);
 		List<TicketViewVO> Rlist= mypageService.mainUpcoming(memId);
 		List<BoardVO> Blist= mypageService.selectByIdBoard(memId);
+		int countR=mypageService.countReservation(memId);
+		int countB=mypageService.countBoard(memId);
+		String sumPay=mypageService.sumPay(memId);
+		String sumMileage=mypageService.sumMileage(memId);
 		
 		logger.info("마이페이지 , 파라미터 vo={}, Rlist={}, Blist={}", vo, Rlist,Blist);
 		
 		model.addAttribute("vo" , vo); //회원정보 
 		model.addAttribute("Rlist" , Rlist); //다가오는 최신 비행일정 6개
 		model.addAttribute("Blist" , Blist); // 최근 활동내역 6개
+		model.addAttribute("countR" , countR); // 한달간 예매건수
+		model.addAttribute("countB" , countB); // 한달간 내가쓴글 개수
+		model.addAttribute("sumPay" , sumPay); // 한달간 총 결제금액
+		model.addAttribute("sumMileage" , sumMileage); // 한달간 총 사용마일리지
 		
 		return "/mypage/mypageMain";
 	}

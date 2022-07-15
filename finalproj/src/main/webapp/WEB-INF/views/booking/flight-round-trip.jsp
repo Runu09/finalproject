@@ -403,7 +403,7 @@
 						</ul>
 					</nav>
                 </div>
-                <div class="col-lg-3">
+                <!-- <div class="col-lg-3">
                     <div class="left-sidebar">
                         <div class="back-btn">
                             back
@@ -531,7 +531,7 @@
                             <h6>Monday to Friday 9.00am - 7.30pm</h6>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

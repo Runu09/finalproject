@@ -1,16 +1,27 @@
 @charset "UTF-8";
 
-button#btnTicket {
-	border: none;
-	background-color: #f9f9f9;
-}
 
 span.badge.bg-success {
 	width: 135px;
-	height: 46px;
+	height: 35px;
 	margin: auto 0;
-	padding-top: 16px;
+	padding-top: 11px;
 	background-color: #4291b8;
+
+}
+
+span.badge.bg-cancle {
+	width: 135px;
+	height: 35px;
+	margin: auto 0;
+	padding-top: 11px;
+	background-color: #dc3545;
+	position: relative;
+    left: -107px;
+}
+
+.cancle {
+    margin-top: 5px;
 }
 
 .ticket {
@@ -20,10 +31,15 @@ span.badge.bg-success {
 	height: 20px;
 }
 
-span.badge.bg-info, span.badge.bg-secondary {
+div#btnTicket {
+    position: relative;
+    bottom: 5px;
+}
+
+span.badge.bg-info, span.badge.bg-secondary, span.badge.bg-danger {
 	position: relative;
 	left: 56px;
-	bottom: -20px;
+	bottom: -26px;
 }
 
 i.fas.fa-window-close {
@@ -45,7 +61,7 @@ img#plane2 {
 
 ul.pagination.pagination-primary {
 	position: relative;
-	left: 447px;
+	left: 345px;
 	margin-top: 23px;
 }
 
