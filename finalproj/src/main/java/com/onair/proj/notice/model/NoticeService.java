@@ -10,4 +10,5 @@ public interface NoticeService {
 	int getTotalRecord(SearchVO searchVo);
 	int updateCount(int mbNo);
 	List<NoticeVO> selectAll(SearchVO searchVo);
+	int deleteNotice(int mbNo);
 }

@@ -124,15 +124,14 @@ public class ScheduleController {
     	
     	
     	ScheduleVO vo=scheduleService.selectBySName(sNo);
-    	PassengerVO pVo=new PassengerVO();
     	
-    	List<PassengerVO> pList=passengerService.selectPassenger(pVo);
+    	List<PassengerVO> pVo=passengerService.selectBySNo(sNo);
     	
     	String adult=req.getParameter("adult"); //성인 인원수
     	String child=req.getParameter("child"); //아동 인원수
     	
     	
-    	model.addAttribute("data", pList);
+    	model.addAttribute("pVo", pVo);
     	model.addAttribute("memVo",memVo);
     	model.addAttribute("schedule", vo);
     	model.addAttribute("adult",adult);

@@ -58,14 +58,15 @@
 		    select rownum as RNUM, A.*
 		    from
 		    (
-		       	select * from board where bt_no=2 
+		       	select * from board where bt_no=2
 				<include refid="lostListWhere"></include>
+				order by b_no desc
 		    )A
 		)
 		where RNUM>#{firstRecordIndex} 
 		<![CDATA[
 		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
-		order by b_no desc
+		<!-- order by b_no desc -->
 	</select>
 	
 	<select id="selectNoticeAll" resultType="boardVo">

@@ -41,5 +41,10 @@ public class NoticeSerivceImpl implements NoticeService {
 	public List<NoticeVO> selectAll(SearchVO searchVo) {
 		return noticeDao.selectAll(searchVo);
 	}
+
+	@Override
+	public int deleteNotice(int mbNo) {
+		return noticeDao.deleteNotice(mbNo);
+	}
 	
 }

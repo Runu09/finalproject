@@ -108,23 +108,21 @@
 					<div class="col-12">
 						<div class="row">
 							<div class="col-sm-12">
-								<div class="card">
-									<div class="card-header">
+									<!-- <div class="card-header">
 										<h5>첨부파일</h5>
+									</div> -->
+									<div class="card-footer text-end">
+										<button class="btn btn-primary me-3" type="submit">등록</button>
+										<input type="button" class="btn btn-outline-primary"
+											id="btCancel" value="취소" />
 									</div>
-									<div class="card-body">
+									<!-- <div class="card-body">
 										<div class="animate-chk">
 											<div class="mb-3">
 												<input type="file" id="upfile" name="upfile" />
 											</div>
-											<div class="card-footer text-end">
-												<button class="btn btn-primary me-3" type="submit">등록</button>
-												<input type="button" class="btn btn-outline-primary"
-													id="btCancel" value="취소" />
-											</div>
 										</div>
-									</div>
-								</div>
+									</div> -->
 							</div>
 						</div>
 					</div>

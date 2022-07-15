@@ -295,7 +295,7 @@
 									<ul class="sidebar-submenu">
 										<li><a href="<c:url value='/notice/notice.do'/>">공지사항 목록</a></li>
 										<li><a href="<c:url value='/notice/noticeWrite.do'/>">공지사항 등록</a></li>
-										<li><a href="add-new-cars.html">공지사항 수정</a></li>
+										<li><a href="<c:url value='/notice/noticeDelList.do'/>">공지사항 삭제</a></li>
 									</ul></li>
 								<!-- <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="setting.html"><i data-feather="settings"> </i><span>Setting</span></a>

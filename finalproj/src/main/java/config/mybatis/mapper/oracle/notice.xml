@@ -51,12 +51,13 @@
 		where b_No=#{mbNo}
 	</update>
 	
-	<select id="selectByNo" parameterType="int" resultType="boardVo">
-		select * from board where mb_No=#{mbNo}
+	<select id="selectByNo" parameterType="int" resultType="noticeVo">
+		select * from mboard where mb_No=#{mbNo}
 	</select>
 	
 	<delete id="deleteNotice" parameterType="int">
-		call lostDelete(#{mbNo})
+		delete from mboard
+		where mb_no=#{mbNo}
 	</delete>
 	
 	<sql id="searchWhere">

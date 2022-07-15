@@ -20,4 +20,9 @@ public class PassengerServiceImpl implements PassengerService{
 	public List<PassengerVO> selectPassenger(PassengerVO vo) {
 		return passengerDao.selectPassenger(vo);
 	}
+
+	@Override
+	public List<PassengerVO> selectBySNo(int sNo) {
+		return passengerDao.selectBySNo(sNo);
+	}
 }
