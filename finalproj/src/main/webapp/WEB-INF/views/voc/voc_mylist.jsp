@@ -36,8 +36,8 @@
 	<input type="hidden" name="searchKeyword" value="${param.searchKeyword }">
 	<input type="hidden" name="searchCondition" value="b_title">
 	<input type="hidden" name="currentPage">
-	<input type="text" class="startDay" name="startDay" value="${dateSearchVO.startDay }">
-	<input type="text" class="endDay" name="endDay" value="${dateSearchVO.endDay }">
+	<input type="hidden" class="startDay" name="startDay" value="${dateSearchVO.startDay }">
+	<input type="hidden" class="endDay" name="endDay" value="${dateSearchVO.endDay }">
 </form>
 <!-- breadcrumb start -->
 <section class="breadcrumb-section pt-0 bg-size"  style="height: 350px">
