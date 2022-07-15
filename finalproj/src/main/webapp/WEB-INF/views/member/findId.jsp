@@ -49,6 +49,18 @@
 		
 		$('#btOk').click(function() {
 		
+			if ($.trim($('#name').val()) == "") {
+				alert("이름을 입력하세요");
+				$("#name").focus();
+				event.preventDefault();
+				return;
+			} else if ($.trim($('#email').val()) == "") {
+				alert("이메일을 입력하세요")
+				$("#email").focus();
+				event.preventDefault();
+				return;
+			}
+			
 				$.ajax({
 					url : "<c:url value='/member/infoId.do'/>",
 					data : {

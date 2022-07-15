@@ -37,6 +37,10 @@ public class EmailController {
 		int auth=rd.nextInt(900000)+100000;
 	
 		MemberVO vo=memberService.selectByMemId(memId);
+		
+		if(vo==null) {
+			return null;
+		}
 		String dbEmail=vo.getMEmail1()+"@"+vo.getMEmail2();
 		String receiver=dbEmail;
 		String subject="요청하신 인증번호를 알려드립니다.";
