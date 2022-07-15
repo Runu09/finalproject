@@ -90,21 +90,21 @@
 					<div class="detail-wrap wow"
 						style="background-color: black; color: white">
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-7">
 								<div class="price">
 									<div style="">
 										<h5>제목</h5>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3">
+							<div class="col-md-1">
 								<div class="price">
 									<div>
 										<h5>조회수</h5>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3">
+							<div class="col-md-4">
 								<div class="price">
 									<div style="">
 										<h5>등록일</h5>
@@ -135,18 +135,18 @@
 						<c:forEach var="vo" items="${noticeList }">
 							<div class="detail-wrap wow">
 								<div class="row">
-									<div class="col-md-4">
+									<div class="col-md-7">
 										<div class="price">
 											<a href="<c:url value='/notice/noticeDetail.do?mbNo=${vo.mbNo }'/>">
 											<h5>${vo.mbTitle}</h5></a>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-1">
 										<div class="price">
 											<h5>${vo.mbCount }</h5>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4">
 										<div class="price">
 											<h5>
 												<fmt:formatDate value="${vo.mbRegdate}" pattern="yyyy-MM-dd" />
