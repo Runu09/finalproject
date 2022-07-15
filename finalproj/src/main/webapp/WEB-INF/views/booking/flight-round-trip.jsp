@@ -100,7 +100,7 @@
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label>탑승일</label>
-                                <input placeholder="Depart Date" id="datepicker" name="datepicker" value="${date }"/>
+                                <input placeholder="Depart Date" id="datepicker2" name="datepicker" value="${date }"/>
                                 <input type="hidden" id="hdDate" name="hdDate" value="${hdDate }">
                             </div>
                         </div>
