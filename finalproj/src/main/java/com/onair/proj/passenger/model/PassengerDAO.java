@@ -9,4 +9,6 @@ public interface PassengerDAO {
 	int insertPassenger(PassengerVO vo);
 
     List<PassengerVO> selectPassenger(PassengerVO vo);
+    
+    List<PassengerVO> selectBySNo(int sNo);
 }
