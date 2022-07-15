@@ -11,6 +11,8 @@
 		<c:forEach var="pVo" items="${pVo}">	
 		    $("#${fn:substring(pVo.PSeat, 0, 2)}").attr("disabled",true)
 		    $("#${fn:substring(pVo.PSeat, 3, 5)}").attr("disabled",true)
+		    $("#${fn:substring(pVo.PSeat, 6, 8)}").attr("disabled",true)
+		    $("#${fn:substring(pVo.PSeat, 9, 11)}").attr("disabled",true)
 		</c:forEach>
 		 // 체크박스 클릭 시 
 		$("input[type=checkbox]").change(function(){
