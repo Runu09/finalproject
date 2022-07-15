@@ -143,13 +143,18 @@
     <script src="../assets/js/script.js"></script>
 
     <script>
+	    var today;
+	    today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+	   
         $('#datepicker').datepicker({
+        	minDate: today,
             uiLibrary: 'bootstrap4'
         });
         $('#datepicker1').datepicker({
+        	minDate: today,
             uiLibrary: 'bootstrap4'
-            	
         });
+        
         new WOW().init();
     </script>
     
