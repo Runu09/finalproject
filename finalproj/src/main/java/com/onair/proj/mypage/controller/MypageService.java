@@ -10,9 +10,10 @@ import com.onair.proj.common.BookingSearchVO;
 public interface MypageService {
 	List<BoardVO> selectByIdBoard (String bId);
 	List<TicketViewVO> selectAll(BookingSearchVO searchVo);
-	List<TicketViewVO> past(BookingSearchVO searchVo);
 	int getTotalRecord (BookingSearchVO searchVo);
-	int getTotalRecord2 (BookingSearchVO searchVo);
 	List<TicketViewVO> mainUpcoming (String memId);
-	List<TicketViewVO> upcoming(BookingSearchVO searchVo);
+	int countReservation(String memId);
+	int countBoard(String bId);
+	String sumPay(String memId);
+	String sumMileage(String memId);
 }

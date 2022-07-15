@@ -11,10 +11,11 @@ import com.onair.proj.common.BookingSearchVO;
 @Mapper
 public interface MypageDAO {
 	List<BoardVO> selectByIdBoard (String bId);
-	List<TicketViewVO> past(BookingSearchVO searchVo);
 	List<TicketViewVO> selectAll(BookingSearchVO searchVo);
-	List<TicketViewVO> upcoming(BookingSearchVO searchVo);
 	int getTotalRecord (BookingSearchVO searchVo);
-	int getTotalRecord2 (BookingSearchVO searchVo);
 	List<TicketViewVO> mainUpcoming (String memId);
+	int countReservation(String memId);
+	int countBoard(String bId);
+	String sumPay(String memId);
+	String sumMileage(String memId);
 }

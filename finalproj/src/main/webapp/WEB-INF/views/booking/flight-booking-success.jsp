@@ -80,6 +80,7 @@
                     <button type="submit" class="btn btn-solid color1">청구서 받기</button>
                     <button type="button" class="btn btn-solid color1" id="btnTicket"
                     onclick="getTicket()" title="새창열림">티켓 발권 받기</button>
+                   <a href="<c:url value='/mypage/bookings.do'/>" class="btn btn-solid color1">예매내역조회</a>
                 </div>
             </div>
         </div>

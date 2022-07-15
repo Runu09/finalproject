@@ -5,16 +5,31 @@
 <script type="text/javascript">
 	$(function(){
 		$('form[name=frmWrite]').submit(function(){
-			$('.form-control').each(function(idx, item){
-				if($.trim($(this).val()).length<1){
-					alert($(this).prev().text() + '을(를) 입력하세요');
-					$(item).focus();
-					event.preventDefault();
-					return false;  //each 탈출
-				}
-			});			
+			var chk=CKEDITOR.instances['editor1'].getData();
+			
+			
+			if ($.trim($("#bPwd").val()).length == 0) {
+				alert("비밀번호를 입력하세요");
+				$("#bPwd").focus();
+				event.preventDefault();
+				return;
+				
+			}
+			else if ($.trim($("#bTitle").val()).length == 0) {
+				alert("제목을 입력하세요");
+				$("#bTitle").focus();
+				event.preventDefault();
+				return;
+				
+			}else if (chk == '' || chk.length == 0) {
+
+				alert("내용을 입력하세요");
+				$("#editor1").focus();
+				event.preventDefault();
+				return;
+			}
 		});
-		
+
 	});
 </script>
 
@@ -133,7 +148,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="bContent">content</label>
-                                        <textarea class="form-control" id="bContent" name="bContent" rows="7"
+                                        <textarea class="form-control" id="editor1" name="bContent" rows="7"
                                             placeholder="내용을 입력하세요"></textarea>
                                     </div>
                                     <div class="form-group">
@@ -182,5 +197,9 @@
     </section>
     <!-- blog detail section end -->
 
-
+<!--ckEditor js start-->
+<script src="../assets/js/ckeditor/ckeditor.js"></script>
+<script src="../assets/js/ckeditor/styles.js"></script>
+<script src="../assets/js/ckeditor/ckeditor.custom.js"></script>
+<!--ckEditor js end-->
 <%@include file="../inc/footer.jsp"%>

@@ -108,6 +108,11 @@
 						$('#name').focus();
 						event.preventDefault();
 					} 
+					else if ($.trim($('#postcode').val()) == "") {
+						alert("우편번호 찾기를 해주세요");
+						$('#postcode').focus();
+						event.preventDefault();
+					} 
 					else if (!validate_tel($('#hp2').val())
 							|| !validate_tel($('#hp3').val())) {
 						alert("전화번호는 숫자만 가능합니다");
