@@ -5,8 +5,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -16,13 +18,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.onair.proj.common.ConstUtil;
 import com.onair.proj.common.DateSearchVO;
 import com.onair.proj.common.FileUploadUtil;
 import com.onair.proj.common.PaginationInfo;
-import com.onair.proj.member.model.MemberService;
+import com.onair.proj.member.model.MemberVO;
 import com.onair.proj.notice.model.NoticeService;
 import com.onair.proj.notice.model.NoticeVO;
+
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -33,14 +37,13 @@ public class NoticeController {
 	=LoggerFactory.getLogger(NoticeController.class);
 	
 	private final NoticeService noticeService;
-	private final MemberService memberService;
 	private final FileUploadUtil fileUploadUtil;
 	
 	//공지사항 리스트
 	@RequestMapping("/notice.do")
 	public String notice(@ModelAttribute DateSearchVO searchVo, Model model) {
 		logger.info("공지사항 목록 화면, 파라미터 searchVo={}", searchVo);
-		searchVo.setSearchCondition("BTitle");
+		searchVo.setSearchCondition("MbTitle");
 		
 		if(searchVo.getStartDay()==null || searchVo.getStartDay().isEmpty())
 		{	
@@ -81,14 +84,29 @@ public class NoticeController {
 	}
 	
 	
-	//공지사항 디테일
+	//공지사항 디테일	
 	@RequestMapping("/noticeDetail.do")
-	public String noticeDetail(@RequestParam(defaultValue = "0") int bNo, Model model) {
-		logger.info("공지사항 디테일 조회");
-		NoticeVO vo=noticeService.selectByNo(bNo);
-		logger.info("공지사항 상세 조회 결과 vo={}", vo);
+	public String voc_detail(@RequestParam(defaultValue = "0") int mbNo,
+			HttpSession session,
+			HttpServletRequest request,Model model) {
+		logger.info("noticeDetail 파라미터 mbNo={}", mbNo);
 		
+		if(mbNo==0) {
+			model.addAttribute("msg", "잘못된 url!");
+			model.addAttribute("url", "/notice/notice.do");
+			return "/common/message";
+		}
+		
+		NoticeVO vo=noticeService.selectByNo(mbNo);
+		logger.info("noticeDetail 결과 vo={}",vo);
+		
+		//파일정보 처리
+		/*
+		String fileInfo=fileUploadUtil.getFileInfo(vo.getFOriginName(), vo.getFFileSize(), request);
 		model.addAttribute("vo", vo);
+		model.addAttribute("memVo", memVo);
+		model.addAttribute("fileInfo", fileInfo);
+		*/
 		
 		return "/notice/noticeDetail";
 	}
@@ -96,19 +114,19 @@ public class NoticeController {
 	
 	//조회수
 	@RequestMapping("/updateCount")
-	public String updateCount(@RequestParam(defaultValue = "0") int bNo,Model model) {
-		logger.info("조회수 증가, 파라미터 bNo={}",bNo);
+	public String updateCount(@RequestParam(defaultValue = "0") int mbNo,Model model) {
+		logger.info("조회수 증가, 파라미터 bNo={}",mbNo);
 		
-		if(bNo==0) {
+		if(mbNo==0) {
 			model.addAttribute("msg","잘못된 url!");
-			model.addAttribute("url","/voc/voc_list");
+			model.addAttribute("url","/notice/notice.do");
 			return "/common/message";
 		}
 		
-		int cnt=noticeService.updateCount(bNo);
-		logger.info("조회수 증가 결과, cnt={}", cnt);
+		int cnt=noticeService.updateCount(mbNo);
+		logger.info("조회수 증가, cnt={}", cnt);
 		
-		return "redirect:/notice/noticeDetail?bNo="+bNo;
+		return "redirect:/notice/noticeDetail?mbNo="+mbNo;
 	}
 	
 	

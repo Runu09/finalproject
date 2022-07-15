@@ -40,11 +40,11 @@
 				event.preventDefault();
 				return;
 			}
-			location.href = "<c:url value='/notice/noticeWrite.do'/>";
+			location.href = "<c:url value='/notice/notice.do'/>";
 		});
 		
 		$('#btCancel').click(function() {
-			location.href = "<c:url value='/notice/notice.do'/>";
+			location.href = "<c:url value='/admin/adminMain'/>";
 		});
 
 	});

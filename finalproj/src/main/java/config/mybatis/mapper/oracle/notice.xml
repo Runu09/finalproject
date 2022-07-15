@@ -6,16 +6,16 @@
 	<sql id="searchNoticeWhere">
 		<where>
 			<if test="searchKeyword !=null and searchKeyword !=''">
-				b_title like '%' || #{searchKeyword} || '%'
+				mb_title like '%' || #{searchKeyword} || '%'
 			</if>
-			and b_regdate >= #{startDay}
+			and mb_regdate >= #{startDay}
 			<![CDATA[
-			and b_regdate < to_date(#{endDay})+1 ]]>
+			and mb_regdate < to_date(#{endDay})+1 ]]>
 		</where>
 	</sql>
 	
 	<select id="selectAll" resultType="noticeVo">
-		select * from board where bt_no=1 order by b_no desc
+		select * from mboard where bt_no=1 order by mb_no desc
 	</select>
 	
 	<select id="selectNoticeAll" parameterType="DateSearchVo" resultType="noticeVo">
@@ -24,10 +24,9 @@
 			select rownum as RNUM, A.*
 			from
 			(
-				select B.*, (sysdate-b_regdate)*24 as dateTerm
+				select B.*, (sysdate-mb_regdate)*24 as dateTerm
 				from mboard B
 				<include refid="searchNoticeWhere"></include>
-				order by b_groupno desc, b_sortno
 			)A
 		)
 		
@@ -70,7 +69,7 @@
 		</where>
 	</sql>
 	
-	<select id="totalRecord" parameterType="searchVo" resultType="int">
+	<select id="getTotalRecord" parameterType="searchVo" resultType="int">
 		select count(*) from board
 		<include refid="searchWhere"></include>		
 	</select>

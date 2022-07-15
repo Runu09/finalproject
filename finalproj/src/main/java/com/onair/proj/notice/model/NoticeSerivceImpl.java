@@ -13,8 +13,8 @@ public class NoticeSerivceImpl implements NoticeService {
 	private final NoticeDAO noticeDao;
 	
 	@Override
-	public List<NoticeVO> selectNoticeAll() {
-		return noticeDao.selectNoticeAll();
+	public List<NoticeVO> selectNoticeAll(SearchVO searchVo) {
+		return noticeDao.selectNoticeAll(searchVo);
 	}
 
 	@Override
@@ -23,8 +23,8 @@ public class NoticeSerivceImpl implements NoticeService {
 	}
 
 	@Override
-	public NoticeVO selectByNo(int bNo) {
-		return noticeDao.selectByNo(bNo);
+	public NoticeVO selectByNo(int mbNo) {
+		return noticeDao.selectByNo(mbNo);
 	}
 
 	@Override
@@ -33,8 +33,8 @@ public class NoticeSerivceImpl implements NoticeService {
 	}
 
 	@Override
-	public int updateCount(int bNo) {
-		return noticeDao.updateCount(bNo);
+	public int updateCount(int mbNo) {
+		return noticeDao.updateCount(mbNo);
 	}
 
 	@Override

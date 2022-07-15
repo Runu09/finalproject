@@ -4,10 +4,10 @@ import java.util.List;
 import com.onair.proj.common.SearchVO;
 
 public interface NoticeService {
-	List<NoticeVO> selectNoticeAll();
+	List<NoticeVO> selectNoticeAll(SearchVO searchVo);
 	int insertNotice(NoticeVO vo);
-	NoticeVO selectByNo(int bNo);
+	NoticeVO selectByNo(int mbNo);
 	int getTotalRecord(SearchVO searchVo);
-	int updateCount(int bNo);
+	int updateCount(int mbNo);
 	List<NoticeVO> selectAll(SearchVO searchVo);
 }

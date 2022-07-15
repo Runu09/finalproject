@@ -349,7 +349,7 @@
 									class="sidebar-link sidebar-title" href="#"><i
 										data-feather="navigation"></i><span>공지사항</span></a>
 									<ul class="sidebar-submenu">
-										<li><a href="all-cars.html">공지사항 목록</a></li>
+										<li><a href="<c:url value='/notice/notice.do'/>">공지사항 목록</a></li>
 										<li><a href="<c:url value='/notice/noticeWrite.do'/>">공지사항 등록</a></li>
 										<li><a href="add-new-cars.html">공지사항 수정</a></li>
 									</ul></li>
