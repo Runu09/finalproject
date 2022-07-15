@@ -138,15 +138,4 @@ public class BoardController {
 		return "/디테일jsp경로";
 	}
 	
-	@RequestMapping("/customer/notice.do")
-	public String notice(Model model) {
-		logger.info("공지사항 목록 화면");
-
-		List<BoardVO> noticeList=boardService.selectNoticeAll();
-		logger.info("공지사항 목록 조회결과 noticeList.size={}", noticeList.size());
-
-		model.addAttribute("noticeList", noticeList);
-
-		return "/customer/notice";
-	}
 }

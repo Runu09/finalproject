@@ -13,7 +13,6 @@ public interface BoardDAO {
 	int updateCount(int bNo);
 	BoardVO selectByNo(int bNo);
 	List<BoardVO> selectLostAll();
-	List<BoardVO> selectNoticeAll();
 	List<BoardVO> selectLostAll(DateSearchVO searchVo);
 	int selectLostTotalRecord(DateSearchVO searchVo);
 	int updateBoard(BoardVO vo);

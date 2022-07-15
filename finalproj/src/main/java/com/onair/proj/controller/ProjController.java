@@ -21,16 +21,6 @@ public class ProjController {
 	 * "/customer/notice"; }
 	 */
 	
-	@RequestMapping("/customer/noticeDetail.do")
-	public String noticeDetail() {
-		return "/customer/noticeDetail";
-	}
-	
-	@RequestMapping("/customer/noticeWrite.do")
-	public String noticeWrite() {
-		return "/customer/noticeWrite";
-	}
-	
 	@RequestMapping("/customer/terms.do")
 	public String terms() {
 		return "/customer/terms";

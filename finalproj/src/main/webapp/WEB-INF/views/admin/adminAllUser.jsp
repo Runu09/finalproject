@@ -42,7 +42,7 @@ function pageFunc(curPage){
                 <div class="card-header  card-header--2">
 
                   <div>
-                    <h5>유저 조회</h5>
+                    <h5>관리자 조회</h5>
                   </div>
 
                   <!-- <form class="d-inline-flex">
@@ -103,16 +103,6 @@ function pageFunc(curPage){
                   <nav class="ms-auto me-auto " aria-label="...">
                   
                     <ul class="pagination pagination-primary">
-                      <!-- <li class="page-item "><a class="page-link" href="javascript:void(0)"
-                          tabindex="-1">Previous</a>
-                      </li>
-                      <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
-                      <li class="page-item active"><a class="page-link" href="javascript:void(0)">2 <span
-                            class="sr-only">(current)</span></a></li>
-                      <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                      <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
-                      <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
-                      <li class="page-item"><a class="page-link" href="javascript:void(0)">Next</a></li> -->
                     	
                     <c:if test="${pagingInfo.firstPage>1 }">
 						<li class="page-item"><a class="page-link"

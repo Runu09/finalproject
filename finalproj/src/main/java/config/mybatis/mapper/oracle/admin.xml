@@ -21,6 +21,11 @@
 		select count(*) from member
 	</select>
 	
+	<select id="totalboard2" parameterType="boardVo" resultType="int">
+		select count(*) from board
+		where bt_no=2
+	</select>
+	
 	<select id="totalboard3" parameterType="vocVo" resultType="int">
 		select count(*) from board
 		where bt_no=3
