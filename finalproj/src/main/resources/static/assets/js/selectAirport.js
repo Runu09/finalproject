@@ -87,7 +87,7 @@ $(document).ready(
 		};
 		
 		$(function(){
-			$('#datepicker').on("change",function(){
+			$('#datepicker2').on("change",function(){
 				var hdDate=$(this).val();
 				var hdDate1 = hdDate.substring(0,4)+""+hdDate.substring(5,7)+""+hdDate.substring(8,10);
 				$('#hdDate').val(hdDate1);
