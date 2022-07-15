@@ -121,7 +121,7 @@
 			<div class="flight-detail-sec full_width-detail">
 				<div class="detail-bar">
 					<!-- 글 존재 여부 확인 시작 -->
-					<c:if test="${empty list }">
+					<c:if test="${empty noticeList }">
 						<div class="detail-wrap wow">
 							<div class="row">
 								<h5 style="text-align: center">해당 글이 존재하지 않습니다.</h5>
@@ -131,13 +131,13 @@
 					<!-- 글 존재 여부 확인 끝 -->
 					
 					<!-- 리스트 시작 -->
-					<c:if test="${!empty list }">
-						<c:forEach var="vo" items="${list }">
+					<c:if test="${!empty noticeList }">
+						<c:forEach var="vo" items="${noticeList }">
 							<div class="detail-wrap wow">
 								<div class="row">
 									<div class="col-md-4">
 										<div class="price">
-											<a href="<c:url value='/notice/noticeDetail.do?bNo=${vo.mbNo }'/>">
+											<a href="<c:url value='/notice/noticeDetail.do?mbNo=${vo.mbNo }'/>">
 											<h5>${vo.mbTitle}</h5></a>
 										</div>
 									</div>

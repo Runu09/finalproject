@@ -69,7 +69,7 @@ public class NoticeController {
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
 		searchVo.setRecordCountPerPage(ConstUtil.RECORD_COUNT);
 		
-		List<NoticeVO> noticeList=noticeService.selectAll(searchVo);
+		List<NoticeVO> noticeList=noticeService.selectNoticeAll(searchVo);
 		logger.info("공지사항 목록 조회결과 noticeList.size={}", noticeList.size());
 		
 		int totalRecord=noticeService.getTotalRecord(searchVo);
@@ -143,6 +143,7 @@ public class NoticeController {
 		logger.info("공지사항 등록, 파라미터 vo={}", vo);
 		//파일 업로드 처리
 		String fileName="", originFileName="";
+		String msg="글쓰기 실패!", url="/notice/noticeWrite.do";
 		long fileSize=0;
 		try {
 			List<Map<String, Object>> fileList
@@ -172,7 +173,11 @@ public class NoticeController {
 		logger.info("공지사항 조회 - 글쓰기 처리, 파라미터 vo={}", vo);
 		int cnt=noticeService.insertNotice(vo);
 		logger.info("글쓰기 처리 결과, cnt={}", cnt);
+		msg="글쓰기 처리 성공";
+		url="/notice/notice.do";
+		model.addAttribute("msg",msg);
+		model.addAttribute("url",url);
 
-		return "redirect:/notice/noticeWrite.do";
+		return "/common/message";
 	}
 }

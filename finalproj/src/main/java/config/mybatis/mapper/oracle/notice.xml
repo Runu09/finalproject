@@ -27,6 +27,7 @@
 				select B.*, (sysdate-mb_regdate)*24 as dateTerm
 				from mboard B
 				<include refid="searchNoticeWhere"></include>
+				order by mb_no desc
 			)A
 		)
 		
