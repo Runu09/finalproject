@@ -70,7 +70,7 @@ public class AdminController {
 		String msg="관리자 등록 실패", url="/admin/adminRegister";
 		if(cnt>0) {
 			msg="관리자 등록 완료";
-			url="/admin/adminLogin";
+			url="/admin/adminMain";
 		}
 		model.addAttribute("msg", msg);
 		model.addAttribute("url", url);
