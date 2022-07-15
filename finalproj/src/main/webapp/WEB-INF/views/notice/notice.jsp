@@ -137,7 +137,7 @@
 								<div class="row">
 									<div class="col-md-7">
 										<div class="price">
-											<a href="<c:url value='/notice/noticeDetail.do?mbNo=${vo.mbNo }'/>">
+											<a href="<c:url value='/notice/updateCount?mbNo=${vo.mbNo }'/>">
 											<h5>${vo.mbTitle}</h5></a>
 										</div>
 									</div>

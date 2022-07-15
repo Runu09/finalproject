@@ -126,9 +126,9 @@ public class NoticeController {
 		}
 		
 		int cnt=noticeService.updateCount(mbNo);
-		logger.info("조회수 증가, cnt={}", cnt);
+		logger.info("조회수 증가 결과, cnt={}", cnt);
 		
-		return "redirect:/notice/noticeDetail?mbNo="+mbNo;
+		return "redirect:/notice/noticeDetail.do?mbNo="+mbNo;
 	}
 	
 	
@@ -183,6 +183,7 @@ public class NoticeController {
 		return "/common/message";
 	}
 	
+	//공지사항 삭제
 	@RequestMapping("/noticeDelList.do")
 	public String deleteNotice(@ModelAttribute DateSearchVO searchVo, Model model) {
 		logger.info("공지사항 목록 화면, 파라미터 searchVo={}", searchVo);

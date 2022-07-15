@@ -47,8 +47,8 @@
 	
 	<update id="updateCount" parameterType="int">
 		update mboard
-		set b_count=b_count+1
-		where b_No=#{mbNo}
+		set mb_count=mb_count+1
+		where mb_No=#{mbNo}
 	</update>
 	
 	<select id="selectByNo" parameterType="int" resultType="noticeVo">
