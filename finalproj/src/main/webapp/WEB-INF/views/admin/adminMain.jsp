@@ -38,10 +38,7 @@ function getLoc(){
 $(function() {
 	const chart = Highcharts.chart('container', {
 	    title: {
-	        text: 'Chart.update'
-	    },
-	    subtitle: {
-	        text: 'Plain'
+	        text: '월별 예약 현황'
 	    },
 	    xAxis: {
 	        categories: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
@@ -225,13 +222,12 @@ $(function() {
         
         <!-- Earning chart  star-->
         <div class="col-xl-8">
-            <div class="card o-hidden ">
+            <div class="card o-hidden" style="height: 578px;">
                 <div class="card-header">
-
                     <div class="card-header-title">
-                        <h4>월별 매출 </h4>
+                        <br><h4>월별 매출 </h4>
                     </div>
-                    <div class="card-body p-0">
+                    <div class="card-body p-0" style="margin-top : 100px;">
                         <div id="bar-chart-earning"></div>
                     </div>
 
@@ -240,7 +236,7 @@ $(function() {
         </div>
         <!-- Earning chart  end-->
         
-        <!-- 주간, 월간, 연간 예약 내역 시작 -->
+        <!-- 월별 예약 내역 시작 -->
         <div class="col-xl-4">
             <div class="h-100">
                 <div class="card o-hidden  ">
@@ -249,17 +245,6 @@ $(function() {
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="card-header-title">
                                 <h4>예약 현황</h4>
-                            </div>
-                            <div class="dropdown">
-                                <button class="btn dropdown-toggle" id="dropdownMenuButton"
-                                    type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">월간
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                                	<a class="dropdown-item" href="#">일별</a>
-                                	<a class="dropdown-item" href="#">월간</a>
-                                	<a class="dropdown-item" href="#">연간</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -275,153 +260,10 @@ $(function() {
                 </div>
             </div>
         </div>
-        <!-- 주간, 월간, 연간 예약 내역 끝 -->
-        
-        <!-- Booking history  start-->
-        <div class="col-xxl-8">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-header-title">
-                        <h5>예약 내역</h5>
-
-                    </div>
-
-
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive ">
-                        <table class=" dashboard-table table border-0 ">
-
-                            <tbody>
-                                <tr>
-                                    <td><img src="<c:url value='/admin/images/tours/1.jpg'/>" alt="tour 1"></td>
-                                    <td><span class="fw-500"></span><span style="color: black;">제주도<br>6월 2일</span></td>
-                                    <td><span>김포<br>6월 2일</span></td>
-                                    <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24">
-                                                <title>flight_takeoff</title>
-                                                <path
-                                                    d="M22.078 9.656q0.141 0.609-0.164 1.125t-0.914 0.703q-5.813 1.547-9.656 2.578l-5.297 1.406-1.594 0.469-2.625-4.5 1.453-0.375 1.969 1.5 4.969-1.313-4.125-7.172 1.922-0.516 6.891 6.422 5.344-1.406q0.609-0.188 1.148 0.141t0.68 0.938zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
-                                                </path>
-                                            </svg>15시 30분 </span>
-                                    </td>
-                                    <td><span></span>
-                                        <span>1h 10m</span>
-                                    </td>
-                                    <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24">
-                                                <title>flight_land</title>
-                                                <path
-                                                    d="M14.016 14.438q-3.844-1.078-9.656-2.578l-1.594-0.469v-5.156l1.453 0.375 0.938 2.344 4.969 1.313v-8.25l1.922 0.516 2.766 9 5.297 1.406q0.609 0.188 0.914 0.727t0.164 1.148q-0.188 0.609-0.703 0.891t-1.125 0.141zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
-                                                </path>
-                                            </svg>16시 40분</span>
-                                    </td>
-                                    <td><span class="badge badge-primary">Active</span>
-                                    </td>
-                                    <td><span>53,000원</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="../admin/images/tours/2.jpg" alt="tour 2"></td>
-                                    <td><span class="fw-500"></span><span style="color: black;">대구<br>6월 2일</span></td>
-                                    <td><span> 김포 </span></td>
-                                    <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24">
-                                                <title>flight_takeoff</title>
-                                                <path
-                                                    d="M22.078 9.656q0.141 0.609-0.164 1.125t-0.914 0.703q-5.813 1.547-9.656 2.578l-5.297 1.406-1.594 0.469-2.625-4.5 1.453-0.375 1.969 1.5 4.969-1.313-4.125-7.172 1.922-0.516 6.891 6.422 5.344-1.406q0.609-0.188 1.148 0.141t0.68 0.938zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
-                                                </path>
-                                            </svg>15시 25분</span>
-                                    </td>
-                                    <td><span></span>
-                                        <span>1h 00m</span>
-                                    </td>
-                                    <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24">
-                                                <title>flight_land</title>
-                                                <path
-                                                    d="M14.016 14.438q-3.844-1.078-9.656-2.578l-1.594-0.469v-5.156l1.453 0.375 0.938 2.344 4.969 1.313v-8.25l1.922 0.516 2.766 9 5.297 1.406q0.609 0.188 0.914 0.727t0.164 1.148q-0.188 0.609-0.703 0.891t-1.125 0.141zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
-                                                </path>
-                                            </svg>16시 25분</span>
-                                    </td>
-                                    <td><span class="badge badge-secondary">Booked</span>
-                                    <td><span>47,000원</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="<c:url value='/admin/images/tours/1.jpg'/>" alt="tour 1"></td>
-                                    <td><span class="fw-500"></span><span style="color: black;">김포<br>6월 4일</span></td>
-                                    <td><span>제주도<br>6월 4일</span></td>
-                                    <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24">
-                                                <title>flight_takeoff</title>
-                                                <path
-                                                    d="M22.078 9.656q0.141 0.609-0.164 1.125t-0.914 0.703q-5.813 1.547-9.656 2.578l-5.297 1.406-1.594 0.469-2.625-4.5 1.453-0.375 1.969 1.5 4.969-1.313-4.125-7.172 1.922-0.516 6.891 6.422 5.344-1.406q0.609-0.188 1.148 0.141t0.68 0.938zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
-                                                </path>
-                                            </svg>08시 10분 </span>
-                                    </td>
-                                    <td><span></span>
-                                        <span>1h 10m</span>
-                                    </td>
-                                    <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24">
-                                                <title>flight_land</title>
-                                                <path
-                                                    d="M14.016 14.438q-3.844-1.078-9.656-2.578l-1.594-0.469v-5.156l1.453 0.375 0.938 2.344 4.969 1.313v-8.25l1.922 0.516 2.766 9 5.297 1.406q0.609 0.188 0.914 0.727t0.164 1.148q-0.188 0.609-0.703 0.891t-1.125 0.141zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
-                                                </path>
-                                            </svg>09시 20분</span>
-                                    </td>
-                                    <td><span class="badge badge-primary">Active</span>
-                                    </td>
-                                    <td><span>67,000원</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="../admin/images/tours/2.jpg" alt="tour 2"></td>
-                                    <td><span class="fw-500"></span><span style="color: black;">광주<br>6월 2일</span></td>
-                                    <td><span> 김포 </span></td>
-                                    <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24">
-                                                <title>flight_takeoff</title>
-                                                <path
-                                                    d="M22.078 9.656q0.141 0.609-0.164 1.125t-0.914 0.703q-5.813 1.547-9.656 2.578l-5.297 1.406-1.594 0.469-2.625-4.5 1.453-0.375 1.969 1.5 4.969-1.313-4.125-7.172 1.922-0.516 6.891 6.422 5.344-1.406q0.609-0.188 1.148 0.141t0.68 0.938zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
-                                                </path>
-                                            </svg>20시 10분</span>
-                                    </td>
-                                    <td><span></span>
-                                        <span>1h 00m</span>
-                                    </td>
-                                    <td><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24">
-                                                <title>flight_land</title>
-                                                <path
-                                                    d="M14.016 14.438q-3.844-1.078-9.656-2.578l-1.594-0.469v-5.156l1.453 0.375 0.938 2.344 4.969 1.313v-8.25l1.922 0.516 2.766 9 5.297 1.406q0.609 0.188 0.914 0.727t0.164 1.148q-0.188 0.609-0.703 0.891t-1.125 0.141zM2.484 18.984h19.031v2.016h-19.031v-2.016z">
-                                                </path>
-                                            </svg>21시 10분</span>
-                                    </td>
-                                    <td><span class="badge badge-secondary">Booked</span>
-                                    <td><span>49,000원</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Booking history  end-->
-
-        <!-- datepicker start -->
-        <div class="col-lg-6 col-xxl-4">
-            <div class="datepicker-dashboard">
-                <div class="datepicker-here" data-language="en"></div>
-            </div>
-        </div>
-        <!-- datepicker start -->
-
+        <!-- 월별 예약 내역 끝 -->
 
         <!-- Traficks chart start -->
-        <div class="col-lg-6">
+        <!-- <div class="col-lg-9">
             <div class="card ">
                 <div class="d-flex align-items-center justify-content-between  card-header">
                     <div class="card-header-title">
@@ -444,19 +286,29 @@ $(function() {
 
             </div>
 
-        </div>
+        </div> -->
         <!-- Traficks chart end -->
+        
+        <!-- 달력 시작 -->
+        <div class="col-lg-6 col-xxl-4" style="width: 50%;">
+            <div class="datepicker-dashboard">
+                <div class="datepicker-here" data-language="en"></div>
+            </div>
+        </div>
+        <!-- 달력 끝 -->
+        
+        <!-- 공항 위치 시작 -->
         <div class="col-xxl-6">
             <div class="card">
                 <div class="card-header-title card-header">
                     <h5>공항 위치</h5>
                 </div>
-                <div class="card-body" id="map" style="width:500px;height:600px;">
+                <div class="card-body" id="map" style="width:756x;height:600px;">
                 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=00724106dd7f78df2178c577988b8039"></script>
 					<script>
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 						    mapOption = { 
-						        center: new kakao.maps.LatLng(36.034681485295046, 127.87507964858708), // 지도의 중심좌표
+						        center: new kakao.maps.LatLng(35.8741903385511, 127.906975200866), // 지도의 중심좌표
 						        level: 13 // 지도의 확대 레벨
 						    };
 						
@@ -473,25 +325,113 @@ $(function() {
 						var zoomControl = new kakao.maps.ZoomControl();
 						map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 						
-						// 마커가 표시될 위치입니다 
-						var markerPosition  = new kakao.maps.LatLng(37.5588966804188, 126.80281133197248); //김포
-
-						// 마커를 생성합니다
-						var marker = new kakao.maps.Marker({
-						    position: markerPosition
-						});
+						// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+						var positions = [
+						    {
+						        content: '<div>김포공항</div>', 
+						        latlng: new kakao.maps.LatLng(37.5588966804188, 126.80281133197248)
+						    },
+						    {
+						        content: '<div>인천공항</div>', 
+						        latlng: new kakao.maps.LatLng(37.449446593373146, 126.45040864741331)
+						    },
+						    {
+						        content: '<div>울산공항</div>', 
+						        latlng: new kakao.maps.LatLng(35.59283365482653, 129.35588314447716)
+						    },
+						    {
+						        content: '<div>사천공항</div>',
+						        latlng: new kakao.maps.LatLng(35.09223037529649, 128.0865657245903)
+						    },
+						    {
+						        content: '<div>김해공항</div>',
+						        latlng: new kakao.maps.LatLng(35.173157026949795, 128.94669259897987)
+						    },
+						    {
+						        content: '<div>포항공항</div>',
+						        latlng: new kakao.maps.LatLng(35.984262028055234, 129.43407285497307)
+						    },
+						    {
+						        content: '<div>대구공항</div>',
+						        latlng: new kakao.maps.LatLng(35.89983892150234, 128.63782503522603)
+						    },
+						    {
+						        content: '<div>청주공항</div>',
+						        latlng: new kakao.maps.LatLng(36.72201708139164, 127.49584609990285)
+						    },
+						    {
+						        content: '<div>군산공항</div>',
+						        latlng: new kakao.maps.LatLng(35.92600368254394, 126.61567260598301)
+						    },
+						    {
+						        content: '<div>여수공항</div>',
+						        latlng: new kakao.maps.LatLng(34.839963090949446, 127.61392320392365)
+						    },
+						    {
+						        content: '<div>원주공항</div>',
+						        latlng: new kakao.maps.LatLng(37.45920162946342, 127.97710689920744)
+						    },
+						    {
+						        content: '<div>양양공항</div>',
+						        latlng: new kakao.maps.LatLng(38.058728790593946, 128.66281100723862)
+						    },
+						    {
+						        content: '<div>제주공항</div>',
+						        latlng: new kakao.maps.LatLng(33.507075298671616, 126.49275611075839)
+						    },
+						    {
+						        content: '<div>무안공항</div>',
+						        latlng: new kakao.maps.LatLng(34.99494236341108, 126.38785940163078)
+						    },
+						    {
+						        content: '<div>광주공항</div>',
+						        latlng: new kakao.maps.LatLng(35.1401731422491, 126.81043818074467)
+						    }
+						];
 						
-						// 마커가 지도 위에 표시되도록 설정합니다
-						marker.setMap(map);
+						for (var i = 0; i < positions.length; i ++) {
+						    // 마커를 생성합니다
+						    var marker = new kakao.maps.Marker({
+						        map: map, // 마커를 표시할 지도
+						        position: positions[i].latlng // 마커의 위치
+						    });
+
+						    // 마커에 표시할 인포윈도우를 생성합니다 
+						    var infowindow = new kakao.maps.InfoWindow({
+						        content: positions[i].content // 인포윈도우에 표시할 내용
+						    });
+
+						    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+						    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+						    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+						    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+						    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+						}
+
+						// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+						function makeOverListener(map, marker, infowindow) {
+						    return function() {
+						        infowindow.open(map, marker);
+						    };
+						}
+
+						// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+						function makeOutListener(infowindow) {
+						    return function() {
+						        infowindow.close();
+						    };
+						}
 					</script>
                 	<%-- <img onclick="javascript:getLoc()" src="<c:url value='/assets/images/flights/지도.png'/>"> --%>
                     <!-- <div class="jvector-map-height" id="world-map"></div> -->
                 </div>
             </div>
         </div>
+        <!-- 공항 위치 끝 -->
+        
+        
+        
         <!-- <div class="col-12">
-
-
             <div class="card">
                 <div class="card-header-title card-header">
                     <h5>Tours</h5>
