@@ -15,9 +15,9 @@
         select * from reservation
     </select>
     
-    <!-- <update id="checkpay" parameterType="int">
+    <update id="cancelRes" parameterType="int">
 		update reservation
-		set r_checkpay='Y'
-		where r_no=SEQ_RESERVATION.nextval
-	</update> -->
+		set r_checkpay='N'
+		where r_no=#{rNo}
+	</update>
 </mapper>

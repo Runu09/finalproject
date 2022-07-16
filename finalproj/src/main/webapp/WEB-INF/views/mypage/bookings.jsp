@@ -9,21 +9,84 @@
 <meta charset="UTF-8">
 <title>bookings.jsp</title>
 </head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> -->
+<script src="<c:url value='/assets/js/jquery-3.6.0.min.js'/>"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <link href="../assets/css/bookings.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script type="text/javascript">
+$(function() {
+	getToken();
+});
 	//페이지 번호 클릭시 실행할 함수
 	function pageFunc(curPage){
 		$('input[name=currentPage]').val(curPage);
 		$('form[name=frmPage]').submit();
 	}
 
-</script>
-<body>
+	 function cancelPay(rno,impuid) {
+		var token=$('#token').val();
+		
+		//alert(rno+","+impuid);
+		$.ajax({
+					url : "https://api.iamport.kr/payments/cancel?_token="+token,
+					type : "POST",
+					data : {
+						imp_uid : impuid, 
+					}
+				
+				});
+		cancelRes(rno,impuid);
+		event.preventDefault(); 
+	}
+	
+	function cancelRes(rno, impuid){
+		//alert('rno='+rno+',impuid='+impuid);
+		$.ajax({
+		        url : "<c:url value='/mypage/cancelRes.do'/>",
+		        type : 'post',
+		        data : {
+		        	rNo :rno,
+		        	pImpUid : impuid
+		        },
+		        success : function(res) {
+		        	alert('예매가 취소되었습니다.');
+		        },
+		        error : function(xhr, status, error) {
+		           alert("예매 취소 실패");
+		        }
+		     }); //ajax 
+		  //event.preventDefault(); 
+	}   
+	function getToken(){
+		$.ajax({
+			url : "<c:url value='/token'/>",
+			type : "POST",
+			data : {
+	        	 imp_key: "3274752148876953", // REST API 키
+	             imp_secret: "4432ddd6c5ec453eeabf9591121b030edab44b5026765842c1d90108bfb43ace30d33a547c5a668b" // REST API Secret
+			},
+			success : function(res) {
+				$('#token').val(res);
+			},
+			error : function(xhr, status, error) {
+				alert('토큰 생성 실패');
+			}
 
+		});
+		//event.preventDefault(); 
+	}
+</script>
+
+
+
+<body>
+	<input type="hidden" id="token">
 	<!-- section start-->
 	<section class="small-section dashboard-section bg-inner"
 		data-sticky_parent>
@@ -42,37 +105,37 @@
 								<!-- 페이징 처리 form -->
 								<form action="<c:url value='/mypage/bookings.do'/>"
 									method="post" name="frmPage">
-									<input type="hidden" name="currentPage">
-									<input type="hidden" name="ticketType" value="${param.ticketType }">
+									<input type="hidden" name="currentPage"> <input
+										type="hidden" name="ticketType" value="${param.ticketType }">
 								</form>
-								
-								
-								<div class="form-group" style="margin: 0 auto">
-								<form action="<c:url value='/mypage/bookings.do'/>"
-									method="post" name="frmSelect">
 
-									<div class="row">
-										<select name="ticketType" class="form-control"
-											style="width: 200px; margin-right: 10px">
-											<option value=""></option>
-											<option value="UPCOMING"
-											<c:if test="${param.ticketType == 'UPCOMING'}">
+
+								<div class="form-group" style="margin: 0 auto">
+									<form action="<c:url value='/mypage/bookings.do'/>"
+										method="post" name="frmSelect">
+
+										<div class="row">
+											<select name="ticketType" class="form-control"
+												style="width: 200px; margin-right: 10px">
+												<option value=""></option>
+												<option value="UPCOMING"
+													<c:if test="${param.ticketType == 'UPCOMING'}">
 									            selected
 									         </c:if>>UPCOMING</option>
-											<option value="PAST"
-											<c:if test="${param.ticketType == 'PAST'}">
+												<option value="PAST"
+													<c:if test="${param.ticketType == 'PAST'}">
 									            selected
 									         </c:if>>PAST</option>
-									         <option value="CANCLE"
-									         <c:if test="${param.ticketType == 'CANCLE'}">
+												<option value="CANCLE"
+													<c:if test="${param.ticketType == 'CANCLE'}">
 									            selected
 									         </c:if>>CANCLE</option>
-										</select> 
-										
-										<button class="btn btn-primary me-3" type="submit">조회</button>
-									</div>
-								</form>
-							</div>
+											</select>
+
+											<button class="btn btn-primary me-3" type="submit">조회</button>
+										</div>
+									</form>
+								</div>
 								<!-- 페이징 처리 form -->
 
 
@@ -89,7 +152,7 @@
 												<div class="date-box">
 													<c:set var="startTime" value="${vo.SStarttime }" />
 
-													<span class="day">출발</span> <span class="date">
+													<span class="day">출발</span><span class="date">
 														${fn:substring(startTime, 2, 4) }/
 														${fn:substring(startTime, 5, 7) }/
 														${fn:substring(startTime, 8, 10) } </span> <span class="month">${fn:substring(startTime, 11, 16) }</span>
@@ -107,7 +170,7 @@
 															</p>
 														</div>
 														<div class="media-body">
-															<h6 class="media-heading">${vo.SName } / ${vo.alName}</h6>
+															<h6 class="media-heading">${vo.SName }/ ${vo.alName}</h6>
 															<p>
 																예매일자: <span><fmt:formatDate value="${vo.RDate }"
 																		pattern="yyyy-MM-dd" /></span>
@@ -131,22 +194,25 @@
 														</c:otherwise>
 													</c:choose>
 													<!-- 아이콘 표시 -->
-													
+
 													<!-- 발권  -->
 													<div id="btnTicket">
-													<div class="ticket">
-														<a href="<c:url value='/booking/eTicket.do?rNo=${vo.RNo }'/>"
-															onclick="window.open(this.href, '_blank', 'width=700, height=600'); return false;">
-															<span class="badge bg-success">e-Ticket 발권</span>
-														</a>
-													</div>
-													<!-- 발권 끝-->
-													<!-- 취소 -->
-													<div class="cancle">
-														<input type="button" id="btnCancle" class="badge bg-cancle" value="예매 취소"/>
-						
-													</div>
-													<!-- 취소 끝 -->
+
+														<div class="ticket">
+															<a
+																href="<c:url value='/booking/eTicket.do?rNo=${vo.RNo }'/>"
+																onclick="window.open(this.href, '_blank', 'width=700, height=600'); return false;">
+																<span class="badge bg-success">e-Ticket 발권</span>
+															</a>
+														</div>
+														<!-- 발권 끝-->
+														<!-- 취소 -->
+														<div class="cancle">
+															<a href="#"> <span class="badge bg-cancle"
+																onclick="cancelPay(${vo.RNo },'${vo.PImpUid }')">예매 취소</span>
+															</a>
+														</div>
+														<!-- 취소 끝 -->
 													</div>
 												</div>
 											</div>

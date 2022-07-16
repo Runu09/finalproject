@@ -20,4 +20,9 @@ public class PayServiceImpl implements PayService{
 	public List<PayVO> selectPay(PayVO vo) {
 		return payDao.selectPay(vo);
 	}
+
+	@Override
+	public int cancelPay(String pImpUid) {
+		return payDao.cancelPay(pImpUid);
+	}
 }

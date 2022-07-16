@@ -25,7 +25,7 @@
 	select ROWNUM, A.* 
 	from
 	(
-		select * from ticketView
+		select * from ticketView2
 		where mem_id=#{mem_id}
 		and ticketType='UPCOMING'
 		order by s_starttime
@@ -43,13 +43,13 @@
 				from
 				(
 				<if test="ticketType==null or ticketType==''">
-		    		select * from ticketView
+		    		select * from ticketView2
 					<include refid="searchWhere"></include>
 					order by ticketType DESC,s_starttime
 					
 				</if>
 				<if test="ticketType!=null and ticketType!=''">
-					select * from ticketView
+					select * from ticketView2
 					<include refid="searchWhere"></include>
 					and r_checkpay='Y'
 					and ticketType=#{ticketType}
@@ -66,21 +66,21 @@
 	
 	<select id="getTotalRecord" parameterType="bookingsearchVo" resultType="int">
 			<if test="ticketType==null or ticketType==''">
-    			select count(*) from ticketView  
+    			select count(*) from ticketView2
     			<include refid="searchWhere"></include>
-				and r_checkpay='Y'
+				<!-- and r_checkpay='Y' -->
 			</if>
     		<if test="ticketType!=null and ticketType!=''">
-				select count(*) from ticketView 
+				select count(*) from ticketView2 
 				<include refid="searchWhere"></include>
 				and ticketType=#{ticketType}
-				and r_checkpay='Y'
+				<!-- and r_checkpay='Y' -->
 			</if>
 		
 	</select>
 
 	<select id="countReservation" parameterType="String" resultType="int">
-		select count(*) from ticketView
+		select count(*) from ticketView2
 		where mem_id=#{mem_id}
 		and to_char(r_date, 'MM') = to_char(SYSDATE, 'MM')
 		and ticketType !='CANCLE'
@@ -93,14 +93,14 @@
 	</select>
 	
 	<select id="sumPay" parameterType="String" resultType="String" >
-		select sum(p_pay) from ticketView
+		select sum(p_pay) from ticketView2
 		where mem_id=#{mem_id}
 		and to_char(p_paytime, 'MM') = to_char(SYSDATE, 'MM')
 		and ticketType !='CANCLE'
 	</select>
 	
 	<select id="sumMileage" parameterType="string" resultType="String">
-		select sum(p_mileage) from ticketView
+		select sum(p_mileage) from ticketView2
 		where mem_id=#{mem_id}
 		and to_char(p_paytime, 'MM') = to_char(SYSDATE, 'MM')
 		and ticketType !='CANCLE'

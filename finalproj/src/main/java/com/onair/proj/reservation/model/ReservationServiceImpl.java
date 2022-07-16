@@ -20,4 +20,9 @@ public class ReservationServiceImpl implements ReservationService{
 	public List<ReservationVO> selectReservation(ReservationVO vo) {
 		return reservationDao.selectReservation(vo);
 	}
+
+	@Override
+	public int cancelRes(int rNo) {
+		return reservationDao.cancelRes(rNo);
+	}
 }
