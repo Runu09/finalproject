@@ -451,29 +451,38 @@ $(function() {
                 <div class="card-header-title card-header">
                     <h5>공항 위치</h5>
                 </div>
-                <div class="card-body" id="staticMap" style="width:500px;height:600px;">
+                <div class="card-body" id="map" style="width:500px;height:600px;">
                 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=00724106dd7f78df2178c577988b8039"></script>
-                	<script>
-	                	var markers = [
-	                	    {
-	                	        position: new kakao.maps.LatLng(37.5588966804188, 126.80281133197248),
-	                	    	text: '김포공항'
-	                	    },
-	                	    {
-	                	        position: new kakao.maps.LatLng(37.449446593373146, 126.45040864741331), 
-	                	        text: '인천공항' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다     
-	                	    }
-	                	];	
-                	
-	                	var staticMapContainer = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
-	                    staticMapOption = { 
-	                        center: new kakao.maps.LatLng(36.14222142233532, 127.9285385200003 ), // 이미지 지도의 중심좌표
-	                        level: 13, // 이미지 지도의 확대 레벨
-	                        marker: markers // 이미지 지도에 표시할 마커 
-	                    };    
+					<script>
+						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+						    mapOption = { 
+						        center: new kakao.maps.LatLng(36.034681485295046, 127.87507964858708), // 지도의 중심좌표
+						        level: 13 // 지도의 확대 레벨
+						    };
+						
+						var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+						
+						// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+						var mapTypeControl = new kakao.maps.MapTypeControl();
+						
+						// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+						// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+						map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+						
+						// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+						var zoomControl = new kakao.maps.ZoomControl();
+						map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+						
+						// 마커가 표시될 위치입니다 
+						var markerPosition  = new kakao.maps.LatLng(37.5588966804188, 126.80281133197248); //김포
 
-		                // 이미지 지도를 생성합니다
-		                var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
+						// 마커를 생성합니다
+						var marker = new kakao.maps.Marker({
+						    position: markerPosition
+						});
+						
+						// 마커가 지도 위에 표시되도록 설정합니다
+						marker.setMap(map);
 					</script>
                 	<%-- <img onclick="javascript:getLoc()" src="<c:url value='/assets/images/flights/지도.png'/>"> --%>
                     <!-- <div class="jvector-map-height" id="world-map"></div> -->

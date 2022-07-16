@@ -38,7 +38,7 @@
 			<div class="flight-search-detail" style="background-color: #dfd7d79c">
 				<form name="frm1" method="post"
 					action="<c:url value='/notice/notice.do'/>" class="row m-0">
-					<div class="col-lg-2" style="text-align: center">
+					<div class="col-lg-2" style="text-align: center; margin-top: 10px">
 						<span style="font-size: 1.3em">날짜</span>
 					</div>
 					<div class="col-lg-2">
@@ -54,7 +54,7 @@
 								value="${dateSearchVO.endDay }" id="datepicker1" />
 						</div>
 					</div>
-					<div class="col-lg-2" style="text-align: center">
+					<div class="col-lg-2" style="text-align: center; margin-top: 10px">
 						<span style="font-size: 1.3em">제목</span>
 					</div>
 					<div class="col-lg-2">
@@ -85,11 +85,11 @@
 	<div class="container">
 		<div class="row">
 			<!-- 리스트 상단 시작 -->
-			<div class="flight-detail-sec full_width-detail">
+			<div class="flight-detail-sec full_width-detail" style="margin: 10px;">
 				<div class="detail-bar">
 					<div class="detail-wrap wow"
 						style="background-color: black; color: white">
-						<div class="row">
+						<div class="row" style="margin-top: 10px;">
 							<div class="col-md-7">
 								<div class="price">
 									<div style="">
@@ -118,8 +118,8 @@
 			<!-- 리스트 상단 끝 -->
 			
 			<!-- 리스트 본문 시작 -->
-			<div class="flight-detail-sec full_width-detail">
-				<div class="detail-bar">
+			<div class="flight-detail-sec full_width-detail" style="margin: 10px;">
+				<div class="detail-bar" style="padding: 20px;">
 					<!-- 글 존재 여부 확인 시작 -->
 					<c:if test="${empty noticeList }">
 						<div class="detail-wrap wow">
