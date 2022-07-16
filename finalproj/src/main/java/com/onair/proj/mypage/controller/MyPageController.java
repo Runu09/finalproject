@@ -8,12 +8,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.onair.proj.board.model.BoardVO;
 import com.onair.proj.booking.controller.TicketViewVO;
@@ -24,6 +26,8 @@ import com.onair.proj.common.SearchVO;
 import com.onair.proj.member.controller.MemberController;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
+import com.onair.proj.pay.model.PayService;
+import com.onair.proj.reservation.model.ReservationService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -36,7 +40,8 @@ public class MyPageController {
 	
 	private final MemberService memberService;
 	private final MypageService mypageService;
-
+	private final ReservationService reservationService;
+	private final PayService payService;
 
 	@GetMapping("/mypageMain.do")
 	public String mypagemain_get(HttpSession session, Model model) {
@@ -94,5 +99,19 @@ public class MyPageController {
 		return "/mypage/bookings";
 	}
 	
+	@RequestMapping("/cancelRes.do")
+	@ResponseBody
+	@Transactional
+	public String cancelRes(@RequestParam String rNo, @RequestParam String pImpUid) {
+		
+		logger.info("취소 , 파라미터 rNo={} pImpUid={}", rNo, pImpUid);
+		
+		int cnt=reservationService.cancelRes(Integer.parseInt(rNo));
+		logger.info("1. cnt================"+cnt);
+		cnt=payService.cancelPay(pImpUid);
+		logger.info("2. pImpUid================"+pImpUid);
+		logger.info("2. cnt================"+cnt);
+		return Integer.toString(cnt);
+	}
 	
 }

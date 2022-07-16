@@ -9,4 +9,5 @@ public interface PayDAO {
 	int insertPay(PayVO vo);
 
     List<PayVO> selectPay(PayVO vo);
+    int cancelPay(String pImpUid);
 }
