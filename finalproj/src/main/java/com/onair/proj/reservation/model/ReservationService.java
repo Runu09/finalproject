@@ -6,4 +6,5 @@ public interface ReservationService {
 	int insertReservation(ReservationVO vo);
 
     List<ReservationVO> selectReservation(ReservationVO vo);
+    int cancelRes(int rNo);
 }
