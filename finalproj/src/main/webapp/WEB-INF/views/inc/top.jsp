@@ -1,23 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<% 
- Integer count = (Integer)application.getAttribute("count");
- Integer newCount = null;
- 
- if(count == null) {
-  application.setAttribute("count", 1);
-  
- } else {
-  
-  if(session.isNew()) {
-   newCount = count + 1;
-   application.setAttribute("count", newCount);
-  } 
- }
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,6 +73,8 @@
 	href="../assets/css/themify-icons.css">
 
 <!-- Date-time picker css -->
+
+
 <link rel="stylesheet" type="text/css"
 	href="../assets/css/datepicker.min.css">
 
@@ -106,12 +91,30 @@ body {
 
 
 <!-- latest jquery-->
-<script type="text/javascript" src="../assets/js/jquery-3.6.0.min.js"></script>
-<script>
+<script src="<c:url value='/assets/js/jquery-3.6.0.min.js'/>"></script>
+<script type="text/javascript">
+$(function() {
+	message();
+});
 function noteList(){
 	
 	open("<c:url value='/note/noteList.do'/>", "쪽지함", "width=770, height=400, location=yes, resizable=yes, top=200, left=1000");
 
+}
+
+function message(){
+		 $.ajax({
+	        url : "<c:url value='/inc/top'/>",
+	        type : 'post',
+	        data : {memId :$('#memId').val()},
+	        success : function(res) {
+	           $('#count').text(res);
+	        },
+	        error : function(xhr, status, error) {
+	           alert("쪽지 로딩 실패");
+	        }
+	     }); //ajax
+	   event.preventDefault(); 
 }
 
 </script>
@@ -119,7 +122,7 @@ function noteList(){
 </head>
 
 <body>
-
+<input type="hidden" id="memId" value="${sessionScope.memId}">
 
 	<!-- pre-loader start -->
 	<!-- <div class="loader-wrapper img-gif">
@@ -157,15 +160,15 @@ function noteList(){
 										<li class="dropdown"><a href="#"
 											class="nav-link menu-title">예매</a>
 											<ul class="nav-submenu menu-content">
-												<li>
-												<a type="submit" href="<c:url value='/booking/flight-round-trip.do?depLoc=&departure=&arrLoc=&arrival=&datepicker=&hdDate=&people=&adult=&child='/>"
-													class="submenu-title">항공권 예매</a> 
-												</li>
-												
+												<li><a type="submit"
+													href="<c:url value='/booking/flight-round-trip.do?depLoc=&departure=&arrLoc=&arrival=&datepicker=&hdDate=&people=&adult=&child='/>"
+													class="submenu-title">항공권 예매</a></li>
+
 												<li><a href="#" class="submenu-title">예약 조회</a></li>
 												<li><a href="#" class="submenu-title">항공편 현황</a></li>
 											</ul></li>
-										<li class="dropdown"><a href="<c:url value='/customer/airport.do'/>"
+										<li class="dropdown"><a
+											href="<c:url value='/customer/airport.do'/>"
 											class="nav-link menu-title">공항</a></li>
 										<li class="dropdown"><a href="#"
 											class="nav-link menu-title">커뮤니티</a>
@@ -178,7 +181,7 @@ function noteList(){
 										<li class="dropdown"><a href="#"
 											class="nav-link menu-title">고객지원</a>
 											<ul class="nav-submenu menu-content">
-												<li><a href="<c:url value='/notice/notice.do'/>"
+												<li><a href="<c:url value='/customer/notice.do'/>"
 													class="submenu-title">공지사항</a></li>
 												<li><a href="<c:url value='/customer/information.do'/>"
 													class="submenu-title">이용안내</a></li>
@@ -207,7 +210,8 @@ function noteList(){
 								<%-- <li class="user user-light"style="margin-right: 15px"><a
 									href="<c:url value='/login/logout.do'/>" style="color: white">
 										로그아웃 </a></li> --%>
-								<button class="user user-light" onclick="logOut()" style="color: white; border: white; margin-right: 15px">로그아웃</button>
+								<button class="user user-light" onclick="logOut()"
+									style="color: white; border: white; margin-right: 15px">로그아웃</button>
 								<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 								<script type="text/javascript">
 									function logOut() {
@@ -244,17 +248,17 @@ function noteList(){
 												d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                             	</svg> 마이페이지
 								</a></li>
-								<li class="user user-light"><a href="#" onClick="javascript:noteList();">
-								<span style="color:red;font-size:1.2em;font-weight: bold">${count}</span>
-								<svg
-											xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								<li class="user user-light"><a href="#"
+									onClick="javascript:noteList();"> <span
+										style="color: red; font-size: 1.2em; font-weight: bold" id="count"></span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 											fill="currentColor" class="bi bi-chat-left-dots-fill"
 											viewBox="0 0 16 16" color="white">
 										<path
 												d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
 									</svg>
 								</a></li>
-								
+
 							</c:if>
 							<!--  <li class="setting">
                                 <a href="#">
