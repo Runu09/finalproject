@@ -207,11 +207,11 @@ public class NoticeController {
 		//페이징 처리 로직 시작
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(ConstUtil.BLOCKSIZE);
-		pagingInfo.setRecordCountPerPage(ConstUtil.RECORD_COUNT);
+		pagingInfo.setRecordCountPerPage(ConstUtil.RECORD_COUNT1);
 		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
 		
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
-		searchVo.setRecordCountPerPage(ConstUtil.RECORD_COUNT);
+		searchVo.setRecordCountPerPage(ConstUtil.RECORD_COUNT1);
 		
 		List<NoticeVO> noticeList=noticeService.selectNoticeAll(searchVo);
 		logger.info("공지사항 목록 조회결과 noticeList.size={}", noticeList.size());
