@@ -21,32 +21,6 @@
 		$('form[name=frmPage]').submit();
 	}
 
-	$(function(){
-		$('#btnCancle').click(function(){
-			url:"<c:url value='/mypage/cancle.do' />"
-			type:"post",
-			datatype:"json",
-			contentType: "application/x-www-form-urlencoded; charset = utf-8",
-			 "data":{
-				 "주문번호" : 
-					 
-				merchant_uid : 'merchant_' + new Date().getTime()
-			  "cancel_request_amount": 2000, // 환불금액
-			
-			"refund_holder": ${memVo.memName}', // [가상계좌 환불시 필수입력] 환불 수령계좌 예금주
-			  "refund_bank": "88" // [가상계좌 환불시 필수입력] 환불 수령계좌 은행코드(예: KG이니시스의 경우 신한은행은 88번)
-			  "refund_account": "56211105948400" // [가상계좌 환불시 필수입력] 환불 수령계좌 번호
-			   }
-		 }).done(function(result){ //환불성공
-			 
-			 
-		 }).fail(function(error){
-			 
-		 });;//ajax
-	
-	});
-	
-
 </script>
 <body>
 
