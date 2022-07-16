@@ -8,11 +8,9 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.xml.sax.SAXException;
 
@@ -20,7 +18,6 @@ import com.onair.proj.airport.model.AirportInfoExplorer;
 import com.onair.proj.airport.model.AirportService;
 import com.onair.proj.airport.model.AirportVO;
 import com.onair.proj.note.model.NoteService;
-import com.onair.proj.note.model.NoteviewVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -61,11 +58,7 @@ public class AirportController {
 		List<AirportVO> list = airportService.selectAllAirport();
 
 		String memId=(String)session.getAttribute("memId");
-		if(memId!=null&&!memId.isEmpty()) {
-			
-			int count=noteService.newNoteCount(memId);
-			model.addAttribute("count",count);
-		}
+		
 		model.addAttribute("selectAllAirport",list);
 
 	}
