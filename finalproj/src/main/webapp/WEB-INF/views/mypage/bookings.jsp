@@ -13,6 +13,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <link href="../assets/css/bookings.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script type="text/javascript">
 	//페이지 번호 클릭시 실행할 함수
 	function pageFunc(curPage){
@@ -20,6 +21,31 @@
 		$('form[name=frmPage]').submit();
 	}
 
+	$(function(){
+		$('#btnCancle').click(function(){
+			url:"<c:url value='/mypage/cancle.do' />"
+			type:"post",
+			datatype:"json",
+			contentType: "application/x-www-form-urlencoded; charset = utf-8",
+			 "data":{
+				 "주문번호" : 
+					 
+				merchant_uid : 'merchant_' + new Date().getTime()
+			  "cancel_request_amount": 2000, // 환불금액
+			
+			"refund_holder": ${memVo.memName}', // [가상계좌 환불시 필수입력] 환불 수령계좌 예금주
+			  "refund_bank": "88" // [가상계좌 환불시 필수입력] 환불 수령계좌 은행코드(예: KG이니시스의 경우 신한은행은 88번)
+			  "refund_account": "56211105948400" // [가상계좌 환불시 필수입력] 환불 수령계좌 번호
+			   }
+		 }).done(function(result){ //환불성공
+			 
+			 
+		 }).fail(function(error){
+			 
+		 });;//ajax
+	
+	});
+	
 
 </script>
 <body>
@@ -143,9 +169,8 @@
 													<!-- 발권 끝-->
 													<!-- 취소 -->
 													<div class="cancle">
-														<a href="#">
-															<span class="badge bg-cancle">예매 취소</span>
-														</a>
+														<input type="button" id="btnCancle" class="badge bg-cancle" value="예매 취소"/>
+						
 													</div>
 													<!-- 취소 끝 -->
 													</div>
