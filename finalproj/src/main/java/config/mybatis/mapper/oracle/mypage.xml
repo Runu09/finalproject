@@ -45,13 +45,12 @@
 				<if test="ticketType==null or ticketType==''">
 		    		select * from ticketView2
 					<include refid="searchWhere"></include>
-					order by ticketType DESC,s_starttime
+					order by ticketType DESC , s_starttime
 					
 				</if>
 				<if test="ticketType!=null and ticketType!=''">
 					select * from ticketView2
 					<include refid="searchWhere"></include>
-					and r_checkpay='Y'
 					and ticketType=#{ticketType}
 					order by s_starttime
 				</if>
@@ -71,7 +70,7 @@
 				<!-- and r_checkpay='Y' -->
 			</if>
     		<if test="ticketType!=null and ticketType!=''">
-				select count(*) from ticketView2 
+				select count(*) from ticketView2
 				<include refid="searchWhere"></include>
 				and ticketType=#{ticketType}
 				<!-- and r_checkpay='Y' -->
@@ -93,7 +92,7 @@
 	</select>
 	
 	<select id="sumPay" parameterType="String" resultType="String" >
-		select sum(p_pay) from ticketView2
+		select sum(p_pay) from ticketView
 		where mem_id=#{mem_id}
 		and to_char(p_paytime, 'MM') = to_char(SYSDATE, 'MM')
 		and ticketType !='CANCLE'

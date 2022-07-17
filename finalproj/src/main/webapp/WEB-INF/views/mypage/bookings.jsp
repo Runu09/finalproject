@@ -32,8 +32,8 @@ $(function() {
 	 function cancelPay(rno,impuid) {
 		var token=$('#token').val();
 		
-		//alert(rno+","+impuid);
-		$.ajax({
+			if(confirm('예매를 취소하시겠습니까?')){
+				$.ajax({
 					url : "https://api.iamport.kr/payments/cancel?_token="+token,
 					type : "POST",
 					data : {
@@ -41,8 +41,14 @@ $(function() {
 					}
 				
 				});
-		cancelRes(rno,impuid);
-		event.preventDefault(); 
+					cancelRes(rno,impuid);
+					event.preventDefault(); 
+			}else{
+				event.preventDefault();
+			}
+	
+		//alert(rno+","+impuid);
+		
 	}
 	
 	function cancelRes(rno, impuid){
@@ -189,9 +195,9 @@ $(function() {
 														<c:when test="${vo.ticketType == 'PAST'}">
 															<span class="badge bg-secondary">past</span>
 														</c:when>
-														<c:otherwise>
+														<c:when test="${vo.ticketType == 'CANCLE'}">
 															<span class="badge bg-danger">cancle</span>
-														</c:otherwise>
+														</c:when>
 													</c:choose>
 													<!-- 아이콘 표시 -->
 
@@ -210,6 +216,7 @@ $(function() {
 														<div class="cancle">
 															<a href="#"> <span class="badge bg-cancle"
 																onclick="cancelPay(${vo.RNo },'${vo.PImpUid }')">예매 취소</span>
+															
 															</a>
 														</div>
 														<!-- 취소 끝 -->
