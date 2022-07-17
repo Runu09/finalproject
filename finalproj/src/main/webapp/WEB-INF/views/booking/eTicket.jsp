@@ -216,7 +216,7 @@
 													<td colspan="2"
 														style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 5px 0; ">
 														<p id="t3-p1">예매일자 : <fmt:formatDate value="${vo.RDate}" pattern="yyyy-MM-dd" /></p>
-														<p id="t3-p2">예매금액 : <fmt:formatNumber value="${vo.RPay}" pattern="#,###"/>원</p>
+														<p id="t3-p2">예매금액 : <fmt:formatNumber value="${vo.PPay}" pattern="#,###"/>원</p>
 													</td>
 												</tr>
 												<tr>

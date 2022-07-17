@@ -36,10 +36,33 @@ div#btnTicket {
     bottom: 5px;
 }
 
-span.badge.bg-info, span.badge.bg-secondary, span.badge.bg-danger {
+span.badge.bg-info{
 	position: relative;
 	left: 56px;
 	bottom: -26px;
+}
+
+span.badge.bg-secondary {
+    position: relative;
+    left: 56px;
+    top: 9px;
+}
+
+span.badge.bg-danger {
+    position: relative;
+    left: 56px;
+    top: 16px;
+}
+
+span.badge.bg-refund {
+	width: 135px;
+	height: 35px;
+	margin: auto 0;
+	padding-top: 11px;
+	background-color: #6c757d;
+	position: relative;
+    left: -107px;
+    top: -7px;
 }
 
 i.fas.fa-window-close {
