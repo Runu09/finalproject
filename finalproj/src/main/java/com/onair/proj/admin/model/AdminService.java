@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.onair.proj.board.model.BoardVO;
 import com.onair.proj.common.SearchVO;
 import com.onair.proj.member.model.MemberVO;
+import com.onair.proj.notice.model.NoticeVO;
 import com.onair.proj.voc.model.VocVO;
 
 public interface AdminService {
@@ -26,4 +27,6 @@ public interface AdminService {
 	int deleteAdmin(String manId);
 	int editPwd(String manId, String manPwd);
 	int chkPwd(String manId);
+	int monthNotice(int month);
+	int reservationCount(int reserve);
 }

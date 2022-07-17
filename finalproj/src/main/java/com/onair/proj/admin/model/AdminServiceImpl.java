@@ -26,6 +26,7 @@ import com.onair.proj.common.SearchVO;
 import com.onair.proj.member.model.MemberDAO;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
+import com.onair.proj.notice.model.NoticeVO;
 import com.onair.proj.voc.model.VocVO;
 
 import lombok.RequiredArgsConstructor;
@@ -121,6 +122,16 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public int chkPwd(String manId) {
 		return adminDao.chkPwd(manId);
+	}
+
+	@Override
+	public int monthNotice(int month) {
+		return adminDao.monthNotice(month);
+	}
+
+	@Override
+	public int reservationCount(int reserve) {
+		return adminDao.reservationCount(reserve);
 	}
 
 }

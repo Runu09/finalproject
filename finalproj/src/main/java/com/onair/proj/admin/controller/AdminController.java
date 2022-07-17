@@ -25,6 +25,7 @@ import com.onair.proj.common.PaginationInfo;
 import com.onair.proj.common.SearchVO;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
+import com.onair.proj.notice.model.NoticeVO;
 import com.onair.proj.voc.model.VocVO;
 
 import lombok.RequiredArgsConstructor;
@@ -39,7 +40,7 @@ public class AdminController {
 	private final AdminService adminService;
 	
 	@RequestMapping("/adminMain")
-	public String adminMain(@ModelAttribute MemberVO membervo , @ModelAttribute VocVO vocvo, @ModelAttribute BoardVO boardvo, Model model) {
+	public String adminMain(@ModelAttribute MemberVO membervo , @ModelAttribute VocVO vocvo, @ModelAttribute BoardVO boardvo, @ModelAttribute NoticeVO noticevo, Model model) {
 		logger.info("관리자 메인화면");
 		
 		int cnt1=adminService.totalMember(membervo);
@@ -51,9 +52,30 @@ public class AdminController {
 		int cnt3=adminService.totalboard2(boardvo);
 		logger.info("유실물 관리 총 글갯수={}", cnt3);
 		
+		//admin.xml int 넘겨줌
+		int monthNotice=0;
+		int[] monthNoticeCountArr = new int[13];
+		
+		for(int i=1;i<monthNoticeCountArr.length;i++) {
+			monthNotice=adminService.monthNotice(i);
+			monthNoticeCountArr[i]=monthNotice;
+		}
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>test={}", monthNoticeCountArr.length);
+		
+		//logger.info("월별 공지사항 글갯수={}", noticevo);
+		
+		int reservationCount=0;
+		int[] reservationCountArr = new int[13];
+		for(int j=1;j<reservationCountArr.length;j++) {
+			reservationCount=adminService.reservationCount(j);
+			reservationCountArr[j]=reservationCount;
+		}
+		
 		model.addAttribute("cnt1", cnt1);
 		model.addAttribute("cnt2", cnt2);
 		model.addAttribute("cnt3", cnt3);
+		model.addAttribute("monthNoticeCountArr", monthNoticeCountArr);
+		model.addAttribute("reservationCountArr", reservationCountArr);
 		
 		return "/admin/adminMain";
 	}

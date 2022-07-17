@@ -31,6 +31,18 @@
 		where bt_no=3
 	</select>
 	
+	<select id="monthNotice" parameterType="int" resultType="int">
+		select count(extract (month from mb_regdate)) as month
+		from mboard a
+		where extract (month from mb_regdate)=#{i}
+	</select>
+	
+	<select id="reservationCount" parameterType="int" resultType="int">
+		select count(extract (month from r_date)) as month
+		from reservation r
+		where extract (month from r_date)=#{j}
+	</select>
+	
 	<sql id="searchWhere">
 		<if test="searchKeyword !=null and searchKeyword !=''">
         	where mem_name 

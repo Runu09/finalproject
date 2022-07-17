@@ -34,9 +34,77 @@ function getLoc(){
 	var y = event.offsetY;
 	alert("현재좌표는 : "+x+" / "+y);
 	}
-	
+
+
+//월별 회원가입 인원 수 그래프
 $(function() {
 	const chart = Highcharts.chart('container', {
+	    title: {
+	        text: '월별 회원가입 인원 수'
+	    },
+	    xAxis: {
+	        categories: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+	    },
+	    series: [{
+	        type: 'column',
+	        colorByPoint: true,
+	        data: [${monthNoticeCountArr[1]}, 
+	        	${monthNoticeCountArr[2]}, 
+	        	${monthNoticeCountArr[3]}, 
+	        	${monthNoticeCountArr[4]},
+	        	${monthNoticeCountArr[5]},
+	        	${monthNoticeCountArr[6]},
+	        	${monthNoticeCountArr[7]},
+	        	${monthNoticeCountArr[8]},
+	        	${monthNoticeCountArr[9]},
+	        	${monthNoticeCountArr[10]},
+	        	${monthNoticeCountArr[11]},
+	        	${monthNoticeCountArr[12]}],
+	        showInLegend: false
+	    }]
+	});
+
+	document.getElementById('plain').addEventListener('click', () => {
+	    chart.update({
+	        chart: {
+	            inverted: false,
+	            polar: false
+	        },
+	        subtitle: {
+	            text: 'Plain'
+	        }
+	    });
+	});
+
+	document.getElementById('inverted').addEventListener('click', () => {
+	    chart.update({
+	        chart: {
+	            inverted: true,
+	            polar: false
+	        },
+	        subtitle: {
+	            text: 'Inverted'
+	        }
+	    });
+	});
+
+	document.getElementById('polar').addEventListener('click', () => {
+	    chart.update({
+	        chart: {
+	            inverted: false,
+	            polar: true
+	        },
+	        subtitle: {
+	            text: 'Polar'
+	        }
+	    });
+	});
+})
+
+
+//월별 예약 내역 그래프
+$(function() {
+	const chart = Highcharts.chart('container1', {
 	    title: {
 	        text: '월별 예약 현황'
 	    },
@@ -46,7 +114,18 @@ $(function() {
 	    series: [{
 	        type: 'column',
 	        colorByPoint: true,
-	        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+	        data: [${reservationCountArr[1]}, 
+	        	${reservationCountArr[2]}, 
+	        	${reservationCountArr[3]}, 
+	        	${reservationCountArr[4]},
+	        	${reservationCountArr[5]},
+	        	${reservationCountArr[6]},
+	        	${reservationCountArr[7]},
+	        	${reservationCountArr[8]},
+	        	${reservationCountArr[9]},
+	        	${reservationCountArr[10]},
+	        	${reservationCountArr[11]},
+	        	${reservationCountArr[12]}],
 	        showInLegend: false
 	    }]
 	});
@@ -220,24 +299,8 @@ $(function() {
         </div>
         <!-- 가입한 총 회원 수 합계 끝 -->
         
-        <!-- Earning chart  star-->
-        <div class="col-xl-8">
-            <div class="card o-hidden" style="height: 578px;">
-                <div class="card-header">
-                    <div class="card-header-title">
-                        <br><h4>월별 매출 </h4>
-                    </div>
-                    <div class="card-body p-0" style="margin-top : 100px;">
-                        <div id="bar-chart-earning"></div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- Earning chart  end-->
-        
         <!-- 월별 예약 내역 시작 -->
-        <div class="col-xl-4">
+        <div class="col-xl-6">
             <div class="h-100">
                 <div class="card o-hidden  ">
                 	<!-- 헤더 시작 -->
@@ -253,7 +316,7 @@ $(function() {
                     <!-- 차트 시작 -->
                     <div class="card-body ">
 						<figure class="highcharts-figure">
-						    <div id="container"></div>
+						    <div id="container1"></div>
 						</figure>
                     </div>
                     <!-- 차트 끝 -->
@@ -261,33 +324,32 @@ $(function() {
             </div>
         </div>
         <!-- 월별 예약 내역 끝 -->
-
-        <!-- Traficks chart start -->
-        <!-- <div class="col-lg-9">
-            <div class="card ">
-                <div class="d-flex align-items-center justify-content-between  card-header">
-                    <div class="card-header-title">
-                        <h5>통계</h5>
+        
+        <!-- 회원가입 인원 시작 -->
+        <div class="col-xl-6">
+            <div class="h-100">
+                <div class="card o-hidden  ">
+                	<!-- 헤더 시작 -->
+                    <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="card-header-title">
+                                <h4>회원가입 인원</h4>
+                            </div>
+                        </div>
                     </div>
-
-
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button class="btn btn-outline-light txt-dark " type="button"
-                            data-bs-original-title="" title="">일</button>
-                        <button class="btn btn-outline-light txt-dark" type="button"
-                            data-bs-original-title="" title="">주</button>
-                        <button class="btn btn-outline-light txt-dark active" type="button"
-                            data-bs-original-title="" title="">월</button>
+                    <!-- 헤더 끝 -->
+                    
+                    <!-- 차트 시작 -->
+                    <div class="card-body ">
+						<figure class="highcharts-figure">
+						    <div id="container"></div>
+						</figure>
                     </div>
+                    <!-- 차트 끝 -->
                 </div>
-                <div class="card-body">
-                    <div id="traffic-chart"></div>
-                </div>
-
             </div>
-
-        </div> -->
-        <!-- Traficks chart end -->
+        </div>
+        <!-- 회원가입 인원 끝 -->
         
         <!-- 달력 시작 -->
         <div class="col-lg-6 col-xxl-4" style="width: 50%;">
