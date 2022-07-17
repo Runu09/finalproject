@@ -37,6 +37,12 @@
 		where extract (month from mb_regdate)=#{i}
 	</select>
 	
+	<select id="reservationCount" parameterType="int" resultType="int">
+		select count(extract (month from r_date)) as month
+		from reservation r
+		where extract (month from r_date)=#{j}
+	</select>
+	
 	<sql id="searchWhere">
 		<if test="searchKeyword !=null and searchKeyword !=''">
         	where mem_name 

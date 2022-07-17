@@ -28,4 +28,5 @@ public interface AdminDAO {
 	int editPwd(String manId, String manPwd);
 	int chkPwd(String manId);
 	int monthNotice(int month);
+	int reservationCount(int reserve);
 }

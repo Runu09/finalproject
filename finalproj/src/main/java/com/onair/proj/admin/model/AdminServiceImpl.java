@@ -129,4 +129,9 @@ public class AdminServiceImpl implements AdminService{
 		return adminDao.monthNotice(month);
 	}
 
+	@Override
+	public int reservationCount(int reserve) {
+		return adminDao.reservationCount(reserve);
+	}
+
 }

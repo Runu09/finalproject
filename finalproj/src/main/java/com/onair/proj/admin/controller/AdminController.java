@@ -54,7 +54,7 @@ public class AdminController {
 		
 		//admin.xml int 넘겨줌
 		int monthNotice=0;
-		int[] monthNoticeCountArr = new int[12];
+		int[] monthNoticeCountArr = new int[13];
 		
 		for(int i=1;i<monthNoticeCountArr.length;i++) {
 			monthNotice=adminService.monthNotice(i);
@@ -62,12 +62,20 @@ public class AdminController {
 		}
 		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>test={}", monthNoticeCountArr.length);
 		
-		logger.info("월별 공지사항 글갯수={}", noticevo);
+		//logger.info("월별 공지사항 글갯수={}", noticevo);
+		
+		int reservationCount=0;
+		int[] reservationCountArr = new int[13];
+		for(int j=1;j<reservationCountArr.length;j++) {
+			reservationCount=adminService.reservationCount(j);
+			reservationCountArr[j]=reservationCount;
+		}
 		
 		model.addAttribute("cnt1", cnt1);
 		model.addAttribute("cnt2", cnt2);
 		model.addAttribute("cnt3", cnt3);
 		model.addAttribute("monthNoticeCountArr", monthNoticeCountArr);
+		model.addAttribute("reservationCountArr", reservationCountArr);
 		
 		return "/admin/adminMain";
 	}
