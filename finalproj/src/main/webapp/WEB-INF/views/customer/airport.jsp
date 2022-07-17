@@ -300,7 +300,7 @@ th {
 								</div>
 								<br>
 								<hr>
-								<div class="card">
+								<!-- <div class="card">
 									<div class="card-header" style="font-size: 20px">인천국제공항</div><br>
 									<div class="card-body">
 										<table>
@@ -322,7 +322,7 @@ th {
 											</tbody>
 										</table>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 
