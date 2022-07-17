@@ -46,7 +46,7 @@ $(function() {
 	    series: [{
 	        type: 'column',
 	        colorByPoint: true,
-	        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, /*180.5*/${monthNotice} , 148.5, 216.4, 194.1, 95.6, 54.4],
+	        data: [20, 70, 50, 100, 60, 80, ${monthNotice}, 19, 30, 8, 26, 54],
 	        showInLegend: false
 	    }]
 	});
