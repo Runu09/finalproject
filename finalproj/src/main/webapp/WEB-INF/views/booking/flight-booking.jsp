@@ -136,14 +136,8 @@
 					if(ch>0){
 						if(age>13){
 							alert("소아 승객이 있을 경우 나이가 13세 미만이어야 합니다.");
-							alert(today);
-							alert(birthDate);
-							alert(age);
-							alert(ch);
 						}else if(age<13){
 							ch--;
-							alert(age);
-							alert(ch);
 						}
 					}
 				}
