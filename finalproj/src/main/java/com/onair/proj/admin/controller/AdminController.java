@@ -25,6 +25,7 @@ import com.onair.proj.common.PaginationInfo;
 import com.onair.proj.common.SearchVO;
 import com.onair.proj.member.model.MemberService;
 import com.onair.proj.member.model.MemberVO;
+import com.onair.proj.notice.model.NoticeVO;
 import com.onair.proj.voc.model.VocVO;
 
 import lombok.RequiredArgsConstructor;
@@ -39,7 +40,7 @@ public class AdminController {
 	private final AdminService adminService;
 	
 	@RequestMapping("/adminMain")
-	public String adminMain(@ModelAttribute MemberVO membervo , @ModelAttribute VocVO vocvo, @ModelAttribute BoardVO boardvo, Model model) {
+	public String adminMain(@ModelAttribute MemberVO membervo , @ModelAttribute VocVO vocvo, @ModelAttribute BoardVO boardvo, @ModelAttribute NoticeVO noticevo, Model model) {
 		logger.info("관리자 메인화면");
 		
 		int cnt1=adminService.totalMember(membervo);
@@ -51,9 +52,13 @@ public class AdminController {
 		int cnt3=adminService.totalboard2(boardvo);
 		logger.info("유실물 관리 총 글갯수={}", cnt3);
 		
+		int monthNotice=adminService.monthNotice(noticevo);
+		logger.info("월별 공지사항 글갯수={}", noticevo);
+		
 		model.addAttribute("cnt1", cnt1);
 		model.addAttribute("cnt2", cnt2);
 		model.addAttribute("cnt3", cnt3);
+		model.addAttribute("monthNotice", monthNotice);
 		
 		return "/admin/adminMain";
 	}

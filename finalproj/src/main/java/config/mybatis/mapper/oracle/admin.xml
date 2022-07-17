@@ -31,6 +31,12 @@
 		where bt_no=3
 	</select>
 	
+	<select id="monthNotice" parameterType="noticeVo" resultType="int">
+		select count(extract (month from mb_regdate)) as month
+		from mboard a
+		where extract (month from mb_regdate)=7
+	</select>
+	
 	<sql id="searchWhere">
 		<if test="searchKeyword !=null and searchKeyword !=''">
         	where mem_name 
