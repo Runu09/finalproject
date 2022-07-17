@@ -14,6 +14,22 @@
 }
 
 </style>
+<script type="text/javascript">
+	$(function(){
+		$('form[name=memOut]').submit(function(){
+			if(confirm('계정을 삭제하시겠습니까?')){
+				if($('#memPwd').val().length<1){
+					alert('비밀번호를 입력하세요');
+					$('#memPwd').focus();
+					event.preventDefault();
+				}
+			}else{
+				event.preventDefault();
+			}
+			
+		});
+	});
+</script>
 <body>
 	<!-- section start-->
 	<section class="small-section dashboard-section bg-inner"
@@ -48,7 +64,7 @@
 											</p>
 											<form name="memOut" method="post" action="<c:url value='/member/outMem.do'/>">
 												<br> <input class="form-control" type="password"
-													name="memPwd" required="" placeholder="password"><br>
+													id="memePwd" name="memPwd" required="" placeholder="password"><br>
 												
 												<div id=btOut>
 													<input class="btn btn-solid" type="submit" id="submitOut"
