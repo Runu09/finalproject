@@ -76,11 +76,11 @@
                 <div class="col">
                     <h2>결제가 완료되었습니다!</h2>
                     <p>이용해주셔서 감사합니다. </p>
-                    <p>이메일로 결제 내역이 발송될 예정입니다.</p>
-                    <button type="submit" class="btn btn-solid color1">청구서 받기</button>
+                    <p>마이페이지에서 예매 내역 확인이 가능합니다.</p>
+               <!--      <button type="submit" class="btn btn-solid color1">청구서 받기</button>
                     <button type="button" class="btn btn-solid color1" id="btnTicket"
                     onclick="getTicket()" title="새창열림">티켓 발권 받기</button>
-                   <a href="<c:url value='/mypage/bookings.do'/>" class="btn btn-solid color1">예매내역조회</a>
+             -->       <a href="<c:url value='/mypage/bookings.do'/>" class="btn btn-solid color1">예매내역조회</a>
                 </div>
             </div>
         </div>
