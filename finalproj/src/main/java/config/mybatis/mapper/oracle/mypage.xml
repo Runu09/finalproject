@@ -25,7 +25,7 @@
 	select ROWNUM, A.* 
 	from
 	(
-		select * from ticketView2
+		select * from ticketView
 		where mem_id=#{mem_id}
 		and ticketType='UPCOMING'
 		order by s_starttime
@@ -43,13 +43,13 @@
 				from
 				(
 				<if test="ticketType==null or ticketType==''">
-		    		select * from ticketView2
+		    		select * from ticketView
 					<include refid="searchWhere"></include>
 					order by ticketType DESC , s_starttime
 					
 				</if>
 				<if test="ticketType!=null and ticketType!=''">
-					select * from ticketView2
+					select * from ticketView
 					<include refid="searchWhere"></include>
 					and ticketType=#{ticketType}
 					order by s_starttime
@@ -65,12 +65,12 @@
 	
 	<select id="getTotalRecord" parameterType="bookingsearchVo" resultType="int">
 			<if test="ticketType==null or ticketType==''">
-    			select count(*) from ticketView2
+    			select count(*) from ticketView
     			<include refid="searchWhere"></include>
 				<!-- and r_checkpay='Y' -->
 			</if>
     		<if test="ticketType!=null and ticketType!=''">
-				select count(*) from ticketView2
+				select count(*) from ticketView
 				<include refid="searchWhere"></include>
 				and ticketType=#{ticketType}
 				<!-- and r_checkpay='Y' -->
