@@ -31,10 +31,10 @@
 		where bt_no=3
 	</select>
 	
-	<select id="monthNotice" parameterType="int" resultType="int">
-		select count(extract (month from mb_regdate)) as month
-		from mboard a
-		where extract (month from mb_regdate)=#{i}
+	<select id="monthSignMem" parameterType="int" resultType="int">
+		select count(extract (month from m_regdate)) as month
+		from member a
+		where extract (month from m_regdate)=#{i}
 	</select>
 	
 	<select id="reservationCount" parameterType="int" resultType="int">

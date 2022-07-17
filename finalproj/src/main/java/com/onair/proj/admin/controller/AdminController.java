@@ -57,7 +57,7 @@ public class AdminController {
 		int[] monthNoticeCountArr = new int[13];
 		
 		for(int i=1;i<monthNoticeCountArr.length;i++) {
-			monthNotice=adminService.monthNotice(i);
+			monthNotice=adminService.monthSignMem(i);
 			monthNoticeCountArr[i]=monthNotice;
 		}
 		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>test={}", monthNoticeCountArr.length);

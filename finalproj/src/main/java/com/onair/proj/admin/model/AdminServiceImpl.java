@@ -125,8 +125,8 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public int monthNotice(int month) {
-		return adminDao.monthNotice(month);
+	public int monthSignMem(int month) {
+		return adminDao.monthSignMem(month);
 	}
 
 	@Override
