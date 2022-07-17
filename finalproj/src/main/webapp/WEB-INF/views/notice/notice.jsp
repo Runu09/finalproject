@@ -162,10 +162,12 @@
 			</div>
 			<!-- 리스트 본문 끝 -->
 			
+			
 			<!-- 페이징 시작 -->
 			<nav aria-label="Page navigation example"
 				class="pagination-section mt-0">
 				<ul class="pagination">
+				
 					<c:if test="${pagingInfo.firstPage>1 }">
 						<li class="page-item"><a class="page-link"
 							onclick="pageFunc(${pagingInfo.firstPage-1})" href="#"
@@ -173,6 +175,7 @@
 								<span class="sr-only">이전</span>
 						</a></li>
 					</c:if>
+					
 					<c:forEach var="i" begin="${pagingInfo.firstPage }"
 						end="${pagingInfo.lastPage }">
 						<c:if test="${i==pagingInfo.currentPage }">
@@ -183,12 +186,14 @@
 								onclick="pageFunc(${i})">${i }</a></li>
 						</c:if>
 					</c:forEach>
+					
 					<c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">
 						<li class="page-item"><a class="page-link" href="#"
 							onclick="pageFunc(${pagingInfo.lastPage+1})" aria-label="Next">
 								<span aria-hidden="true">&raquo;</span> <span class="sr-only">다음</span>
 						</a></li>
 					</c:if>
+					
 				</ul>
 			</nav>
 			<!-- 페이징 끝 -->

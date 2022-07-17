@@ -63,16 +63,16 @@
 	<sql id="searchWhere">
 		<where>
 			<if test="searchKeyword !=null and searchKeyword !=''">
-				b_title like '%' || #{searchKeyword} || '%'
+				mb_title like '%' || #{searchKeyword} || '%'
 			</if>
-			and b_regdate >= #{startDay}
+			and mb_regdate >= #{startDay}
 			<![CDATA[
-			and b_regdate < to_date(#{endDay})+1 ]]>
+			and mb_regdate < to_date(#{endDay})+1 ]]>
 		</where>
 	</sql>
 	
 	<select id="getTotalRecord" parameterType="searchVo" resultType="int">
-		select count(*) from board
+		select count(*) from mboard
 		<include refid="searchWhere"></include>		
 	</select>
 	
