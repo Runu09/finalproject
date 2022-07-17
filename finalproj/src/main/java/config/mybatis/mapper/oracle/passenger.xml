@@ -16,7 +16,8 @@
     </select>
     
     <select id="selectBySNo" parameterType="int" resultType="PassengerVO">
-		select * from passenger 
+		select * from passengerview
 		where s_no=#{sNo}
+		and r_checkpay='Y'
 	</select>
 </mapper>
