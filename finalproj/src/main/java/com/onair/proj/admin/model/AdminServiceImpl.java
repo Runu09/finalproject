@@ -125,8 +125,8 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public int monthNotice(NoticeVO vo) {
-		return adminDao.monthNotice(vo);
+	public int monthNotice(int month) {
+		return adminDao.monthNotice(month);
 	}
 
 }

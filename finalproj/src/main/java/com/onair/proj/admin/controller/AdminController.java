@@ -52,13 +52,22 @@ public class AdminController {
 		int cnt3=adminService.totalboard2(boardvo);
 		logger.info("유실물 관리 총 글갯수={}", cnt3);
 		
-		int monthNotice=adminService.monthNotice(noticevo);
+		//admin.xml int 넘겨줌
+		int monthNotice=0;
+		int[] monthNoticeCountArr = new int[12];
+		
+		for(int i=1;i<monthNoticeCountArr.length;i++) {
+			monthNotice=adminService.monthNotice(i);
+			monthNoticeCountArr[i]=monthNotice;
+		}
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>test={}", monthNoticeCountArr.length);
+		
 		logger.info("월별 공지사항 글갯수={}", noticevo);
 		
 		model.addAttribute("cnt1", cnt1);
 		model.addAttribute("cnt2", cnt2);
 		model.addAttribute("cnt3", cnt3);
-		model.addAttribute("monthNotice", monthNotice);
+		model.addAttribute("monthNoticeCountArr", monthNoticeCountArr);
 		
 		return "/admin/adminMain";
 	}
