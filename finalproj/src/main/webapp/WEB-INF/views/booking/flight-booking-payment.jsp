@@ -154,7 +154,7 @@ $(function(){
 			                                                	</c:if>
 			                                                	<c:if test="${child!=0 }">
 				                                                	<td>소아</td>
-				                                                    <td><fmt:formatNumber value="${schedule.SPrice*child-schedule.SPrice*0.1}" pattern="#,###" />원</td>
+				                                                    <td><fmt:formatNumber value="${schedule.SPrice*child-schedule.SPrice*0.25}" pattern="#,###" />원</td>
 			                                                	</c:if>
 			                                                </tr>
 			                                                <tr>

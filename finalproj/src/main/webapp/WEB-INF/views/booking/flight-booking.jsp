@@ -7,12 +7,40 @@
 <script type="text/javascript">
 	var confirmValue=false;
 	var inwon=${adult+child};
+	var ch=${child};
+	
 	$(document).ready(function(){
-		<c:forEach var="pVo" items="${pVo}">	
-		    $("#${fn:substring(pVo.PSeat, 0, 2)}").attr("disabled",true)
-		    $("#${fn:substring(pVo.PSeat, 3, 5)}").attr("disabled",true)
-		    $("#${fn:substring(pVo.PSeat, 6, 8)}").attr("disabled",true)
-		    $("#${fn:substring(pVo.PSeat, 9, 11)}").attr("disabled",true)
+		function getFormatDate(date){
+		    var year = date.getFullYear();              //yyyy
+		    var month = (1 + date.getMonth());          //M
+		    month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+		    var day = date.getDate();                   //d
+		    day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+		    return  year;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+		}
+		
+		$("#btPay").click(function(){
+			if(inwon>0){
+				alert("좌석을 선택해주세요.");
+			}
+			if(ch!=0){
+				alert("소아 승객이 있을 경우 나이가 13세 미만이어야 합니다.");
+			}
+			if(inwon==0 && ch==0){
+				$("form[name=frm]").submit();
+			}
+		});
+		<c:forEach var="pVo" items="${pVo}">  
+		 	<c:if test="${fn:contains(pVo.PSeat, ',')}">   
+				<c:forEach var="pVo1" items="${fn:split(pVo.PSeat,',')}">  
+					$("#${pVo1}").attr("disabled",true);
+				</c:forEach>
+			</c:if>
+			<c:if test="${not fn:contains(pVo.PSeat, ',')}">   
+				<c:forEach var="pVo2" items="${pVo.PSeat}">  
+					$("#${pVo2}").attr("disabled",true);
+				</c:forEach>
+			</c:if>
 		</c:forEach>
 		 // 체크박스 클릭 시 
 		$("input[type=checkbox]").change(function(){
@@ -78,25 +106,16 @@
 					tagForSeatCheck+="</label>";
 					jQuery(".hiddenArea").append(tagForSeatCheck);
 					
-					var tagForConfirm="";
-					tagForConfirm+="<label class='"+$("#gogekSeat").val()+"'>";
-					tagForConfirm+="좌석번호: "+$("#gogekSeat").val()+"&nbsp;&nbsp;";
-					tagForConfirm+="탑승자명: "+$("#gogekName").val()+"&nbsp;&nbsp;";
-					tagForConfirm+="생년월일: "+$("#gogekBirth").val()+"&nbsp;&nbsp;";
-					tagForConfirm+="국적: "+$("#gogekCon").val();
-					tagForConfirm+="</label><br><br>";
-					jQuery("#modal_confirmBody").append(tagForConfirm);
-					
 					var tagInfo="";
 					tagInfo+="<label  class='"+$("#gogekSeat").val()+"'>";
 					tagInfo+="<label for='pSeat'>좌석</label>";
-					tagInfo+="<input type='text' class='form-control' id='pSeat' value='"+$("#gogekSeat").val()+"' readonly='readonly'>";
+					tagInfo+="<input type='text' class='form-control' name= 'pSeat' id='pSeat' value='"+$("#gogekSeat").val()+"' readonly='readonly'>";
 					tagInfo+="<label for='pName'>이름</label>";
-					tagInfo+="<input type='text' class='form-control' id='pName' value='"+$("#gogekName").val()+"' readonly='readonly'>";
+					tagInfo+="<input type='text' class='form-control' name= 'pName' id='pName' value='"+$("#gogekName").val()+"' readonly='readonly'>";
 					tagInfo+="<label for='pBirthday'>생년월일</label>";
-					tagInfo+="<input type='text' class='form-control' id='pBirthday' value='"+$("#gogekBirth").val()+"' readonly='readonly'>";
+					tagInfo+="<input type='text' class='form-control' name= 'pBirth' id='pBirthday' value='"+$("#gogekBirth").val()+"' readonly='readonly'>";
 					tagInfo+="<label for='pCon'>국적</label>";
-					tagInfo+="<input type='text' class='form-control' id='pCon' value='"+$("#gogekCon").val()+"' readonly='readonly'>";
+					tagInfo+="<input type='text' class='form-control' name= 'pCon' id='pCon' value='"+$("#gogekCon").val()+"' readonly='readonly'>";
 					tagInfo+="<hr>"
 					tagInfo+="</label>";
 					jQuery("#info").append(tagInfo);
@@ -108,6 +127,19 @@
 					$("#gogekName").val("");
 					$("#gogekBirth").val("");
 					$("#gogekCon").val("");
+					
+					var date = new Date();
+					var today=getFormatDate(date);
+					var birthDate = $("input[name=pBirth]").val().substring(0,4);
+					var age=today-birthDate+1;
+					
+					if(ch>0){
+						if(age>13){
+							alert("소아 승객이 있을 경우 나이가 13세 미만이어야 합니다.");
+						}else if(age<13){
+							ch--;
+						}
+					}
 				}
 			});
 			
@@ -118,6 +150,7 @@
 				$("label[for="+$("#gogekSeat").val()+"]").removeClass("active");
 				$('#modal_seatCheck').modal('hide')
 			});
+			
 	    });
 	});
 
@@ -596,7 +629,7 @@
                                                 	</c:if>
                                                 	<c:if test="${child!=0 }">
 	                                                	<td>소아</td>
-	                                                    <td><fmt:formatNumber value="${schedule.SPrice*child-schedule.SPrice*0.1}" pattern="#,###" />원</td>
+	                                                    <td><fmt:formatNumber value="${schedule.SPrice*child-schedule.SPrice*0.25}" pattern="#,###" />원</td>
                                                 	</c:if>
                                                 </tr>
                                                 <tr>
@@ -610,7 +643,7 @@
 	                                            <h5>예상 결제 금액: <span><fmt:formatNumber value="${schedule.SPrice*adult+25000}" pattern="#,###" />원</span></h5>
                                         	</c:if>
                                         	<c:if test="${child!=0 }">
-	                                            <h5>예상 결제 금액: <span><fmt:formatNumber value="${schedule.SPrice*adult+schedule.SPrice*child-schedule.SPrice*0.1+25000}" pattern="#,###" />원</span></h5>
+	                                            <h5>예상 결제 금액: <span><fmt:formatNumber value="${schedule.SPrice*adult+schedule.SPrice*child-schedule.SPrice*0.25+25000}" pattern="#,###" />원</span></h5>
                                         	</c:if>
                                         </div>
                                     </div>
@@ -666,7 +699,7 @@
 				          </div>
 				           <div class="form-group">
 				            탑승자 생년월일 : <label for="gogekBirth" class="control-label dispAlert" style="color:red;"></label>
-				            <input type="text" class="form-control" id="gogekBirth" value="" />
+				            <input type="text" class="form-control" id="gogekBirth"/>
 				          </div>
 				          <div class="form-group">
 				            탑승자 국적 : <label for="gogekCon" class="control-label dispAlert" style="color:red;"></label>
@@ -705,16 +738,15 @@
 					<input type='hidden' name='total' value="${schedule.SPrice*adult+25000}">
                	</c:if>
                	<c:if test="${child!=0 }">
-               		<input type='hidden' name='total' value="${schedule.SPrice*adult+schedule.SPrice*child-schedule.SPrice*0.1+25000}">
+               		<input type='hidden' name='total' value="${schedule.SPrice*adult+schedule.SPrice*child-schedule.SPrice*0.25+25000}">
                	</c:if>
 				<!-- 마일리지 사용전 총금액 -->
 				<input type="hidden" name="sNo" value="${schedule.SNo}">
 				<input type="hidden" name="adult" value="${adult}">
 				<input type="hidden" name="child" value="${child}">
-				
 				<div class="hiddenArea"></div>
 				<div class="continue-btn">
-				<input type="submit" value="예매하기" class="btn btn-solid">
+				<input type="button" value="예매하기" class="btn btn-solid" id="btPay">
 				</div>
 			</form>
             <%-- <div class="continue-btn">
