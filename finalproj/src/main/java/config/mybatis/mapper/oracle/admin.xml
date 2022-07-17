@@ -31,10 +31,10 @@
 		where bt_no=3
 	</select>
 	
-	<select id="monthNotice" parameterType="noticeVo" resultType="int">
+	<select id="monthNotice" parameterType="int" resultType="int">
 		select count(extract (month from mb_regdate)) as month
 		from mboard a
-		where extract (month from mb_regdate)=7
+		where extract (month from mb_regdate)=#{i}
 	</select>
 	
 	<sql id="searchWhere">

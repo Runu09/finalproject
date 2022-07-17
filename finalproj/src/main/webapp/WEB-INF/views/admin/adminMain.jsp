@@ -46,7 +46,18 @@ $(function() {
 	    series: [{
 	        type: 'column',
 	        colorByPoint: true,
-	        data: [20, 70, 50, 100, 60, 80, ${monthNotice}, 19, 30, 8, 26, 54],
+	        data: [/*29.9*/${monthNoticeCountArr[0]}, 
+	        	/*71.5*/${monthNoticeCountArr[1]}, 
+	        	/*106.4*/${monthNoticeCountArr[2]}, 
+	        	/*129.2*/${monthNoticeCountArr[3]},
+	        	/*144.0*/${monthNoticeCountArr[4]},
+	        	/*176.0*/${monthNoticeCountArr[5]},
+	        	/*180.5*/${monthNoticeCountArr[6]} ,
+	        	/*148.5*/${monthNoticeCountArr[7]},
+	        	/*216.4*/${monthNoticeCountArr[8]},
+	        	/*194.1*/${monthNoticeCountArr[9]},
+	        	/*95.6*/${monthNoticeCountArr[10]},
+	        	/*54.4*/${monthNoticeCountArr[11]}],
 	        showInLegend: false
 	    }]
 	});
