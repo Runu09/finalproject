@@ -41,8 +41,7 @@
 							method="get">
 							<div class="form-group">
 								<input type="text" class="form-control open-select"
-									placeholder="출발지" id="departure" name="depLoc"> <input
-									type="hidden" id="hiddenDep" name="departure"> <img
+									placeholder="출발지" id="departure" name="depLoc"> <input type="hidden" id="hiddenDep" name="departure"> <img
 									src="../assets/images/icon/from.png"
 									class="img-fluid blur-up lazyload" alt="">
 								<div class="selector-box" id="depBox">
@@ -50,17 +49,9 @@
 									<ul class="dep">
 										<c:forEach items="${selectAllAirport}" var="airfort">
 											<li><a href="#">
-													<h5>
-														<c:out value="${airfort.ALoc}" />
-													</h5>
-													<h6>
-														<c:out value="${airfort.ALoc}" />
-														국내공항
-													</h6> <span><c:out
-															value="${airfort.AName.substring(4, 7)}" /></span>
-													<div class="hidden">
-														<c:out value='${airfort.AName}' />
-													</div>
+													<h5><c:out value="${airfort.ALoc}" /></h5>
+													<h6><c:out value="${airfort.ALoc}" />국내공항</h6> <span><c:out value="${airfort.AName.substring(4, 7)}" /></span>
+													<div class="hidden"><c:out value='${airfort.AName}' /></div>
 											</a></li>
 										</c:forEach>
 									</ul>
@@ -78,17 +69,9 @@
 									<ul class="arr">
 										<c:forEach items="${selectAllAirport}" var="airfort">
 											<li><a href="#">
-													<h5>
-														<c:out value="${airfort.ALoc}" />
-													</h5>
-													<h6>
-														<c:out value="${airfort.ALoc}" />
-														국내공항
-													</h6> <span><c:out
-															value="${airfort.AName.substring(4, 7)}" /></span>
-													<div class="hidden">
-														<c:out value='${airfort.AName}' />
-													</div>
+													<h5><c:out value="${airfort.ALoc}" /></h5>
+													<h6><c:out value="${airfort.ALoc}" />국내공항</h6><span><c:out value="${airfort.AName.substring(4, 7)}" /></span>
+													<div class="hidden"><c:out value='${airfort.AName}' /></div>
 											</a></li>
 										</c:forEach>
 									</ul>
