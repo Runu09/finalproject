@@ -42,10 +42,10 @@ $(function() {
 				
 				});
 					cancelRes(rno,impuid);
-					event.preventDefault(); 
-			}else{
-				event.preventDefault();
+					//event.preventDefault(); 
 			}
+				//event.preventDefault();
+			
 	
 		//alert(rno+","+impuid);
 		
@@ -67,7 +67,7 @@ $(function() {
 		           alert("예매 취소 실패");
 		        }
 		     }); //ajax 
-		  //event.preventDefault(); 
+		 // event.preventDefault(); 
 	}   
 	function getToken(){
 		$.ajax({
