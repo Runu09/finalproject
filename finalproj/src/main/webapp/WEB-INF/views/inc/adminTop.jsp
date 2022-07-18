@@ -144,16 +144,21 @@
                                 <li><a class="btn btn-primary" href="#">Check all notification</a></li> 
                             </ul>
                         </li>-->
-
-						<li><a href="<c:url value='/admin/adminMain'/>"></a> <i
-							data-feather="home"></i>
-							<h6 class="f-18 mb-0"></h6></li>
 						<li>
 							<div class="mode">
 								<i class="fa fa-moon-o" aria-hidden="true"></i>
 							</div>
 						</li>
-						<li class="onhover-dropdown"><i data-feather="message-square"></i>
+
+						<%-- <li><a href="<c:url value='/admin/adminMain'/>"> <i
+							data-feather="home"></i>
+							</a></li>
+						<li>
+							<div class="mode">
+								<i class="fa fa-moon-o" aria-hidden="true"></i>
+							</div>
+						</li> --%>
+						<%-- <li class="onhover-dropdown"><i data-feather="message-square"></i>
 							<ul class="chat-dropdown onhover-show-div">
 								<li><i data-feather="message-square"></i>
 									<h6 class="f-18 mb-0">쪽지함</h6></li>
@@ -183,7 +188,7 @@
 								</li>
 								<li class="text-center"><a href="<c:url value='/note/list.do'/>" class="btn btn-primary" href="#">전체
 										조회 </a></li>
-							</ul></li>
+							</ul></li> --%>
 						<!-- <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
                                     data-feather="maximize"></i></a></li> -->
 						<li class="profile-nav onhover-dropdown pe-0 me-0">
@@ -293,9 +298,9 @@
 									class="sidebar-link sidebar-title" href="#"><i
 										data-feather="navigation"></i><span>공지사항</span></a>
 									<ul class="sidebar-submenu">
-										<li><a href="<c:url value='/notice/notice.do'/>">공지사항 목록</a></li>
+										<li><a href="<c:url value='/notice/notice.do'/>">공지사항 이동</a></li>
 										<li><a href="<c:url value='/notice/noticeWrite.do'/>">공지사항 등록</a></li>
-										<li><a href="<c:url value='/notice/noticeDelList.do'/>">공지사항 삭제</a></li>
+										<li><a href="<c:url value='/notice/noticeDelList.do'/>">공지사항 목록/삭제</a></li>
 									</ul></li>
 								<!-- <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="setting.html"><i data-feather="settings"> </i><span>Setting</span></a>

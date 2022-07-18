@@ -75,7 +75,7 @@ function pageFunc(curPage){
                           <tr>
                             <td style="width: 200px"><span class=" d-block" >${vo.mbNo }</span>
                             </td>
-                            <td style="width: 200px"><a href="#"><span class="d-block ">${vo.mbTitle }</span><span></span></a>
+                            <td style="width: 200px"><a href="<c:url value='/notice/noticeDetail.do?mbNo=${vo.mbNo}'/>"><span class="d-block ">${vo.mbTitle }</span><span></span></a>
                             </td>
                             <td style="width: 200px"><span class=" d-block" >${vo.mbRegdate }</span>
                             </td>
