@@ -111,7 +111,7 @@
 								<label for="" style="width: 200px">등록일</label> <span> <fmt:formatDate
 										value="${vo.BRegdate}" pattern="yyyy-MM-dd" /></span>
 							<hr>
-							</p>
+							</p><br>
 
 							${vo.BContent}
 
