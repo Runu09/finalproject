@@ -92,7 +92,7 @@ function pageFunc(curPage){
 		          
                   </div>
                 </div>
-                  <form method="post" action="<c:url value='/admin/adminAllUser'/>">
+                  <form method="post" action="<c:url value='/booking/totalReservation.do'/>">
 		          	<div class="form-group">
 						<input placeholder="" value="${SearchVO.searchKeyword }" type="text" name="searchKeyword" 
 							class="form-control" style="width: 450px; text-align: right: ; margin-left: 550px" />
