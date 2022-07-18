@@ -234,7 +234,6 @@ function pageFunc(curPage){
 
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<!-- </form> -->
