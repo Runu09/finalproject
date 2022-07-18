@@ -21,6 +21,10 @@
 		select count(*) from member
 	</select>
 	
+	<select id="totalboard1" parameterType="noticeVo" resultType="int">
+		select count(*) from mboard
+	</select>
+	
 	<select id="totalboard2" parameterType="boardVo" resultType="int">
 		select count(*) from board
 		where bt_no=2

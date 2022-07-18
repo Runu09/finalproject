@@ -229,9 +229,11 @@ $(function() {
                 <div class="custome-1-bg b-r-4 card-body">
                     <div class="media align-items-center static-top-widget">
                         <div class="media-body p-0">
-                            <span class="m-0">금일 방문자수</span>
+                            <!-- <span class="m-0">금일 방문자수</span> -->
+                            <span class="m-0">공지사항 관리</span>
                             <h4 class="mb-0 counter">
-                            	<%= application.getAttribute("count") %>
+                            	<%-- <%= application.getAttribute("count") %> --%>
+                            	${cnt }
                             </h4>
                         </div>
                         <div class="align-self-center text-center">

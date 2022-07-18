@@ -19,7 +19,6 @@
 								<li><i class="fas fa-map-marker-alt"></i> 서울특별시 서대문구 104-48 </li>
 								<li><i class="fas fa-phone-alt"></i> 010 - 1234 - 5678</li>
 								<li style="text-transform:none;"><i class="fas fa-envelope"></i> onair4@naver.com</li>
-								<li>방문자 수 : <%= application.getAttribute("count") %></li>
 							</ul>
 						</div>
 					</div>
