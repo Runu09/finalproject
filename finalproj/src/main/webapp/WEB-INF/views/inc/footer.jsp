@@ -77,7 +77,7 @@
 						<div class="footer-content">
 							<div class="footer-links">
 								<ul>
-									<li><a href="<c:url value='/customer/notice.do'/>">공지사항</a></li>
+									<li><a href="<c:url value='/notice/notice.do'/>">공지사항</a></li>
 									<li><a href="<c:url value='/customer/faq.do'/>">FAQ</a></li>
 									<li><a href="<c:url value='/customer/information.do'/>">이용안내</a></li>
 									<li><a href="<c:url value='/customer/terms.do'/>">이용약관</a></li>
