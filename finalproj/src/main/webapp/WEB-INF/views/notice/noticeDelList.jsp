@@ -94,13 +94,13 @@ function pageFunc(curPage){
 		          
                   </div>
                 </div>
-                  <form method="post" action="<c:url value='/admin/adminAllUser'/>">
+                  <%-- <form method="post" action="<c:url value='/notice/noticeDelete.do'/>">
 		          	<div class="form-group">
 						<input placeholder="" value="${SearchVO.searchKeyword }" type="text" name="searchKeyword" 
 							class="form-control" style="width: 450px; text-align: right: ; margin-left: 550px" />
 						<button class="btn btn-primary me-3" style="background-color: #4291b8; border-color: #4291b8; width: 85px; height: 40px; font-size: 13px; margin-left: 1000px; margin-top: -60px" id="btSearch">검색</button>
 					</div>
-		          </form>
+		          </form> --%>
                 <div class=" pagination-box">
                   <nav class="ms-auto me-auto " aria-label="...">
                   
