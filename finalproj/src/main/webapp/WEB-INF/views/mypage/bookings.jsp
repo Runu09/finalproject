@@ -191,33 +191,7 @@ $(function() {
 													<c:choose>
 														<c:when test="${vo.ticketType == 'UPCOMING'}">
 															<span class="badge bg-info">upcoming</span>
-														</c:when>
-														<c:when test="${vo.ticketType == 'PAST'}">
-															<span class="badge bg-secondary">past</span>
-														</c:when>
-														<c:when test="${vo.ticketType == 'CANCLE'}">
-															<span class="badge bg-danger">cancelled</span>
-														</c:when>
-													</c:choose>
-													<!-- 아이콘 표시 -->
-
-													<div id="btnTicket">
-														<c:choose>
-														<c:when test="${vo.ticketType == 'CANCLE'}">
-														<span class="badge bg-refund">환불 완료</span>
-														</c:when>
-														<c:when test="${vo.ticketType == 'PAST'}">
-														<div class="ticket">
-															<a
-																href="<c:url value='/booking/eTicket.do?rNo=${vo.RNo }'/>"
-																onclick="window.open(this.href, '_blank', 'width=700, height=600'); return false;">
-																<span class="badge bg-success">e-Ticket 발권</span>
-															</a>
-														</div>
-														</c:when>
-														<c:otherwise>
-														<!-- 발권 -->
-														<div class="ticket">
+															<div class="ticket">
 															<a
 																href="<c:url value='/booking/eTicket.do?rNo=${vo.RNo }'/>"
 																onclick="window.open(this.href, '_blank', 'width=700, height=600'); return false;">
@@ -232,10 +206,27 @@ $(function() {
 															
 															</a>
 														</div>
-														<!-- 취소 끝 -->
-														</c:otherwise>
+														</c:when>
+														
+														<c:when test="${vo.ticketType == 'PAST'}">
+															<span class="badge bg-secondary">past</span>
+															<div class="ticket">
+															<a
+																href="<c:url value='/booking/eTicket.do?rNo=${vo.RNo }'/>"
+																onclick="window.open(this.href, '_blank', 'width=700, height=600'); return false;">
+																<span class="badge bg-success">e-Ticket 발권</span>
+															</a>
+														</div>
+														</c:when>
+														
+														<c:when test="${vo.ticketType == 'CANCLE'}">
+															<span class="badge bg-danger">cancelled</span>
+															<span class="badge bg-refund">환불 완료</span>
+														</c:when>
 													</c:choose>
-													</div>
+													<!-- 아이콘 표시 -->
+
+												
 												</div>
 											</div>
 										</c:forEach>
