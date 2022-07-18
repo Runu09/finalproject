@@ -145,7 +145,7 @@ $(function(){
                                         <label for="exampleFormControlTextarea1">첨부파일</label>
                                         <div class="input-group">
                                             <input type="file" id="upfile" name="upfile">
-                                            <span>(최대 2M)<br></span>
+                                            <span>(최대 5M)<br></span>
                                             <c:if test="${!empty vo.FName }">
                                             	<span class="sp1"></span>
                                             	<span style="color: red">

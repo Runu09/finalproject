@@ -10,7 +10,7 @@
 <meta name="description" content="rica">
 <meta name="keywords" content="rica">
 <meta name="author" content="rica">
-<link rel="icon" href="../assets/images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="../assets/images/탭로고.png" type="image/x-icon" />
 <title>OnAir</title>
 
 
@@ -164,9 +164,9 @@ function message(){
 													href="<c:url value='/booking/flight-round-trip.do?depLoc=&departure=&arrLoc=&arrival=&datepicker=&hdDate=&people=&adult=&child='/>"
 													class="submenu-title">항공권 예매</a></li>
 
-												<li><a href="#" class="submenu-title">예약 조회</a></li>
-												<li><a href="#" class="submenu-title">항공편 현황</a></li>
-											</ul></li>
+												<li><a href="<c:url value='/mypage/bookings.do'/>" class="submenu-title">예약 조회</a></li>
+										<!-- 		<li><a href="#" class="submenu-title">항공편 현황</a></li>
+										 -->	</ul></li>
 										<li class="dropdown"><a
 											href="<c:url value='/customer/airport.do'/>"
 											class="nav-link menu-title">공항</a></li>

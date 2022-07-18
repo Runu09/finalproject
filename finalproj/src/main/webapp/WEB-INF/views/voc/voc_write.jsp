@@ -72,12 +72,6 @@
                     <div class="sticky-cls-top">
                         <div class="blog-sidebar">
                             <div class="blog-wrapper">
-                                <div class="search-bar">
-                                    <input type="text" placeholder="Search here..">
-                                    <i class="fas fa-search"></i>
-                                </div>
-                            </div>
-                            <div class="blog-wrapper">
                                 <div class="sidebar-title">
                                     <h5>categories</h5>
                                 </div>
@@ -155,7 +149,7 @@
                                         <label for="exampleFormControlTextarea1">첨부파일</label>
                                         <div class="input-group">
                                             <input type="file" id="upfile" name="upfile">
-                                            <span>(최대 2M)</span>
+                                            <span>(최대 5M)</span>
                                         </div>
                                     </div>
                                     <div class="submit-btn">

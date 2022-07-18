@@ -120,18 +120,10 @@
 					tagInfo+="</label>";
 					jQuery("#info").append(tagInfo);
 					
-					inwon--;
-					alert($("#gogekSeat").val()+"번 좌석 선택이 완료되었습니다.");
-					$("#modal_seatCheck").modal('toggle');
-					
-					$("#gogekName").val("");
-					$("#gogekBirth").val("");
-					$("#gogekCon").val("");
-					
-					var date = new Date();
-					var today=getFormatDate(date);
-					var birthDate = $("input[name=pBirth]").val().substring(0,4);
-					var age=today-birthDate+1;
+					const date = new Date();
+					const today=getFormatDate(date);
+					const birthDate = $("#gogekBirth").val().substring(0,4);
+					const age=today-birthDate+1;
 					
 					if(ch>0){
 						if(age>13){
@@ -140,6 +132,16 @@
 							ch--;
 						}
 					}
+					
+					inwon--;
+					alert($("#gogekSeat").val()+"번 좌석 선택이 완료되었습니다.");
+					$("#modal_seatCheck").modal('toggle');
+					
+					$("#gogekName").val("");
+					$("#gogekBirth").val("");
+					$("#gogekCon").val("");
+					
+					
 				}
 			});
 			

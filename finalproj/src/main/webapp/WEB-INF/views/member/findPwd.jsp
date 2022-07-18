@@ -102,7 +102,7 @@
 				event.preventDefault();
 			}
 
-			if ($('#confirmKey').val() == $('#chkAuth').val()) {
+			else if ($('#confirmKey').val() == $('#chkAuth').val()) {
 				$('#pid').val($('#memId').val());
 				/* location.href = "<c:url value='/member/newPwd.do'/>"; */
 			} else {

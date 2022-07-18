@@ -15,7 +15,7 @@
 	content="admin template, Rica admin template, dashboard template, flat admin template, responsive admin template, web app">
 <meta name="author" content="pixelstrap">
 <link rel="icon" href="../admin/images/favicon.png" type="image/x-icon">
-<link rel="shortcut icon" href="../admin/images/favicon.png"
+<link rel="shortcut icon" href="../assets/images/탭로고.png"
 	type="image/x-icon">
 <title>OnAir</title>
 <script src="../admin/js/jquery-3.6.0.min.js"></script>

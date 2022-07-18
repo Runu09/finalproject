@@ -33,7 +33,6 @@
 							<div class="footer-links">
 								<ul>
 									<li><a href="../about/about.do">회사 소개</a></li>
-									<li><a href="<c:url value='/login/login.do'/>">로그인</a></li>
 									<li><a href="<c:url value='/member/agreement.do'/>">회원가입</a></li>
 								</ul>
 							</div>
@@ -147,9 +146,11 @@
 	    today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
 	   
         $('#datepicker').datepicker({
+        	maxDate: today,
             uiLibrary: 'bootstrap4'
         });
         $('#datepicker1').datepicker({
+        	maxDate: today,
             uiLibrary: 'bootstrap4'
         });
         
