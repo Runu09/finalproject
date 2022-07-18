@@ -34,7 +34,9 @@
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../admin/css/responsive.css">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-	<script>	
+    <script type="text/javascript"
+	src="<c:url value='/assets/js/jquery-3.6.0.min.js'/>"></script>
+	<script type="text/javascript">	
 	
 	
 	function find(i){
@@ -104,7 +106,7 @@
                                 <div class="form-group">
                                     <label class="col-form-label form-label-title ">비밀번호</label>
                                     <div class="form-input position-relative">
-                                        <input class="form-control" type="password" required="" name="memPwd"
+                                        <input class="form-control" type="password" required="" name="memPwd" id="memPwd"
                                             placeholder="*********">
                                        <!--  name="login[password]"  -->
                                         
@@ -145,7 +147,7 @@
             </div>
         </div>
         <!-- latest jquery-->
-        <script src="../admin/js/jquery-3.5.1.min.js"></script>
+       <!--  <script src="../admin/js/jquery-3.5.1.min.js"></script> -->
         <!-- Bootstrap js-->
         <script src="../admin/js/bootstrap/bootstrap.bundle.min.js"></script>
         <!-- feather icon js-->
@@ -157,7 +159,7 @@
         <!-- Plugins JS start-->
         <!-- Plugins JS Ends-->
         <!-- Theme js-->
-        <script src="../admin/js/script.js"></script>
+        <script src="../member/script.js"></script>
         <!-- login js-->
         <!-- Plugin used-->
     </div>
