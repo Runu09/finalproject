@@ -50,6 +50,11 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
+	public int totalboard1(NoticeVO vo) {
+		return adminDao.totalboard1(vo);
+	}
+	
+	@Override
 	public int totalboard2(BoardVO vo) {
 		return adminDao.totalboard2(vo);
 	}
@@ -133,5 +138,7 @@ public class AdminServiceImpl implements AdminService{
 	public int reservationCount(int reserve) {
 		return adminDao.reservationCount(reserve);
 	}
+
+	
 
 }

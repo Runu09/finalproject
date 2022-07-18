@@ -44,6 +44,9 @@ public class AdminController {
 	public String adminMain(@ModelAttribute MemberVO membervo , @ModelAttribute VocVO vocvo, @ModelAttribute BoardVO boardvo, @ModelAttribute NoticeVO noticevo, Model model) {
 		logger.info("관리자 메인화면");
 		
+		int cnt=adminService.totalboard1(noticevo);
+		logger.info("공지사항 총 글갯수={}", cnt);
+		
 		int cnt1=adminService.totalMember(membervo);
 		logger.info("가입한 총 회원수={}", cnt1);
 		
@@ -72,6 +75,7 @@ public class AdminController {
 			reservationCountArr[j]=reservationCount;
 		}
 		
+		model.addAttribute("cnt", cnt);
 		model.addAttribute("cnt1", cnt1);
 		model.addAttribute("cnt2", cnt2);
 		model.addAttribute("cnt3", cnt3);
