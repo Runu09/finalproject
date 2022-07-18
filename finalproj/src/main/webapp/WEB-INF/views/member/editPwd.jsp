@@ -12,8 +12,13 @@
 <script type="text/javascript">
 	$(function() {
 		$('form[name=pwdEdit]').submit(function() {
+			var data = $('#newPwd2').val();
 			if ($("#newPwd").val() != $("#newPwd2").val()) {
 				alert("입력하신 새로운 비밀번호가 일치하지 않습니다.");
+				$("#newPwd2").focus();
+				event.preventDefault();
+			}else if (validate_pwd(data)==false) {
+				alert('8~15자의 영문, 숫자, 특수기호만 사용 가능합니다.');
 				$("#newPwd2").focus();
 				event.preventDefault();
 			}
