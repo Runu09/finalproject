@@ -293,9 +293,9 @@
 									class="sidebar-link sidebar-title" href="#"><i
 										data-feather="navigation"></i><span>공지사항</span></a>
 									<ul class="sidebar-submenu">
-										<li><a href="<c:url value='/notice/notice.do'/>">공지사항 목록</a></li>
+										<%-- <li><a href="<c:url value='/notice/notice.do'/>">공지사항 이동</a></li> --%>
 										<li><a href="<c:url value='/notice/noticeWrite.do'/>">공지사항 등록</a></li>
-										<li><a href="<c:url value='/notice/noticeDelList.do'/>">공지사항 삭제</a></li>
+										<li><a href="<c:url value='/notice/noticeDelList.do'/>">공지사항 목록/삭제</a></li>
 									</ul></li>
 								<!-- <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="setting.html"><i data-feather="settings"> </i><span>Setting</span></a>
