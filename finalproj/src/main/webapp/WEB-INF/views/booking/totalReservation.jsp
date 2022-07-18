@@ -70,16 +70,19 @@ function pageFunc(curPage){
                           <tr>
                             <td style="width: 200px"><span class=" d-block" >${vo.memNo}</span>
                             </td>
-                            <td style="width: 200px"><span class=" d-block" >${vo.rDate}</span>
+                            <td style="width: 200px"><span class=" d-block" >${vo.RDate}</span>
                             </td>
-                            <td style="width: 200px"><span class=" d-block" >${vo.rAdult}</span>
+                            
+                            <td style="width: 200px"><span class=" d-block" >${vo.RAdult}</span>
                             </td>
-                            <td style="width: 200px"><span class="d-block ">${vo.rChild}</span>
+                           
+                            <td style="width: 200px"><span class="d-block ">${vo.RChild}</span>
                             </td>
-                            <td style="width: 200px"><span class=" d-block" >${vo.rPay}</span>
+                            
+                            <td style="width: 200px"><span class=" d-block" >${vo.RPay}</span>
                             </td>
-                            <td style="width: 200px"><span class=" d-block" >${vo.rCheckPay}</span>
-                            </td>
+                            <td style="width: 200px"><span class=" d-block" >${vo.RCheckPay}</span>
+                            </td> 
                           </tr>
                           </c:forEach>
                           </c:if>
