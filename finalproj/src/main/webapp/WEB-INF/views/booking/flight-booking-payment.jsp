@@ -15,6 +15,12 @@ $(function(){
 			merchant_uid : 'merchant_' + new Date().getTime(),
 			name : '${schedule.ADepnm}-${schedule.AArrnm}', //상품이름
 			amount : 100, //판매가격
+			/* <c:if test="${empty mMileage}">
+				amount : parseInt('${total}'), //판매가격
+	    	</c:if>
+	    	<c:if test="${!empty mMileage}">
+				amount : parseInt('${mileTotal}'), //판매가격
+	    	</c:if> */
 			buyer_email : '${memVo.MEmail1}@${memVo.MEmail2}',
 			buyer_name : '${memVo.memName}',
 			buyer_tel : '${memVo.MTel1}-${memVo.MTel2}-${memVo.MTel3}',
@@ -154,7 +160,7 @@ $(function(){
 			                                                	</c:if>
 			                                                	<c:if test="${child!=0 }">
 				                                                	<td>소아</td>
-				                                                    <td><fmt:formatNumber value="${schedule.SPrice*child-schedule.SPrice*0.1}" pattern="#,###" />원</td>
+				                                                    <td><fmt:formatNumber value="${schedule.SPrice*child-schedule.SPrice*0.25}" pattern="#,###" />원</td>
 			                                                	</c:if>
 			                                                </tr>
 			                                                <tr>
@@ -173,10 +179,10 @@ $(function(){
 			                                        </table>
 			                                        <div class="grand_total" id="total">
 			                                        	<c:if test="${empty mMileage}">
-			                                        		<h5>최종 결제 금액: <span><fmt:formatNumber value="${total}" pattern="#,###" />원</span></h5>
+			                                        		<h5>최종 결제 금액: <span id="finalTotal"><fmt:formatNumber value="${total}" pattern="#,###" />원</span></h5>
 	                                                	</c:if>
 	                                                	<c:if test="${!empty mMileage}">
-		                                                	<h5>최종 결제 금액: <span><fmt:formatNumber value="${mileTotal}" pattern="#,###" />원</span></h5>
+		                                                	<h5>최종 결제 금액: <span id="finalTotal"><fmt:formatNumber value="${mileTotal}" pattern="#,###" />원</span></h5>
 	                                                	</c:if>
 			                                            
 			                                        </div>

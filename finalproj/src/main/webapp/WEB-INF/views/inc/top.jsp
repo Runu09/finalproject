@@ -164,9 +164,9 @@ function message(){
 													href="<c:url value='/booking/flight-round-trip.do?depLoc=&departure=&arrLoc=&arrival=&datepicker=&hdDate=&people=&adult=&child='/>"
 													class="submenu-title">항공권 예매</a></li>
 
-												<li><a href="#" class="submenu-title">예약 조회</a></li>
-												<li><a href="#" class="submenu-title">항공편 현황</a></li>
-											</ul></li>
+												<li><a href="<c:url value='/mypage/bookings.do'/>" class="submenu-title">예약 조회</a></li>
+										<!-- 		<li><a href="#" class="submenu-title">항공편 현황</a></li>
+										 -->	</ul></li>
 										<li class="dropdown"><a
 											href="<c:url value='/customer/airport.do'/>"
 											class="nav-link menu-title">공항</a></li>

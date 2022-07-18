@@ -11,4 +11,5 @@ public class PassengerVO {
 	private String pBirthday; //생년월일
 	private String pCon; //국적
 	private int sNo;
+	private String rCheckpay;
 }
