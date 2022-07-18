@@ -146,9 +146,11 @@
 	    today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
 	   
         $('#datepicker').datepicker({
+        	maxDate: today,
             uiLibrary: 'bootstrap4'
         });
         $('#datepicker1').datepicker({
+        	maxDate: today,
             uiLibrary: 'bootstrap4'
         });
         

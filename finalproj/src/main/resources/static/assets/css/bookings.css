@@ -7,6 +7,8 @@ span.badge.bg-success {
 	margin: auto 0;
 	padding-top: 11px;
 	background-color: #4291b8;
+	position: relative;
+	top: -5px;
 
 }
 
@@ -45,13 +47,13 @@ span.badge.bg-info{
 span.badge.bg-secondary {
     position: relative;
     left: 56px;
-    top: 9px;
+    top: 10px;
 }
 
 span.badge.bg-danger {
     position: relative;
-    left: 56px;
-    top: 16px;
+    left: 151px;
+    top: -2px;
 }
 
 span.badge.bg-refund {
@@ -62,7 +64,7 @@ span.badge.bg-refund {
 	background-color: #6c757d;
 	position: relative;
     left: -107px;
-    top: -7px;
+    top: -1px;
 }
 
 i.fas.fa-window-close {
