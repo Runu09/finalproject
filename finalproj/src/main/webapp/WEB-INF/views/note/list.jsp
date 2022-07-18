@@ -67,8 +67,7 @@ function showDetail(str){
 											<tbody>
 												<c:if test="${empty noteList }">
 													<tr>
-														<td colspan="6" style="text-align: center;"><span
-															class=" d-block">쪽지 내역이 없습니다.</span></td>
+														<td colspan="6" style="text-align: center;"><span class=" d-block">쪽지 내역이 없습니다.</span></td>
 													</tr>
 												</c:if>
 												<c:if test="${!empty noteList }">
