@@ -68,6 +68,7 @@ public class ReservationController {
 		pagingInfo.setTotalRecord(totalRecord);
 		
 		model.addAttribute("list", list);
+		model.addAttribute("searchVo", searchVo);
 		model.addAttribute("pagingInfo", pagingInfo);
 		
 		return "/booking/totalReservation";

@@ -57,7 +57,7 @@
         </if>
 	</sql>
 	
-	<select id="selectMemberAll" parameterType="SearchVO" resultType="memberVo">
+	<select id="selectMemberAll" parameterType="DateSearchVo" resultType="memberVo">
 	select *
 		from
 		(

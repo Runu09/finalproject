@@ -21,6 +21,7 @@ import com.onair.proj.admin.model.AdminService;
 import com.onair.proj.admin.model.AdminVO;
 import com.onair.proj.board.model.BoardVO;
 import com.onair.proj.common.ConstUtil;
+import com.onair.proj.common.DateSearchVO;
 import com.onair.proj.common.PaginationInfo;
 import com.onair.proj.common.SearchVO;
 import com.onair.proj.member.model.MemberService;
@@ -161,9 +162,10 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/allUser")
-	public String allUser(@ModelAttribute SearchVO searchVo,
+	public String allUser(@ModelAttribute DateSearchVO searchVo,
 			Model model) {
 		logger.info("전체 유저 조회 파라미터 searchVo={}", searchVo);
+		searchVo.setSearchCondition("memName");
 		
 		PaginationInfo pagingInfo=new PaginationInfo();
 		pagingInfo.setBlockSize(ConstUtil.BLOCKSIZE);
@@ -181,6 +183,7 @@ public class AdminController {
 		pagingInfo.setTotalRecord(totalRecord);
 		
 		model.addAttribute("alist", alist);
+		model.addAttribute("searchVo", searchVo);
 		model.addAttribute("pagingInfo", pagingInfo);
 		
 		return "/admin/allUser";
@@ -222,6 +225,7 @@ public class AdminController {
 		pagingInfo.setTotalRecord(totalRecord);
 		
 		model.addAttribute("alist", alist);
+		model.addAttribute("searchVo", searchVo);
 		model.addAttribute("pagingInfo", pagingInfo);
 		
 		return "/admin/adminAllUser";
