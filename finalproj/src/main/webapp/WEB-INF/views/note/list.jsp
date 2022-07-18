@@ -17,13 +17,10 @@ function showDetail(str){
 	
 }
 </script>
-<form name="frmPage" method="post">
-
-	<input type="hidden" name="searchCondition"
-		value="${param.searchCondition }"> <input type="hidden"
-		name="currentPage"> <input type="text" name="searchKeyword" 
-		value="${SearchVO.searchKeyword }">
-
+<form name="frmPage" method="post">	<input type="hidden" name="searchCondition"
+		value="${searchVO.searchCondition }"> <input type="hidden"
+		name="currentPage"> <input type="text" name="searchKeyword"
+		value="${searchVO.searchKeyword }">
 </form>
 
 <!-- tap on top starts-->
