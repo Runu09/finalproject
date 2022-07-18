@@ -69,13 +69,16 @@ public class MyPageController {
 		return "/mypage/mypageMain";
 	}
 
+	
 	@RequestMapping("/bookings.do")
 	public String bookings_get(@ModelAttribute BookingSearchVO searchVo,
 			HttpSession session, Model model) {
 		String memId = (String)session.getAttribute("memId");
 		searchVo.setMemId(memId);
-		
 		logger.info("항공권 이용 내역 , 파라미터 searchVo={}", searchVo);
+		
+		
+		MemberVO vo = memberService.selectByMemId(memId);
 		
 		//페이징
 		PaginationInfo pagingInfo=new PaginationInfo();
@@ -95,6 +98,7 @@ public class MyPageController {
 		pagingInfo.setTotalRecord(totalRecord);
 		model.addAttribute("list",list);
 		model.addAttribute("pagingInfo",pagingInfo);
+		model.addAttribute("vo" , vo);
 		
 		return "/mypage/bookings";
 	}
