@@ -274,9 +274,9 @@
 												등록</a></li>
 										<li><a href="<c:url value='/admin/adminAllUser'/>">관리자 조회</a></li>
 									</ul></li>
-								<li class="sidebar-list"><a
-									class="sidebar-link sidebar-title link-nav" href="booking.html"><i
-										data-feather="bookmark"> </i><span>예약</span></a></li>
+								<li class="sidebar-list">
+									<a class="sidebar-link sidebar-title link-nav" href="<c:url value='/booking/totalReservation.do'/>">
+									<i data-feather="bookmark"> </i><span>예약</span></a></li>
 								<!-- <li class="sidebar-list"><a
 									class="sidebar-link sidebar-title link-nav" href="reviews.html"><i
 										data-feather="message-square"> </i><span>쪽지함</span></a></li> -->

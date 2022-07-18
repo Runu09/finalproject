@@ -20,4 +20,38 @@
 		set r_checkpay='N'
 		where r_no=#{rNo}
 	</update>
+	
+	<sql id="searchReservationWhere">
+		<where>
+			<if test="searchKeyword !=null and searchKeyword !=''">
+				mem_no like '%' || #{searchKeyword} || '%'
+			</if>
+			and r_date >= #{startDay}
+			<![CDATA[
+			and r_date < to_date(#{endDay})+1 ]]>
+		</where>
+	</sql>
+	
+	<select id="selectReservationAll" parameterType="DateSearchVo" resultType="reservationVo">
+		select * from
+		(
+			select rownum as RNUM, A.*
+			from
+			(
+				select R.*, (sysdate-r_date)*24 as dateTerm
+				from reservation R
+				<include refid="searchReservationWhere"></include>
+				order by r_no desc
+			)A
+		)
+		where RNUM>#{firstRecordIndex}
+		<![CDATA[
+		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage}
+		]]>
+	</select>
+	
+	<select id="getTotalRecord" parameterType="searchVo" resultType="int">
+		select count(*) from reservation
+		<include refid="searchReservationWhere"></include>		
+	</select>
 </mapper>

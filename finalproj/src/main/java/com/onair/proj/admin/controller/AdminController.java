@@ -298,7 +298,8 @@ public class AdminController {
 		model.addAttribute("url", url);
 		
 		return "/common/message";
-		
 	}
+	
+	
 	
 }
