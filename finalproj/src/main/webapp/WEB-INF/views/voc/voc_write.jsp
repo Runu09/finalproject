@@ -149,7 +149,7 @@
                                         <label for="exampleFormControlTextarea1">첨부파일</label>
                                         <div class="input-group">
                                             <input type="file" id="upfile" name="upfile">
-                                            <span>(최대 2M)</span>
+                                            <span>(최대 5M)</span>
                                         </div>
                                     </div>
                                     <div class="submit-btn">
