@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>editPwd.jsp</title>
 </head>
+<script type="text/javascript"
+	src='<c:url value="/assets/js/member.js"/>'></script>
 <script type="text/javascript">
 	$(function() {
 		$('form[name=pwdEdit]').submit(function() {
@@ -20,16 +22,17 @@
 		$('#newPwd').keyup(function(){
 			$('#Error').text('');
 		});
-		
-		$('#newPwd2').keyup(function(){
-			console.log($(this).val());
-			
-			if($('#newPwd').val()!=$(this).val()){
+
+		$('#newPwd2').keyup(function() {
+			var data = $(this).val();
+			if (validate_pwd(data) && $('#newPwd').val()==$(this).val()) {
+				$('#Error').text('사용 가능한 비밀번호 입니다.');
+			}else if($('#newPwd').val()!=$(this).val()){
 				$('#Error').html('입력하신 새로운 비밀번호가 일치하지 않습니다.');
-			}else{
-				$('#Error').html('비밀번호가 일치합니다.');
-				
+			}else if (validate_pwd(data)==false){
+				$('#Error').text('8~15자의 영문, 숫자, 특수기호만 사용 가능합니다.');
 			}
+
 		});
 	});
 </script>
