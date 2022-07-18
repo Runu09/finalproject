@@ -86,7 +86,7 @@ function pageFunc(curPage){
 </script>
 <form name="frmPage" method="post">
 	<input type="hidden" name="currentPage"> <input type="hidden"
-		name="searchKeyword" value="${SearchVO.searchKeyword }">
+		name="searchKeyword" value="${searchVO.searchKeyword }">
 </form>
 
 <!-- pre-loader start -->
@@ -187,7 +187,7 @@ function pageFunc(curPage){
 
 									<div class="row">
 										<input placeholder="이름을 입력하세요"
-											value="${SearchVO.searchKeyword }" type="text"
+											value="${searchVO.searchKeyword }" type="text"
 											name="searchKeyword" class="form-control"
 											style="width: 350px" />
 										<button class="btn btn-primary me-3"
