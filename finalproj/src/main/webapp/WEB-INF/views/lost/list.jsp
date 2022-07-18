@@ -79,7 +79,7 @@
 					<div class="col-lg-2">
 						<div class="form-group">
 							<input placeholder="물품명 입력"
-								value="${dateSearchVO.searchKeyword }" type="text"
+								value="${dateSearchVO.searchKeyword }" type="text" style="text-transform: none;"
 								name="searchKeyword" class="form-control" />
 
 						</div>
