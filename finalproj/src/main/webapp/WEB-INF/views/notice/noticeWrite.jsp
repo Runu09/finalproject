@@ -40,7 +40,7 @@
 				event.preventDefault();
 				return;
 			}
-			location.href = "<c:url value='/notice/notice.do'/>";
+			location.href = "<c:url value='/notice/noticeDelList.do'/>";
 		});
 		
 		$('#btCancel').click(function() {

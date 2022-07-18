@@ -23,8 +23,8 @@
 		<div class="row">
 			<div class="col-lg-6">
 				<div class="flight-left h-100">
-					<img src="../assets/images/flights/plane-1.png"
-                            class="img-fluid blur-up lazyload plane-animation" alt="">
+					<!-- <img src="../assets/images/flights/plane-1.png"
+                            class="img-fluid blur-up lazyload plane-animation" alt=""> -->
 				</div>
 			</div>
 			<div class="col-lg-6">

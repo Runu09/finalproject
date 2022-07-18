@@ -17,9 +17,9 @@ function pageFunc(curPage){
 </form>
 
   <!-- pre-loader start -->
-  <div class="loader-wrapper">
+  <!-- <div class="loader-wrapper">
     <img src="../admin/images/loader/loader.gif" alt="loader gif">
-  </div>
+  </div> -->
   <!-- pre-loader End -->
 
   <!-- tap on top starts-->
