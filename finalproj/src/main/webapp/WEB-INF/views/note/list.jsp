@@ -20,7 +20,7 @@ function showDetail(str){
 <form name="frmPage" method="post">
 	<input type="hidden" name="searchCondition"
 		value="${param.searchCondition }"> <input type="hidden"
-		name="currentPage"> <input type="text" name="searchKeyword"
+		name="currentPage"> <input type="text" name="searchKeyword" 
 		value="${SearchVO.searchKeyword }">
 </form>
 
