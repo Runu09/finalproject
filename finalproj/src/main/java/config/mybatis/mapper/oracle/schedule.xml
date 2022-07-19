@@ -34,6 +34,7 @@
 		       	where a_depnm = #{depLoc}
 		       	and a_arrnm = #{arrLoc}
 		       	and s_starttime like '%' || #{hdDate} || '%'
+		       	and s_starttime > TO_CHAR(SYSDATE, 'YYYYMMDDHH24MI')
 		       	order by s_starttime
 		    )A
 		)
