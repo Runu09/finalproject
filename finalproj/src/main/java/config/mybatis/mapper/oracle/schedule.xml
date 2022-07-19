@@ -34,12 +34,13 @@
 		       	where a_depnm = #{depLoc}
 		       	and a_arrnm = #{arrLoc}
 		       	and s_starttime like '%' || #{hdDate} || '%'
+		       	order by s_starttime
 		    )A
 		)
 		where RNUM>#{firstRecordIndex} 
 		<![CDATA[
 		and RNUM<=#{firstRecordIndex} + #{recordCountPerPage} ]]>
-		order by s_starttime
+		
 	</select>
 	
 	<select id="selectTotalRecord" parameterType="ScheduleSearchVO" resultType="int">
