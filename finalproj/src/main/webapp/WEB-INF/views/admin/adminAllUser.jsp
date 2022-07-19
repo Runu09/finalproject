@@ -60,7 +60,7 @@ function pageFunc(curPage){
                       <!-- <table class="user-table table table-striped" > -->
                         <thead>
                           <tr>
-                            <th align="center" >유저아이디</th>
+                            <th align="center" >관리자아이디</th>
                             <th align="center">이름</th>
                             <th align="center">삭제</th>
                           </tr>

@@ -35,7 +35,10 @@
 	}); //ready()
 
 	function edit(i, cno, bno) {
-		var origin=$('.comment-detail').eq(i).find('p').text();
+		var sel='#comment-detail'+i;
+		//alert(sel);
+		var origin=$(sel).find('p').text();
+		//alert(origin);
 		var res="<form id='frmEdit"+i+"' action='<c:url value='/lost/cmtEdit.do'/>' method='post'>";
 		res+="<input type='hidden' value='"+cno+"' name='cNo'>";
 		res+="<input type='hidden' value='"+bno+"' name='bNo'>";
@@ -43,7 +46,7 @@
 		res+="<button class='btn btn-primary me-3' style='margin-bottom: 28px;margin-left: 10px;'type='submit'>등록</button>";
 		res+="<input type='button' value='취소'  class='btn btn-primary me-3' style='background-color:red;border-color:red;margin-bottom: 28px' onclick='editCancel("+i+")'>";	
 		res+="</form>";
-		$('.comment-detail').eq(i).append(res);
+		$(sel).append(res);
 		
 		
 	}
@@ -219,13 +222,13 @@
 																
 																		</c:if>
 																	</div>
-																	<div class="comment-detail">
+																	<div class="comment-detail" id="comment-detail${i }">
 																		<p>${vo.CContent }</p>
 																	</div>
 																	<div class="reply-btn" style="padding-bottom: 5px">
 																		<a href="#media-body${vo.CNo }"
 																			onclick="javascript:reply(${i},${vo.CGroupno},${vo.CStep }, ${vo.CSortno }, ${vo.BNo });"><i
-																			class="fa fa-reply pe-2"></i> 답글</a>
+																			class="fa fa-reply pe-2"></i>답글</a>
 																	</div>
 																</c:if>
 															</div>
