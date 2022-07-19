@@ -52,4 +52,9 @@ public class VocCommentServiceImpl implements VocCommentsService{
 		return vocCommentsDao.updatereComment(vo);
 	}
 
+	@Override
+	public int selectCommentsCount(int bNo) {
+		return vocCommentsDao.selectCommentsCount(bNo);
+	}
+
 }
