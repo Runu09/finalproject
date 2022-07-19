@@ -221,6 +221,7 @@ public class NoticeController {
 		
 		pagingInfo.setTotalRecord(totalRecord);
 		
+		model.addAttribute("searchVo", searchVo);
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("pagingInfo", pagingInfo);
 		
