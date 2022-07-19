@@ -60,7 +60,11 @@
 	<update id="updateCommentDel" parameterType="int">
 	update comments 
 	set c_delflag='Y' where c_no=#{cNo}
-	</update>	
+	</update>
+	
+	<select id="selectCommentsCount" parameterType="int" resultType="int">
+		select count(*) from comments where b_no=#{bNo}
+	</select>	
 	
 	
 </mapper>

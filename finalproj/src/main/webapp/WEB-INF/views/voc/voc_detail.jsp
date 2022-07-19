@@ -102,7 +102,7 @@
                                 <li>${vo.BRegdate }</li>
                                 <li>Posted By : ${vo.BId }</li>
                                 <li><i class="fa fa-heart"></i> ${vo.BCount }</li>
-                                <li><i class="fa fa-comments"></i> Comment num</li>
+                                <li><i class="fa fa-comments"></i> Comment num[${commentsCnt }]</li>
                             </ul>
                             <hr>
                             <h2>${vo.BTitle }</h2>
@@ -249,11 +249,9 @@
                                                 <i aria-hidden="true" class="fa fa-angle-right"></i>목록
                                             </a>
                                         </li>
-                                        <li class="">
-                                            <a href="#">
-                                                <i aria-hidden="true" class="fa fa-angle-right"></i>내가쓴 글
-                                            </a>
-                                        </li>
+                                        <li class=""><a href="<c:url value='/voc/voc_mylist'/>"> <i aria-hidden="true"
+											class="fa fa-angle-right"></i>내가쓴 글
+									</a></li>
                                     </ul>
                                 </div>
                             </div>
