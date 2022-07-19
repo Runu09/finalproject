@@ -13,7 +13,7 @@ function pageFunc(curPage){
 </script>
 <form name="frmPage" method="post">
 	<input type="hidden" name="currentPage">
-	<input type="hidden" name="searchKeyword" value="${SearchVO.searchKeyword }"> 
+	<input type="hidden" name="searchKeyword" value="${searchVo.searchKeyword }"> 
 </form>
 
   <!-- pre-loader start -->
