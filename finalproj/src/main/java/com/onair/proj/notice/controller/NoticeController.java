@@ -176,7 +176,7 @@ public class NoticeController {
 		int cnt=noticeService.insertNotice(vo);
 		logger.info("글쓰기 처리 결과, cnt={}", cnt);
 		msg="글쓰기 처리 성공";
-		url="/notice/notice.do";
+		url="/notice/noticeDelList.do";
 		model.addAttribute("msg",msg);
 		model.addAttribute("url",url);
 
