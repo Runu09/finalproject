@@ -5,7 +5,7 @@ onair, 항공권 예매 프로그램
 [제작일정.xlsx](https://github.com/Runu09/finalproject/files/9146072/default.xlsx)   
 
 <hr><br>
-회원 메인 페이지   
+>회원 메인 페이지   
 
 메인 페이지에서 항공권 예약이 가능하도록 구현하였습니다.   
 추가로 상단 메뉴바를 통해서도 예약을 할 수 있으며,   
