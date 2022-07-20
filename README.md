@@ -3,8 +3,12 @@ onair, 항공권 예매 프로그램
 
 
 <hr>
-**해당 프로젝트에서 사용된 API**   <br>
+**해당 프로젝트에서 사용된 언어**   <br>
 
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Runu09)](https://github.com/Runu09/github-readme-stats)   
+
+<hr>
+**해당 프로젝트에 사용된 API**   <br>
 
 <hr>
 **회원 메인 페이지**   <br>
@@ -17,4 +21,4 @@ onair, 항공권 예매 프로그램
 
 <br>
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Runu09)](https://github.com/Runu09/github-readme-stats)
+
