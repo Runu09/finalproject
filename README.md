@@ -1,8 +1,6 @@
 # finalproject   
-
 onair, 항공권 예매 프로그램   
 
-[제작일정.xlsx](https://github.com/Runu09/finalproject/files/9146072/default.xlsx)   
 
 <hr><br>
 **회원 메인 페이지**
