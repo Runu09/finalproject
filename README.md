@@ -1,4 +1,5 @@
-> onair 
+> onair  
+>> 프로젝트 기간 : 
 
 ## 📚Tech Stack📚  
 <img src="https://img.shields.io/badge/Oracle SQL-F80000?style=flat-square&logo=Oracle&logoColor=white"/> <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat-square&logo=Spring Boot&logoColor=white"/> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=Bootstrap&logoColor=white"/> <img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=flat-square&logo=Apache Tomcat&logoColor=white"/>  
@@ -6,13 +7,13 @@
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Runu09)](https://github.com/Runu09/github-readme-stats)   
 
-## 해당 프로젝트에 사용된 API  
+## 📚해당 프로젝트에 사용된 API📚  
 <img src="https://img.shields.io/badge/Kakao Map API-FFCD00?style=flat-square&logo=Kakao&logoColor=black"/>
 <img src="https://img.shields.io/badge/국내항공정보 API-000000?style=flat-square"/>
 <img src="https://img.shields.io/badge/Duam 우편번호 API-FFCD00?style=flat-square&logo=Kakao&logoColor=black"/>
 <img src="https://img.shields.io/badge/국내항공정보 API-000000?style=flat-square"/>
 
-## 회원 메인 페이지 (OnAir)  
+## 🍀회원 메인 페이지 (OnAir)  
 메인 페이지에서 항공권 예약이 가능하도록 구현하였습니다.   
 추가로 상단 메뉴바를 통해서도 예약을 할 수 있으며,   
 공항위치, 고객의 소리, 유실물 센터, 공지사항, 이용안내, FAQ, 로그인, 마이페이지 기능이 있습니다.
