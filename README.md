@@ -61,7 +61,7 @@
 ## 📚기능 설명📚  
 </div>
 
-- [메인 페이지 화면 구현](https://github.com/hyokker/wonder/blob/main/%EA%B5%AC%ED%98%84%EA%B8%B0%EB%8A%A5%EC%84%A4%EB%AA%85/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80%EA%B5%AC%ED%98%84.md)
+- [메인 페이지 화면 구현](https://github.com/Runu09/finalproject/blob/main/%EA%B5%AC%ED%98%84%EC%84%A4%EB%AA%85/%ED%9A%8C%EC%9B%90%EB%A9%94%EC%9D%B8.md)
 
 
  
