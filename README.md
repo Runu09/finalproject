@@ -62,7 +62,7 @@
 </div>
 
 - [메인 페이지 화면 구현](https://github.com/Runu09/finalproject/blob/main/%EA%B5%AC%ED%98%84%EC%84%A4%EB%AA%85/%ED%9A%8C%EC%9B%90%EB%A9%94%EC%9D%B8.md)
-- 관리자 페이지 화면 구현
+- [관리자 페이지 화면 구현](https://github.com/Runu09/finalproject/blob/main/%EA%B5%AC%ED%98%84%EC%84%A4%EB%AA%85/%EA%B4%80%EB%A6%AC%EC%9E%90%20%EB%A9%94%EC%9D%B8.md)
 
 
  
