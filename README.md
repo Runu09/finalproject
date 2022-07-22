@@ -1,5 +1,5 @@
 > onair  
->> 프로젝트 기간 : 
+>> 프로젝트 기간 : 5/30 ~ 7/19(51일)
 
 ## 📚Tech Stack📚  
 <img src="https://img.shields.io/badge/Oracle SQL-F80000?style=flat-square&logo=Oracle&logoColor=white"/> <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat-square&logo=Spring Boot&logoColor=white"/> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=Bootstrap&logoColor=white"/> <img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=flat-square&logo=Apache Tomcat&logoColor=white"/>  
