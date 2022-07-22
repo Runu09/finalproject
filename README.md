@@ -10,6 +10,7 @@
 <img src="https://img.shields.io/badge/Kakao Map API-FFCD00?style=flat-square&logo=Kakao&logoColor=black"/>
 <img src="https://img.shields.io/badge/국내항공정보 API-000000?style=flat-square"/>
 <img src="https://img.shields.io/badge/Duam 우편번호 API-FFCD00?style=flat-square&logo=Kakao&logoColor=black"/>
+<img src="https://img.shields.io/badge/국내항공정보 API-000000?style=flat-square"/>
 
 ## 회원 메인 페이지 (OnAir)  
 메인 페이지에서 항공권 예약이 가능하도록 구현하였습니다.   
