@@ -1,6 +1,7 @@
 > onair, 항공권 예매 프로그램   
 
 ## 해당 프로젝트에서 사용된 언어  
+<img src="https://img.shields.io/badge/Oracle-F80000?style=flat-square&logo=Oracle&logoColor=white"/>  
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Runu09)](https://github.com/Runu09/github-readme-stats)   
 
 ## 해당 프로젝트에 사용된 API  
