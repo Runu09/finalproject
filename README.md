@@ -1,10 +1,9 @@
-> finalproject   
-onair, 항공권 예매 프로그램   
+> onair, 항공권 예매 프로그램   
 
-# 해당 프로젝트에서 사용된 언어  
+## 해당 프로젝트에서 사용된 언어  
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Runu09)](https://github.com/Runu09/github-readme-stats)   
 
-# 해당 프로젝트에 사용된 API  
+## 해당 프로젝트에 사용된 API  
 
 ## 회원 메인 페이지  
 메인 페이지에서 항공권 예약이 가능하도록 구현하였습니다.   
