@@ -270,6 +270,11 @@ public class VoCController {
 		logger.info("댓글 조회 리스트 결과 list.size={}", list);
 		model.addAttribute("list", list);
 		
+		//게시글 댓글수 처리
+		int commentsCnt = voccommentsService.selectCommentsCount(bNo);
+		logger.info("게시글 댓글수 조회 commentsCnt={}",commentsCnt);
+		model.addAttribute("commentsCnt",commentsCnt);
+		
 		return "/voc/voc_detail";
 	}
 	

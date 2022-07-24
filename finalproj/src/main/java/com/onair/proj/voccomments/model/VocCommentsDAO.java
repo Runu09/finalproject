@@ -15,4 +15,5 @@ public interface VocCommentsDAO {
 	int updateCommentDel(int cNo);
 	int insertreComment(VocCommentsVO vo);
 	int updatereComment(VocCommentsVO vo);
+	int selectCommentsCount(int bNo);
 }

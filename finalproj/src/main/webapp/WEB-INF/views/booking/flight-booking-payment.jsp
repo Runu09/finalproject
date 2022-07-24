@@ -14,13 +14,13 @@ $(function(){
 			pay_method : 'card', //결제방식
 			merchant_uid : 'merchant_' + new Date().getTime(),
 			name : '${schedule.ADepnm}-${schedule.AArrnm}', //상품이름
-			amount : 100, //판매가격
-			/* <c:if test="${empty mMileage}">
+			//amount : 100, //판매가격
+			<c:if test="${empty mMileage}">
 				amount : parseInt('${total}'), //판매가격
 	    	</c:if>
 	    	<c:if test="${!empty mMileage}">
 				amount : parseInt('${mileTotal}'), //판매가격
-	    	</c:if> */
+	    	</c:if> 
 			buyer_email : '${memVo.MEmail1}@${memVo.MEmail2}',
 			buyer_name : '${memVo.memName}',
 			buyer_tel : '${memVo.MTel1}-${memVo.MTel2}-${memVo.MTel3}',
