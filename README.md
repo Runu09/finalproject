@@ -14,6 +14,7 @@
 <img src="https://img.shields.io/badge/HTML5-F7DF1E?style=flat-square&logo=HTML5&logoColor=white"/></a>
 <img src="https://img.shields.io/badge/CSS3-E34F26?style=flat-square&logo=CSS3&logoColor=white"/></a>
 <img src="https://img.shields.io/badge/AJAX-181717?style=flat-square"/></a>
+<img src="https://img.shields.io/badge/High Chart-181717?style=flat-square"/></a>
 <br>
 <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=Bootstrap&logoColor=white"/></a>
 <img src="https://img.shields.io/badge/jQuery-181717?style=flat-square"/></a>
